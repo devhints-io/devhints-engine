@@ -1,13 +1,19 @@
-# gatsby-starter-default
-The default Gatsby starter
+# Devhints
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+> TL;DR for developer documentation - a ridiculous collection of cheatsheets
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-example-site
-```
+**WIP** - This is a rewrite to migrate Devhints from Jekyll to Gatsby.
 
-## Deploy
+<br>
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+<p align='center'>
+<a href='https://devhints.io/'><img src='https://github.com/rstacruz/cheatsheets/raw/master/_docs/images/screenshot.png' width=600></a>
+<br>
+✨ <b><a href='https://devhints.io/'>devhints.io</a></b> ✨
+</p>
+
+<br>
+
+---
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for developer notes.
