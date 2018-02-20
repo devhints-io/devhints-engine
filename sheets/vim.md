@@ -1,6 +1,7 @@
 ---
 path: "/vim"
 title: "Vim"
+category: Apps
 ---
 
 ## Vim shortcuts
