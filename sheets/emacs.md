@@ -1,10 +1,10 @@
 ---
-path: "/vim"
-title: "Vim"
+path: "/emacs""
+title: "Emacs"
 category: Apps
 ---
 
-## Vim shortcuts
+## Emacs shortcuts
 
 ### Shortcuts
 
