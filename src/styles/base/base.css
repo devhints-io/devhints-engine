@@ -1,0 +1,71 @@
+/*
+ * Base
+ */
+
+html, body {
+  background: var(--base-body);
+  font-family: var(--body-font);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--base-text);
+  overflow-x: hidden;
+}
+
+body {
+  /* TODO @include font-size(0); */
+  padding: 0;
+  margin: 0;
+}
+
+/*
+ * Code
+ */
+
+pre, code {
+  font-family: var(--monospace-font);
+  letter-spacing: -0.03em;
+}
+
+pre {
+  font-size: var(--code-size);
+}
+
+/*
+ * Antialias
+ */
+
+*:not(pre):not(code) {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * Links
+ */
+
+a {
+  color: var(--base-b);
+}
+
+a:visited {
+  color: var(--base-b7);
+}
+
+a:hover {
+  color: var(--base-b3);
+}
+
+/* prism.js adds aria-hidden which it probably shouldn't */
+[aria-hidden]:not(.line-highlight) {
+  display: none !important;
+}
+
+/* No tooltips on mobile */
+@media (max-width: 580px) {
+  .hint--bottom {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
