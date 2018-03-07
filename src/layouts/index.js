@@ -15,7 +15,7 @@ function TemplateWrapper ({ children }) {
         title='Devhints.io'
         meta={[
           { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
+          { name: 'keywords', content: 'sample, something' }
         ]}
       />
       <div>

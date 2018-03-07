@@ -1,41 +1,41 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import TopNav from '../components/TopNav'
+import { CONTENT, LINKS } from '../../config'
 
 function IndexPage () {
-  const links = [
-    { path: '/vim' },
-    { path: '/emacs' },
-    { path: '/sketch' }
-  ]
-
   return (
     <div>
       <TopNav />
       <SiteHeader />
-      <PagesList links={links} />
+      <PagesList links={LINKS} />
     </div>
   )
 }
 
 function SiteHeader () {
+  const content = CONTENT.siteHeader || {}
+
   return (
     <div className='site-header'>
-      <h1>Devhints</h1>
-      <p>Welcome to devhints</p>
-      {/* Search form */}
+    <h1>{ content.title }</h1>
+    <p dangerouslySetInnerHTML={{ __html: content.tagline }} />
+
+    {/* Search form goes here */}
     </div>
   )
 }
 
 function PagesList ({ links }) {
-  <ul>
-    {links.map((link) => (
-      <li>
-        <Link to={link.path}>{link.path}</Link>
-      </li>
-    ))}
-  </ul>
+  return (
+    <ul>
+      {links.map((link) => (
+        <li>
+          <Link to={link.path}>{link.path}</Link>
+        </li>
+      ))}
+    </ul>
+  )
 }
 
 export default IndexPage
