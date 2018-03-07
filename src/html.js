@@ -33,7 +33,7 @@ module.exports = class HTML extends React.Component {
     } = this.props
 
     return (
-      <html {...htmlAttributes}>
+     <html {...htmlAttributes}>
         <head>
           <meta charSet='utf-8' />
           <meta httpEquiv='x-ua-compatible' content='ie=edge' />
