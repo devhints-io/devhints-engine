@@ -1,8 +1,8 @@
 /* Vendor */
-@import url('sanitize.css');
+@import 'sanitize.css/sanitize.css';
 
 /* Variables */
-@import url('./variables.css');
+@import './variables.css';
 
 /* Base */
-@import url('./base/base.css');
+@import './base/base.css';
