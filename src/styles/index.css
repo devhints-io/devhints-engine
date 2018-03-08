@@ -7,7 +7,12 @@
 /* Base */
 @import './base/base.css';
 
+/* Markdown */
 @import './markdown/a-em.css';
 @import './markdown/code.css';
 @import './markdown/headings.css';
 @import './markdown/p.css';
+
+/* Components */
+@import './components/attribute-peg.css';
+@import './components/top-nav.css';

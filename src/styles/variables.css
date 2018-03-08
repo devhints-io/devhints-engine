@@ -63,6 +63,7 @@
 
   /* --line-color: rgba($base-mute, 0.05); */
   /* --dark-line-color: rgba($base-mute, 0.2); */
+  --dark-line-color: #ddd; /* TODO */
 }
 
 /* // */
