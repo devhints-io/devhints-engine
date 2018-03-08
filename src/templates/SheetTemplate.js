@@ -1,6 +1,7 @@
 /* global graphql */
 
 import React from 'react'
+import { CONTENT } from '../../config'
 
 /**
  * Template for sheets
@@ -9,25 +10,31 @@ import React from 'react'
 export default function SheetTemplate ({ data }) {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+  const sheet = CONTENT.sheet || {}
 
   return (
     <div>
       <div className='body-area'>
+      {/* Main heading */}
         <header className='main-heading -center'>
           <h1 className='h1'>
             {frontmatter.title}
             {' '}
-            <em>{'cheatsheet'}</em>
+            <em>{sheet.suffix}</em>
           </h1>
 
           <div className='adbox'>
           </div>
         </header>
 
-        <div className='intro-content MarkdownBody'>
-          This is the intro to the page.
-        </div>
+       {/* Introduction */}
+        {(frontmatter && frontmatter.intro) ? (
+          <div className='intro-content MarkdownBody'>
+            {frontmatter.intro}
+          </div>
+        ) : null}
 
+        {/* Post content */}
         <div
           className='post-content MarkdownBody' role='main'
           dangerouslySetInnerHTML={{ __html: html }}
@@ -48,6 +55,7 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+        intro
       }
     }
   }

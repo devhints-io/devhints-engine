@@ -8,12 +8,12 @@
   font-family: var(--monospace-font);
 }
 
-// Reduce line height for box drawing characters
+/* Reduce line height for box drawing characters */
 .MarkdownBody pre.-box-chars {
   line-height: 1.32;
 }
 
-// For figlet.md
+/* For figlet.md */
 .MarkdownBody pre.-figlet {
   line-height: 1;
   font-size: 11px;
@@ -47,7 +47,7 @@
     font-size: 1em;
   }
 
-  // Line highlight
+  /* Line highlight */
   & .line-highlight {
     transform: translate3d(0, 2px, 0);
     background: linear-gradient(
@@ -57,7 +57,7 @@
     /* TODO rgba($base-c, 0.05) 25%, */
   }
 
-  // Line highlight ranges
+  /* Line highlight ranges */
   & .line-highlight[data-end] {
     margin-top: 0;
   }
@@ -72,7 +72,7 @@
 .MarkdownBody p.-setup,
 .MarkdownBody ul.-setup,
 .MarkdownBody p.-crosslink {
-  background: var(--gray-bg;)
+  background: var(--gray-bg);
 }
 
 /*

@@ -2,6 +2,8 @@
 path: "/vim"
 title: "Vim"
 category: Apps
+intro: |
+  [Vim](http://vim.org) is a text editor.
 ---
 
 ## Vim shortcuts

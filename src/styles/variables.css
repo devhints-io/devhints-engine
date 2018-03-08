@@ -57,7 +57,8 @@
   /* --base-mute3: adjust-color($base-mute, $lightness: 16%); */
 
   --body-bg: var(--base-body);
-  /* --gray-bg: mix($base-body, $base-panel, 50%); */
+  /* TODO --gray-bg: mix($base-body, $base-panel, 50%); */
+  --gray-bg: #fafafa;
   --gray-text: var(--base-mute);
 
   /* --line-color: rgba($base-mute, 0.05); */
