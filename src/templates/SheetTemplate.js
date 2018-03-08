@@ -3,6 +3,7 @@
 import React from 'react'
 import { CONTENT } from '../../config'
 import TopNav from '../components/TopNav'
+import Fragment from '../components/Fragment'
 import PostContent from '../components/PostContent'
 
 /**
@@ -21,7 +22,7 @@ export default function SheetTemplate (props) {
   const sheet = CONTENT.sheet || {}
 
   return (
-    <div>
+    <Fragment>
       {/* Top navigation */}
       <TopNav back />
 
@@ -55,7 +56,7 @@ export default function SheetTemplate (props) {
       <div className='pre-footer'>
         <i className='icon' />
       </div>
-    </div>
+    </Fragment>
   )
 }
 
