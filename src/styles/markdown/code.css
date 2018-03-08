@@ -1,0 +1,121 @@
+.MarkdownBody code {
+  color: var(--gray-text);
+  font-size: var(--code-size);
+}
+
+.MarkdownBody pre,
+.MarkdownBody code {
+  font-family: var(--monospace-font);
+}
+
+// Reduce line height for box drawing characters
+.MarkdownBody pre.-box-chars {
+  line-height: 1.32;
+}
+
+// For figlet.md
+.MarkdownBody pre.-figlet {
+  line-height: 1;
+  font-size: 11px;
+}
+
+/*
+ * Undo prism theme crap
+ */
+
+.MarkdownBody {
+  & pre {
+    box-shadow: none;
+    border-left: 0;
+    overflow: hidden;
+    overflow-x: auto;
+    background: white;
+    font-size: var(--code-size);
+    line-height: var(--code-line-height);
+  }
+
+  & pre.-wrap {
+    white-space: pre-wrap;
+  }
+
+  & pre > code {
+    color: var(--base-head);
+    max-height: auto;
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+    font-size: 1em;
+  }
+
+  // Line highlight
+  & .line-highlight {
+    transform: translate3d(0, 2px, 0);
+    background: linear-gradient(
+      to right,
+      #eee 25%,
+      transparent);
+    /* TODO rgba($base-c, 0.05) 25%, */
+  }
+
+  // Line highlight ranges
+  & .line-highlight[data-end] {
+    margin-top: 0;
+  }
+
+  .line-highlight::before,
+  .line-highlight::after {
+    display: none;
+  }
+}
+
+.MarkdownBody pre.-setup,
+.MarkdownBody p.-setup,
+.MarkdownBody ul.-setup,
+.MarkdownBody p.-crosslink {
+  background: var(--gray-bg;)
+}
+
+/*
+ * Syntax highlight
+ */
+
+/* TODO */
+/* .token { */
+/*   $cA: $base-b; */
+/*   $cA-3: adjust-color($cA, $lightness: 8%, $hue: -10deg); */
+/*   $cA-7: adjust-color($cA, $lightness: -8%, $hue: 10deg); */
+
+/*   $cB: $base-c; */
+/*   $cB-3: adjust-color($cB, $lightness: 8%, $hue: -10deg); */
+
+/*   $cM: #aaa; // Mute */
+
+/*   &.tag, */
+/*   &.keyword { */
+/*     color: $cA; */
+/*   } */
+
+/*   &.tag { */
+/*     color: $cA-7; */
+/*   } */
+
+/*   &.value, */
+/*   &.string, */
+/*   &.number, */
+/*   &.attr-value, */
+/*   &.boolean, */
+/*   &.regex { */
+/*     color: $cB; */
+/*   } */
+
+/*   &.function, */
+/*   &.attr-name { */
+/*     color: $cA-3; */
+/*   } */
+
+/*   &.comment, */
+/*   &.punctuation, */
+/*   &.operator { */
+/*     color: $cM; */
+/*   } */
+/* } */

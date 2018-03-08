@@ -6,3 +6,8 @@
 
 /* Base */
 @import './base/base.css';
+
+@import './markdown/a-em.css';
+@import './markdown/code.css';
+@import './markdown/headings.css';
+@import './markdown/p.css';

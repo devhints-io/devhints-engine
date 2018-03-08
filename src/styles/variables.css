@@ -40,6 +40,8 @@
 
   --base-b7: #2b72a2; /* TODO */
   --base-b3: #2b72a2;
+  --base-a7: #8370bd; /* TODO */
+  --base-a3: #8370bd; /* TODO */
 
   /* --base-a: adjust-color(#8370bd, $lightness: -5%); // indigo */
   /* --base-b: adjust-color(#2b72a2, $lightness: -5%); // blue */
