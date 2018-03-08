@@ -3,10 +3,10 @@
 import React from 'react'
 
 /**
- * Template for pages
+ * Template for sheets
  */
 
-export default function Template ({ data }) {
+export default function SheetTemplate ({ data }) {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
 
@@ -42,7 +42,7 @@ export default function Template ({ data }) {
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
+  query SheetByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
