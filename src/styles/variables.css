@@ -16,8 +16,17 @@
  */
 
 :root {
-  --system-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --system-mono: 'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono', Courier, monospace;
+  /* Sans font */
+  --system-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  /* Monospace font */
+  --system-mono:
+    'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono',
+    Courier, monospace;
+
+  /* Fonts */
   --body-font: var(--system-sans);
   --heading-font: var(--system-sans);
   --monospace-font: cousine, var(--system-mono);
@@ -28,16 +37,19 @@
  */
 
 :root {
-  --base-body: #f1f3f5;
+  /* Neutral palette */
+  --base-body:  #f1f3f5;
   --base-panel: #ffffff;
-  --base-head: #111;
-  --base-text: #345;
-  --base-mute: #667788; /* gray */
+  --base-head:  #111111;
+  --base-text:  #334455;
+  --base-mute:  #667788; /* Gray */
 
-  --base-a: #8370bd; /* TODO */
-  --base-b: #2b72a2;
-  --base-c: #17c694;
+  /* Accent palette */
+  --base-a: color(#8370bd shade(5%)); /* Indigo */
+  --base-b: color(#2b72a2 shade(5%)); /* Blue */
+  --base-c: color(#17c694 shade(5%)); /* Teal */
 
+  /* Accent variations */
   --base-b7: #2b72a2; /* TODO */
   --base-b3: #2b72a2;
   --base-a7: #8370bd; /* TODO */
@@ -56,19 +68,19 @@
   /* --base-mute4: adjust-color($base-mute, $lightness: 8%); */
   /* --base-mute3: adjust-color($base-mute, $lightness: 16%); */
 
+  /* Mute variations */
+  --base-mute7: color(var(--base-mute) shade(30%));
+  --base-mute6: color(var(--base-mute) shade(15%));
+  --base-mute4: color(var(--base-mute) tint(16%));
+  --base-mute3: color(var(--base-mute) tint(32%));
+
   --body-bg: var(--base-body);
-  /* TODO --gray-bg: mix($base-body, $base-panel, 50%); */
-  --gray-bg: #fafafa;
+  --gray-bg: #f8f9fa;
   --gray-text: var(--base-mute);
 
-  /* --line-color: rgba($base-mute, 0.05); */
-  /* --dark-line-color: rgba($base-mute, 0.2); */
-  --dark-line-color: #ddd; /* TODO */
+  --line-color: color(var(--base-mute) alpha(5%));
+  --dark-line-color: color(var(--base-mute) alpha(20%));
 }
-
-/* // */
-/* // Variants */
-/* // */
 
 /*   --base-a-gradient: linear-gradient( */
 /*   5deg, */
@@ -107,3 +119,67 @@
 
 @custom-media --ms-viewport-md (width > 480px);
 @custom-media --ms-viewport-lg (width > 768px);
+
+/*
+ * (Mixin) heading-style
+ * For top-level headings
+ */
+
+:root {
+  --heading-style: {
+    & {
+      margin: 0;
+      padding: 0;
+      margin-bottom: calc(16px + 8px);
+      margin-top: 64px;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 8px;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 480px) {
+      margin-bottom: 8px;
+      margin-top: 32px;
+    }
+  }
+}
+
+
+/*
+ * (Mixin) gutter-padding-*
+ */
+
+:root {
+  --gutter-padding: {
+    & {
+      padding: var(--gut);
+    }
+
+    @media (max-width: 480px) {
+      padding: var(--gut-small);
+    }
+  }
+
+  --gutter-padding-left: {
+    & {
+      padding-left: var(--gut);
+    }
+
+    @media (max-width: 480px) {
+      padding-left: var(--gut-small);
+    }
+  }
+
+  --gutter-padding-right: {
+    & {
+      padding-right: var(--gut);
+    }
+
+    @media (max-width: 480px) {
+      padding-right: var(--gut-small);
+    }
+  }
+}

@@ -16,5 +16,6 @@
 
 /* Components */
 @import './components/attribute-peg.css';
+@import './components/main-heading.css';
 @import './components/site-header.css';
 @import './components/top-nav.css';
