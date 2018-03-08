@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { CONTENT } from '../../config'
+import TopNav from '../components/TopNav'
 
 /**
  * Template for sheets
@@ -14,6 +15,8 @@ export default function SheetTemplate ({ data }) {
 
   return (
     <div>
+      <TopNav back />
+
       <div className='body-area'>
       {/* Main heading */}
         <header className='main-heading -center'>

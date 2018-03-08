@@ -8,7 +8,7 @@
   --column: 400px;
   --code-size: 0.96em;
   --code-line-height: 1.5;
-  --area-width: calc(var(--column) * 3 + 32px);
+  --area-width: 1232px; /* calc(var(--column) * 3 + 32px); */
 }
 
 /*
