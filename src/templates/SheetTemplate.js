@@ -3,18 +3,26 @@
 import React from 'react'
 import { CONTENT } from '../../config'
 import TopNav from '../components/TopNav'
+import PostContent from '../components/PostContent'
 
 /**
  * Template for sheets
  */
 
-export default function SheetTemplate ({ data }) {
+export default function SheetTemplate (props) {
+  const { data } = props
+
+  if (!data) {
+    throw `'data' is missing from props, whoa :(`
+  }
+
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   const sheet = CONTENT.sheet || {}
 
   return (
     <div>
+      {/* Top navigation */}
       <TopNav back />
 
       <div className='body-area'>
@@ -38,9 +46,9 @@ export default function SheetTemplate ({ data }) {
         ) : null}
 
         {/* Post content */}
-        <div
-          className='post-content MarkdownBody' role='main'
-          dangerouslySetInnerHTML={{ __html: html }}
+        <PostContent
+          className='post-content MarkdownBody'
+          html={html}
         />
       </div>
 
@@ -50,6 +58,11 @@ export default function SheetTemplate ({ data }) {
     </div>
   )
 }
+
+
+/*
+ * Query
+ */
 
 export const pageQuery = graphql`
   query SheetByPath($path: String!) {

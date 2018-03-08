@@ -22,4 +22,9 @@ y - Yank
 ```
 a - Append
 i - Insert
+c - Change
+r - Replace
 ```
+<!-- {.shortcuts} -->
+
+Very nice isn't it?
