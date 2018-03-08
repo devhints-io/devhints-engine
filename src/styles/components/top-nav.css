@@ -53,7 +53,7 @@
   }
 
   & > .brand {
-    /* TODO @include font-size(-1); */
+    @apply --font-size--1;
     display: inline-block;
     font-weight: bold;
     text-transform: uppercase;

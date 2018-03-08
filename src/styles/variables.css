@@ -91,13 +91,19 @@
 /*   0 1px 2px rgba($base-mute, 0.30), */
 /*   0 8px 12px rgba($base-b3, 0.1); */
 
-/* /\* */
-/*  * Mod scale */
-/*  *\/ */
+/*
+ * Modular scale
+ */
 
-/*   --modularscale: ( */
-/*   base: 14px, ratio: 1.2, */
-/*   480px: (base: 13px, ratio: 1.15), */
-/*   768px: (base: 14px, ratio: 1.16), */
-/*   1280px: (base: 14px, ratio: 1.17) */
-/* ); */
+:root {
+  --ms-ratio-sm: 1.12;
+  --ms-ratio-md: 1.15;
+  --ms-ratio-lg: 1.16;
+  --ms-base: 14px;
+  --ms-base-sm: 13px;
+  --ms-base-md: 14px;
+  --ms-base-lg: 14px;
+}
+
+@custom-media --ms-viewport-md (width > 480px);
+@custom-media --ms-viewport-lg (width > 768px);

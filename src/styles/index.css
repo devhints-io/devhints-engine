@@ -1,5 +1,6 @@
 /* Vendor */
 @import '../../node_modules/sanitize.css/sanitize.css';
+@import '../../node_modules/responsive-modular-scale.css/responsive-modular-scale.css';
 
 /* Variables */
 @import './variables.css';
@@ -15,4 +16,5 @@
 
 /* Components */
 @import './components/attribute-peg.css';
+@import './components/site-header.css';
 @import './components/top-nav.css';
