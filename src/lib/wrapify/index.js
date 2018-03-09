@@ -1,4 +1,10 @@
-import { appendMany, nextUntil, before, findChildren, createDiv } from '../helpers/dom'
+import {
+  appendMany,
+  nextUntil,
+  before,
+  findChildren,
+  createDiv
+} from '../helpers/dom'
 
 /**
  * Wraps h2 sections into h2-section.
@@ -14,8 +20,22 @@ export default function wrapify (root) {
   // For each h2 section, wrap the H3's in them
   sections.forEach(section => {
     const bodies = findChildren(section, '[data-js-h3-section-list]')
-    bodies.forEach(body => { wrapifyH3(body) })
+    bodies.forEach(body => {
+      wrapifyH3(body)
+    })
   })
+}
+
+/**
+ * Wraps HTML, returns HTML
+ */
+
+export function wrapHTML (html /*: string */) {
+  const div = document.createElement('div')
+  div.innerHTML = html
+
+  wrapify(div)
+  return div.innerHTML
 }
 
 /**
@@ -35,10 +55,11 @@ function wrapifyH2 (root) {
   return groupify(root, {
     tag: 'h2',
     wrapperFn: () => createDiv({ class: 'h2-section' }),
-    bodyFn: () => createDiv({
-      class: 'body h3-section-list',
-      'data-js-h3-section-list': ''
-    })
+    bodyFn: () =>
+      createDiv({
+        class: 'body h3-section-list',
+        'data-js-h3-section-list': ''
+      })
   })
 }
 
@@ -76,13 +97,13 @@ export function groupify (el, { tag, wrapperFn, bodyFn }) {
   // Handle the markup before the first h2
   if (first && !first.matches(tag)) {
     const sibs = nextUntil(first, tag)
-    result.push(wrap(first, null, [ first, ...sibs ]))
+    result.push(wrap(first, null, [first, ...sibs]))
   }
 
   // Find all h3's inside it
   const children = findChildren(el, tag)
 
-  children.forEach(child => {
+  children.forEach((child /*: Node */) => {
     const sibs = nextUntil(child, tag)
     result.push(wrap(child, child, sibs))
   })

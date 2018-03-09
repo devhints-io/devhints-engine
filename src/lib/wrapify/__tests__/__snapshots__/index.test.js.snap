@@ -2,8 +2,6 @@
 
 exports[`h2 + pre 1`] = `
 <div>
-  
-    
   <div
     class="h2-section"
   >
@@ -27,8 +25,6 @@ exports[`h2 + pre 1`] = `
           >
             (code)
           </pre>
-          
-  
         </div>
       </div>
     </div>
@@ -36,10 +32,15 @@ exports[`h2 + pre 1`] = `
 </div>
 `;
 
+exports[`h2 + pre 2`] = `
+"
+    <div class=\\"h2-section\\"><h2>heading</h2><div class=\\"body h3-section-list\\" data-js-h3-section-list=\\"\\">
+    <div class=\\"h3-section language-markdown\\"><div class=\\"body language-markdown\\"><pre class=\\"language-markdown\\">(code)</pre>
+</div></div></div></div>"
+`;
+
 exports[`h3 with class 1`] = `
 <div>
-  
-    
   <div
     class="h2-section -hello"
   >
@@ -63,8 +64,6 @@ exports[`h3 with class 1`] = `
           <p>
             (install)
           </p>
-          
-  
         </div>
       </div>
     </div>
@@ -72,10 +71,15 @@ exports[`h3 with class 1`] = `
 </div>
 `;
 
+exports[`h3 with class 2`] = `
+"
+    <div class=\\"h2-section -hello\\"><div class=\\"body h3-section-list -hello\\" data-js-h3-section-list=\\"\\"><div class=\\"h3-section -hello\\"><h3 class=\\"-hello\\">install</h3><div class=\\"body -hello\\">
+    <p>(install)</p>
+</div></div></div></div>"
+`;
+
 exports[`multiple h2s 1`] = `
 <div>
-  
-    
   <div
     class="h2-section"
   >
@@ -195,8 +199,6 @@ exports[`multiple h2s 1`] = `
           <p>
             (second)
           </p>
-          
-  
         </div>
       </div>
     </div>
@@ -204,10 +206,28 @@ exports[`multiple h2s 1`] = `
 </div>
 `;
 
+exports[`multiple h2s 2`] = `
+"
+    <div class=\\"h2-section\\"><h2>multiple h2</h2><div class=\\"body h3-section-list\\" data-js-h3-section-list=\\"\\"></div></div><div class=\\"h2-section\\"><h2>
+
+    </h2><div class=\\"body h3-section-list\\" data-js-h3-section-list=\\"\\"><div class=\\"h3-section\\"><h3>install</h3><div class=\\"body\\">
+    <p>(install)</p>
+
+    </div></div><div class=\\"h3-section\\"><h3>usage</h3><div class=\\"body\\">
+    <p>(usage)</p>
+
+    </div></div></div></div><div class=\\"h2-section\\"><h2>getting started</h2><div class=\\"body h3-section-list\\" data-js-h3-section-list=\\"\\"></div></div><div class=\\"h2-section\\"><h2>
+
+    </h2><div class=\\"body h3-section-list\\" data-js-h3-section-list=\\"\\"><div class=\\"h3-section\\"><h3>first</h3><div class=\\"body\\">
+    <p>(first)</p>
+
+    </div></div><div class=\\"h3-section\\"><h3>second</h3><div class=\\"body\\">
+    <p>(second)</p>
+</div></div></div></div>"
+`;
+
 exports[`simple usage 1`] = `
 <div>
-  
-    
   <div
     class="h2-section"
   >
@@ -264,11 +284,21 @@ exports[`simple usage 1`] = `
           <p>
             (usage)
           </p>
-          
-  
         </div>
       </div>
     </div>
   </div>
 </div>
+`;
+
+exports[`simple usage 2`] = `
+"
+    <div class=\\"h2-section\\"><h2>simple usage</h2><div class=\\"body h3-section-list\\" data-js-h3-section-list=\\"\\"></div></div><div class=\\"h2-section\\"><h2>
+
+    </h2><div class=\\"body h3-section-list\\" data-js-h3-section-list=\\"\\"><div class=\\"h3-section\\"><h3>install</h3><div class=\\"body\\">
+    <p>(install)</p>
+
+    </div></div><div class=\\"h3-section\\"><h3>usage</h3><div class=\\"body\\">
+    <p>(usage)</p>
+</div></div></div></div>"
 `;

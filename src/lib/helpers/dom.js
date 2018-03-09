@@ -1,13 +1,15 @@
-/*
- * Just like jQuery.append
+/**
+ * Just like `jQuery.append`.
  */
 
 export function appendMany (el, children) {
-  children.forEach(child => { el.appendChild(child) })
+  children.forEach((child /*: Node */) => {
+    el.appendChild(child)
+  })
 }
 
 /**
- * Just like jQuery.nextUntil.
+ * Just like `jQuery.nextUntil`.
  */
 
 export function nextUntil (el, selector) {
@@ -21,39 +23,39 @@ function nextUntilTick (el, selector, acc) {
   // (Text nodes don't have el.matches.)
   if (el.matches && el.matches(selector)) return acc
 
-  return nextUntilTick(el.nextSibling, selector, [ ...acc, el ])
+  return nextUntilTick(el.nextSibling, selector, [...acc, el])
 }
 
-/*
- * Just like jQuery.before
+/**
+ * Just like `jQuery.before`.
  */
 
 export function before (reference, newNode) {
   reference.parentNode.insertBefore(newNode, reference)
 }
 
-/*
- * Like jQuery.children('selector')
+/**
+ * Like `jQuery.children('selector')`
  */
 
 export function findChildren (el, selector) {
-  return Array.from(el.children)
-    .filter(child => child.matches(selector))
+  return Array.from(el.children).filter(child => child.matches(selector))
 }
 
 /**
- * Creates a div
+ * Creates a div.
  * @private
  *
  * @example
- *
  *     createDiv({ class: 'foo' })
  */
 
-export function createDiv (props) {
-  const d = document.createElement('div')
-  Object.keys(props).forEach(key => {
-    d.setAttribute(key, props[key])
+export function createDiv (props /*: Object */) {
+  const div = document.createElement('div')
+
+  Object.keys(props).forEach((key /*: string */) => {
+    div.setAttribute(key, props[key])
   })
-  return d
+
+  return div
 }
