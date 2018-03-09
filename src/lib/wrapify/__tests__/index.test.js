@@ -1,7 +1,40 @@
 /* eslint-env jest */
 import wrapify from '../index'
 
-it('simple usage', run(`
+/**
+ * Macro for querySelectorAll
+ */
+
+const $ = (selector, div) => div.querySelectorAll(selector)
+
+/**
+ * Test macro
+ */
+
+function run (html, fn) {
+  return function () {
+    const el = document.createElement('div')
+    el.innerHTML = html
+
+    // get the <div> that was created, and test it
+    const div = el.children[0]
+    wrapify(div)
+    expect(div).toMatchSnapshot()
+
+    // Delegate to a function if it's passed
+    if (fn) fn(div)
+  }
+}
+
+
+/**
+ * The tests
+ */
+
+it(
+  'simple usage',
+  run(
+    `
   <div>
     <h2>simple usage<h2>
 
@@ -11,21 +44,33 @@ it('simple usage', run(`
     <h3>usage</h3>
     <p>(usage)</p>
   </div>
-`, div => {
-  expect(div.querySelectorAll('.h2-section .h3-section-list .h3-section').length).toEqual(2)
-}))
+`,
+    div => {
+      const len = $('.h2-section .h3-section-list .h3-section', div).length
+      expect(len).toEqual(2)
+    }
+  )
+)
 
-it('h3 with class', run(`
+it(
+  'h3 with class',
+  run(
+    `
   <div>
     <h3 class='-hello'>install</h3>
     <p>(install)</p>
   </div>
-`, div => {
-  expect(div.querySelectorAll('div.h3-section.-hello').length).toEqual(1)
-  expect(div.querySelectorAll('div.h3-section-list.-hello').length).toEqual(1)
-}))
+`,
+    div => {
+      expect($('div.h3-section.-hello', div).length).toEqual(1)
+      expect($('div.h3-section-list.-hello', div).length).toEqual(1)
+    }
+  )
+)
 
-it('multiple h2s', run(`
+it(
+  'multiple h2s',
+  run(`
   <div>
     <h2>multiple h2<h2>
 
@@ -43,24 +88,15 @@ it('multiple h2s', run(`
     <h3>second</h3>
     <p>(second)</p>
   </div>
-`))
+`)
+)
 
-function run (input, fn) {
-  return function () {
-    const el = document.createElement('div')
-    el.innerHTML = input
-
-    const div = el.children[0]
-    wrapify(div)
-    expect(div).toMatchSnapshot()
-
-    if (fn) fn(div)
-  }
-}
-
-it('h2 + pre', run(`
+it(
+  'h2 + pre',
+  run(`
   <div>
     <h2>heading</h2>
     <pre class='language-markdown'>(code)</pre>
   </div>
-`))
+`)
+)
