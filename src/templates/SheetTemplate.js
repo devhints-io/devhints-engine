@@ -21,45 +21,54 @@ export default function SheetTemplate (props) {
   const { frontmatter, html } = markdownRemark
   const sheet = CONTENT.sheet || {}
 
-  return (
-    <Fragment>
-      {/* Top navigation */}
-      <TopNav back />
-
-      <div className='body-area'>
-      {/* Main heading */}
-        <header className='main-heading -center'>
-          <h1 className='h1'>
-            {frontmatter.title}
-            {' '}
-            <em>{sheet.suffix}</em>
-          </h1>
-
-          <div className='adbox'>
-          </div>
-        </header>
-
-       {/* Introduction */}
-        {(frontmatter && frontmatter.intro) ? (
-          <div className='intro-content MarkdownBody'>
-            {frontmatter.intro}
-          </div>
-        ) : null}
-
-        {/* Post content */}
-        <PostContent
-          className='post-content MarkdownBody'
-          html={html}
-        />
-      </div>
-
-      <div className='pre-footer'>
-        <i className='icon' />
-      </div>
-    </Fragment>
-  )
+  return <SheetTemplateView {...{ frontmatter, html, sheet }} />
 }
 
+/**
+ * Logicless view
+ */
+
+export const SheetTemplateView = ({ frontmatter, html, sheet }) => (
+  <Fragment>
+    {/* Top navigation */}
+    <TopNav back />
+
+    <div className='body-area'>
+    {/* Main heading */}
+      <header className='main-heading -center'>
+        <h1 className='h1'>
+          {frontmatter.title}
+          {' '}
+          <em>{sheet.suffix}</em>
+        </h1>
+
+        <div className='adbox'>
+        </div>
+      </header>
+
+      {/* Introduction */}
+      {(frontmatter && frontmatter.intro) ? (
+        <div className='intro-content MarkdownBody'>
+          {frontmatter.intro}
+        </div>
+      ) : null}
+
+      {/* Post content */}
+      <PostContent
+        className='post-content MarkdownBody'
+        html={html}
+      />
+    </div>
+
+    <PreFooter />
+  </Fragment>
+)
+
+export const PreFooter = () => (
+  <div className='pre-footer'>
+    <i className='icon' />
+  </div>
+)
 
 /*
  * Query
