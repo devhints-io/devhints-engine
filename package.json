@@ -9,11 +9,11 @@
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-react-helmet": "^2.0.5",
     "gatsby-source-filesystem": "1.5.20",
-    "gatsby-transformer-remark": "1.7.32",
+    "gatsby-transformer-remark": "^1.7.32",
     "react-helmet": "^5.2.0",
-    "recompose": "0.26.0",
-    "responsive-modular-scale.css": "0.1.0",
-    "sanitize.css": "5.0.0"
+    "recompose": "^0.26.0",
+    "responsive-modular-scale.css": "^0.1.0",
+    "sanitize.css": "^5.0.0"
   },
   "keywords": [
     "devhints"
