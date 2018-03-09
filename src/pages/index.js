@@ -18,7 +18,7 @@ export default () => (
 
 function SiteHeader () {
   const content = CONTENT.siteHeader || {}
-  return <SiteHeaderView {...{ content }} />
+  return SiteHeaderView({ content })
 }
 
 const SiteHeaderView = ({ content }) => (

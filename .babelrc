@@ -1,0 +1,11 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "forceAllTransforms": true
+      }
+    ],
+    "react"
+  ]
+}
