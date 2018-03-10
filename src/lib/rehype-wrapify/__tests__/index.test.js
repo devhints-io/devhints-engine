@@ -1,7 +1,13 @@
 /* eslint-env jest */
-import wrapify from '../index'
+// import h from 'hastscript'
+import React from 'react'
+import RehypeReact from 'rehype-react'
+import { wrapify } from '../index'
 import h from 'hastscript'
-import toHTML from 'hast-util-to-html'
+
+const renderAst = new RehypeReact({
+  createElement: React.createElement
+}).Compiler
 
 describe('wrapify', () => {
   it('works', () => {
@@ -13,11 +19,14 @@ describe('wrapify', () => {
     const expected = h('div', [
       h('.h2-section', [
         h('h2', 'Introduction'),
-        h('p', 'hello there')
+        h('.body', [
+          h('p', 'hello there')
+        ])
       ])
     ])
 
-    expect(wrapify(input)).toEqual(expected)
+    const output = wrapify(input)
+    expect(renderAst(output)).toEqual(renderAst(expected))
   })
 
   it('finds 2 h2s', () => {
@@ -31,15 +40,20 @@ describe('wrapify', () => {
     const expected = h('div', [
       h('.h2-section', [
         h('h2', 'Introduction'),
-        h('p', 'hello there')
+        h('.body', [
+          h('p', 'hello there')
+        ])
       ]),
       h('.h2-section', [
         h('h2', 'Usage'),
-        h('p', 'how are you')
+        h('.body', [
+          h('p', 'how are you')
+        ])
       ])
     ])
 
-    expect(wrapify(input)).toEqual(expected)
+    const output = wrapify(input)
+    expect(renderAst(output)).toEqual(renderAst(expected))
   })
 
   it('works preludes', () => {
@@ -50,15 +64,20 @@ describe('wrapify', () => {
     ])
 
     const expected = h('div', [
-      h('.prelude', [
-        h('p', 'hello there')
+      h('.h2-section', [
+        h('.body', [
+          h('p', 'hello there')
+        ])
       ]),
       h('.h2-section', [
         h('h2', 'Usage'),
-        h('p', 'how are you')
+        h('.body', [
+          h('p', 'how are you')
+        ])
       ])
     ])
 
-    expect(wrapify(input)).toEqual(expected)
+    const output = wrapify(input)
+    expect(renderAst(output)).toEqual(renderAst(expected))
   })
 })

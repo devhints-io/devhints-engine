@@ -94,3 +94,11 @@ it(
     <pre class='language-markdown'>(code)</pre>
 `)
 )
+
+it('with prelude', run(`
+  <div>
+    <p>(prelude)</p>
+    <h2>simple usage<h2>
+    <p>(install)</p>
+  </div>
+`))
