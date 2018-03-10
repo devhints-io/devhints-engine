@@ -23,7 +23,7 @@ function SiteHeader () {
 
 const SiteHeaderView = ({ content }) => (
   <div className='site-header'>
-    <h1>{ content.title }</h1>
+    <h1>{content.title}</h1>
     <p dangerouslySetInnerHTML={{ __html: content.tagline }} />
 
     {/* Search form goes here */}
@@ -32,8 +32,8 @@ const SiteHeaderView = ({ content }) => (
 
 const PagesList = ({ links }) => (
   <ul>
-    {links.map((link) => (
-      <li>
+    {links.map(link => (
+      <li key={link.path}>
         <Link to={link.path}>{link.path}</Link>
       </li>
     ))}

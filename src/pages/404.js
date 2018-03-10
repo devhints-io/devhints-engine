@@ -7,9 +7,9 @@ const NotFoundPage = () => {
 
   return (
     <div>
-      <h1>{ content.notFound }</h1>
-      <p>{ content.description }</p>
-      <Link to='/'>{ content.home }</Link>
+      <h1>{content.notFound}</h1>
+      <p>{content.description}</p>
+      <Link to='/'>{content.home}</Link>
     </div>
   )
 }

@@ -40,3 +40,21 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })
   })
 }
+
+exports.modifyWebpackConfig = ({ config }) => {
+  // isotope-layout tries to require('jquery'), but let's let that
+  // fail silently. We don't want it to load jQuery.
+  config.merge({
+    resolve: {
+      alias: {
+        jquery: require('path').resolve(
+          __dirname,
+          'src',
+          'lib',
+          'helpers',
+          'noop.js'
+        )
+      }
+    }
+  })
+}
