@@ -1,7 +1,15 @@
 /* eslint-disable no-new */
 import React from 'react'
-import Isotope from 'isotope-layout/dist/isotope.pkgd.js'
-import { wrapHTML } from '../lib/wrapify'
+import wrapify from '../lib/wrapify'
+import RehypeReact from 'rehype-react'
+
+/**
+ * AST renderer
+ */
+
+export const renderAst = new RehypeReact({
+  createElement: React.createElement
+}).Compiler
 
 /**
  * Post content with transform magic.
@@ -9,15 +17,14 @@ import { wrapHTML } from '../lib/wrapify'
 
 export default class PostContent extends React.PureComponent {
   render () {
-    const { html, className } = this.props
-    const renderedHTML = wrapHTML(html)
+    const { htmlAst, className } = this.props
 
     return (
       <div
         className={className} role='main'
-        ref={isotopifyLists}
-        dangerouslySetInnerHTML={{ __html: renderedHTML }}
-      />
+        ref={isotopifyLists}>
+        {renderAst(htmlAst)}
+      </div>
     )
   }
 }
@@ -27,7 +34,15 @@ export default class PostContent extends React.PureComponent {
  */
 
 function isotopifyLists (el /*: Node */) {
-  const lists = el.querySelectorAll('[data-js-h3-section-list]')
+  // There's a wrapping <div> from renderAst, meh
+  const div = el.children[0]
+  wrapify(div)
+
+  // If we're running on the server, don't bother with this
+  if (typeof window === 'undefined') return
+
+  // isotopify() all lists
+  const lists = div.querySelectorAll('[data-js-h3-section-list]')
   Array.from(lists).forEach(isotopify)
 }
 
@@ -36,6 +51,9 @@ function isotopifyLists (el /*: Node */) {
  */
 
 function isotopify (el /*: Node */) {
+  // Load this async'ly, so that it doesn't happen on the server
+  const Isotope = require('isotope-layout/dist/isotope.pkgd.js')
+
   const iso = new Isotope(el, {
     itemSelector: '.h3-section',
     transitionDuration: 0

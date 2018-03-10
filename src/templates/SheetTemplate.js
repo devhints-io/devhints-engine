@@ -14,27 +14,27 @@ export default function SheetTemplate (props) {
   const { data } = props
 
   if (!data) {
-    throw `'data' is missing from props, whoa :(`
+    throw new Error(`'data' is missing from props, whoa :(`)
   }
 
   const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, htmlAst } = markdownRemark
   const sheet = CONTENT.sheet || {}
 
-  return <SheetTemplateView {...{ frontmatter, html, sheet }} />
+  return <SheetTemplateView {...{ frontmatter, htmlAst, sheet }} />
 }
 
 /**
  * Logicless view
  */
 
-export const SheetTemplateView = ({ frontmatter, html, sheet }) => (
+export const SheetTemplateView = ({ frontmatter, htmlAst, sheet }) => (
   <Fragment>
     {/* Top navigation */}
     <TopNav back />
 
     <div className='body-area'>
-    {/* Main heading */}
+      {/* Main heading */}
       <header className='main-heading -center'>
         <h1 className='h1'>
           {frontmatter.title}
@@ -42,8 +42,7 @@ export const SheetTemplateView = ({ frontmatter, html, sheet }) => (
           <em>{sheet.suffix}</em>
         </h1>
 
-        <div className='adbox'>
-        </div>
+        <div className='adbox' />
       </header>
 
       {/* Introduction */}
@@ -56,7 +55,7 @@ export const SheetTemplateView = ({ frontmatter, html, sheet }) => (
       {/* Post content */}
       <PostContent
         className='post-content MarkdownBody'
-        html={html}
+        {...{htmlAst}}
       />
     </div>
 
@@ -77,7 +76,7 @@ export const PreFooter = () => (
 export const pageQuery = graphql`
   query SheetByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+      htmlAst
       frontmatter {
         path
         title
