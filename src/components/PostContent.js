@@ -1,18 +1,19 @@
 import React from 'react'
+import { wrapHTML } from '../lib/wrapify'
 
 /**
- * Post content with transform magic
+ * Post content with transform magic.
  */
 
-export default class PostContent extends React.Component {
+export default class PostContent extends React.PureComponent {
   render () {
     const { html, className } = this.props
+    const renderedHTML = wrapHTML(html)
 
-    // TODO do magic here
     return (
       <div
         className={className} role='main'
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{ __html: renderedHTML }}
       />
     )
   }
