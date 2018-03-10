@@ -2,14 +2,14 @@
 // import h from 'hastscript'
 import React from 'react'
 import RehypeReact from 'rehype-react'
-import { wrapify } from '../index'
+import { wrapH2, wrapH3 } from '../index'
 import h from 'hastscript'
 
 const renderAst = new RehypeReact({
   createElement: React.createElement
 }).Compiler
 
-describe('wrapify', () => {
+describe('wrapH2', () => {
   it('works', () => {
     const input = h('div', [
       h('h2', 'Introduction'),
@@ -19,13 +19,13 @@ describe('wrapify', () => {
     const expected = h('div', [
       h('.h2-section', [
         h('h2', 'Introduction'),
-        h('.body', [
+        h('.body.h3-section-list', [
           h('p', 'hello there')
         ])
       ])
     ])
 
-    const output = wrapify(input)
+    const output = wrapH2(input)
     expect(renderAst(output)).toEqual(renderAst(expected))
   })
 
@@ -40,19 +40,19 @@ describe('wrapify', () => {
     const expected = h('div', [
       h('.h2-section', [
         h('h2', 'Introduction'),
-        h('.body', [
+        h('.body.h3-section-list', [
           h('p', 'hello there')
         ])
       ]),
       h('.h2-section', [
         h('h2', 'Usage'),
-        h('.body', [
+        h('.body.h3-section-list', [
           h('p', 'how are you')
         ])
       ])
     ])
 
-    const output = wrapify(input)
+    const output = wrapH2(input)
     expect(renderAst(output)).toEqual(renderAst(expected))
   })
 
@@ -65,19 +65,62 @@ describe('wrapify', () => {
 
     const expected = h('div', [
       h('.h2-section', [
-        h('.body', [
+        // TODO may kulang dito
+        h('.body.h3-section-list', [
           h('p', 'hello there')
         ])
       ]),
       h('.h2-section', [
         h('h2', 'Usage'),
-        h('.body', [
+        h('.body.h3-section-list', [
           h('p', 'how are you')
         ])
       ])
     ])
 
-    const output = wrapify(input)
+    const output = wrapH2(input)
+    expect(renderAst(output)).toEqual(renderAst(expected))
+  })
+})
+
+describe('wrapH3', () => {
+  it('works', () => {
+    const input = h('div', [
+      h('h3', 'Introduction'),
+      h('p', 'hello there')
+    ])
+
+    const expected = h('div', [
+      h('.h3-section', [
+        h('h3', 'Introduction'),
+        h('.body', [
+          h('p', 'hello there')
+        ])
+      ])
+    ])
+
+    const output = wrapH3(input)
+    expect(renderAst(output)).toEqual(renderAst(expected))
+  })
+})
+
+describe('wrapAll', () => {
+  it('works', () => {
+    const input = h('div', [
+      h('h3', 'Introduction'),
+      h('p', 'hello there')
+    ])
+
+    const expected = h('div', [
+      h('.h3-section', [
+        h('h3', 'Introduction'),
+        h('.body', [
+          h('p', 'hello there')
+        ])
+      ])
+    ])
+
+    const output = wrapH3(input)
     expect(renderAst(output)).toEqual(renderAst(expected))
   })
 })

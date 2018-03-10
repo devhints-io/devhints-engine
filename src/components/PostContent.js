@@ -1,6 +1,6 @@
 /* eslint-disable no-new */
 import React from 'react'
-import wrapify from '../lib/wrapify'
+import wrapify from '../lib/rehype-wrapify'
 import RehypeReact from 'rehype-react'
 
 /**
@@ -18,6 +18,7 @@ export const renderAst = new RehypeReact({
 export default class PostContent extends React.PureComponent {
   render () {
     const { htmlAst, className } = this.props
+    let content = renderAst(wrapify(htmlAst))
 
     // htmlAst = {
     //   type: 'element'
@@ -32,7 +33,7 @@ export default class PostContent extends React.PureComponent {
       <div
         className={className} role='main'
         ref={isotopifyLists}>
-        {renderAst(htmlAst)}
+        {content}
       </div>
     )
   }
@@ -45,16 +46,17 @@ export default class PostContent extends React.PureComponent {
 function isotopifyLists (el /*: Node */) {
   if (!el || !el.children) return
 
-  // There's a wrapping <div> from renderAst, meh
-  const div = el.children[0]
-  wrapify(div)
-
   // If we're running on the server, don't bother with this
   if (typeof window === 'undefined') return
 
-  // isotopify() all lists
-  const lists = div.querySelectorAll('[data-js-h3-section-list]')
+  // There's a wrapping <div> from renderAst, meh
+  const div = el.children[0]
+
+  // isotope()'ify all lists
+  const lists = div.querySelectorAll('.h3-section-list')
   Array.from(lists).forEach(isotopify)
+
+  // TODO run iso.layout() on componentWillReceiveProps
 }
 
 /**
@@ -65,10 +67,14 @@ function isotopify (el /*: Node */) {
   // Load this async'ly, so that it doesn't happen on the server
   const Isotope = require('isotope-layout/dist/isotope.pkgd.js')
 
+  if (el.__isotope) return
+
   const iso = new Isotope(el, {
     itemSelector: '.h3-section',
     transitionDuration: 0
   })
+
+  el.__isotope = iso
 
   const images /*: NodeList */ = el.querySelectorAll('img')
 
