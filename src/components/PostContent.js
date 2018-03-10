@@ -19,6 +19,15 @@ export default class PostContent extends React.PureComponent {
   render () {
     const { htmlAst, className } = this.props
 
+    // htmlAst = {
+    //   type: 'element'
+    //   tagName: 'h2'
+    //   properties: {}
+    //   children: []
+    // }
+    // { type: 'comment', value: 'sup' }
+    // { type: 'text', value: 'hello' }
+
     return (
       <div
         className={className} role='main'
@@ -34,6 +43,8 @@ export default class PostContent extends React.PureComponent {
  */
 
 function isotopifyLists (el /*: Node */) {
+  if (!el || !el.children) return
+
   // There's a wrapping <div> from renderAst, meh
   const div = el.children[0]
   wrapify(div)
