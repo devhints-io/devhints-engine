@@ -32,8 +32,16 @@
   },
   "devDependencies": {
     "babel-jest": "^22.4.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.5",
+    "enzyme-to-json": "^3.3.1",
     "hast-util-to-html": "^3.1.0",
     "hastscript": "^3.1.0",
     "jest": "^22.4.2"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
