@@ -20,17 +20,12 @@ const renderAst = new RehypeReact({
 
 describe('wrapH2', () => {
   it('works', () => {
-    const input = h('div', [
-      h('h2', 'Introduction'),
-      h('p', 'hello there')
-    ])
+    const input = h('div', [h('h2', 'Introduction'), h('p', 'hello there')])
 
     const expected = h('div', [
       h('.h2-section', [
         h('h2', 'Introduction'),
-        h('.body.h3-section-list', [
-          h('p', 'hello there')
-        ])
+        h('.body.h3-section-list', [h('p', 'hello there')])
       ])
     ])
 
@@ -49,15 +44,11 @@ describe('wrapH2', () => {
     const expected = h('div', [
       h('.h2-section', [
         h('h2', 'Introduction'),
-        h('.body.h3-section-list', [
-          h('p', 'hello there')
-        ])
+        h('.body.h3-section-list', [h('p', 'hello there')])
       ]),
       h('.h2-section', [
         h('h2', 'Usage'),
-        h('.body.h3-section-list', [
-          h('p', 'how are you')
-        ])
+        h('.body.h3-section-list', [h('p', 'how are you')])
       ])
     ])
 
@@ -75,15 +66,11 @@ describe('wrapH2', () => {
     const expected = h('div', [
       h('.h2-section', [
         // TODO may kulang dito
-        h('.body.h3-section-list', [
-          h('p', 'hello there')
-        ])
+        h('.body.h3-section-list', [h('p', 'hello there')])
       ]),
       h('.h2-section', [
         h('h2', 'Usage'),
-        h('.body.h3-section-list', [
-          h('p', 'how are you')
-        ])
+        h('.body.h3-section-list', [h('p', 'how are you')])
       ])
     ])
 
@@ -98,17 +85,12 @@ describe('wrapH2', () => {
 
 describe('wrapH3', () => {
   it('works', () => {
-    const input = h('div', [
-      h('h3', 'Introduction'),
-      h('p', 'hello there')
-    ])
+    const input = h('div', [h('h3', 'Introduction'), h('p', 'hello there')])
 
     const expected = h('div', [
       h('.h3-section', [
         h('h3', 'Introduction'),
-        h('.body', [
-          h('p', 'hello there')
-        ])
+        h('.body', [h('p', 'hello there')])
       ])
     ])
 
@@ -123,10 +105,7 @@ describe('wrapH3', () => {
 
 describe('wrapAll', () => {
   it('works with one h3', () => {
-    const input = h('div', [
-      h('h3', 'Introduction'),
-      h('p', 'hello there')
-    ])
+    const input = h('div', [h('h3', 'Introduction'), h('p', 'hello there')])
 
     const expected = h('div', [
       h('.h2-section', [
@@ -160,10 +139,7 @@ describe('wrapAll', () => {
             h('h3', 'Installation'),
             h('.body', [h('p', '(hello)')])
           ]),
-          h('.h3-section', [
-            h('h3', 'Usage'),
-            h('.body', [h('p', '(world)')])
-          ])
+          h('.h3-section', [h('h3', 'Usage'), h('.body', [h('p', '(world)')])])
         ])
       ])
     ])
