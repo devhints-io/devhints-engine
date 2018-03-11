@@ -49,8 +49,9 @@ export function wrapify (
   root.children = root.children.reduce((list, node) => {
     if (node.tagName === tagName) {
       // H2 heading - create a new `.h2-section`.
-      const body = wrapper(bodyClass, [])
-      return [...list, wrapper(sectionClass, [node, body])]
+      const extraClass = getClassName(node)
+      const body = wrapper([...bodyClass, extraClass], [])
+      return [...list, wrapper([...sectionClass, extraClass], [node, body])]
     } else if (list.length) {
       // Not prelude
       // TODO immutable-ize
@@ -65,6 +66,10 @@ export function wrapify (
     }
   }, [])
   return root
+}
+
+function getClassName (node) {
+  return node && (node.properties || {}).className
 }
 
 /**

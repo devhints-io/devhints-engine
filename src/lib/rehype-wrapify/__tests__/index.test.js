@@ -154,4 +154,33 @@ describe('wrapAll', () => {
     const output = wrap(input)
     expect(renderAst(output)).toEqual(renderAst(expected))
   })
+
+  it('accounts for classes', () => {
+    const input = h('div', [
+      h('h2', 'Intro'),
+      h('h3.one', 'Installation'),
+      h('p', '(hello)'),
+      h('h3.two', 'Usage'),
+      h('p', '(world)')
+    ])
+
+    const expected = h('div', [
+      h('.h2-section', [
+        h('h2', 'Intro'),
+        h('.body.h3-section-list', [
+          h('.h3-section.one', [
+            h('h3.one', 'Installation'),
+            h('.body.one', [h('p', '(hello)')])
+          ]),
+          h('.h3-section.two', [
+            h('h3.two', 'Usage'),
+            h('.body.two', [h('p', '(world)')]) // Including the body?
+          ])
+        ])
+      ])
+    ])
+
+    const output = wrap(input)
+    expect(renderAst(output)).toEqual(renderAst(expected))
+  })
 })
