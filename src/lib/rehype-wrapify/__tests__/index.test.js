@@ -1,13 +1,22 @@
 /* eslint-env jest */
-// import h from 'hastscript'
 import React from 'react'
 import RehypeReact from 'rehype-react'
 import wrap, { wrapH2, wrapH3 } from '../index'
 import h from 'hastscript'
 
+/*
+ * We serialize the test markup as React elements, not hast.
+ * Just for practicality... Jest has better test output for
+ * React elements.
+ */
+
 const renderAst = new RehypeReact({
   createElement: React.createElement
 }).Compiler
+
+/*
+ * Test wrapping h2
+ */
 
 describe('wrapH2', () => {
   it('works', () => {
@@ -83,6 +92,10 @@ describe('wrapH2', () => {
   })
 })
 
+/*
+ * Test wrapping H3
+ */
+
 describe('wrapH3', () => {
   it('works', () => {
     const input = h('div', [
@@ -103,6 +116,10 @@ describe('wrapH3', () => {
     expect(renderAst(output)).toEqual(renderAst(expected))
   })
 })
+
+/*
+ * Test wrapping all
+ */
 
 describe('wrapAll', () => {
   it('works with one h3', () => {

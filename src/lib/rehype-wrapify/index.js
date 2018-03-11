@@ -1,5 +1,3 @@
-// TODO allow class names in H3
-
 /**
  * Wrap everything.
  */
@@ -54,7 +52,6 @@ export function wrapify (
       return [...list, wrapper([...sectionClass, extraClass], [node, body])]
     } else if (list.length) {
       // Not prelude
-      // TODO immutable-ize
       const last = lastIn(list)
       const body = lastIn(last.children)
       body.children = [...(body.children || []), node]
@@ -66,10 +63,6 @@ export function wrapify (
     }
   }, [])
   return root
-}
-
-function getClassName (node) {
-  return node && (node.properties || {}).className
 }
 
 /**
@@ -95,4 +88,23 @@ function wrapper (className, children) {
     properties: { className },
     children
   }
+}
+
+/**
+ * Returns the class name of a HAST node.
+ */
+
+function getClassName (node) {
+  return node && (node.properties || {}).className
+}
+
+/**
+ * Replaces the last item in an array. If a list is empty, it returns an
+ * empty list.
+ */
+
+function replaceLast (list, item) {
+  if (list.length === 0) return []
+  const head = list.slice(0, list.length - 1)
+  return [...head, item]
 }
