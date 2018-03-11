@@ -2,7 +2,7 @@
 // import h from 'hastscript'
 import React from 'react'
 import RehypeReact from 'rehype-react'
-import { wrapH2, wrapH3 } from '../index'
+import wrap, { wrapH2, wrapH3 } from '../index'
 import h from 'hastscript'
 
 const renderAst = new RehypeReact({
@@ -105,22 +105,53 @@ describe('wrapH3', () => {
 })
 
 describe('wrapAll', () => {
-  it('works', () => {
+  it('works with one h3', () => {
     const input = h('div', [
       h('h3', 'Introduction'),
       h('p', 'hello there')
     ])
 
     const expected = h('div', [
-      h('.h3-section', [
-        h('h3', 'Introduction'),
-        h('.body', [
-          h('p', 'hello there')
+      h('.h2-section', [
+        h('.body.h3-section-list', [
+          h('.h3-section', [
+            h('h3', 'Introduction'),
+            h('.body', [h('p', 'hello there')])
+          ])
         ])
       ])
     ])
 
-    const output = wrapH3(input)
+    const output = wrap(input)
+    expect(renderAst(output)).toEqual(renderAst(expected))
+  })
+
+  it('works with an h2 and an h3', () => {
+    const input = h('div', [
+      h('h2', 'Intro'),
+      h('h3', 'Installation'),
+      h('p', '(hello)'),
+      h('h3', 'Usage'),
+      h('p', '(world)')
+    ])
+
+    const expected = h('div', [
+      h('.h2-section', [
+        h('h2', 'Intro'),
+        h('.body.h3-section-list', [
+          h('.h3-section', [
+            h('h3', 'Installation'),
+            h('.body', [h('p', '(hello)')])
+          ]),
+          h('.h3-section', [
+            h('h3', 'Usage'),
+            h('.body', [h('p', '(world)')])
+          ])
+        ])
+      ])
+    ])
+
+    const output = wrap(input)
     expect(renderAst(output)).toEqual(renderAst(expected))
   })
 })

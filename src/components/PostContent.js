@@ -67,14 +67,10 @@ function isotopify (el /*: Node */) {
   // Load this async'ly, so that it doesn't happen on the server
   const Isotope = require('isotope-layout/dist/isotope.pkgd.js')
 
-  if (el.__isotope) return
-
   const iso = new Isotope(el, {
     itemSelector: '.h3-section',
     transitionDuration: 0
   })
-
-  el.__isotope = iso
 
   const images /*: NodeList */ = el.querySelectorAll('img')
 
