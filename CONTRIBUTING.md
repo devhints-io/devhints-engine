@@ -12,25 +12,32 @@
 
 ## Files of interest
 
-#### Layout
+Some files to start digging into:
 
-- [Base layout](src/layouts/index.js) - Basic `<html>` template
+#### Pages
 
-#### Pages & templates
+- [`HomePage`](src/pages/index.js)
+- [`NotFoundPage`](src/pages/404.js)
+- [`CheatsheetTemplate`](src/templates/SheetTemplate.js)
 
-- [Home page](src/pages/index.js)
-- [Cheatsheet](src/templates/SheetTemplate.js)
+#### React
 
-#### Styles (CSS)
+- [`PostContent`](src/components/PostContent.js)
 
-- [Main entry point](src/styles/index.css)
-- [Variables](src/styles/variables.css)
+#### CSS
+
+- [`index.css`](src/styles/index.css) (Main entry point)
+- [`variables.css`](src/styles/variables.css)
 
 #### Config
 
-- [Config](config.js) - site content, secrets, etc
+- [`CONFIG`](config.js) (site content, secrets, etc)
+
+#### Boilerplate
+
+- [`TemplateWrapper`](src/layouts/index.js) (Basic `<html>` template)
 
 #### Notable cheatsheets
 
-- [Vim](sheets/vim.md)
-- [Sketch](sheets/sketch.md)
+- [`vim.md`](sheets/vim.md)
+- [`sketch.md`](sheets/sketch.md)
