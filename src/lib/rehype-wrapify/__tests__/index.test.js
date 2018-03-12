@@ -2,7 +2,6 @@
 /* eslint-env jest */
 
 import React from 'react'
-import RehypeReact from 'rehype-react'
 import wrap, { wrapH2, wrapH3 } from '../index'
 import h from 'hastscript'
 
