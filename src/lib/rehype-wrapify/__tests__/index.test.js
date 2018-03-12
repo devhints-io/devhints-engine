@@ -1,8 +1,14 @@
+/* @jsx hJsx */
 /* eslint-env jest */
+
 import React from 'react'
 import RehypeReact from 'rehype-react'
 import wrap, { wrapH2, wrapH3 } from '../index'
 import h from 'hastscript'
+
+/* eslint-disable no-unused-vars */
+import hJsx from '../../helpers/h_jsx'
+/* eslint-enable no-unused-vars */
 
 /*
  * We serialize the test markup as React elements, not hast.
@@ -20,48 +26,67 @@ const renderAst = new RehypeReact({
 
 describe('wrapH2', () => {
   it('works', () => {
-    const input = h('div', [h('h2', 'Introduction'), h('p', 'hello there')])
+    const input = (
+      <div>
+        <h2>Introduction</h2>
+        <p>Hello there</p>
+      </div>
+    )
 
-    const expected = h('div', [
-      h('.h2-section', [
-        h('h2', 'Introduction'),
-        h('.body.h3-section-list', [h('p', 'hello there')])
-      ])
-    ])
+    const expected = (
+      <div>
+        <div className='h2-section'>
+          <h2>Introduction</h2>
+          <div className='body h3-section-list'>
+            <p>Hello there</p>
+          </div>
+        </div>
+      </div>
+    )
 
     const output = wrapH2(input)
     expect(renderAst(output)).toEqual(renderAst(expected))
   })
 
   it('finds 2 h2s', () => {
-    const input = h('div', [
-      h('h2', 'Introduction'),
-      h('p', 'hello there'),
-      h('h2', 'Usage'),
-      h('p', 'how are you')
-    ])
+    const input = (
+      <div>
+        <h2>Introduction</h2>
+        <p>hello there</p>
+        <h2>Usage</h2>
+        <p>how are you</p>
+      </div>
+    )
 
-    const expected = h('div', [
-      h('.h2-section', [
-        h('h2', 'Introduction'),
-        h('.body.h3-section-list', [h('p', 'hello there')])
-      ]),
-      h('.h2-section', [
-        h('h2', 'Usage'),
-        h('.body.h3-section-list', [h('p', 'how are you')])
-      ])
-    ])
+    const expected = (
+      <div>
+        <div className='h2-section'>
+          <h2>Introduction</h2>
+          <div className='body h3-section-list'>
+            <p>hello there</p>
+          </div>
+        </div>
+        <div className='h2-section'>
+          <h2>Usage</h2>
+          <div className='body h3-section-list'>
+            <p>how are you</p>
+          </div>
+        </div>
+      </div>
+    )
 
     const output = wrapH2(input)
     expect(renderAst(output)).toEqual(renderAst(expected))
   })
 
   it('works preludes', () => {
-    const input = h('div', [
-      h('p', 'hello there'),
-      h('h2', 'Usage'),
-      h('p', 'how are you')
-    ])
+    const input = (
+      <div>
+        <p>hello there</p>
+        <h2>Usage</h2>
+        <p>how are you</p>
+      </div>
+    )
 
     const expected = h('div', [
       h('.h2-section', [
@@ -85,7 +110,12 @@ describe('wrapH2', () => {
 
 describe('wrapH3', () => {
   it('works', () => {
-    const input = h('div', [h('h3', 'Introduction'), h('p', 'hello there')])
+    const input = (
+      <div>
+        <h3>Introduction</h3>
+        <p>hello there</p>
+      </div>
+    )
 
     const expected = h('div', [
       h('.h3-section', [
@@ -105,7 +135,12 @@ describe('wrapH3', () => {
 
 describe('wrapAll', () => {
   it('works with one h3', () => {
-    const input = h('div', [h('h3', 'Introduction'), h('p', 'hello there')])
+    const input = (
+      <div>
+        <h3>Introduction</h3>
+        <p>hello there</p>
+      </div>
+    )
 
     const expected = h('div', [
       h('.h2-section', [
@@ -123,13 +158,15 @@ describe('wrapAll', () => {
   })
 
   it('works with an h2 and an h3', () => {
-    const input = h('div', [
-      h('h2', 'Intro'),
-      h('h3', 'Installation'),
-      h('p', '(hello)'),
-      h('h3', 'Usage'),
-      h('p', '(world)')
-    ])
+    const input = (
+      <div>
+        <h2>Intro</h2>
+        <h3>Installation</h3>
+        <p>(hello)</p>
+        <h3>Usage</h3>
+        <p>(world)</p>
+      </div>
+    )
 
     const expected = h('div', [
       h('.h2-section', [
@@ -149,13 +186,15 @@ describe('wrapAll', () => {
   })
 
   it('accounts for classes', () => {
-    const input = h('div', [
-      h('h2', 'Intro'),
-      h('h3.one', 'Installation'),
-      h('p', '(hello)'),
-      h('h3.two', 'Usage'),
-      h('p', '(world)')
-    ])
+    const input = (
+      <div>
+        <h2>Intro</h2>
+        <h3 className='one'>Installation</h3>
+        <p>(hello)</p>
+        <h3 className='two'>Usage</h3>
+        <p>(world)</p>
+      </div>
+    )
 
     const expected = h('div', [
       h('.h2-section', [
