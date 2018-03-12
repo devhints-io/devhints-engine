@@ -8,17 +8,8 @@ import h from 'hastscript'
 
 /* eslint-disable no-unused-vars */
 import hJsx from '../../helpers/h_jsx'
+import render from '../../helpers/hast_to_react'
 /* eslint-enable no-unused-vars */
-
-/*
- * We serialize the test markup as React elements, not hast.
- * Just for practicality... Jest has better test output for
- * React elements.
- */
-
-const renderAst = new RehypeReact({
-  createElement: React.createElement
-}).Compiler
 
 /*
  * Test wrapping h2
@@ -45,7 +36,7 @@ describe('wrapH2', () => {
     )
 
     const output = wrapH2(input)
-    expect(renderAst(output)).toEqual(renderAst(expected))
+    expect(render(output)).toEqual(render(expected))
   })
 
   it('finds 2 h2s', () => {
@@ -76,7 +67,7 @@ describe('wrapH2', () => {
     )
 
     const output = wrapH2(input)
-    expect(renderAst(output)).toEqual(renderAst(expected))
+    expect(render(output)).toEqual(render(expected))
   })
 
   it('works preludes', () => {
@@ -100,7 +91,7 @@ describe('wrapH2', () => {
     ])
 
     const output = wrapH2(input)
-    expect(renderAst(output)).toEqual(renderAst(expected))
+    expect(render(output)).toEqual(render(expected))
   })
 })
 
@@ -125,7 +116,7 @@ describe('wrapH3', () => {
     ])
 
     const output = wrapH3(input)
-    expect(renderAst(output)).toEqual(renderAst(expected))
+    expect(render(output)).toEqual(render(expected))
   })
 })
 
@@ -154,7 +145,7 @@ describe('wrapAll', () => {
     ])
 
     const output = wrap(input)
-    expect(renderAst(output)).toEqual(renderAst(expected))
+    expect(render(output)).toEqual(render(expected))
   })
 
   it('works with an h2 and an h3', () => {
@@ -182,7 +173,7 @@ describe('wrapAll', () => {
     ])
 
     const output = wrap(input)
-    expect(renderAst(output)).toEqual(renderAst(expected))
+    expect(render(output)).toEqual(render(expected))
   })
 
   it('accounts for classes', () => {
@@ -213,6 +204,6 @@ describe('wrapAll', () => {
     ])
 
     const output = wrap(input)
-    expect(renderAst(output)).toEqual(renderAst(expected))
+    expect(render(output)).toEqual(render(expected))
   })
 })
