@@ -5,6 +5,11 @@
 /* Variables */
 @import './variables.css';
 
+/* Utils */
+@import './utils/gutter-padding.css';
+@import './utils/heading-style.css';
+@import './utils/section-gutter.css';
+
 /* Base */
 @import './base/base.css';
 

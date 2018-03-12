@@ -5,8 +5,7 @@
 
 .h3-section-list {
   & {
-    /* TODO @include section-gutter(margin-left, $multiplier: -1); */
-    /* TODO @include section-gutter(margin-right, $multiplier: -1); */
+    @apply --section-gutter-horizontal-margin--1;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -21,7 +20,7 @@
 
   /* Each section */
   & > .h3-section {
-    /* TODO @include section-gutter(padding); */
+    @apply --section-gutter-padding;
     float: left;
     width: 100%;
   }

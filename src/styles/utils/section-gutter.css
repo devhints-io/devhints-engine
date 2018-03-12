@@ -1,0 +1,35 @@
+/* @mixin section-gutter($property, $multiplier: 1) { */
+/*   #{$property}: 16px * $multiplier; */
+
+/*   @media (max-width: $area-width + 32px) { */
+/*     #{$property}: 8px * $multiplier; */
+/*   } */
+/* } */
+
+/*
+ * Threshold until section-gutter collapses
+ * ($area-width + 32px)
+ */
+@custom-media --section-gutter-max (max-width: 1264px);
+
+:root {
+  --section-gutter-padding: {
+    & {
+      padding: 16px;
+    }
+
+    @media (--section-gutter-max) {
+      padding: 8px;
+    }
+  }
+
+  --section-gutter-horizontal-margin--1: {
+    & {
+      padding: -16px;
+    }
+
+    @media (--section-gutter-max) {
+      padding: -8px;
+    }
+  }
+}

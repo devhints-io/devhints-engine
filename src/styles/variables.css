@@ -70,10 +70,12 @@
   --dark-line-color: color(var(--base-mute) alpha(20%));
 }
 
-/*   --base-a-gradient: linear-gradient( */
-/*   5deg, */
-/*   $base-a, */
-/*   adjust-color($base-a, $lightness: 2%, $hue: 16deg)); */
+:root /* Gradients */ {
+  /*   --base-a-gradient: linear-gradient( */
+  /*   5deg, */
+  /*   $base-a, */
+  /*   adjust-color($base-a, $lightness: 2%, $hue: 16deg)); */
+}
 
 :root /* Shadows */ {
   --shadow2:
@@ -89,11 +91,7 @@
     0 8px 12px color(var(--base-b3) alpha(1%));
 }
 
-/*
- * Modular scale
- */
-
-:root {
+:root /* Modular scale */ {
   --ms-ratio-sm: 1.12;
   --ms-ratio-md: 1.15;
   --ms-ratio-lg: 1.16;
@@ -105,67 +103,3 @@
 
 @custom-media --ms-viewport-md (width > 480px);
 @custom-media --ms-viewport-lg (width > 768px);
-
-/*
- * (Mixin) heading-style
- * For top-level headings
- */
-
-:root {
-  --heading-style: {
-    & {
-      margin: 0;
-      padding: 0;
-      margin-bottom: calc(16px + 8px);
-      margin-top: 64px;
-      position: relative;
-    }
-
-    @media (max-width: 768px) {
-      margin-bottom: 8px;
-      margin-top: 32px;
-    }
-
-    @media (max-width: 480px) {
-      margin-bottom: 8px;
-      margin-top: 32px;
-    }
-  }
-}
-
-
-/*
- * (Mixin) gutter-padding-*
- */
-
-:root {
-  --gutter-padding: {
-    & {
-      padding: var(--gut);
-    }
-
-    @media (max-width: 480px) {
-      padding: var(--gut-small);
-    }
-  }
-
-  --gutter-padding-left: {
-    & {
-      padding-left: var(--gut);
-    }
-
-    @media (max-width: 480px) {
-      padding-left: var(--gut-small);
-    }
-  }
-
-  --gutter-padding-right: {
-    & {
-      padding-right: var(--gut);
-    }
-
-    @media (max-width: 480px) {
-      padding-right: var(--gut-small);
-    }
-  }
-}
