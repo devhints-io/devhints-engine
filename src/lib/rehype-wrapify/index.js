@@ -1,3 +1,11 @@
+import {
+  getClassName,
+  updateLastChild,
+  updateLast,
+  updateChildren,
+  appendChild
+} from '../helpers/hast'
+
 /**
  * Wrap everything.
  */
@@ -5,11 +13,11 @@
 export default function (root) {
   root = wrapH2(root)
 
-  root = updateKey(root, 'children', (children) => (
-    children.map(section => (
-      updateLastChild(section, (body) => wrapH3(body))
-    ))
- ))
+  root = updateChildren(root, children =>
+    (children || []).map(section =>
+      updateLastChild(section, body => wrapH3(body))
+    )
+  )
 
   return root
 }
@@ -54,15 +62,10 @@ export function wrapify (
       return [...list, wrapper([...sectionClass, extraClass], [node, body])]
     } else if (list.length) {
       // Not prelude
-      const last = lastIn(list)
-      const body = lastIn(last.children)
-      return replaceLast(list, {
+      return updateLast(list, last => ({
         ...last,
-        children: replaceLast(last.children, {
-          ...body,
-          children: [...(body.children || []), node]
-        })
-      })
+        children: updateLast(last.children, body => appendChild(body, node))
+      }))
     } else {
       // Prelude
       const body = wrapper(bodyClass, [node])
@@ -96,40 +99,4 @@ function wrapper (className, children) {
     properties: { className },
     children
   }
-}
-
-/**
- * Returns the class name of a HAST node.
- */
-
-function getClassName (node) {
-  return node && (node.properties || {}).className
-}
-
-/**
- * Replaces the last item in an array. If a list is empty, it returns an
- * empty list.
- */
-
-function replaceLast (list, item) {
-  if (list.length === 0) return []
-  const head = list.slice(0, list.length - 1)
-  return [...head, item]
-}
-
-function updateLast (list, fn) {
-  if (list.length === 0) return []
-  const head = list.slice(0, list.length - 1)
-  const item = list[list.length - 1]
-  return [...head, fn(item)]
-}
-
-function updateKey (node, key, fn) {
-  return {...node, [key]: fn(node[key]) }
-}
-
-function updateLastChild (node, fn) {
-  return updateKey(node, 'children', (children) => (
-    updateLast(children, fn)
-  ))
 }
