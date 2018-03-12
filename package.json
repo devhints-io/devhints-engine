@@ -28,7 +28,7 @@
     "develop": "gatsby develop",
     "test": "jest",
     "lint": "eslint \"src/\"",
-    "ci": "run-s test lint"
+    "ci": "run-s test lint build"
   },
   "devDependencies": {
     "babel-eslint": "8",
