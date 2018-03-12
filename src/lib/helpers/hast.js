@@ -14,6 +14,15 @@
   export type HastNodeList = Array<HastNode>
 */
 
+// htmlAst = {
+//   type: 'element'
+//   tagName: 'h2'
+//   properties: {}
+//   children: []
+// }
+// { type: 'comment', value: 'sup' }
+// { type: 'text', value: 'hello' }
+
 /**
  * Returns the class name of a HAST node.
  */

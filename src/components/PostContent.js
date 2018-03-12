@@ -20,15 +20,6 @@ export default class PostContent extends React.PureComponent {
     const { htmlAst, className } = this.props
     let content = renderAst(wrapify(htmlAst))
 
-    // htmlAst = {
-    //   type: 'element'
-    //   tagName: 'h2'
-    //   properties: {}
-    //   children: []
-    // }
-    // { type: 'comment', value: 'sup' }
-    // { type: 'text', value: 'hello' }
-
     return (
       <div
         className={className} role='main'
