@@ -3,50 +3,79 @@
  */
 
 export default function decorate (root, options = {}) {
-  // STUB
-  if (root.tagName === 'h1') {
-    return { ...root, properties: { className: ['hello'] } }
-  }
-
-  // Nothing to do
+  // Nothing to do for leaf nodes
   if (!root.children) return root
 
-  const children = root.children
+  // Work and recurse
+  let children = root.children
+    .map(c => decorate(c, options))
+    .reduce(reduceNodes, [])
 
-  root = { ...root, children: children.map(c => decorate(c, options)) }
-
-  return root
+  return { ...root, children }
 }
 
 /**
- * Reduces a list. (lol)
+ * Reduces a list of nodes. (lol)
  */
 
-export function reducer (list, node) {
-  const comment = parseComment(node)
-  if (!comment) {
-    return [...list, node]
-  }
+export function reduceNodes (list /*: HastNodeList */, node /*: HastNode */) {
+  const commentProps = parseComment(node)
+
+  // Pass-thru for non-comments
+  if (!commentProps) return [...list, node]
 
   // Replace the last
-  const head = trimRight(list)
+  const head = trimEnd(list)
   const tail = last(list)
 
-  return [...head, tail]
+  return [...head, applyProps(tail, commentProps)]
 }
 
 /**
  * Returns information about a comment node.
+ *
+ * @example
+ *     comment = { type: 'comment', value: '{.hello.world}' }
+ *     parseComment(comment)
+ *     // => { className: ['hello', 'world']
  */
 
-function parseComment (node) {
+export function parseComment (node /*: HastNode */) /*: HastProps? */ {
+  if (node.type === 'comment') {
+    // TODO actual parsing
+    return { className: ['hello'] }
+  }
 }
 
-function last (list) {
+/**
+ * Applies properties into a HAST node.
+ */
+
+function applyProps (node /*: HastNode */, props /*: HastProps */) {
+  const result /*: HastNode */ = {
+    ...node,
+    properties: {
+      ...(node.properties || {}), ...props
+    }
+  }
+
+  return result
+}
+
+/**
+ * Returns the last item in a list.
+ */
+
+function last (list /* Array<*> */) /*: * */ {
   if (!list.length) return
   return list[list.length - 1]
 }
 
-function trimRight (list /*: Array<*> */, n /*: number */ = 1) {
-  return list.slice(0, list.length - n)
+/**
+ * Trims `n` items off the end of an array.
+ */
+
+function trimEnd (list /*: Array<*> */, n /*: number */ = 1) {
+  const result /*: Array<*> */ = list.slice(0, list.length - n)
+  return result
 }
