@@ -1,5 +1,6 @@
 /* eslint-disable no-new */
 import React from 'react'
+import decorate from '../lib/rehype-decorate'
 import wrapify from '../lib/rehype-wrapify'
 import RehypeReact from 'rehype-react'
 
@@ -18,7 +19,7 @@ export const renderAst = new RehypeReact({
 export default class PostContent extends React.PureComponent {
   render () {
     const { htmlAst, className } = this.props
-    let content = renderAst(wrapify(htmlAst))
+    let content = renderAst(wrapify(decorate(htmlAst)))
 
     return (
       <div
