@@ -25,11 +25,11 @@
 
   --section-gutter-horizontal-margin--1: {
     & {
-      padding: -16px;
+      margin: -16px;
     }
 
     @media (--section-gutter-max) {
-      padding: -8px;
+      margin: -8px;
     }
   }
 }

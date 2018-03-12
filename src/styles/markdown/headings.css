@@ -3,9 +3,8 @@
  */
 
 .MarkdownBody h2 {
-  /* TODO */
-  /* @include heading-style; */
-  /* @include font-size(6); */
+  @apply --heading-style;
+  @apply --font-size-6;
   line-height: 1.2;
   font-weight: 200;
   font-family: var(--heading-font);
@@ -13,11 +12,11 @@
 }
 
 .MarkdownBody h3 {
+  @apply --font-size-2;
   margin: 0;
   padding: 0;
   margin-bottom: 16px;
   font-family: var(--heading-font);
-  /* @include font-size(2); */
   font-weight: 400;
   color: var(--base-a);
 }
