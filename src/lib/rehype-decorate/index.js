@@ -1,3 +1,5 @@
+import getProps from './get_props'
+
 /**
  * Decorates.
  */
@@ -41,10 +43,12 @@ export function reduceNodes (list /*: HastNodeList */, node /*: HastNode */) {
  */
 
 export function parseComment (node /*: HastNode */) /*: HastProps? */ {
-  if (node.type === 'comment') {
-    // TODO actual parsing
-    return { className: ['hello'] }
-  }
+  if (node.type !== 'comment') return
+
+  const m = node.value.match(/^\s*{\s*(.*?)\s*}\s*$/)
+  if (!m) return
+
+  return getProps(m[1])
 }
 
 /**
@@ -52,10 +56,18 @@ export function parseComment (node /*: HastNode */) /*: HastProps? */ {
  */
 
 function applyProps (node /*: HastNode */, props /*: HastProps */) {
+  // Reject text nodes
+  if (node.type !== 'element') return node
+
+  const prevProps = node.properties || {}
+  const className = [...(prevProps.className || []), ...(props.className || [])]
+
   const result /*: HastNode */ = {
     ...node,
     properties: {
-      ...(node.properties || {}), ...props
+      ...prevProps,
+      ...props,
+      className: className.length ? className : undefined
     }
   }
 
