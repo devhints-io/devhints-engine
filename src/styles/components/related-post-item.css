@@ -1,0 +1,80 @@
+.related-post-item {
+  & {
+    display: flex;
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  /* Layout */
+  & > a {
+    flex: 1 1 100%;
+    display: block;
+    border-radius: 2px;
+    box-shadow: var(--shadow2);
+    padding: 16px;
+    text-decoration: none;
+  }
+
+  /* Color */
+  & > a,
+  & > a:visited {
+    background: white;
+    color: var(--base-mute);
+
+    & > strong {
+      color: var(--base-a);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--base-a);
+    }
+
+    &:hover > strong,
+    &:focus > strong {
+      /* TODO color: darken(var(--base-a), 16%); */
+    }
+  }
+
+  &:first-of-type > a,
+  &:first-of-type > a:visited {
+    background: var(--base-a);
+    color: color(white alpha(50%));
+
+    & > strong {
+      color: white;
+    }
+
+    &:hover,
+    &:focus {
+      color: white;
+    }
+
+    &:hover > strong,
+    &:focus > strong {
+      color: white;
+    }
+
+    &:hover,
+    &:focus {
+      /* TODO background: darken($base-a, 8%); */
+    }
+  }
+
+  /* Two lines when bigger */
+  @media (min-width: 481px) {
+    & > a > strong,
+    & > a > span {
+      display: block;
+    }
+  }
+
+  & > a > strong {
+    @apply --font-size-1;
+    font-weight: normal;
+  }
+
+  & > a > span {
+    @apply --font-size--1;
+  }
+}

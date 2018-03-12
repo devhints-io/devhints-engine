@@ -37,6 +37,8 @@
 @import './components/home-button.css';
 @import './components/main-heading.css';
 @import './components/pre-footer.css';
+@import './components/related-post-item.css';
+@import './components/related-post-list.css';
 @import './components/site-header.css';
 @import './components/top-nav.css';
 @import './components/top-sheet.css';
