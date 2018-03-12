@@ -54,8 +54,13 @@ export function wrapify (
       // Not prelude
       const last = lastIn(list)
       const body = lastIn(last.children)
-      body.children = [...(body.children || []), node]
-      return list
+      return replaceLast(list, {
+        ...last,
+        children: replaceLast(last.children, {
+          ...body,
+          children: [...(body.children || []), node]
+        })
+      })
     } else {
       // Prelude
       const body = wrapper(bodyClass, [node])
