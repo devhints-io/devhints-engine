@@ -6,40 +6,68 @@
  *     // => { className: ['hello'], id: 'world' }
  */
 
-export default function getProps (str /*: string */) {
-  let m
-  let result = {}
+export default function getProps (input /*: string */) {
+  return reduce(input, {}, (state, input) => {
+    let m
 
-  while (str.length > 0) {
-    if (m = str.match(/^\s*\.([a-zA-Z0-9\-_]+)/)) {
-      if (!result.className) result.className = []
-      result.className.push(m[1])
-      shift()
-    } else if (m = str.match(/^\s*#([a-zA-Z0-9\-_]+)/)) {
-      result.id = m[1]
-      shift()
-    } else if (m = str.match(/^\s*([a-zA-Z0-9\-_]+)="([^"]*)"/)) {
-      result[m[1]] = m[2]
-      shift()
-    } else if (m = str.match(/^\s*([a-zA-Z0-9\-_]+)='([^']*)'/)) {
-      result[m[1]] = m[2]
-      shift()
-    } else if (m = str.match(/^\s*([a-zA-Z0-9\-_]+)=([^ ]*)/)) {
-      result[m[1]] = m[2]
-      shift()
-    } else if (m = str.match(/^\s*([a-zA-Z0-9\-_]+)/)) {
-      result[m[1]] = true
-      shift()
-    } else if (m = str.match(/^\s+/)) {
-      shift()
-    } else {
-      return result
-    }
+    ;[m, input] = match(input, /^\s*\.([a-zA-Z0-9\-_]+)/)
+    if (m) { return [{ ...state, className: [ ...(state.className || []), m[1] ] }, input] }
+
+    ;[m, input] = match(input, /^\s*#([a-zA-Z0-9\-_]+)/)
+    if (m) { return [{ ...state, id: m[1] }, input] }
+
+    ;[m, input] = match(input, /^\s*([a-zA-Z0-9\-_]+)="([^"]*)"/)
+    if (m) { return [{ ...state, [m[1]]: m[2] }, input] }
+
+    ;[m, input] = match(input, /^\s*([a-zA-Z0-9\-_]+)='([^']*)'/)
+    if (m) { return [{ ...state, [m[1]]: m[2] }, input] }
+
+    ;[m, input] = match(input, /^\s*([a-zA-Z0-9\-_]+)=([^ ]*)/)
+    if (m) { return [{ ...state, [m[1]]: m[2] }, input] }
+
+    ;[m, input] = match(input, /^\s*([a-zA-Z0-9\-_]+)/)
+    if (m) { return [{ ...state, [m[1]]: true }, input] }
+
+    ;[m, input] = match(input, /^\s+/)
+    if (m) { return [state, input] }
+
+    // Terminate the loop
+    return [state, null]
+  })
+}
+
+/**
+ * Matches a string to a regexp. Returns a tuple of the result and the rest.
+ * @private
+ *
+ * @example
+ *      match('abc123456', /^abc/)
+ *      => [ ['abc'], '123456' ]
+ *
+ *      match('abc123456', /^XYZ/)
+ *      => [ null, 'abc123456' ]
+ */
+
+function match (str, re) {
+  const m = str.match(re)
+
+  if (m) {
+    const rest = str.substr(m[0].length)
+    return [ m, rest ]
+  } else {
+    return [ null, str ]
   }
+}
 
-  return result
+/**
+ * Keep running `fn(state, input) => [state, input]` until input is exhausted.
+ * @private
+ */
 
-  function shift () {
-    str = str.substr(m[0].length)
-  }
+function reduce (input, state, fn) {
+  let i = 0
+  if (!input) return state
+
+  ;[state, input] = fn(state, input)
+  return reduce(input, state, fn)
 }
