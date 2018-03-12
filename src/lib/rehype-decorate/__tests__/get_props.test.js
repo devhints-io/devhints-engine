@@ -42,7 +42,22 @@ it('data attrs', () => {
   expect(output).toEqual({ 'data-required': true })
 })
 
-it('attr values', () => {
+it('attr values, bare', () => {
   const output = get('width=300 height=400')
+  expect(output).toEqual({ width: '300', height: '400' })
+})
+
+it('attr values, quoted', () => {
+  const output = get('width="300" height=\'400\'')
+  expect(output).toEqual({ width: '300', height: '400' })
+})
+
+it('discard weird stuff', () => {
+  const output = get('width="300" height=\'400\' $@_')
+  expect(output).toEqual({ width: '300', height: '400' })
+})
+
+it('spaces', () => {
+  const output = get('  width="300" height=\'400\'  ')
   expect(output).toEqual({ width: '300', height: '400' })
 })

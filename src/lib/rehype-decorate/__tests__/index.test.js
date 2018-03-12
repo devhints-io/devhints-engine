@@ -131,6 +131,40 @@ describe('multiple elements', () => {
 
     expect(render(output)).toEqual(render(expected))
   })
+
+  it('inert comments, after', () => {
+    const input = h('div', [
+      h('h1', 'Hello'),
+      comment('{.one}'),
+      comment('oh hey')
+    ])
+
+    const output = decorate(input)
+
+    const expected = h('div', [
+      h('h1.one', 'Hello'),
+      comment('oh hey')
+    ])
+
+    expect(render(output)).toEqual(render(expected))
+  })
+
+  it('inert comments, before', () => {
+    const input = h('div', [
+      h('h1', 'Hello'),
+      comment('oh hey'),
+      comment('{.one}')
+    ])
+
+    const output = decorate(input)
+
+    const expected = h('div', [
+      h('h1', 'Hello'),
+      comment('oh hey')
+    ])
+
+    expect(render(output)).toEqual(render(expected))
+  })
 })
 
 /*
