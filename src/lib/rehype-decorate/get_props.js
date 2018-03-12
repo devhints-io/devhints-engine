@@ -2,34 +2,30 @@
  * Gets props from a directive.
  *
  * @example
- *     getProps('.hello #world')
- *     // => { className: ['hello'], id: 'world' }
+ *     getProps('.hello .hi #world')
+ *     // => { className: ['hello', 'hi'], id: 'world' }
+
+ *     getProps('.hello')
+ *     // => { className: ['hello'] }
  */
 
 export default function getProps (input /*: string */) {
   return reduce(input, {}, (state, input) => {
     let m
-
     ;[m, input] = match(input, /^\s*\.([a-zA-Z0-9\-_]+)/)
-    if (m) { return [{ ...state, className: [ ...(state.className || []), m[1] ] }, input] }
-
+    if (m) return [addClassName(state, m[1]), input]
     ;[m, input] = match(input, /^\s*#([a-zA-Z0-9\-_]+)/)
-    if (m) { return [{ ...state, id: m[1] }, input] }
-
+    if (m) return [{ ...state, id: m[1] }, input]
     ;[m, input] = match(input, /^\s*([a-zA-Z0-9\-_]+)="([^"]*)"/)
-    if (m) { return [{ ...state, [m[1]]: m[2] }, input] }
-
+    if (m) return [{ ...state, [m[1]]: m[2] }, input]
     ;[m, input] = match(input, /^\s*([a-zA-Z0-9\-_]+)='([^']*)'/)
-    if (m) { return [{ ...state, [m[1]]: m[2] }, input] }
-
+    if (m) return [{ ...state, [m[1]]: m[2] }, input]
     ;[m, input] = match(input, /^\s*([a-zA-Z0-9\-_]+)=([^ ]*)/)
-    if (m) { return [{ ...state, [m[1]]: m[2] }, input] }
-
+    if (m) return [{ ...state, [m[1]]: m[2] }, input]
     ;[m, input] = match(input, /^\s*([a-zA-Z0-9\-_]+)/)
-    if (m) { return [{ ...state, [m[1]]: true }, input] }
-
+    if (m) return [{ ...state, [m[1]]: true }, input]
     ;[m, input] = match(input, /^\s+/)
-    if (m) { return [state, input] }
+    if (m) return [state, input]
 
     // Terminate the loop
     return [state, null]
@@ -53,9 +49,9 @@ function match (str, re) {
 
   if (m) {
     const rest = str.substr(m[0].length)
-    return [ m, rest ]
+    return [m, rest]
   } else {
-    return [ null, str ]
+    return [null, str]
   }
 }
 
@@ -67,7 +63,18 @@ function match (str, re) {
 function reduce (input, state, fn) {
   let i = 0
   if (!input) return state
-
   ;[state, input] = fn(state, input)
   return reduce(input, state, fn)
+}
+
+/**
+ * Adds a class name to properties.
+ * @private
+ */
+
+function addClassName (state, className) {
+  return {
+    ...state,
+    className: [...(state.className || []), className]
+  }
 }

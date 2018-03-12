@@ -1,19 +1,32 @@
 import getProps from './get_props'
 
+export const COMMENT = /^\s*{\s*(.*?)\s*}\s*$/
+
 /**
  * Decorates.
  */
 
-export default function decorate (root, options = {}) {
+export default function decorate (
+  root /*: HastNode */,
+  options /*: Options */ = {}
+) {
   // Nothing to do for leaf nodes
   if (!root.children) return root
 
   // Work and recurse
-  let children = root.children
-    .map(c => decorate(c, options))
-    .reduce(reduceNodes, [])
-
+  const children = decorateFragment(root.children, options)
   return { ...root, children }
+}
+
+/**
+ * Decorates a list of nodes.
+ */
+
+export function decorateFragment (
+  list /*: HastNodeList */,
+  options /*: Options */ = {}
+) {
+  return list.map(c => decorate(c, options)).reduce(reduceNodes, [])
 }
 
 /**
@@ -45,7 +58,7 @@ export function reduceNodes (list /*: HastNodeList */, node /*: HastNode */) {
 export function parseComment (node /*: HastNode */) /*: HastProps? */ {
   if (node.type !== 'comment') return
 
-  const m = node.value.match(/^\s*{\s*(.*?)\s*}\s*$/)
+  const m = node.value.match(COMMENT)
   if (!m) return
 
   return getProps(m[1])
@@ -76,6 +89,14 @@ function applyProps (node /*: HastNode */, props /*: HastProps */) {
 
 /**
  * Returns the last item in a list.
+ * @private
+ *
+ * @example
+ *     last([1, 2, 3, 4, 5])
+ *     => 5
+
+ *     last([])
+ *     => undefined
  */
 
 function last (list /* Array<*> */) /*: * */ {
@@ -85,6 +106,14 @@ function last (list /* Array<*> */) /*: * */ {
 
 /**
  * Trims `n` items off the end of an array.
+ * @private
+ *
+ * @example
+ *     trimEnd(['a', 'b', 'c', 'd', 'e'], 1)
+ *     => ['a', 'b', 'c', 'd']
+ *
+ *     trimEnd(['a', 'b', 'c', 'd', 'e'], 2)
+ *     => ['a', 'b', 'c']
  */
 
 function trimEnd (list /*: Array<*> */, n /*: number */ = 1) {
