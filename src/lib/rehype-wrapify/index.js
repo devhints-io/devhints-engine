@@ -4,10 +4,12 @@
 
 export default function (root) {
   root = wrapH2(root)
-  root.children.map(section => {
-    const body = lastIn(section.children)
-    wrapH3(body)
-  })
+
+  root = updateKey(root, 'children', (children) => (
+    children.map(section => (
+      updateLastChild(section, (body) => wrapH3(body))
+    ))
+ ))
 
   return root
 }
@@ -44,7 +46,7 @@ export function wrapify (
   root,
   { tagName = 'h2', sectionClass = ['h2-section'], bodyClass = ['body'] } = {}
 ) {
-  root.children = root.children.reduce((list, node) => {
+  const children = root.children.reduce((list, node) => {
     if (node.tagName === tagName) {
       // H2 heading - create a new `.h2-section`.
       const extraClass = getClassName(node)
@@ -67,7 +69,8 @@ export function wrapify (
       return [wrapper(sectionClass, [body])]
     }
   }, [])
-  return root
+
+  return { ...root, children }
 }
 
 /**
@@ -112,4 +115,21 @@ function replaceLast (list, item) {
   if (list.length === 0) return []
   const head = list.slice(0, list.length - 1)
   return [...head, item]
+}
+
+function updateLast (list, fn) {
+  if (list.length === 0) return []
+  const head = list.slice(0, list.length - 1)
+  const item = list[list.length - 1]
+  return [...head, fn(item)]
+}
+
+function updateKey (node, key, fn) {
+  return {...node, [key]: fn(node[key]) }
+}
+
+function updateLastChild (node, fn) {
+  return updateKey(node, 'children', (children) => (
+    updateLast(children, fn)
+  ))
 }
