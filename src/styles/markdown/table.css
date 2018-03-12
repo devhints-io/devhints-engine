@@ -1,3 +1,7 @@
+/*
+ * Mixins
+ */
+
 :root {
   --table-align-left: {
     & tr th,
@@ -6,10 +10,21 @@
       text-align: left;
     }
   }
+
+  --shortcut-span: {
+    font-size: 1rem;
+    padding: 5px 6px;
+    padding-left: 8px; /* compensation */
+    background: var(--gray-bg);
+    border-radius: 3px;
+    margin-right: 2px;
+    letter-spacing: 0.1em;
+    color: var(--base-text);
+  }
 }
 
 /*
- * Table
+ * Tables
  */
 
 .MarkdownBody table {
@@ -19,7 +34,7 @@
 
   & tr + tr {
     border-top: solid 1px var(--line-color);
-  })
+  }
 
   /* Horizontal lines */
   & tbody + tbody {
@@ -57,7 +72,7 @@
   }
 
   & td:first-child > code ~ em {
-    /* TODO @include font-size(-1); */
+    @apply --font-size--1;
     font-style: normal;
     color: var(--gray-text);
   }
@@ -69,19 +84,6 @@
   & thead th {
     font-weight: normal;
     color: $base-a;
-  }
-}
-
-:root {
-  --shortcut-span: {
-    font-size: 1rem;
-    padding: 5px 6px;
-    padding-left: 8px; /* compensation */
-    background: var(--gray-bg);
-    border-radius: 3px;
-    margin-right: 2px;
-    letter-spacing: 0.1em;
-    color: var(--base-text);
   }
 }
 
@@ -122,7 +124,7 @@
   @include table-align-left;
 
   & tr td {
-    /* TODO @include font-size(1); */
+    @apply --font-size-1;
     white-space: nowrap;
   }
 
@@ -139,7 +141,7 @@
   }
 
   & tr:last-child td {
-    /* TODO @include font-size(-1); */
+    @apply --font-size--1;
     color: var(--base-mute);
     white-space: auto;
   }

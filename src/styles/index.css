@@ -17,6 +17,7 @@
 @import './markdown/a-em.css';
 @import './markdown/code.css';
 @import './markdown/headings.css';
+@import './markdown/table.css';
 @import './markdown/p.css';
 
 /* Components */
