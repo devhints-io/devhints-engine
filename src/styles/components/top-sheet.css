@@ -1,0 +1,68 @@
+.top-sheet.top-sheet {
+  padding: 4px;
+  text-decoration: none;
+
+  & > .info {
+    display: block;
+    background: var(--base-a);
+    color: white;
+    text-align: left;
+    padding: 16px;
+    width: auto;
+    border-radius: 3px;
+    box-shadow: $shadow2;
+    text-shadow: 0 1px 1px color(var(--base-text) alpha(30%));
+    white-space: nowrap;
+  }
+
+  &:hover > .info,
+  &:focus > .info {
+    /* TODO box-shadow: var(--shadow3); */
+  }
+
+  &:nth-of-type(3n + 1) {
+    & > .info {
+      background: linear-gradient(
+        15deg,
+        var(--base-a),
+        var(--base-a)); /* TODO adjust-color($base-a, $lightness: 4%, $hue: 20deg)); */
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      /* TODO background: darken($base-a, 8%); */
+    }
+  }
+
+  &:nth-of-type(3n + 2) {
+    & > .info {
+      /* TODO background: linear-gradient( */
+      /*   15deg, */
+      /*   $base-mute, */
+      /*   adjust-color($base-mute, $lightness: 4%, $hue: -10deg)); */
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      /* TODO background: darken($base-mute, 8%); */
+    }
+  }
+
+  &:nth-of-type(3n + 3) {
+    & > .info {
+      /* TODO background: linear-gradient( */
+      /*   15deg, */
+      /*   $base-c, */
+      /*   adjust-color($base-c, $lightness: 2%, $hue: 6deg)); */
+    }
+
+    &:hover > .info,
+    &:focus > .info {
+      /* TODO background: darken($base-c, 8%); */
+    }
+  }
+
+  & > .info > .title {
+    display: none;
+  }
+}
