@@ -47,7 +47,7 @@ module.exports = class HTML extends React.Component {
         <body {...bodyAttributes}>
           {preBodyComponents}
           <div
-            class='all'
+            className='all'
             key='body'
             id='___gatsby'
             dangerouslySetInnerHTML={{ __html: body }}

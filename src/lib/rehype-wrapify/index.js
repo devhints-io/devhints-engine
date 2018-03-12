@@ -77,22 +77,10 @@ export function wrapify (
 }
 
 /**
- * Returns the last item in a list.
-
- * @example
- *     lastIn(['a', 'b', 'c'])
- *     // => 'c'
- */
-
-function lastIn (list) {
-  return list[list.length - 1]
-}
-
-/**
  * Creates a wrapper element.
  */
 
-function wrapper (className, children) {
+function wrapper (className /*: Array<string> */, children /*: HastNodeList */) {
   return {
     type: 'element',
     tagName: 'div',

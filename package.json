@@ -5,6 +5,16 @@
   "version": "1.0.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
   "dependencies": {
+    "babel-eslint": "8",
+    "eslint": "4",
+    "eslint-config-standard": "11",
+    "eslint-config-standard-react": "5",
+    "eslint-plugin-flowtype": "2",
+    "eslint-plugin-import": "2",
+    "eslint-plugin-node": "5",
+    "eslint-plugin-promise": "3",
+    "eslint-plugin-react": "7",
+    "eslint-plugin-standard": "3",
     "gatsby": "^1.9.202",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-react-helmet": "^2.0.5",
@@ -28,7 +38,9 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint \"src/\"",
+    "ci": "run-s test lint"
   },
   "devDependencies": {
     "babel-jest": "^22.4.1",
@@ -37,7 +49,8 @@
     "enzyme-to-json": "^3.3.1",
     "hast-util-to-html": "^3.1.0",
     "hastscript": "^3.1.0",
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "npm-run-all": "^4.1.2"
   },
   "jest": {
     "snapshotSerializers": [
