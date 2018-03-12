@@ -1,5 +1,4 @@
 import React from 'react'
-import { mapProps } from 'recompose'
 import Link from 'gatsby-link'
 import TopNav from '../components/TopNav'
 import { CONTENT, LINKS } from '../../config'
