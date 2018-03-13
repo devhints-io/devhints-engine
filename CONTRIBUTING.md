@@ -10,6 +10,24 @@
 
 > Some notes for developers
 
+## Setup notes
+
+Quick start guide:
+
+``` bash
+yarn               # install dependencies
+yarn run develop   # starts a server
+```
+
+Other commands available:
+
+| Command                      | Description            |
+| ---                          | ---                    |
+| `yarn test`                  | Run tests              |
+| `yarn test --watch --notify` | Run tests continuously |
+| `yarn run build`             | build for production   |
+| `yarn run deploy`            | deploy to gh-pages     |
+
 ## Files of interest
 
 Some files to start digging into:
