@@ -1,7 +1,6 @@
 ---
-path: "/sketch"
-title: "Sketch"
-category: Apps
+path: /sketch
+title: Sketch
 ---
 
-What is going on
+What is going on!
