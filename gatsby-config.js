@@ -1,5 +1,6 @@
 module.exports = {
-  pathPrefix: '/cheatsheets-2018',
+  // Enable this for temp GitHub pages deployment
+  // pathPrefix: '/cheatsheets-2018',
   siteMetadata: {
     title: 'Devhints'
   },
