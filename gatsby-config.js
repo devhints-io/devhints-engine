@@ -4,6 +4,12 @@ module.exports = {
     title: 'Devhints'
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`
+      }
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
@@ -15,9 +21,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [
-          'gatsby-remark-component'
-        ]
+        plugins: ['gatsby-remark-component']
       }
     }
   ]

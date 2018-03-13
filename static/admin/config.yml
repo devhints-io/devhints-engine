@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: images
+
+collections:
+  - name: 'sheet'
+    label: 'Sheet'
+    folder: 'sheets'
+    create: true
+    fields:
+      - label: 'Path'
+        name: 'path'
+        widget: 'string'
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
