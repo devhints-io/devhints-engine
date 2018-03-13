@@ -131,7 +131,237 @@ Operators
 Operators let you operate in a range of text (defined by *motion*). These are preformed in normal mode.
 <!-- {.-setup} -->
 
-SNIP
+| Operator | Motion |
+| ---      | ---    |
+| `d`      | `w`    |
+| Operator | Motion |
+<!-- {: .-css-breakdown} -->
+
+### Operators list
+
+| Shortcut | Description                     |
+| ---      | ---                             |
+| `d`      | Delete                          |
+| `y`      | Yank _(copy)_                   |
+| `c`      | Change _(delete then insert)_   |
+| ---      | ---                             |
+| `>`      | Indent right                    |
+| `<`      | Indent left                     |
+| ---      | ---                             |
+| `g~`     | Swap case                       |
+| `gU`     | Uppercase                       |
+| `gu`     | Lowercase                       |
+| ---      | ---                             |
+| `!`      | Filter through external program |
+<!-- {: .-shortcuts} -->
+
+See `:help operator`
+
+### Examples
+
+Combine operators with *motions* to use them.
+<!-- {: .-setup} -->
+
+| Shortcut               | Description                               |
+| ---                    | ---                                       |
+| `d`_d_                 | _(repeat the letter)_ Delete current line |
+| `d`_w_                 | Delete to next word                       |
+| `d`_b_                 | Delete to beginning of word               |
+| _2_`dd`                | Delete 2 lines                            |
+| `d`_ip_                | Delete a text object _(inside paragraph)_ |
+| _(in visual mode)_ `d` | Delete selection                          |
+
+See: `:help motion.txt`
+
+Text objects
+------------
+<!-- {: .-three-column} -->
+
+### Usage
+<!-- {: .-prime} -->
+
+Text objects let you operate (with an *operator*) in or around text blocks (*objects*).
+<!-- {: .-setup} -->
+
+| Operator | Around               | What        |
+| ---      | ---                  | ---         |
+| `v`      | `i`                  | `p`         |
+| Operator | [i]nside or [a]round | Text object |
+<!-- {: .-css-breakdown} -->
+
+### Text objects
+
+| Shortcut               | Description           |
+| ---                    | ---                   |
+| `p`                    | Paragraph             |
+| `w`                    | Word                  |
+| `s`                    | Sentence              |
+| ---                    | ---                   |
+| `[` `(` `{` `<`        | A [], (), or {} block |
+| `'` `"` <code>`</code> | A quoted string       |
+| ---                    | ---                   |
+| `b`                    | A block [(            |
+| `B`                    | A block in [{         |
+| `t`                    | A XML tag block       |
+<!-- {: .-shortcuts} -->
+
+### Examples
+
+| Shortcut    | Description                        |
+| ---         | ---                                |
+| `vip`       | Select paragraph                   |
+| `vipipipip` | Select more                        |
+| ---         | ---                                |
+| `yip`       | Yank inner paragraph               |
+| `yap`       | Yank paragraph (including newline) |
+| ---         | ---                                |
+| `dip`       | Delete inner paragraph             |
+| `cip`       | Change inner paragraph             |
+<!-- {: .-shortcuts} -->
+
+See [Operators](#operators) for other things you can do.
+
+Misc
+----
+
+### Folds
+
+| Shortcut      | Description                  |
+| ---           | ---                          |
+| `zo` _/_ `zO` | Open                         |
+| `zc` _/_ `zC` | Close                        |
+| `za` _/_ `zA` | Toggle                       |
+| ---           | ---                          |
+| `zv`          | Open folds for this line     |
+| ---           | ---                          |
+| `zM`          | Close all                    |
+| `zR`          | Open all                     |
+| ---           | ---                          |
+| `zm`          | Fold more _(foldlevel += 1)_ |
+| `zr`          | Fold less _(foldlevel -= 1)_ |
+| ---           | ---                          |
+| `zx`          | Update folds                 |
+<!-- {: .-shortcuts} -->
+
+Uppercase ones are recursive (eg, `zO` is open recursively).
+
+### Navigation
+
+| Shortcut            | Description                |
+| ---                 | ---                        |
+| `[(` `[{` `[<`      | previous `(` or `{` or `<` |
+| `])`                | next                       |
+| ---                 | ---                        |
+| `[m`                | previous method start      |
+| `[M`                | previous method end        |
+<!-- {: .-shortcuts} -->
+
+### Jumping
+
+| Shortcut | Description                  |
+| ---      | ---                          |
+| `<C-O>`  | Go back to previous location |
+| `<C-I>`  | Go forward                   |
+| ---      | ---                          |
+| `gf`     | go to file in cursor         |
+<!-- {: .-shortcuts} -->
+
+### Counters
+
+| Shortcut | Description      |
+| ---      | ---              |
+| `<C-A>`  | increment number |
+| `<C-X>`  | decrement        |
+<!-- {: .-shortcuts} -->
+
+### Windows
+
+| Shortcut | Description      |
+| ---      | ---              |
+| `z{height}<Cr>` | Resize pane to `{height}` lines tall |
+
+### Tags
+
+| Shortcut              | Description                                     |
+| ---                   | ---                                             |
+| `:tag Classname`      | Jump to first definition of Classname           |
+| ---                   | ---                                             |
+| `<C-]>`               | Jump to definition                              |
+| `g]`                  | See all definitions                             |
+| `<C-T>`               | Go back to last tag                             |
+| `<C-O> <C-I>`         | Back/forward                                    |
+| ---                   | ---                                             |
+| `:tselect Classname`  | Find definitions of Classname                   |
+| `:tjump Classname`    | Find definitions of Classname (auto-select 1st) |
+<!-- {: .-shortcuts} -->
+
+### Case
+
+| Shortcut | Description                          |
+| ---      | ---                                  |
+| `~`      | toggle case (Case => cASE)           |
+| `gU`     | uppercase                            |
+| `gu`     | lowercase                            |
+| ---      | ---                                  |
+| `gUU`    | uppercase current line (also `gUgU`) |
+| `guu`    | lowercase current line (also `gugu`) |
+<!-- {: .-shortcuts} -->
+
+Do these in visual or normal mode.
+
+### Marks
+
+| Shortcut        | Description                                         |
+| ---             | ---                                                 |
+| <code>`^</code> | Last position of cursor in insert mode              |
+| <code>`.</code> | Last change                                         |
+| <code>``</code> | Last jump                                           |
+| ---             | ---                                                 |
+| `ma`            | Mark this cursor position as `a`                    |
+| `\`a`           | Jump to the cursor position `a`                     |
+| `'a`            | Jump to the beginning of the line with position `a` |
+<!-- {: .-shortcuts} -->
+
+<!-- TODO backtick -->
+
+### Misc
+
+| Shortcut | Description                               |
+| ---      | ---                                       |
+| `.`      | repeat last command                       |
+| `]p`     | paste under the current indentation level |
+| ---      | ---                                       |
+| `zz`     | Center this line                          |
+<!-- {: .-shortcuts} -->
+
+### Command line
+
+| Shortcut     | Description                               |
+| ---          | ---                                       |
+| `<C-R><C-W>` | insert current word into the command line |
+| `<C-R>"`     | paste from " register                     |
+<!-- {: .-shortcuts} -->
+
+### Text alignment
+
+    :center [width]
+    :right [width]
+    :left
+
+See `:help formatting`
+
+### Calculator
+
+    <C-R>=128/2
+
+Do this in insert mode.
+
+### Exiting with an error
+
+    :cq
+    :cquit
+
+Works like `:qa`, but throws an error. Great for aborting Git commands.
 
 Also see
 --------
