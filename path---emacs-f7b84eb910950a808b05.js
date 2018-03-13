@@ -1,2 +1,2 @@
-webpackJsonp([40016501902610],{281:function(e,t){e.exports={data:{markdownRemark:{htmlAst:{type:"element",tagName:"div",properties:{},children:[{type:"element",tagName:"p",properties:{},children:[{type:"text",value:"Ahoy there"}]},{type:"comment",value:" hey "}]},frontmatter:{path:"/emacs",title:"Emacs",intro:null}}},pathContext:{}}}});
+webpackJsonp([40016501902610],{282:function(e,t){e.exports={data:{markdownRemark:{htmlAst:{type:"element",tagName:"div",properties:{},children:[{type:"element",tagName:"p",properties:{},children:[{type:"text",value:"Ahoy there"}]},{type:"comment",value:" hey "}]},frontmatter:{path:"/emacs",title:"Emacs",intro:null}}},pathContext:{}}}});
 //# sourceMappingURL=path---emacs-f7b84eb910950a808b05.js.map
