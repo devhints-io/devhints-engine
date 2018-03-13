@@ -15,12 +15,22 @@ collections:
     folder: 'sheets'
     create: true
     fields:
-      - label: 'Path'
-        name: 'path'
-        widget: 'string'
       - label: 'Title'
         name: 'title'
         widget: 'string'
+
+      - label: 'Path'
+        name: 'path'
+        widget: 'string'
+
+      - label: 'Category'
+        name: 'category'
+        widget: 'string'
+
       - label: 'Body'
         name: 'body'
         widget: 'markdown'
+
+      - label: 'Intro'
+        name: 'intro'
+        widget: 'string'
