@@ -24,11 +24,13 @@
   "license": "UNLICENSED",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "test": "jest",
     "lint": "eslint \"src/\"",
-    "ci": "run-s test lint build"
+    "ci": "run-s test lint build",
+    "deploy": "run-s build deploy:gh-pages",
+    "deploy:gh-pages": "gh-pages -d public"
   },
   "devDependencies": {
     "babel-eslint": "8",
@@ -45,6 +47,7 @@
     "eslint-plugin-promise": "3",
     "eslint-plugin-react": "7",
     "eslint-plugin-standard": "3",
+    "gh-pages": "^1.1.0",
     "hast-util-to-html": "^3.1.0",
     "hastscript": "^3.1.0",
     "jest": "^22.4.2",

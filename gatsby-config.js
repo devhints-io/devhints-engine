@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/cheatsheets-2018',
   siteMetadata: {
     title: 'Devhints'
   },
