@@ -8,10 +8,11 @@
 
 # Developer notes
 
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
-**Table of Contents**
+## Table of Contents
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 - [Developer notes](#developer-notes)
+    - [Table of Contents](#table-of-contents)
     - [Setup notes](#setup-notes)
         - [Quick start guide](#quick-start-guide)
         - [Other commands](#other-commands)
@@ -33,10 +34,10 @@
 
 ### Quick start guide
 
-``` bash
+~~~ bash
 yarn               # install dependencies
 yarn run develop   # starts a server
-```
+~~~
 
 ### Other commands
 
@@ -85,7 +86,7 @@ Some files to start digging into:
 
 Each sheet supports these metadata:
 
-```yml
+~~~ yml
 ---
 title: React.js
 layout: 2017/sheet   # 'default' | '2017/sheet'
@@ -103,19 +104,13 @@ intro: |
 tags:
   - WIP
   - Featured
-
-# Special pages:
-# (don't set these for cheatsheets)
-type: home                # home | article | error
-og_type: website          # opengraph type
 ---
-```
+~~~
 
 ### Prism languages
 
 For supported prism languages, see:
-
-- <https://github.com/PrismJS/prism/tree/gh-pages/components>
+<https://github.com/PrismJS/prism/tree/gh-pages/components>
 
 ### CSS classes
 
