@@ -1,8 +1,13 @@
+# See: https://www.netlifycms.org/docs/add-to-your-site/#configuration
 backend:
   name: git-gateway
   branch: master
 
-media_folder: images
+# Location in the repo
+media_folder: static/images
+
+# Location in devhints.io/
+public_folder: /images
 
 collections:
   - name: 'sheet'
