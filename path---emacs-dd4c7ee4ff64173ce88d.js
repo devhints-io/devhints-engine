@@ -1,0 +1,2 @@
+webpackJsonp([40016501902610],{332:function(t,a){t.exports={data:{markdownRemark:{html:"<p>Ahoy there</p>\n<!-- hey -->",frontmatter:{path:"/emacs",title:"Emacs",intro:null}}},pathContext:{}}}});
+//# sourceMappingURL=path---emacs-dd4c7ee4ff64173ce88d.js.map
