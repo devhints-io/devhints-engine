@@ -66,5 +66,9 @@
       "/node_modules/",
       "<rootDir>/.cache/"
     ]
+  },
+  "resolutions": {
+    "react": "15.6.0",
+    "react-dom": "15.6.0"
   }
 }
