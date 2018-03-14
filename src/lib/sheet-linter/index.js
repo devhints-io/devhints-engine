@@ -26,6 +26,15 @@ function read (fname) {
 }
 
 /**
+ * Lints
+ */
+
+function lint (file) {
+  const messages = []
+  return { file, status: 'ok', messages }
+}
+
+/**
  * Serialize a `{meta, body}` into a file.
  */
 
@@ -39,7 +48,11 @@ function serialize ({ meta, body }) {
 
 read(fname)
   .then(result => {
-    // console.log(require('util').inspect(result))
-    const file = serialize(result)
-    console.log(file)
+    const { file, messages } = lint(result)
+    const output = serialize(file)
+    console.log(output)
+    console.warn(messages)
   })
+
+
+module.exports = { lint, serialize, read }
