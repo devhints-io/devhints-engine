@@ -116,7 +116,7 @@ describe('multiple elements', () => {
       h('p', 'extra'),
       h('h2', 'Hi'),
       comment('{.two}'),
-      h('p', 'extra'),
+      h('p', 'extra')
     ])
 
     const output = decorate(input)

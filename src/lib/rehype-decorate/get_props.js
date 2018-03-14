@@ -61,7 +61,6 @@ function match (str, re) {
  */
 
 function reduce (input, state, fn) {
-  let i = 0
   if (!input) return state
   ;[state, input] = fn(state, input)
   return reduce(input, state, fn)
