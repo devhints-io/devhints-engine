@@ -29,7 +29,7 @@ function read (fname) {
  * Serialize a `{meta, body}` into a file.
  */
 
-function serialize({ meta, body }) {
+function serialize ({ meta, body }) {
   return `---\n${yaml.safeDump(meta).trim()}\n---\n${body}`
 }
 
