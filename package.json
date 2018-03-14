@@ -5,6 +5,8 @@
   "version": "1.0.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
   "dependencies": {
+    "concat-stream": "^1.6.1",
+    "fastmatter": "^2.0.1",
     "gatsby": "^1.9.202",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-netlify-cms": "^1.0.12",
@@ -13,6 +15,7 @@
     "gatsby-source-filesystem": "1.5.20",
     "gatsby-transformer-remark": "^1.7.32",
     "isotope-layout": "^3.0.5",
+    "meow": "^4.0.0",
     "react-helmet": "^5.2.0",
     "recompose": "^0.26.0",
     "rehype-react": "^3.0.2",
