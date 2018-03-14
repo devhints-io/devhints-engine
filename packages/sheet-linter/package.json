@@ -1,0 +1,11 @@
+{
+  "name": "sheet-linter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "concat-stream": "^1.6.1",
+    "fastmatter": "^2.0.1",
+    "js-yaml": "^3.11.0"
+  }
+}
