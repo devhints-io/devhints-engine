@@ -7,5 +7,8 @@
     "concat-stream": "^1.6.1",
     "fastmatter": "^2.0.1",
     "js-yaml": "^3.11.0"
+  },
+  "dependencies": {
+    "meow": "^4.0.0"
   }
 }

@@ -6,7 +6,22 @@ const { resolve } = require('path')
 const concat = require('concat-stream')
 const yaml = require('js-yaml')
 
-const fname = resolve(__dirname, '../../../sheets/vim.md')
+/**
+ * RUN!
+ */
+
+function run (argv, options = {}) {
+  /* TODO actually do linting */
+  const fname = resolve(__dirname, '../../sheets/vim.md')
+
+  read(fname)
+    .then(result => {
+      const { file, messages } = lint(result)
+      const output = serialize(file)
+      console.log(output)
+      console.warn(messages)
+    })
+}
 
 /**
  * Read a file into `{meta, body}`
@@ -43,16 +58,7 @@ function serialize ({ meta, body }) {
 }
 
 /*
- * Run
+ * Export
  */
 
-read(fname)
-  .then(result => {
-    const { file, messages } = lint(result)
-    const output = serialize(file)
-    console.log(output)
-    console.warn(messages)
-  })
-
-
-module.exports = { lint, serialize, read }
+module.exports = { lint, serialize, read, run }
