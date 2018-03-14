@@ -6,8 +6,8 @@ import wrap, { wrapH2, wrapH3 } from '../index'
 import h from 'hastscript'
 
 /* eslint-disable no-unused-vars */
-import hJsx from '../../helpers/h_jsx'
-import render from '../../helpers/hast_to_react'
+import hJsx from '../lib/helpers/h_jsx'
+import render from '../lib/helpers/hast_to_react'
 /* eslint-enable no-unused-vars */
 
 /*

@@ -4,7 +4,7 @@ import {
   updateLast,
   updateChildren,
   appendChild
-} from '../helpers/hast'
+} from './lib/helpers/hast'
 
 /**
  * Wrap everything.
