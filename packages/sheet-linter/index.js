@@ -3,6 +3,7 @@ const fs = require('fs')
 const concat = require('concat-stream')
 const yaml = require('js-yaml')
 const glob = require('glob').sync
+const flatten = require('array-flatten').depth
 
 /*::
    export type Meta = Object
@@ -29,24 +30,25 @@ const glob = require('glob').sync
  */
 
 function run (argv, options = {}) {
-  argv.map(spec => glob(spec)).forEach(files => {
-    files.forEach(file => {
-      runFile(file, options)
-    })
-  })
+  const filesLists = argv.map(spec => glob(spec))
+  const files = flatten(filesLists, 1)
+  const results = files.map(file => { runFile(file, options) })
+
+  return results
 }
 
 /**
  * Runs a file.
  */
 
-async function runFile (filename /*: rtsing */, options = {}) {
+async function runFile (filename /*: string */, options = {}) {
   const result /*: Document */ = await read(filename)
-  const { document, messages } = lint(result)
+  const { document } = lint(result)
   const output /*: string */ = serialize(document)
 
-  console.log(output)
-  console.warn(messages)
+  if (options.fix) {
+    fs.writeFileSync(filename, output, 'utf-8')
+  }
 }
 
 /**

@@ -9,6 +9,7 @@
     "js-yaml": "^3.11.0"
   },
   "dependencies": {
+    "array-flatten": "^2.1.1",
     "glob": "^7.1.2",
     "meow": "^4.0.0"
   }
