@@ -7,5 +7,4 @@ script:
 - yarn run build
 cache:
   directories:
-  - node_modules
-  - .cache
+  - public
