@@ -1,8 +1,8 @@
-# Devhints
+# devhints-engine
 
-> TL;DR for developer documentation - a ridiculous collection of cheatsheets
+> Gatsby website builder that builds devhints.io
 
-**WIP** - This is a rewrite to migrate Devhints from Jekyll to Gatsby.
+**WIP** - This is a rewrite to migrate Devhints from Jekyll to Gatsby. `devhints-engine` is a static site builder built on Gatsby; actual content is housed over at [rstacruz/cheatsheets](https://github.com/rstacruz/cheatsheets).
 
 <br>
 

@@ -1,7 +1,7 @@
 {
-  "name": "devhints",
+  "name": "devhints-engine",
   "private": true,
-  "description": "devhints.io",
+  "description": "devhints.io static site generator",
   "version": "1.0.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
   "dependencies": {
