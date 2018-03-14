@@ -41,12 +41,13 @@ yarn run develop   # starts a server
 
 ### Other commands
 
-| Command                      | Description            |
-| ---                          | ---                    |
-| `yarn test`                  | Run tests              |
-| `yarn test --watch --notify` | Run tests continuously |
-| `yarn run build`             | build for production   |
-| `yarn run deploy`            | deploy to gh-pages     |
+| Command                      | Description                   |
+| ---                          | ---                           |
+| `yarn test`                  | Run tests                     |
+| `yarn test --watch --notify` | Run tests continuously        |
+| `yarn run build`             | build for production          |
+| `yarn run deploy`            | deploy to gh-pages            |
+| `yarn run fix`               | fix lint errors automatically |
 
 ## Files of interest
 

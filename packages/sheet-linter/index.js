@@ -16,8 +16,8 @@ const flatten = require('array-flatten').depth
 
    export type Result = {
      status: 'ok',
-     messages: Array<Message>,
-     document: Document
+     messages?: Array<Message>,
+     document?: Document
    }
 
    export type Message = {
@@ -31,24 +31,62 @@ const flatten = require('array-flatten').depth
 
 function run (argv, options = {}) {
   const filesLists = argv.map(spec => glob(spec))
-  const files = flatten(filesLists, 1)
-  const results = files.map(file => { runFile(file, options) })
+  const files /*: Array<string> */ = flatten(filesLists, 1)
+  const results /*: Array<Result> */ = files.map(file => {
+    return runFile(file, options)
+  })
 
-  return results
+  // Count results
+  const count = {
+    all: results.length,
+    fixed: results.filter(res => res.status === 'fixed').length,
+    error: results.filter(res => res.status === 'error').length,
+    ok: results.filter(res => res.status === 'ok').length
+  }
+
+  if (count.all === count.ok) {
+    return { code: 0, message: `${count.all} files OK` }
+  } else {
+    return {
+      code: 16,
+      message: `${count.all} files, ${count.fixed} fixed, ${count.error} failed`
+    }
+  }
 }
 
 /**
  * Runs a file.
  */
 
-async function runFile (filename /*: string */, options = {}) {
+async function runFile (filename /*: string */, options = {}) /*: Result */ {
   const result /*: Document */ = await read(filename)
   const { document } = lint(result)
   const output /*: string */ = serialize(document)
 
+  // Fix in place
   if (options.fix) {
-    fs.writeFileSync(filename, output, 'utf-8')
+    const result = await writeFile(filename, output)
+    return result
+  } else {
+    // TODO return if changed
   }
+}
+
+/**
+ * Updates a file.
+ *
+ * Returns either `{status: 'fixed'}` or `{status: 'ok'}`.
+ */
+
+async function writeFile (
+  filename /*: string */,
+  output /*: string */
+) /*: Result */ {
+  const input /*: string */ = fs.readFileSync(filename, 'utf-8')
+  if (input === output) return { status: 'ok' }
+
+  fs.writeFileSync(filename, output, 'utf-8')
+  return { status: 'fixed' }
 }
 
 /**
