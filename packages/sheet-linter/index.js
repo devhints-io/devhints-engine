@@ -1,40 +1,68 @@
-/* Lint our sheets */
-/* TODO sheet linter */
 const fastmatter = require('fastmatter')
 const fs = require('fs')
-const { resolve } = require('path')
 const concat = require('concat-stream')
 const yaml = require('js-yaml')
+const glob = require('glob').sync
+
+/*::
+   export type Meta = Object
+
+   export type Document = {
+    path: string, // => '/path/to/file.md'
+    meta: Object, // parsed frontmatter
+    body: string  // raw body text
+   }
+
+   export type Result = {
+     status: 'ok',
+     messages: Array<Message>,
+     document: Document
+   }
+
+   export type Message = {
+     message: string
+   }
+ */
 
 /**
  * RUN!
  */
 
 function run (argv, options = {}) {
-  /* TODO actually do linting */
-  const fname = resolve(__dirname, '../../sheets/vim.md')
-
-  read(fname)
-    .then(result => {
-      const { file, messages } = lint(result)
-      const output = serialize(file)
-      console.log(output)
-      console.warn(messages)
+  argv.map(spec => glob(spec)).forEach(files => {
+    files.forEach(file => {
+      runFile(file, options)
     })
+  })
 }
 
 /**
- * Read a file into `{meta, body}`
+ * Runs a file.
  */
 
-function read (fname) {
+async function runFile (filename /*: rtsing */, options = {}) {
+  const result /*: Document */ = await read(filename)
+  const { document, messages } = lint(result)
+  const output /*: string */ = serialize(document)
+
+  console.log(output)
+  console.warn(messages)
+}
+
+/**
+ * Read a file into a Document.
+ * Returns a promise that resolves into `{path, meta, body}`.
+ */
+
+function read (path /*: string */) /*: Promise<Document> */ {
   return new Promise((resolve, reject) => {
-    fs.createReadStream(fname).pipe(
-      fastmatter.stream(function (meta) {
-        this.pipe(concat((body) => {
-          // may need to body.toString() this
-          resolve({ meta, body: body.toString() })
-        }))
+    fs.createReadStream(path).pipe(
+      fastmatter.stream(function (meta /*: Meta */) {
+        this.pipe(
+          concat((body /*: Buffer */) => {
+            resolve({ path, meta, body: body.toString() })
+          })
+        )
       })
     )
   })
@@ -44,16 +72,18 @@ function read (fname) {
  * Lints
  */
 
-function lint (file) {
+function lint (document /*: Document */) {
   const messages = []
-  return { file, status: 'ok', messages }
+  const result /*: Result */ = { document, status: 'ok', messages }
+
+  return result
 }
 
 /**
- * Serialize a `{meta, body}` into a file.
+ * Serialize a document into a file string contents.
  */
 
-function serialize ({ meta, body }) {
+function serialize ({ meta, body } /*: Document */) {
   return `---\n${yaml.safeDump(meta).trim()}\n---\n${body}`
 }
 

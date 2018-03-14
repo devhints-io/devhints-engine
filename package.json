@@ -27,12 +27,15 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "develop": "gatsby develop",
-    "test": "jest",
-    "lint": "eslint \"src/\"",
     "ci": "run-s test lint build",
     "deploy": "run-s build deploy:gh-pages",
-    "deploy:gh-pages": "gh-pages -d public"
+    "deploy:gh-pages": "gh-pages -d public",
+    "develop": "gatsby develop",
+    "fix": "node packages/sheet-linter/bin.js --fix \"sheets/*.md\"",
+    "lint": "run-s lint:js",
+    "lint:js": "eslint \"src/\"",
+    "lint:md": "node packages/sheet-linter/bin.js \"sheets/*.md\"",
+    "test": "jest"
   },
   "devDependencies": {
     "babel-eslint": "8",
