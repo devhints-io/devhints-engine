@@ -42,12 +42,12 @@ const flatten = require('array-flatten').depth
  * RUN!
  */
 
-function run (argv, options = {}) {
+async function run (argv, options = {}) {
   const filesLists = argv.map(spec => glob(spec))
   const files /*: Array<string> */ = flatten(filesLists, 1)
-  const results /*: Array<Result> */ = files.map(file => {
+  const results /*: Array<Result> */ = await Promise.all(files.map((file) => {
     return runFile(file, options)
-  })
+  }))
 
   // Count results
   const count = {
@@ -57,11 +57,14 @@ function run (argv, options = {}) {
     ok: results.filter(res => res.status === 'ok').length
   }
 
+
   if (count.all === count.ok) {
     return { code: 0, message: `${count.all} files OK` }
   } else {
+    let isSuccess = options.fix && count.error === 0
+
     return {
-      code: 16,
+      code: (isSuccess ? 0 : 16),
       message: `${count.all} files, ${count.fixed} fixed, ${count.error} failed`
     }
   }
@@ -94,7 +97,7 @@ async function runFile (path /*: string */, options = {}) /*: Result */ {
 
 async function writeResult (result /*: Result */) {
   const doc = result.document
-  await writeFile(doc.filename, result.output, 'utf-8')
+  await writeFile(doc.path, result.output, 'utf-8')
 }
 
 /**

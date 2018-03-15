@@ -24,3 +24,9 @@ const cli = require('meow')(`
 })
 
 run(cli.input, cli.flags)
+  .then(result => {
+    console.warn('')
+    console.warn('  =>', result.message)
+    console.warn('')
+    process.exit(result.code)
+  })
