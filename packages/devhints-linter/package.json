@@ -1,8 +1,11 @@
 {
-  "name": "sheet-linter",
+  "name": "devhints-linter",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "bin": {
+    "devhints-linter": "./bin.js"
+  },
   "devDependencies": {
     "concat-stream": "^1.6.1",
     "fastmatter": "^2.0.1",

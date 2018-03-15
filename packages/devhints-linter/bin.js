@@ -2,7 +2,7 @@ const { run } = require('./index')
 
 const cli = require('meow')(`
   Usage:
-  $ sheet-linter
+  $ devhints-linter
 
   Options:
   -f, --fix        auto-fix in place
@@ -26,7 +26,7 @@ const cli = require('meow')(`
 run(cli.input, cli.flags)
   .then(result => {
     console.warn('')
-    console.warn('  sheet-linter:', result.summary)
+    console.warn('  devhints-linter:', result.summary)
     if (result.messages) {
       result.messages.forEach(msg => { console.warn(`  ${msg}`) })
     }
