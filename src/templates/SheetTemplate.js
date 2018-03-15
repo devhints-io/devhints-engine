@@ -1,9 +1,8 @@
 /* global graphql */
 
-import React from 'react'
+import React, { Fragment } from 'react'
 import { CONTENT } from '../../config'
 import TopNav from '../components/TopNav'
-import Fragment from '../components/Fragment'
 import PostContent from '../components/PostContent'
 
 /**
