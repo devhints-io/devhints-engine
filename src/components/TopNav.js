@@ -1,6 +1,15 @@
+// @flow
+
 import React from 'react'
 import Link from 'gatsby-link'
 import { CONTENT } from '../../config'
+
+/*::
+   export type Props = {
+     // If true, shows the back button
+     back?: boolean
+   }
+*/
 
 /**
  * Top navigation in most pages
@@ -8,7 +17,7 @@ import { CONTENT } from '../../config'
  * @param {Boolean} props.back Shows back button if true
  */
 
-function TopNav () {
+function TopNav (props /*: Props */ = {}) {
   const topNav = CONTENT.topNav || {}
 
   return (

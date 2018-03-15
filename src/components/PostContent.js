@@ -1,8 +1,17 @@
+// @flow
 /* eslint-disable no-new */
+
 import React from 'react'
 import decorate from '../../packages/rehype-decorate'
 import wrapify from '../../packages/rehype-wrapify'
 import RehypeReact from 'rehype-react'
+
+/*::
+  export type Props = {
+    htmlAst: any, // HAST syntax tree
+    className: string
+  }
+*/
 
 /**
  * AST renderer
@@ -16,15 +25,13 @@ export const renderAst = new RehypeReact({
  * Post content with transform magic.
  */
 
-export default class PostContent extends React.PureComponent {
+export default class PostContent extends React.PureComponent /*:: <Props> */ {
   render () {
     const { htmlAst, className } = this.props
     let content = renderAst(wrapify(decorate(htmlAst)))
 
     return (
-      <div
-        className={className} role='main'
-        ref={isotopifyLists}>
+      <div className={className} role='main' ref={isotopifyLists}>
         {content}
       </div>
     )
@@ -35,7 +42,7 @@ export default class PostContent extends React.PureComponent {
  * Lays out each h3-section using Isotope.
  */
 
-function isotopifyLists (el /*: Node */) {
+function isotopifyLists (el /*: ?HTMLElement */) {
   if (!el || !el.children) return
 
   // If we're running on the server, don't bother with this
@@ -43,19 +50,18 @@ function isotopifyLists (el /*: Node */) {
 
   // There's a wrapping <div> from renderAst, meh
   const div = el.children[0]
+  if (!div) return
 
   // isotope()'ify all lists
   const lists = div.querySelectorAll('.h3-section-list')
   Array.from(lists).forEach(isotopify)
-
-  // TODO run iso.layout() on componentWillReceiveProps
 }
 
 /**
  * Isotope behavior
  */
 
-function isotopify (el /*: Node */) {
+function isotopify (el /*: HTMLElement */) {
   // Load this async'ly, so that it doesn't happen on the server
   const Isotope = require('isotope-layout/dist/isotope.pkgd.js')
 
@@ -64,7 +70,7 @@ function isotopify (el /*: Node */) {
     transitionDuration: 0
   })
 
-  const images /*: NodeList */ = el.querySelectorAll('img')
+  const images /*: NodeList<HTMLElement> */ = el.querySelectorAll('img')
 
   Array.from(images).forEach(image => {
     image.addEventListener('load', () => {
