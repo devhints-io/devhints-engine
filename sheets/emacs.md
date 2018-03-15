@@ -1,5 +1,5 @@
 ---
-path: /emacs
+path: "/emacs"
 title: Emacs
 category: Apps
 ---

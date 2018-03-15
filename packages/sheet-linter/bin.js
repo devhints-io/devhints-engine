@@ -26,7 +26,10 @@ const cli = require('meow')(`
 run(cli.input, cli.flags)
   .then(result => {
     console.warn('')
-    console.warn('  =>', result.message)
+    console.warn('  sheet-linter:', result.summary)
+    if (result.messages) {
+      result.messages.forEach(msg => { console.warn(`  ${msg}`) })
+    }
     console.warn('')
     process.exit(result.code)
   })

@@ -1,7 +1,6 @@
 // @flow
 
 const fastmatter = require('fastmatter')
-const fs = require('fs')
 const { readFile, writeFile } = require('fs-extra')
 const yaml = require('js-yaml')
 const glob = require('glob').sync
@@ -49,23 +48,29 @@ async function run (argv, options = {}) {
     return runFile(file, options)
   }))
 
-  // Count results
-  const count = {
-    all: results.length,
-    fixed: results.filter(res => res.status === 'fixed').length,
-    error: results.filter(res => res.status === 'error').length,
-    ok: results.filter(res => res.status === 'ok').length
-  }
+  const all = results
+  const fixeds = results.filter(res => res.status === 'fixed')
+  const errors = results.filter(res => res.status === 'error')
+  const oks = results.filter(res => res.status === 'ok')
 
-
-  if (count.all === count.ok) {
-    return { code: 0, message: `${count.all} files OK` }
+  if (all.length === oks.length) {
+    return { code: 0, summary: `${all.length} files OK`, messages: [] }
   } else {
-    let isSuccess = options.fix && count.error === 0
+    let isSuccess = options.fix && errors.length === 0
+    const filenames = fixeds.concat(errors).map(res => res.document.path)
+
+    const messages = [
+      'These files require updating:',
+      '',
+      ...filenames.map(f => `    ${f}`),
+      '',
+      "Run sheet-linter with '--fix' to automatically sort these out."
+    ]
 
     return {
       code: (isSuccess ? 0 : 16),
-      message: `${count.all} files, ${count.fixed} fixed, ${count.error} failed`
+      summary: `${all.length} files, ${fixeds.length} fixed, ${errors.length} failed`,
+      messages
     }
   }
 }
