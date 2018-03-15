@@ -1,6 +1,8 @@
+// @flow
+
 const fastmatter = require('fastmatter')
 const fs = require('fs')
-const concat = require('concat-stream')
+const { readFile, writeFile } = require('fs-extra')
 const yaml = require('js-yaml')
 const glob = require('glob').sync
 const flatten = require('array-flatten').depth
@@ -9,16 +11,27 @@ const flatten = require('array-flatten').depth
    export type Meta = Object
 
    export type Document = {
-    path: string, // => '/path/to/file.md'
-    meta: Object, // parsed frontmatter
-    body: string  // raw body text
+    // => '/path/to/file.md'
+    path: string,
+
+    // Raw body before parsing
+    rawBody: string,
+
+    // parsed frontmatter (unparsed docs dont have attributes)
+    attributes?: Meta,
+
+    // body text (unparsed has no body text)
+    body?: string,
+
+    // store the last error, eg, when parseMatter() fails
+    error?: Error
    }
 
    export type Result = {
-     status: 'ok',
+     status: 'ok' | 'fixed' | 'error',
      messages?: Array<Message>,
-     document?: Document
-   }
+     document?: Document,
+     error?: Error
 
    export type Message = {
      message: string
@@ -58,18 +71,19 @@ function run (argv, options = {}) {
  * Runs a file.
  */
 
-async function runFile (filename /*: string */, options = {}) /*: Result */ {
-  const result /*: Document */ = await read(filename)
-  const { document } = lint(result)
-  const output /*: string */ = serialize(document)
+async function runFile (path /*: string */, options = {}) /*: Result */ {
+  let doc /*: Document */
+  doc = await fetchDoc(path)
+  doc = await parseMatter(doc)
 
-  // Fix in place
-  if (options.fix) {
-    const result = await writeFile(filename, output)
-    return result
-  } else {
-    // TODO return if changed
+  const result /*: Result */ = lint(doc)
+
+  if (result.status === 'fixed' && options.fix) {
+    // Fix in place
+    await writeResult(result)
   }
+
+  return result
 }
 
 /**
@@ -78,34 +92,9 @@ async function runFile (filename /*: string */, options = {}) /*: Result */ {
  * Returns either `{status: 'fixed'}` or `{status: 'ok'}`.
  */
 
-async function writeFile (
-  filename /*: string */,
-  output /*: string */
-) /*: Result */ {
-  const input /*: string */ = fs.readFileSync(filename, 'utf-8')
-  if (input === output) return { status: 'ok' }
-
-  fs.writeFileSync(filename, output, 'utf-8')
-  return { status: 'fixed' }
-}
-
-/**
- * Read a file into a Document.
- * Returns a promise that resolves into `{path, meta, body}`.
- */
-
-function read (path /*: string */) /*: Promise<Document> */ {
-  return new Promise((resolve, reject) => {
-    fs.createReadStream(path).pipe(
-      fastmatter.stream(function (meta /*: Meta */) {
-        this.pipe(
-          concat((body /*: Buffer */) => {
-            resolve({ path, meta, body: body.toString() })
-          })
-        )
-      })
-    )
-  })
+async function writeResult (result /*: Result */) {
+  const doc = result.document
+  await writeFile(doc.filename, result.output, 'utf-8')
 }
 
 /**
@@ -113,8 +102,20 @@ function read (path /*: string */) /*: Promise<Document> */ {
  */
 
 function lint (document /*: Document */) {
-  const messages = []
-  const result /*: Result */ = { document, status: 'ok', messages }
+  if (document.error) {
+    return {
+      document,
+      status: 'error',
+      output: document.rawBody,
+      error: document.error
+    }
+  }
+
+  const output /*: string */ = serialize(document)
+
+  const status = output === document.rawBody ? 'ok' : 'fixed'
+
+  const result /*: Result */ = { document, status, output }
 
   return result
 }
@@ -123,12 +124,42 @@ function lint (document /*: Document */) {
  * Serialize a document into a file string contents.
  */
 
-function serialize ({ meta, body } /*: Document */) {
-  return `---\n${yaml.safeDump(meta).trim()}\n---\n${body}`
+function serialize (doc /*: Document */) {
+  const { attributes, body } = doc
+
+  const rawBody /*: string */ = `---\n${yaml
+    .safeDump(attributes)
+    .trim()}\n---\n${body}`
+
+  return rawBody
+}
+
+/**
+ * Returns a `Document` given a filename `path`.
+ */
+
+async function fetchDoc (path /*: string */) /*: Document */ {
+  const rawBody = await readFile(path, 'utf-8')
+  const doc /*: Document */ = { path, rawBody }
+  return doc
+}
+
+/**
+ * Parse frontmatter out of a file
+ */
+
+async function parseMatter (doc /*: Document */) {
+  try {
+    const { attributes, body } = fastmatter(doc.rawBody)
+    doc = { ...doc, attributes, body }
+    return doc
+  } catch (error) {
+    return { ...doc, error }
+  }
 }
 
 /*
  * Export
  */
 
-module.exports = { lint, serialize, read, run }
+module.exports = { lint, serialize, run, fetchDoc, parseMatter }
