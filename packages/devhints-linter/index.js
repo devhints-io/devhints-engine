@@ -7,42 +7,15 @@ const glob = require('glob').sync
 const flatten = require('array-flatten').depth
 
 /*::
-   export type Meta = Object
-
-   export type Document = {
-    // => '/path/to/file.md'
-    path: string,
-
-    // Raw body before parsing
-    rawBody: string,
-
-    // parsed frontmatter (unparsed docs dont have attributes)
-    attributes?: Meta,
-
-    // body text (unparsed has no body text)
-    body?: string,
-
-    // store the last error, eg, when parseMatter() fails
-    error?: Error
-   }
-
-   export type Result = {
-     status: 'ok' | 'fixed' | 'error',
-     messages?: Array<Message>,
-     document?: Document,
-     error?: Error
-
-   export type Message = {
-     message: string
-   }
+  import type { Attributes, Document, Result, RunOptions } from './lib/types'
  */
 
 /**
  * RUN!
  */
 
-async function run (argv, options = {}) {
-  const filesLists = argv.map(spec => glob(spec))
+async function run (argv /*: Array<string> */, options /*: RunOptions */ = {}) {
+  const filesLists /*: Array<Array<string>> */ = argv.map(spec => glob(spec))
   const files /*: Array<string> */ = flatten(filesLists, 1)
   const results /*: Array<Result> */ = await Promise.all(files.map((file) => {
     return runFile(file, options)
@@ -86,9 +59,15 @@ async function run (argv, options = {}) {
 
 /**
  * Runs a file.
+ *
+ * @returns a Promise that resolves into a `Result`.
+ *
+ * @example
+ *     const res = await runFile('sheet/react.md', {})
+ *     console.log(res.status)
  */
 
-async function runFile (path /*: string */, options = {}) /*: Result */ {
+async function runFile (path /*: string */, options = {}) /*: Promise<Result> */ {
   let doc /*: Document */
   doc = await fetchDoc(path)
   doc = await parseMatter(doc)
@@ -105,12 +84,12 @@ async function runFile (path /*: string */, options = {}) /*: Result */ {
 
 /**
  * Updates a file.
- *
- * Returns either `{status: 'fixed'}` or `{status: 'ok'}`.
  */
 
 async function writeResult (result /*: Result */) {
   const doc = result.document
+  if (!doc) return
+
   await writeFile(doc.path, result.output, 'utf-8')
 }
 
@@ -146,16 +125,22 @@ function serialize (doc /*: Document */) {
 
   const rawBody /*: string */ = `---\n${yaml
     .safeDump(attributes)
-    .trim()}\n---\n${body}`
+    .trim()}\n---\n${body || ''}`
 
   return rawBody
 }
 
 /**
  * Returns a `Document` given a filename `path`.
+ *
+ * @returns a Promise that resolves into a `Document`.
+ *
+ * @example
+ *     const doc = await fetchDoc('sheets/react.md')
+ *
  */
 
-async function fetchDoc (path /*: string */) /*: Document */ {
+async function fetchDoc (path /*: string */) /*: Promise<Document> */ {
   const rawBody = await readFile(path, 'utf-8')
   const doc /*: Document */ = { path, rawBody }
   return doc

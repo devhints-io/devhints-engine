@@ -28,12 +28,12 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "ci": "run-s test lint build",
+    "ci": "run-s lint:js lint:md flow test build",
     "deploy": "run-s build deploy:gh-pages",
     "deploy:gh-pages": "gh-pages -d public",
     "develop": "gatsby develop",
     "fix": "node packages/devhints-linter/bin.js \"sheets/*.md\" --fix",
-    "lint": "run-s lint:js lint:md",
+    "flow": "flow",
     "lint:js": "eslint \"src/\"",
     "lint:md": "node packages/devhints-linter/bin.js \"sheets/*.md\"",
     "test": "jest"
@@ -53,6 +53,7 @@
     "eslint-plugin-promise": "3",
     "eslint-plugin-react": "7",
     "eslint-plugin-standard": "3",
+    "flow-bin": "^0.67.1",
     "gh-pages": "^1.1.0",
     "hast-util-to-html": "^3.1.0",
     "hastscript": "^3.1.0",
