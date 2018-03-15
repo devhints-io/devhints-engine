@@ -4,6 +4,7 @@ node_js:
 script:
 - yarn run lint:md
 - yarn run lint:js
+- yarn run flow
 - yarn run test
 - yarn run build
 cache:
