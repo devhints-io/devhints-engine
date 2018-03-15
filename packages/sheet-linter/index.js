@@ -58,14 +58,23 @@ async function run (argv, options = {}) {
   } else {
     let isSuccess = options.fix && errors.length === 0
     const filenames = fixeds.concat(errors).map(res => res.document.path)
+    let messages
 
-    const messages = [
-      'These files require updating:',
-      '',
-      ...filenames.map(f => `    ${f}`),
-      '',
-      "Run sheet-linter with '--fix' to automatically sort these out."
-    ]
+    if (!options.fix) {
+      messages = [
+        'These files require updating:',
+        '',
+        ...filenames.map(f => `    ${f}`),
+        '',
+        "Run sheet-linter with '--fix' to automatically sort these out."
+      ]
+    } else {
+      messages = [
+        'These files have been updated:',
+        '',
+        ...filenames.map(f => `    ${f}`)
+      ]
+    }
 
     return {
       code: (isSuccess ? 0 : 16),

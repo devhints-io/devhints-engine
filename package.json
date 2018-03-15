@@ -34,7 +34,6 @@
     "develop": "gatsby develop",
     "fix": "node packages/sheet-linter/bin.js \"sheets/*.md\" --fix",
     "lint": "run-s lint:js lint:md",
-    "fix": "node packages/sheet-linter/bin.js \"sheets/*.md\"",
     "lint:js": "eslint \"src/\"",
     "lint:md": "node packages/sheet-linter/bin.js \"sheets/*.md\"",
     "test": "jest"
