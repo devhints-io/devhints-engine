@@ -58,7 +58,7 @@ function isotopifyLists (el /*: ?HTMLElement */) {
 }
 
 /**
- * Isotope behavior
+ * Applies an Isotope layout to the given HTML element `el`'s H3 sections.
  */
 
 function isotopify (el /*: HTMLElement */) {
