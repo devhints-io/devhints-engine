@@ -1,4 +1,4 @@
-// @flow
+/* @flow */
 /* eslint-disable no-new */
 
 import React, { PureComponent } from 'react'
@@ -6,10 +6,13 @@ import transform from './transform'
 import isotopify from './isotopify'
 
 /*::
-  export type Props = {
-    htmlAst: any, // HAST syntax tree
-    className: string
-  }
+   export type Props = {
+     // Markdown HAST syntax tree
+     htmlAst: any,
+
+     // Class name of the <div>
+     className: string
+   }
 */
 
 /**
