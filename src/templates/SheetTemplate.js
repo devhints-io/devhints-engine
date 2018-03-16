@@ -24,7 +24,7 @@ export default function SheetTemplate (props) {
 }
 
 /**
- * Logicless view
+ * Logic-less view
  */
 
 export const SheetTemplateView = ({ frontmatter, htmlAst, sheet }) => (

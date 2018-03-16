@@ -1,48 +1,11 @@
 // @flow
 /* eslint-disable no-new */
 
-import React from 'react'
-import decorate from '../../packages/rehype-decorate'
-import wrapify from '../../packages/rehype-wrapify'
-import RehypeReact from 'rehype-react'
-
-/*::
-  export type Props = {
-    htmlAst: any, // HAST syntax tree
-    className: string
-  }
-*/
-
-/**
- * AST renderer
- */
-
-export const renderAst = new RehypeReact({
-  createElement: React.createElement
-}).Compiler
-
-/**
- * Post content with transform magic.
- */
-
-export default class PostContent extends React.PureComponent /*:: <Props> */ {
-  render () {
-    const { htmlAst, className } = this.props
-    let content = renderAst(wrapify(decorate(htmlAst)))
-
-    return (
-      <div className={className} role='main' ref={isotopifyLists}>
-        {content}
-      </div>
-    )
-  }
-}
-
 /**
  * Lays out each h3-section using Isotope.
  */
 
-function isotopifyLists (el /*: ?HTMLElement */) {
+export default function isotopify (el /*: ?HTMLElement */) {
   if (!el || !el.children) return
 
   // If we're running on the server, don't bother with this
@@ -54,14 +17,14 @@ function isotopifyLists (el /*: ?HTMLElement */) {
 
   // isotope()'ify all lists
   const lists = div.querySelectorAll('.h3-section-list')
-  Array.from(lists).forEach(isotopify)
+  Array.from(lists).forEach(isotopifyItem)
 }
 
 /**
  * Applies an Isotope layout to the given HTML element `el`'s H3 sections.
  */
 
-function isotopify (el /*: HTMLElement */) {
+function isotopifyItem (el /*: HTMLElement */) {
   // Load this async'ly, so that it doesn't happen on the server
   const Isotope = require('isotope-layout/dist/isotope.pkgd.js')
 
