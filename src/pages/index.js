@@ -1,7 +1,12 @@
+/* @flow */
 import React from 'react'
 import Link from 'gatsby-link'
 import TopNav from '../components/TopNav'
 import { CONTENT, LINKS } from '../../config'
+
+/*::
+  import type { SiteLinks } from '../types'
+*/
 
 /**
  * Home page template
@@ -29,7 +34,7 @@ const SiteHeaderView = ({ content }) => (
   </div>
 )
 
-const PagesList = ({ links }) => (
+const PagesList = ({ links } /*: { links: SiteLinks } */) => (
   <ul>
     {links.map(link => (
       <li key={link.path}>
