@@ -1,0 +1,33 @@
+{
+  "name": "devhints-markdown-linter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "remark": "^9.0.0",
+    "remark-cli": "^5.0.0",
+    "remark-frontmatter": "^1.2.0",
+    "remark-preset-lint-markdown-style-guide": "^2.1.1"
+  },
+  "bin": {
+    "devhints-markdown-linter": "./bin/devhints-markdown-linter"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-frontmatter",
+      "remark-preset-lint-markdown-style-guide",
+      [
+        "remark-lint-maximum-line-length",
+        false
+      ],
+      [
+        "remark-lint-no-duplicate-headings",
+        false
+      ],
+      [
+        "remark-lint-emphasis-marker",
+        false
+      ]
+    ]
+  }
+}

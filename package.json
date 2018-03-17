@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
   "dependencies": {
+    "devhints-markdown-linter": "./packages/devhints-markdown-linter",
     "gatsby": "^1.9.202",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-netlify-cms": "^1.0.12",
@@ -18,10 +19,6 @@
     "react-helmet": "^5.2.0",
     "recompose": "^0.26.0",
     "rehype-react": "^3.0.2",
-    "remark-cli": "^5.0.0",
-    "remark-frontmatter": "^1.2.0",
-    "remark-preset-lint-markdown-style-guide": "^2.1.1",
-    "remark-preset-lint-recommended": "^3.0.1",
     "responsive-modular-scale.css": "^0.1.0",
     "sanitize.css": "^5.0.0"
   },
@@ -38,7 +35,7 @@
     "fix": "node packages/devhints-validator/bin/devhints-validator.js \"sheets/*.md\" --fix",
     "flow": "flow",
     "lint": "eslint src/ packages/",
-    "lint-md": "remark -q -f sheets/*",
+    "lint-md": "./packages/devhints-markdown-linter/bin/devhints-markdown-linter sheets/*",
     "validate": "node packages/devhints-validator/bin/devhints-validator.js \"sheets/*.md\"",
     "test": "jest"
   },
@@ -80,23 +77,5 @@
   },
   "workspaces": [
     "packages/*"
-  ],
-  "remarkConfig": {
-    "plugins": [
-      "remark-frontmatter",
-      "remark-preset-lint-markdown-style-guide",
-      [
-        "remark-lint-maximum-line-length",
-        false
-      ],
-      [
-        "remark-lint-no-duplicate-headings",
-        false
-      ],
-      [
-        "remark-lint-emphasis-marker",
-        false
-      ]
-    ]
-  }
+  ]
 }
