@@ -135,7 +135,7 @@ Operators let you operate in a range of text (defined by *motion*). These are pr
 | ---      | ---    |
 | `d`      | `w`    |
 | Operator | Motion |
-<!-- {: .-css-breakdown} -->
+<!-- {.-css-breakdown} -->
 
 ### Operators list
 
@@ -153,14 +153,14 @@ Operators let you operate in a range of text (defined by *motion*). These are pr
 | `gu`     | Lowercase                       |
 | ---      | ---                             |
 | `!`      | Filter through external program |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 See `:help operator`
 
 ### Examples
 
 Combine operators with *motions* to use them.
-<!-- {: .-setup} -->
+<!-- {.-setup} -->
 
 | Shortcut               | Description                               |
 | ---                    | ---                                       |
@@ -175,19 +175,19 @@ See: `:help motion.txt`
 
 Text objects
 ------------
-<!-- {: .-three-column} -->
+<!-- {.-three-column} -->
 
 ### Usage
-<!-- {: .-prime} -->
+<!-- {.-prime} -->
 
 Text objects let you operate (with an *operator*) in or around text blocks (*objects*).
-<!-- {: .-setup} -->
+<!-- {.-setup} -->
 
 | Operator | Around               | What        |
 | ---      | ---                  | ---         |
 | `v`      | `i`                  | `p`         |
 | Operator | [i]nside or [a]round | Text object |
-<!-- {: .-css-breakdown} -->
+<!-- {.-css-breakdown} -->
 
 ### Text objects
 
@@ -203,7 +203,7 @@ Text objects let you operate (with an *operator*) in or around text blocks (*obj
 | `b`                    | A block [(            |
 | `B`                    | A block in [{         |
 | `t`                    | A XML tag block       |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 ### Examples
 
@@ -217,7 +217,7 @@ Text objects let you operate (with an *operator*) in or around text blocks (*obj
 | ---         | ---                                |
 | `dip`       | Delete inner paragraph             |
 | `cip`       | Change inner paragraph             |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 See [Operators](#operators) for other things you can do.
 
@@ -241,7 +241,7 @@ Misc
 | `zr`          | Fold less _(foldlevel -= 1)_ |
 | ---           | ---                          |
 | `zx`          | Update folds                 |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 Uppercase ones are recursive (eg, `zO` is open recursively).
 
@@ -254,7 +254,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | ---                 | ---                        |
 | `[m`                | previous method start      |
 | `[M`                | previous method end        |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 ### Jumping
 
@@ -264,7 +264,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | `<C-I>`  | Go forward                   |
 | ---      | ---                          |
 | `gf`     | go to file in cursor         |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 ### Counters
 
@@ -272,7 +272,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | ---      | ---              |
 | `<C-A>`  | increment number |
 | `<C-X>`  | decrement        |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 ### Windows
 
@@ -293,7 +293,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | ---                   | ---                                             |
 | `:tselect Classname`  | Find definitions of Classname                   |
 | `:tjump Classname`    | Find definitions of Classname (auto-select 1st) |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 ### Case
 
@@ -305,7 +305,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | ---      | ---                                  |
 | `gUU`    | uppercase current line (also `gUgU`) |
 | `guu`    | lowercase current line (also `gugu`) |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 Do these in visual or normal mode.
 
@@ -320,7 +320,7 @@ Do these in visual or normal mode.
 | `ma`            | Mark this cursor position as `a`                    |
 | `\`a`           | Jump to the cursor position `a`                     |
 | `'a`            | Jump to the beginning of the line with position `a` |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 <!-- TODO backtick -->
 
@@ -332,7 +332,7 @@ Do these in visual or normal mode.
 | `]p`     | paste under the current indentation level |
 | ---      | ---                                       |
 | `zz`     | Center this line                          |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 ### Command line
 
@@ -340,7 +340,7 @@ Do these in visual or normal mode.
 | ---          | ---                                       |
 | `<C-R><C-W>` | insert current word into the command line |
 | `<C-R>"`     | paste from " register                     |
-<!-- {: .-shortcuts} -->
+<!-- {.-shortcuts} -->
 
 ### Text alignment
 
