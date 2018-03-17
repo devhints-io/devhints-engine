@@ -1,5 +1,6 @@
 /* eslint-env jest */
-const { lint, parseMatter } = require('../../index')
+const { parseMatter } = require('../lib')
+const { lint } = require('../lib/lint')
 
 it('leaves things alone', () => {
   const doc = {

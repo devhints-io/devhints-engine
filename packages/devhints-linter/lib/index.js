@@ -1,4 +1,4 @@
-// @flow
+/* @flow */
 
 const fastmatter = require('fastmatter')
 const { readFile, writeFile } = require('fs-extra')
@@ -6,8 +6,10 @@ const yaml = require('js-yaml')
 const glob = require('glob').sync
 const flatten = require('array-flatten').depth
 
+const { lint } = require('./lint')
+
 /*::
-  import type { Attributes, Document, Result, RunOptions } from './lib/types'
+  import type { Attributes, Document, Result, RunOptions } from './types'
  */
 
 /**
@@ -94,43 +96,6 @@ async function writeResult (result /*: Result */) {
 }
 
 /**
- * Lints
- */
-
-function lint (document /*: Document */) {
-  if (document.error) {
-    return {
-      document,
-      status: 'error',
-      output: document.rawBody,
-      error: document.error
-    }
-  }
-
-  const output /*: string */ = serialize(document)
-
-  const status = output === document.rawBody ? 'ok' : 'fixed'
-
-  const result /*: Result */ = { document, status, output }
-
-  return result
-}
-
-/**
- * Serialize a document into a file string contents.
- */
-
-function serialize (doc /*: Document */) {
-  const { attributes, body } = doc
-
-  const rawBody /*: string */ = `---\n${yaml
-    .safeDump(attributes)
-    .trim()}\n---\n${body || ''}`
-
-  return rawBody
-}
-
-/**
  * Returns a `Document` given a filename `path`.
  *
  * @returns a Promise that resolves into a `Document`.
@@ -164,4 +129,4 @@ async function parseMatter (doc /*: Document */) {
  * Export
  */
 
-module.exports = { lint, serialize, run, fetchDoc, parseMatter }
+module.exports = { run, fetchDoc, parseMatter }

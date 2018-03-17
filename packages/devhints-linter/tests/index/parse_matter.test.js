@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const { parseMatter } = require('../../index')
+const { parseMatter } = require('../../lib')
 
 it('works', async () => {
   const doc = {

@@ -1,4 +1,4 @@
-const { run } = require('./index')
+const { run } = require('../lib')
 
 const cli = require('meow')(`
   Usage:

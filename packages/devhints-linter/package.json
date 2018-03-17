@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "devhints-linter": "./bin.js"
+    "devhints-linter": "./bin/devhints-linter.js"
   },
   "devDependencies": {
     "concat-stream": "^1.6.1",

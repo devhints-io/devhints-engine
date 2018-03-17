@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const SheetLinter = require('../index')
+const SheetLinter = require('../lib')
 
 it('works', () => {
   expect(typeof SheetLinter).toEqual('object')
