@@ -35,7 +35,7 @@
     "fix": "node packages/devhints-validator/bin/devhints-validator.js \"sheets/*.md\" --fix",
     "flow": "flow",
     "lint": "eslint src/ packages/",
-    "lint-md": "./packages/devhints-markdown-linter/bin/devhints-markdown-linter sheets/*",
+    "lint-md": "devhints-markdown-linter sheets/*",
     "validate": "node packages/devhints-validator/bin/devhints-validator.js \"sheets/*.md\"",
     "test": "jest"
   },
