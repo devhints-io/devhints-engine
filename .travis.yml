@@ -3,8 +3,8 @@ node_js:
 - '8'
 script:
 - yarn run flow
-- yarn run lint:md
-- yarn run lint:js
+- yarn run validate
+- yarn run lint
 - yarn run test
 - yarn run build
 cache:

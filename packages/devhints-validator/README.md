@@ -1,3 +1,3 @@
-# devhints-linter
+# devhints-validator
 
 > Lints devhints cheatsheets

@@ -1,10 +1,10 @@
 {
-  "name": "devhints-linter",
+  "name": "devhints-validator",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "devhints-linter": "./bin/devhints-linter.js"
+    "devhints-validator": "./bin/devhints-validator.js"
   },
   "devDependencies": {
     "concat-stream": "^1.6.1",

@@ -2,7 +2,7 @@ const { run } = require('../lib')
 
 const cli = require('meow')(`
   Usage:
-  $ devhints-linter
+  $ devhints-validator
 
   Options:
   -f, --fix        auto-fix in place
@@ -26,7 +26,7 @@ const cli = require('meow')(`
 run(cli.input, cli.flags)
   .then(result => {
     console.warn('')
-    console.warn('  devhints-linter:', result.summary)
+    console.warn('  devhints-validator:', result.summary)
     if (result.messages) {
       result.messages.forEach(msg => { console.warn(`  ${msg}`) })
     }
