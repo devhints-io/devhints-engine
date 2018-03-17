@@ -6,8 +6,7 @@ intro: |
   [Vim](http://vim.org) is a text editor.
 ---
 
-Getting started
----------------
+## Getting started
 <!-- {.-three-column} -->
 
 ### Exiting
@@ -121,8 +120,7 @@ Getting started
 
 See [Operators](#operators) for other things you can do.
 
-Operators
----------
+## Operators
 <!-- {.-three-column} -->
 
 ### Usage
@@ -173,8 +171,7 @@ Combine operators with *motions* to use them.
 
 See: `:help motion.txt`
 
-Text objects
-------------
+## Text objects
 <!-- {.-three-column} -->
 
 ### Usage
@@ -186,24 +183,26 @@ Text objects let you operate (with an *operator*) in or around text blocks (*obj
 | Operator | Around               | What        |
 | ---      | ---                  | ---         |
 | `v`      | `i`                  | `p`         |
-| Operator | [i]nside or [a]round | Text object |
+| Operator | (i)nside or (a)round | Text object |
 <!-- {.-css-breakdown} -->
 
 ### Text objects
 
-| Shortcut               | Description           |
-| ---                    | ---                   |
-| `p`                    | Paragraph             |
-| `w`                    | Word                  |
-| `s`                    | Sentence              |
-| ---                    | ---                   |
-| `[` `(` `{` `<`        | A [], (), or {} block |
-| `'` `"` <code>`</code> | A quoted string       |
-| ---                    | ---                   |
-| `b`                    | A block [(            |
-| `B`                    | A block in [{         |
-| `t`                    | A XML tag block       |
+| Shortcut        | Description           |
+| ---             | ---                   |
+| `p`             | Paragraph             |
+| `w`             | Word                  |
+| `s`             | Sentence              |
+| ---             | ---                   |
+| `[` `(` `{` `<` | A [], (), or {} block |
+| `'` `"`         | A quoted string       |
+| ---             | ---                   |
+| `b`             | A block [(            |
+| `B`             | A block in [{         |
+| `t`             | A XML tag block       |
 <!-- {.-shortcuts} -->
+
+<!-- | `'` `"` <code>`</code> | A quoted string       | -->
 
 ### Examples
 
@@ -221,24 +220,23 @@ Text objects let you operate (with an *operator*) in or around text blocks (*obj
 
 See [Operators](#operators) for other things you can do.
 
-Misc
-----
+## Misc
 
 ### Folds
 
 | Shortcut      | Description                  |
 | ---           | ---                          |
-| `zo` _/_ `zO` | Open                         |
-| `zc` _/_ `zC` | Close                        |
-| `za` _/_ `zA` | Toggle                       |
+| `zo` */* `zO` | Open                         |
+| `zc` */* `zC` | Close                        |
+| `za` */* `zA` | Toggle                       |
 | ---           | ---                          |
 | `zv`          | Open folds for this line     |
 | ---           | ---                          |
 | `zM`          | Close all                    |
 | `zR`          | Open all                     |
 | ---           | ---                          |
-| `zm`          | Fold more _(foldlevel += 1)_ |
-| `zr`          | Fold less _(foldlevel -= 1)_ |
+| `zm`          | Fold more *(foldlevel += 1)* |
+| `zr`          | Fold less *(foldlevel -= 1)* |
 | ---           | ---                          |
 | `zx`          | Update folds                 |
 <!-- {.-shortcuts} -->
@@ -276,8 +274,8 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 ### Windows
 
-| Shortcut | Description      |
-| ---      | ---              |
+| Shortcut        | Description                          |
+| ---             | ---                                  |
 | `z{height}<Cr>` | Resize pane to `{height}` lines tall |
 
 ### Tags
@@ -313,16 +311,16 @@ Do these in visual or normal mode.
 
 | Shortcut        | Description                                         |
 | ---             | ---                                                 |
-| <code>`^</code> | Last position of cursor in insert mode              |
-| <code>`.</code> | Last change                                         |
-| <code>``</code> | Last jump                                           |
-| ---             | ---                                                 |
 | `ma`            | Mark this cursor position as `a`                    |
 | `\`a`           | Jump to the cursor position `a`                     |
 | `'a`            | Jump to the beginning of the line with position `a` |
 <!-- {.-shortcuts} -->
 
 <!-- TODO backtick -->
+<!-- | ---             | ---                                                 | -->
+<!-- | <code>`^</code> | Last position of cursor in insert mode              | -->
+<!-- | <code>`.</code> | Last change                                         | -->
+<!-- | <code>``</code> | Last jump                                           | -->
 
 ### Misc
 
@@ -344,28 +342,33 @@ Do these in visual or normal mode.
 
 ### Text alignment
 
-    :center [width]
-    :right [width]
-    :left
+```vim
+:center [width]
+:right [width]
+:left
+```
 
 See `:help formatting`
 
 ### Calculator
 
-    <C-R>=128/2
+```vim
+<C-R>=128/2
+```
 
 Do this in insert mode.
 
 ### Exiting with an error
 
-    :cq
-    :cquit
+```vim
+:cq
+:cquit
+```
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
-Also see
---------
+## Also see
 
-- [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
-- [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
-- [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_
+- [Vim cheatsheet](https://vim.rtorr.com/) *(vim.rotrr.com)*
+- [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) *(vimdoc.sourceforge.net)*
+- [Interactive Vim tutorial](http://openvim.com/) *(openvim.com)*
