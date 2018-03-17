@@ -70,3 +70,19 @@ it('handles errors from parseMatter()', async () => {
   expect(result.error).toEqual(doc.error)
   expect(result.output).toEqual(doc.rawBody)
 })
+
+it('adds a path', () => {
+  const doc = {
+    path: '/path/to/react.md',
+    rawBody: '---\ntitle: React\n---\nHello world!',
+    attributes: {
+      title: 'React'
+    },
+    body: 'Hello world!'
+  }
+
+  const result = lint(doc)
+
+  expect(result.status).toEqual('fixed')
+  expect(result.document.attributes.path).toEqual('/react')
+})

@@ -1,6 +1,7 @@
 /* @flow */
 
 const yaml = require('js-yaml')
+const { fixAttributes } = require('./fix_attributes')
 
 /*::
   import type { Document, Result } from './types'
@@ -12,6 +13,7 @@ const yaml = require('js-yaml')
  */
 
 function lint (document /*: Document */) {
+  // Pass thru an error
   if (document.error) {
     return {
       document,
@@ -21,6 +23,13 @@ function lint (document /*: Document */) {
     }
   }
 
+  // Fix up attributes
+  document = {
+    ...document,
+    attributes: fixAttributes(document)
+  }
+
+  // Re-serialize into a new `output`
   const output /*: string */ = serialize(document)
 
   const status = output === document.rawBody ? 'ok' : 'fixed'
