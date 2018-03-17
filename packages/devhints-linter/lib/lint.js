@@ -1,7 +1,5 @@
 /* @flow */
 
-const fastmatter = require('fastmatter')
-const { readFile, writeFile } = require('fs-extra')
 const yaml = require('js-yaml')
 
 /*::

@@ -2,7 +2,6 @@
 
 const fastmatter = require('fastmatter')
 const { readFile, writeFile } = require('fs-extra')
-const yaml = require('js-yaml')
 const glob = require('glob').sync
 const flatten = require('array-flatten').depth
 

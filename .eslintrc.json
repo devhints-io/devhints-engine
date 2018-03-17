@@ -5,9 +5,11 @@
   ],
   "parser": "babel-eslint",
   "plugins": [
-    "flowtype"
+    "flowtype-errors"
   ],
   "rules": {
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "flowtype-errors/show-errors": 2,
+    "flowtype-errors/show-warnings": 1
   }
 }

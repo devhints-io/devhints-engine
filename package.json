@@ -34,7 +34,7 @@
     "develop": "gatsby develop",
     "fix": "node packages/devhints-linter/bin.js \"sheets/*.md\" --fix",
     "flow": "flow",
-    "lint:js": "eslint \"src/\"",
+    "lint:js": "eslint src/ packages/",
     "lint:md": "node packages/devhints-linter/bin.js \"sheets/*.md\"",
     "test": "jest"
   },
@@ -48,6 +48,7 @@
     "eslint-config-standard": "11",
     "eslint-config-standard-react": "5",
     "eslint-plugin-flowtype": "2",
+    "eslint-plugin-flowtype-errors": "^3.5.1",
     "eslint-plugin-import": "2",
     "eslint-plugin-node": "5",
     "eslint-plugin-promise": "3",

@@ -1,6 +1,14 @@
 // @flow
 
 /**
+ * The message in a result
+ */
+
+export type Message = {|
+  message: string
+|}
+
+/**
  * Frontmatter
  */
 
@@ -48,14 +56,6 @@ export type Result = {|
 
   // If status is 'error', this contains the error
   error?: Error
-|}
-
-/**
- * The message in a result
- */
-
-export type Message = {|
-  message: string
 |}
 
 /**
