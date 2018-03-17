@@ -28,7 +28,6 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "ci": "run-s lint:js lint:md flow test build",
     "deploy": "run-s build deploy:gh-pages",
     "deploy:gh-pages": "gh-pages -d public",
     "develop": "gatsby develop",
