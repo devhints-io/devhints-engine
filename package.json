@@ -32,10 +32,10 @@
     "deploy": "run-s build deploy:gh-pages",
     "deploy:gh-pages": "gh-pages -d public",
     "develop": "gatsby develop",
-    "fix": "node packages/devhints-linter/bin.js \"sheets/*.md\" --fix",
+    "fix": "node packages/devhints-linter/bin/devhints-linter.js \"sheets/*.md\" --fix",
     "flow": "flow",
     "lint:js": "eslint src/ packages/",
-    "lint:md": "node packages/devhints-linter/bin.js \"sheets/*.md\"",
+    "lint:md": "node packages/devhints-linter/bin/devhints-linter.js \"sheets/*.md\"",
     "test": "jest"
   },
   "devDependencies": {
