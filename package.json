@@ -6,6 +6,7 @@
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
   "dependencies": {
     "devhints-markdown-linter": "./packages/devhints-markdown-linter",
+    "devhints-validator": "./packages/devhints-validator/",
     "gatsby": "^1.9.202",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-netlify-cms": "^1.0.12",
@@ -32,11 +33,11 @@
     "deploy": "run-s build deploy:gh-pages",
     "deploy:gh-pages": "gh-pages -d public",
     "develop": "gatsby develop",
-    "fix": "node packages/devhints-validator/bin/devhints-validator.js \"sheets/*.md\" --fix",
+    "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
     "lint": "eslint src/ packages/",
     "lint-md": "devhints-markdown-linter sheets/*",
-    "validate": "node packages/devhints-validator/bin/devhints-validator.js \"sheets/*.md\"",
+    "validate": "devhints-validator \"sheets/*.md\"",
     "test": "jest"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "devhints-validator": "./bin/devhints-validator.js"
+    "devhints-validator": "./bin/devhints-validator"
   },
   "devDependencies": {
     "concat-stream": "^1.6.1",

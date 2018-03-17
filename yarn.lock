@@ -2708,6 +2708,14 @@ devhints-markdown-linter@./packages/devhints-markdown-linter:
     remark-frontmatter "^1.2.0"
     remark-preset-lint-markdown-style-guide "^2.1.1"
 
+devhints-validator@./packages/devhints-validator/:
+  version "1.0.0"
+  dependencies:
+    array-flatten "^2.1.1"
+    fs-extra "^5.0.0"
+    glob "^7.1.2"
+    meow "^4.0.0"
+
 diff@^3.2.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
