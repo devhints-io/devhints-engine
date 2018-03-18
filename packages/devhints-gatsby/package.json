@@ -12,6 +12,8 @@
     "gatsby-transformer-remark": "^1.7.37",
     "isotope-layout": "^3.0.5",
     "react-helmet": "^5.2.0",
+    "rehype-decorate": "*",
+    "rehype-wrapify": "*",
     "responsive-modular-scale.css": "^0.1.0",
     "sanitize.css": "^5.0.0"
   },
@@ -46,6 +48,7 @@
   },
   "license": "MIT",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "build": "gatsby build --prefix-paths",
     "deploy": "run-s build deploy:gh-pages",
