@@ -24,6 +24,10 @@
   "keywords": [
     "devhints"
   ],
+  "bin": {
+    "devhints-validator": "packages/devhints-validator/bin/devhints-validator",
+    "devhints-markdown-linter": "packages/devhints-markdown-linter/bin/devhints-markdown-linter"
+  },
   "license": "UNLICENSED",
   "main": "n/a",
   "private": true,
