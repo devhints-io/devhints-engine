@@ -59,14 +59,13 @@
   },
   "jest": {
     "setupFiles": [
-      "./packages/devhints-gatsby/tests/.jest.js"
+      "./tests/.jest.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/packages/devhints-gatsby/.cache/",
       "<rootDir>/.cache/"
     ]
   },
