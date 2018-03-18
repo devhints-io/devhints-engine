@@ -11,13 +11,9 @@
   "license": "UNLICENSED",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build --prefix-paths",
-    "deploy": "run-s build deploy:gh-pages",
-    "deploy:gh-pages": "gh-pages -d public",
-    "develop": "gatsby develop",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
-    "lint": "eslint src/ packages/",
+    "lint": "eslint packages/*/lib packages/*/src",
     "lint-md": "devhints-markdown-linter sheets/*",
     "validate": "devhints-validator \"sheets/*.md\"",
     "test": "jest"
