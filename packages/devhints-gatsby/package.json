@@ -44,13 +44,6 @@
   "jest": {
     "setupFiles": [
       "./tests/.jest.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/.cache/"
     ]
   },
   "license": "MIT",
@@ -60,8 +53,6 @@
     "deploy": "run-s build deploy:gh-pages",
     "deploy:gh-pages": "gh-pages -d public",
     "develop": "gatsby develop",
-    "flow": "flow",
-    "lint": "eslint src/ packages/",
     "test": "echo OK"
   }
 }
