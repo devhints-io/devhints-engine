@@ -16,13 +16,6 @@
     - [Setup notes](#setup-notes)
         - [Quick start guide](#quick-start-guide)
         - [Other commands](#other-commands)
-    - [Files of interest](#files-of-interest)
-        - [Pages](#pages)
-        - [React](#react)
-        - [CSS](#css)
-        - [Config](#config)
-        - [Boilerplate](#boilerplate)
-        - [Notable cheatsheets](#notable-cheatsheets)
     - [Writing cheatsheets](#writing-cheatsheets)
         - [Frontmatter](#frontmatter)
         - [Prism languages](#prism-languages)
@@ -48,38 +41,6 @@ yarn run develop   # starts a server
 | `yarn run build`             | build for production          |
 | `yarn run deploy`            | deploy to gh-pages            |
 | `yarn run fix`               | fix lint errors automatically |
-
-## Files of interest
-
-Some files to start digging into:
-
-### Pages
-
-- [`HomePage`](src/pages/index.js)
-- [`NotFoundPage`](src/pages/404.js)
-- [`CheatsheetTemplate`](src/templates/SheetTemplate.js)
-
-### React
-
-- [`PostContent`](src/components/PostContent.js)
-
-### CSS
-
-- [`index.css`](src/styles/index.css) (Main entry point)
-- [`variables.css`](src/styles/variables.css)
-
-### Config
-
-- [`CONFIG`](config.js) (site content, secrets, etc)
-
-### Boilerplate
-
-- [`TemplateWrapper`](src/layouts/index.js) (Basic `<html>` template)
-
-### Notable cheatsheets
-
-- [`vim.md`](sheets/vim.md)
-- [`sketch.md`](sheets/sketch.md)
 
 ## Writing cheatsheets
 
