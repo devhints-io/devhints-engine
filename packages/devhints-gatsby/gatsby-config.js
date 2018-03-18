@@ -1,4 +1,5 @@
-const root = require('path').resolve.bind(null, __dirname)
+const pkg = require('path').resolve.bind(null, __dirname)
+const root = require('path').resolve.bind(null, __dirname, '../..')
 
 /*
  * Where cheatsheets are
@@ -20,7 +21,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
-        modulePath: root('src/cms/cms.js')
+        modulePath: pkg('src/cms/cms.js')
       }
     },
     'gatsby-plugin-react-helmet',
