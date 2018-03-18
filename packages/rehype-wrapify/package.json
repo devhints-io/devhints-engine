@@ -8,5 +8,6 @@
   "main": "index.js",
   "scripts": {
     "test": "jest"
-  }
+  },
+  "private": true
 }

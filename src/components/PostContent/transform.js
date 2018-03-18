@@ -1,6 +1,6 @@
 import React from 'react'
-import decorate from 'rehype-decorate'
-import wrapify from 'rehype-wrapify'
+import decorate from '../../../packages/rehype-decorate'
+import wrapify from '../../../packages/rehype-wrapify'
 import RehypeReact from 'rehype-react'
 
 /**

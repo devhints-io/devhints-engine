@@ -77,8 +77,8 @@
   "main": "n/a",
   "private": true,
   "scripts": {
-    "build": "cd packages/devhints-gatsby && yarn run build",
-    "develop": "cd packages/devhints-gatsby && yarn run develop",
+    "build": "gatsby build",
+    "develop": "gatsby develop",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
     "lint": "eslint packages/*/lib packages/*/src",
