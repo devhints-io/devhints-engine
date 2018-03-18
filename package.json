@@ -17,6 +17,7 @@
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
+      "<rootDir>/packages/devhints-gatsby/.cache/",
       "<rootDir>/.cache/"
     ]
   },
