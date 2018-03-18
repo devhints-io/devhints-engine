@@ -1,8 +1,6 @@
 {
   "name": "devhints-validator",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "bin": {
     "devhints-validator": "./bin/devhints-validator"
   },
@@ -14,10 +12,12 @@
     "js-yaml": "^3.11.0",
     "meow": "^4.0.0"
   },
-  "scripts": {
-    "test": "jest"
-  },
   "devDependencies": {
     "jest": "^22.4.2"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
   }
 }

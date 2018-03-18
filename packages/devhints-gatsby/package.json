@@ -1,8 +1,6 @@
 {
   "name": "devhints-gatsby",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "dependencies": {
     "gatsby": "^1.9.236",
     "gatsby-link": "^1.6.39",
@@ -43,15 +41,6 @@
     "npm-run-all": "^4.1.2",
     "react-test-renderer": "^16.2.0"
   },
-  "scripts": {
-    "build": "gatsby build --prefix-paths",
-    "deploy": "run-s build deploy:gh-pages",
-    "deploy:gh-pages": "gh-pages -d public",
-    "develop": "gatsby develop",
-    "flow": "flow",
-    "lint": "eslint src/ packages/",
-    "test": "echo OK"
-  },
   "jest": {
     "setupFiles": [
       "./tests/.jest.js"
@@ -63,5 +52,16 @@
       "/node_modules/",
       "<rootDir>/.cache/"
     ]
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "gatsby build --prefix-paths",
+    "deploy": "run-s build deploy:gh-pages",
+    "deploy:gh-pages": "gh-pages -d public",
+    "develop": "gatsby develop",
+    "flow": "flow",
+    "lint": "eslint src/ packages/",
+    "test": "echo OK"
   }
 }

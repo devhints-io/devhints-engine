@@ -1,23 +1,9 @@
 {
   "name": "devhints-engine",
-  "private": true,
   "description": "Static site generator that builds devhints.io",
   "version": "1.0.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
   "dependencies": {},
-  "keywords": [
-    "devhints"
-  ],
-  "license": "UNLICENSED",
-  "main": "n/a",
-  "scripts": {
-    "fix": "devhints-validator \"sheets/*.md\" --fix",
-    "flow": "flow",
-    "lint": "eslint packages/*/lib packages/*/src",
-    "lint-md": "devhints-markdown-linter sheets/*",
-    "validate": "devhints-validator \"sheets/*.md\"",
-    "test": "jest"
-  },
   "devDependencies": {
     "babel-jest": "^23.0.0-alpha.0",
     "jest": "^22.4.2"
@@ -33,6 +19,20 @@
       "/node_modules/",
       "<rootDir>/.cache/"
     ]
+  },
+  "keywords": [
+    "devhints"
+  ],
+  "license": "UNLICENSED",
+  "main": "n/a",
+  "private": true,
+  "scripts": {
+    "fix": "devhints-validator \"sheets/*.md\" --fix",
+    "flow": "flow",
+    "lint": "eslint packages/*/lib packages/*/src",
+    "lint-md": "devhints-markdown-linter sheets/*",
+    "test": "jest",
+    "validate": "devhints-validator \"sheets/*.md\""
   },
   "workspaces": [
     "packages/*"

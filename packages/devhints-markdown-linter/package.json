@@ -1,18 +1,18 @@
 {
   "name": "devhints-markdown-linter",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "bin": {
+    "devhints-markdown-linter": "./bin/devhints-markdown-linter"
+  },
   "dependencies": {
     "remark": "^9.0.0",
     "remark-cli": "^5.0.0",
     "remark-frontmatter": "^1.2.0",
     "remark-preset-lint-markdown-style-guide": "^2.1.1"
   },
+  "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "test": "echo OK"
-  },
-  "bin": {
-    "devhints-markdown-linter": "./bin/devhints-markdown-linter"
   }
 }
