@@ -1,7 +1,7 @@
 {
   "name": "devhints-engine",
   "description": "Static site generator that builds devhints.io",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
   "dependencies": {},
   "devDependencies": {

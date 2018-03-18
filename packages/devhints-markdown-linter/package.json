@@ -1,6 +1,6 @@
 {
   "name": "devhints-markdown-linter",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "bin": {
     "devhints-markdown-linter": "./bin/devhints-markdown-linter"
   },

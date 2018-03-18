@@ -1,6 +1,6 @@
 {
   "name": "rehype-decorate",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "devDependencies": {
     "hastscript": "^3.1.0"
   },

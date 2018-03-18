@@ -1,6 +1,6 @@
 {
   "name": "devhints-gatsby",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "gatsby": "^1.9.236",
     "gatsby-link": "^1.6.39",
