@@ -1,4 +1,6 @@
 /* @flow */
+/* global graphql */
+
 import React from 'react'
 import Link from 'gatsby-link'
 import TopNav from '../components/TopNav'
@@ -12,18 +14,27 @@ import { CONTENT, LINKS } from '../../config'
  * Home page template
  */
 
-export default () => (
+export default ({ data }) => (
   <div>
+    <textarea>{JSON.stringify(data, null, 2)}</textarea>
     <TopNav />
     <SiteHeader />
     <PagesList links={LINKS} />
   </div>
 )
 
+/**
+ * Site header
+ */
+
 function SiteHeader () {
   const content = CONTENT.siteHeader || {}
   return SiteHeaderView({ content })
 }
+
+/**
+ * Site header view
+ */
 
 const SiteHeaderView = ({ content }) => (
   <div className='site-header'>
@@ -43,3 +54,23 @@ const PagesList = ({ links } /*: { links: SiteLinks } */) => (
     ))}
   </ul>
 )
+
+/**
+ * GraphQL query
+ */
+
+export const query = graphql`
+  query IndexQuery {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+  }
+`
