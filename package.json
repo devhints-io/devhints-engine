@@ -79,7 +79,7 @@
     "develop": "gatsby develop",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
-    "lint": "eslint packages/*/lib packages/*/src",
+    "lint": "eslint packages/*/lib src",
     "lint-md": "devhints-markdown-linter sheets/*",
     "test": "jest",
     "validate": "devhints-validator \"sheets/*.md\""
