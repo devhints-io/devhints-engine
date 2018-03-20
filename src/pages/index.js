@@ -7,19 +7,22 @@ import TopNav from '../components/TopNav'
 import { CONTENT, LINKS } from '../../config'
 
 /*::
-  import type { SiteLinks } from '../types'
+  import type {
+    MarkdownEdge,
+    MarkdownEdgeList,
+    QueryResult
+  } from '../types'
 */
 
 /**
  * Home page template
  */
 
-export default ({ data }) => (
+export default ({ data: { allMarkdownRemark: { edges } } } /*: QueryResult */) => (
   <div>
-    <textarea>{JSON.stringify(data, null, 2)}</textarea>
     <TopNav />
     <SiteHeader />
-    <PagesList links={LINKS} />
+    <PagesList edges={edges} />
   </div>
 )
 
@@ -45,11 +48,14 @@ const SiteHeaderView = ({ content }) => (
   </div>
 )
 
-const PagesList = ({ links } /*: { links: SiteLinks } */) => (
+const PagesList = ({ edges } /*: { edges: MarkdownEdgeList } */) => (
   <ul>
-    {links.map(link => (
-      <li key={link.path}>
-        <Link to={link.path}>{link.path}</Link>
+    {edges.map(edge => (
+      <li key={edge.node.path}>
+        <Link to={edge.node.frontmatter.path}>
+          <span>{edge.node.frontmatter.title}</span>
+          <code>{edge.node.frontmatter.path}</code>
+        </Link>
       </li>
     ))}
   </ul>
@@ -67,6 +73,7 @@ export const query = graphql`
         node {
           id
           frontmatter {
+            path
             title
           }
         }

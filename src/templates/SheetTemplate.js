@@ -1,3 +1,4 @@
+/* @flow */
 /* global graphql */
 
 import React, { Fragment } from 'react'
@@ -5,11 +6,15 @@ import { CONTENT } from '../../config'
 import TopNav from '../components/TopNav'
 import PostContent from '../components/PostContent'
 
+/*::
+  import type { MarkdownNode } from '../types'
+*/
+
 /**
  * Template for sheets
  */
 
-export default function SheetTemplate (props) {
+export default function SheetTemplate (props /*: { data: { markdownRemark: MarkdownNode } } */) {
   const { data } = props
 
   if (!data) {
