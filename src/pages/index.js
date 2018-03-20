@@ -4,27 +4,49 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import TopNav from '../components/TopNav'
-import { CONTENT, LINKS } from '../../config'
+import { CONTENT } from '../../config'
 
 /*::
   import type {
     MarkdownEdge,
     MarkdownEdgeList,
-    QueryResult
+    QueryResult,
+    Frontmatter,
+    SiteLink,
+    SiteLinkList
   } from '../types'
+
 */
 
 /**
  * Home page template
  */
 
-export default ({ data: { allMarkdownRemark: { edges } } } /*: QueryResult */) => (
+export default ({ data } /*: QueryResult */) => (
   <div>
     <TopNav />
     <SiteHeader />
-    <PagesList edges={edges} />
+    <PagesList links={toLinks((data && data.allMarkdownRemark && data.allMarkdownRemark.edges) || [])} />
   </div>
 )
+
+/**
+ * Convert to SiteLinkList.
+ */
+function toLinks (edges /*: MarkdownEdgeList */) {
+  const links /*: SiteLinkList */ = edges.map((edge /*: MarkdownEdge */) => {
+    const node = edge.node || {}
+    const meta /* Frontmatter */ = node.frontmatter || {}
+    const link /*: SiteLink */ = {
+      path: meta.path || '/',
+      title: meta.title || ''
+    }
+
+    return link
+  })
+
+  return links
+}
 
 /**
  * Site header
@@ -48,13 +70,13 @@ const SiteHeaderView = ({ content }) => (
   </div>
 )
 
-const PagesList = ({ edges } /*: { edges: MarkdownEdgeList } */) => (
+const PagesList = ({ links } /*: { links: SiteLinkList } */) => (
   <ul>
-    {edges.map(edge => (
-      <li key={edge.node.path}>
-        <Link to={edge.node.frontmatter.path}>
-          <span>{edge.node.frontmatter.title}</span>
-          <code>{edge.node.frontmatter.path}</code>
+    {links.map(link => (
+      <li key={link.path}>
+        <Link to={link.path}>
+          <span>{link.title}</span>
+          <code>{link.path}</code>
         </Link>
       </li>
     ))}

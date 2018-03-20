@@ -1,17 +1,21 @@
 /* @flow */
 
+export type HtmlAst = any
+
+export type Frontmatter = {
+  path?: string,
+  title?: string,
+  intro?: string
+}
+
 /**
  * Markdown node.
  */
 
 export type MarkdownNode = {
   id: string,
-  htmlAst?: any, // AST from Remark
-  frontmatter: {
-    path?: string,
-    title?: string,
-    intro?: string
-  }
+  htmlAst?: HtmlAst, // AST from Remark
+  frontmatter?: Frontmatter
 }
 
 /**
@@ -19,7 +23,7 @@ export type MarkdownNode = {
  */
 
 export type MarkdownEdge = {
-  Node: MarkdownNode
+  node: MarkdownNode
 }
 
 /**
@@ -32,10 +36,17 @@ export type MarkdownEdgeList = Array<MarkdownEdge>
  * Result from a query with markdownRemark.
  */
 
-
 export type QueryResult = {
   data: {
     allMarkdownRemark?: {
       edges: MarkdownEdgeList
     }
   }
+}
+
+export type SiteLink = {
+  path: string,
+  title: string
+}
+
+export type SiteLinkList = Array<SiteLink>

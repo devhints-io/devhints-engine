@@ -7,14 +7,20 @@ import TopNav from '../components/TopNav'
 import PostContent from '../components/PostContent'
 
 /*::
-  import type { MarkdownNode } from '../types'
+  import type {
+    HtmlAst,
+    Frontmatter,
+    MarkdownNode,
+  } from '../types'
 */
 
 /**
  * Template for sheets
  */
 
-export default function SheetTemplate (props /*: { data: { markdownRemark: MarkdownNode } } */) {
+export default function SheetTemplate (
+  props /*: { data: { markdownRemark: MarkdownNode } } */
+) {
   const { data } = props
 
   if (!data) {
@@ -32,7 +38,13 @@ export default function SheetTemplate (props /*: { data: { markdownRemark: Markd
  * Logic-less view
  */
 
-export const SheetTemplateView = ({ frontmatter, htmlAst, sheet }) => (
+export const SheetTemplateView = (
+  {
+    frontmatter,
+    htmlAst,
+    sheet
+  } /*: { frontmatter: Frontmatter, htmlAst: HtmlAst, sheet: any } */
+) => (
   <Fragment>
     {/* Top navigation */}
     <TopNav back />
@@ -41,26 +53,19 @@ export const SheetTemplateView = ({ frontmatter, htmlAst, sheet }) => (
       {/* Main heading */}
       <header className='main-heading -center'>
         <h1 className='h1'>
-          {frontmatter.title}
-          {' '}
-          <em>{sheet.suffix}</em>
+          {frontmatter.title} <em>{sheet.suffix}</em>
         </h1>
 
         <div className='adbox' />
       </header>
 
       {/* Introduction */}
-      {(frontmatter && frontmatter.intro) ? (
-        <div className='intro-content MarkdownBody'>
-          {frontmatter.intro}
-        </div>
+      {frontmatter && frontmatter.intro ? (
+        <div className='intro-content MarkdownBody'>{frontmatter.intro}</div>
       ) : null}
 
       {/* Post content */}
-      <PostContent
-        className='post-content MarkdownBody'
-        {...{htmlAst}}
-      />
+      <PostContent className='post-content MarkdownBody' {...{ htmlAst }} />
     </div>
 
     <PreFooter />
