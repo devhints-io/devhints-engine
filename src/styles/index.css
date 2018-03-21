@@ -9,7 +9,7 @@
 @import './utils/gutter-padding.css';
 @import './utils/heading-style.css';
 @import './utils/section-gutter.css';
-@import './utils/section-with-container.css';
+@import './utils/has-container.css';
 
 /* Base */
 @import './base/base.css';

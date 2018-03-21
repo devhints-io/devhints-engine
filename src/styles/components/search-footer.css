@@ -4,7 +4,7 @@
 
 .search-footer {
   & {
-    @apply --section-with-container;
+    @apply --has-container;
     padding-top: 16px;
     padding-bottom: 16px;
     background: var(--gray-bg);
