@@ -1,5 +1,4 @@
 /* @flow */
-/* global graphql */
 
 import React, { Fragment } from 'react'
 import PostContent from './PostContent'
@@ -12,7 +11,8 @@ import CommentsArea from './CommentsArea'
   import type {
     HtmlAst,
     Frontmatter,
-    MarkdownNode
+    MarkdownNode,
+    Content
   } from '../types'
 */
 
@@ -25,7 +25,7 @@ export default (
     frontmatter,
     htmlAst,
     CONTENT
-  } /*: { frontmatter: Frontmatter, htmlAst: HtmlAst, CONTENT: any } */
+  } /*: { frontmatter: Frontmatter, htmlAst: HtmlAst, CONTENT: Content } */
 ) => (
   <Fragment>
     <TopNav back />

@@ -50,3 +50,27 @@ export type SiteLink = {
 }
 
 export type SiteLinkList = Array<SiteLink>
+
+/**
+ * Content config.
+ * See `config.js`.
+ */
+
+export type Content = {
+  siteHeader: {
+    title: string,
+    tagline: string
+  },
+  topNav: {
+    title: string,
+    edit: string,
+    editOnGithub: string
+  },
+  sheet: {
+    suffix: string
+  },
+  relatedPostsCallout: {
+    description: string,
+    link: string
+  }
+}
