@@ -3,8 +3,10 @@
 
 import React, { Fragment } from 'react'
 import { CONTENT } from '../../config'
-import TopNav from '../components/TopNav'
 import PostContent from '../components/PostContent'
+import PreFooter from '../components/PreFooter'
+import SearchFooter from '../components/SearchFooter'
+import TopNav from '../components/TopNav'
 
 /*::
   import type {
@@ -69,13 +71,14 @@ export const SheetTemplateView = (
     </div>
 
     <PreFooter />
-  </Fragment>
-)
 
-export const PreFooter = () => (
-  <div className='pre-footer'>
-    <i className='icon' />
-  </div>
+    <section className='comments-area' id='comments' data-js-no-preview>
+      {/* Comments */}
+    </section>
+
+    {/* Search footer */}
+    <SearchFooter />
+  </Fragment>
 )
 
 /*
