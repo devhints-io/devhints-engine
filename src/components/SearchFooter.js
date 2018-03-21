@@ -11,8 +11,8 @@ export default () => (
         <div className='search'>
           <form className='search' action='/' method='get'>
             <label className='search-box -small'>
-              <span className="prefix">devhints.io</span>
-              <span className="sep">/</span>
+              <span className='prefix'>devhints.io</span>
+              <span className='sep'>/</span>
               <input name='' type='text' value='' placeholder='Search 367+ cheatsheets' />
             </label>
           </form>
