@@ -1,6 +1,14 @@
 /* @flow */
 
+/**
+ * HAST syntax tree. (todo)
+ */
+
 export type HtmlAst = any
+
+/**
+ * Frontmatter for cheat sheets.
+ */
 
 export type Frontmatter = {
   path?: string,
@@ -44,10 +52,18 @@ export type QueryResult = {
   }
 }
 
+/**
+ * A link to a cheatsheet.
+ */
+
 export type SiteLink = {
   path: string,
   title: string
 }
+
+/**
+ * An array of SiteLinks.
+ */
 
 export type SiteLinkList = Array<SiteLink>
 
