@@ -9,6 +9,7 @@
 @import './utils/gutter-padding.css';
 @import './utils/heading-style.css';
 @import './utils/section-gutter.css';
+@import './utils/section-with-container.css';
 
 /* Base */
 @import './base/base.css';
@@ -39,6 +40,9 @@
 @import './components/pre-footer.css';
 @import './components/related-post-item.css';
 @import './components/related-post-list.css';
+@import './components/search-box.css';
+@import './components/search-footer-container.css';
+@import './components/search-footer.css';
 @import './components/site-header.css';
 @import './components/top-nav.css';
 @import './components/top-sheet.css';

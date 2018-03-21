@@ -71,7 +71,13 @@
 }
 
 :root /* Gradients */ {
-  /*   --base-a-gradient: linear-gradient( */
+  --base-a-gradient: linear-gradient(
+    5deg,
+    var(--base-a),
+    color(var(--base-a) tint(2%))
+  );
+
+  /*   TODO --base-a-gradient: linear-gradient( */
   /*   5deg, */
   /*   $base-a, */
   /*   adjust-color($base-a, $lightness: 2%, $hue: 16deg)); */
