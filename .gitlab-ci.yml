@@ -1,0 +1,14 @@
+image: node:slim
+
+cache:
+  paths:
+  - node_modules/
+
+test_all:
+  script:
+   - yarn
+   - yarn run flow
+   - yarn run validate
+   - yarn run lint
+   - yarn run test
+   - yarn run build
