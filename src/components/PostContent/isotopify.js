@@ -33,7 +33,7 @@ function isotopifyItem (el /*: HTMLElement */) {
     transitionDuration: 0
   })
 
-  const images /*: NodeList<HTMLElement> */ = el.querySelectorAll('img')
+  const images = el.querySelectorAll('img')
 
   Array.from(images).forEach(image => {
     image.addEventListener('load', () => {

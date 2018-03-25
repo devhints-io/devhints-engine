@@ -1,6 +1,4 @@
 /* @flow */
-/* eslint-disable no-new */
-
 import React, { PureComponent } from 'react'
 import transform from './transform'
 import isotopify from './isotopify'

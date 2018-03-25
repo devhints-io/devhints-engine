@@ -1,11 +1,14 @@
 /* @flow */
 
-import React, { Fragment } from 'react'
+import * as React from 'react'
+import CommentsArea from './CommentsArea'
 import PostContent from './PostContent'
 import PreFooter from './PreFooter'
+import RelatedPostItem from './RelatedPostItem'
 import SearchFooter from './SearchFooter'
+import RelatedPostsCallout from './RelatedPostsCallout'
+import MainHeading from './MainHeading'
 import TopNav from './TopNav'
-import CommentsArea from './CommentsArea'
 
 /*::
   import type {
@@ -27,7 +30,7 @@ export default (
     CONTENT
   } /*: { frontmatter: Frontmatter, htmlAst: HtmlAst, CONTENT: Content } */
 ) => (
-  <Fragment>
+  <React.Fragment>
     <TopNav back />
 
     <div className='body-area'>
@@ -46,28 +49,7 @@ export default (
     <CommentsArea />
     <SearchFooter />
     <RelatedPostsArea />
-  </Fragment>
-)
-
-/**
- * Main heading
- */
-
-/*::
-  export type MainHeadingProps = {
-    title: string,
-    suffix: string
-  }
-*/
-
-export const MainHeading = ({ title, suffix } /*: MainHeadingProps */) => (
-  <header className='main-heading -center'>
-    <h1 className='h1'>
-      {title} <em>{suffix}</em>
-    </h1>
-
-    <div className='adbox' />
-  </header>
+  </React.Fragment>
 )
 
 /**
@@ -96,29 +78,12 @@ export const RelatedPostsSection = () => (
   </div>
 )
 
-export const RelatedPostsCallout = () => (
-  <a className='related-posts-callout' href='.'>
-    <div className='text'>
-      <i className='icon' />
-      <span className='description'>
-        Over 367 curated cheatsheets, by developers for developers.
-      </span>
-      <span className='push-button -dark'>Devhints home</span>
-    </div>
-  </a>
-)
-
 export const RelatedPostsGroup = () => (
   <div className='related-posts-group'>
     <h3>Other Vim cheatsheets</h3>
     <div className='related-post-list'>
       {[0, 1, 2, 3].map(n => (
-        <div className='item related-post-item'>
-          <a href='/vimscript'>
-            <strong>Vim scripting</strong>
-            <span>cheatsheet</span>
-          </a>
-        </div>
+        <RelatedPostItem key={n} />
       ))}
     </div>
   </div>
