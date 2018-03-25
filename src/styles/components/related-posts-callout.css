@@ -41,7 +41,7 @@
     /* TODO @include ion-ios-arrow-back(48px, adjust-color($base-a, $lightness: 16%, $hue: 20deg)); */
     height: 64px;
     width: 64px;
-    /* iTODO border: solid 2px adjust-color($base-a, $lightness: 16%, $hue: 20deg); */
+    /* TODO border: solid 2px adjust-color($base-a, $lightness: 16%, $hue: 20deg); */
     border-radius: 50%;
     text-indent: -2px;
     text-shadow: none;
@@ -55,4 +55,3 @@
     margin-bottom: 16px;
   }
 }
-]
