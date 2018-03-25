@@ -31,7 +31,7 @@ export default (
     <TopNav back />
 
     <div className='body-area'>
-      <MainHeading title={frontmatter.title} suffix={CONTENT.sheet.suffix} />
+      <MainHeading title={frontmatter.title || ''} suffix={CONTENT.sheet.suffix || ''} />
 
       {/* Introduction */}
       {frontmatter && frontmatter.intro ? (
@@ -53,7 +53,14 @@ export default (
  * Main heading
  */
 
-const MainHeading = ({ title, suffix }) => (
+/*::
+  export type MainHeadingProps = {
+    title: string,
+    suffix: string
+  }
+*/
+
+export const MainHeading = ({ title, suffix } /*: MainHeadingProps */) => (
   <header className='main-heading -center'>
     <h1 className='h1'>
       {title} <em>{suffix}</em>
@@ -67,6 +74,52 @@ const MainHeading = ({ title, suffix }) => (
  * Related posts area
  */
 
-const RelatedPostsArea = () => (
-  <footer className='related-posts-area' id='related' data-js-no-preview />
+export const RelatedPostsArea = () => (
+  <footer className='related-posts-area' id='related' data-js-no-preview>
+    <div className='container'>
+      <RelatedPostsSection />
+    </div>
+  </footer>
+)
+
+export const RelatedPostsSection = () => (
+  <div className='related-posts-section'>
+    <div className='callout'>
+      <RelatedPostsCallout />
+    </div>
+    <div className='group'>
+      <RelatedPostsGroup />
+    </div>
+    <div className='group'>
+      <RelatedPostsGroup />
+    </div>
+  </div>
+)
+
+export const RelatedPostsCallout = () => (
+  <a className='related-posts-callout' href='.'>
+    <div className='text'>
+      <i className='icon' />
+      <span className='description'>
+        Over 367 curated cheatsheets, by developers for developers.
+      </span>
+      <span className='push-button -dark'>Devhints home</span>
+    </div>
+  </a>
+)
+
+export const RelatedPostsGroup = () => (
+  <div className='related-posts-group'>
+    <h3>Other Vim cheatsheets</h3>
+    <div className='related-post-list'>
+      {[0, 1, 2, 3].map(n => (
+        <div className='item related-post-item'>
+          <a href='/vimscript'>
+            <strong>Vim scripting</strong>
+            <span>cheatsheet</span>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
 )

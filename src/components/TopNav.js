@@ -3,11 +3,16 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { CONTENT } from '../../config'
+import { withProps } from 'recompose'
 
 /*::
    export type Props = {
      // If true, shows the back button
      back?: boolean
+   }
+
+   export type ExtraProps = {
+     title: string
    }
 */
 
@@ -17,22 +22,24 @@ import { CONTENT } from '../../config'
  * @param {Boolean} props.back Shows back button if true
  */
 
-function TopNav (props /*: Props */ = {}) {
-  const topNav = CONTENT.topNav || {}
-
-  return (
-    <nav className='top-nav' data-js-no-preview role='navigation'>
-      <div className='container'>
-        <div className='left'>
-          <Link className='home back-button' to='/' />
-        </div>
-
-        <Link className='brand' to='/'>
-          {topNav.title}
-        </Link>
+const TopNav = ({ title } /*: Props & ExtraProps */) => (
+  <nav className='top-nav' data-js-no-preview role='navigation'>
+    <div className='container'>
+      <div className='left'>
+        <Link className='home back-button' to='/' />
       </div>
-    </nav>
-  )
+
+      <Link className='brand' to='/'>
+        {title}
+      </Link>
+    </div>
+  </nav>
+)
+
+function addProps () /*: ExtraProps */ {
+  return {
+    title: (CONTENT && CONTENT.topNav && CONTENT.topNav.title) || ''
+  }
 }
 
-export default TopNav
+export default withProps(addProps)(TopNav)

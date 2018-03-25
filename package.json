@@ -25,6 +25,7 @@
     "js-yaml": "^3.11.0",
     "meow": "^4.0.0",
     "react-helmet": "^5.2.0",
+    "recompose": "^0.26.0",
     "rehype-react": "^3.0.2",
     "remark": "^9.0.0",
     "remark-cli": "^5.0.0",
