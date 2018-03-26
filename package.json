@@ -80,7 +80,7 @@
   "private": true,
   "scripts": {
     "build": "gatsby build",
-    "ci:lint": "run-p flow lint lint-md validate",
+    "ci:lint": "run-p flow lint lint-md validate format:list",
     "ci:test": "run-p test build",
     "develop": "gatsby develop",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
