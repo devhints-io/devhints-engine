@@ -337,15 +337,16 @@ Do these in visual or normal mode.
 
 ### Marks
 
-| Shortcut | Description                                         |
-| -------- | --------------------------------------------------- |
-| `ma`     | Mark this cursor position as `a`                    |
-| `` `a `` | Jump to the cursor position `a`                     |
-| `'a`     | Jump to the beginning of the line with position `a` |
-| ---      | ---                                                 |
-| `` `^ `` | Last position of cursor in insert mode              |
-| `` `. `` | Last change                                         |
-| ` `` `   | Last jump                                           |
+<!-- prettier-ignore -->
+| Shortcut   | Description                                         |
+| ---------- | --------------------------------------------------- |
+| `ma`       | Mark this cursor position as `a`                    |
+| `` `a ``   | Jump to the cursor position `a`                     |
+| `'a`       | Jump to the beginning of the line with position `a` |
+| ---        | ---                                                 |
+| `` `^ ``   | Last position of cursor in insert mode              |
+| `` `. ``   | Last change                                         |
+| ``` `` ``` | Last jump                                           |
 
 <!-- {.-shortcuts} -->
 
