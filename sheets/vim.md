@@ -345,10 +345,9 @@ Do these in visual or normal mode.
 | ---      | ---                                                 |
 | `` `^ `` | Last position of cursor in insert mode              |
 | `` `. `` | Last change                                         |
-| ``` `` ``` | Last jump                                           |
+| ` `` `   | Last jump                                           |
 
 <!-- {.-shortcuts} -->
-
 
 ### Misc
 
