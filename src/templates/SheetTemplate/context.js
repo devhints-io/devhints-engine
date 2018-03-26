@@ -1,11 +1,21 @@
-// import PropTypes from 'prop-types'
+import { getContext } from 'recompose'
 
 /**
  * Context
  */
 
-export const CONTENT = {
-  CONTENT: {} // PropTypes.any
+export const ALL = {
+  CONTENT: () => null // PropTypes.any
 }
 
-export default { ...CONTENT }
+/**
+ * Remove me?
+ */
+
+export default ALL
+
+/**
+ * HOC for injecting context
+ */
+
+export const useContext = getContext(ALL)

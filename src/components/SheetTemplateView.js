@@ -1,8 +1,7 @@
 /* @flow */
 
 import * as React from 'react'
-import { getContext } from 'recompose'
-import Context from '../templates/SheetTemplate/context'
+import { useContext } from '../templates/SheetTemplate/context'
 import CommentsArea from './CommentsArea'
 import PostContent from './PostContent'
 import PreFooter from './PreFooter'
@@ -54,7 +53,7 @@ export const View = ({ frontmatter, htmlAst, CONTENT } /*: Props */) => (
   </React.Fragment>
 )
 
-export default getContext(Context)(View)
+export default useContext(View)
 
 /**
  * Related posts area
