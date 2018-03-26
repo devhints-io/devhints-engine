@@ -9,14 +9,13 @@
 
 :root /* Fonts */ {
   /* Sans font */
-  --system-sans:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --system-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 
   /* Monospace font */
-  --system-mono:
-    'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'Ubuntu Mono',
-    Courier, monospace;
+  --system-mono: 'SFMono-Regular', Consolas, Menlo, 'Liberation Mono',
+    'Ubuntu Mono', Courier, monospace;
 
   /* Fonts */
   --body-font: var(--system-sans);
@@ -26,11 +25,11 @@
 
 :root /* Base colors */ {
   /* Neutral palette */
-  --base-body:  #f1f3f5;
+  --base-body: #f1f3f5;
   --base-panel: #ffffff;
-  --base-head:  #111111;
-  --base-text:  #334455;
-  --base-mute:  #667788; /* Gray */
+  --base-head: #111111;
+  --base-text: #334455;
+  --base-mute: #667788; /* Gray */
 
   /* Accent palette */
   --base-a: color(#8370bd shade(5%)); /* Indigo */
@@ -84,15 +83,12 @@
 }
 
 :root /* Shadows */ {
-  --shadow2:
-    0 1px 1px color(var(--base-mute) alpha(55%));
+  --shadow2: 0 1px 1px color(var(--base-mute) alpha(55%));
 
-  --shadow3:
-    0 6px 8px color(var(--base-mute) alpha(3%)),
+  --shadow3: 0 6px 8px color(var(--base-mute) alpha(3%)),
     0 1px 2px color(var(--base-mute) alpha(30%));
 
-  --shadow6:
-    0 6px 8px color(var(--base-mute) alpha(3%)),
+  --shadow6: 0 6px 8px color(var(--base-mute) alpha(3%)),
     0 1px 2px color(var(--base-mute) alpha(30%)),
     0 8px 12px color(var(--base-b3) alpha(1%));
 }

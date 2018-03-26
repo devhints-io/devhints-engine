@@ -43,6 +43,5 @@ it('handles errors', async () => {
   expect(doc.path).toEqual(input.path)
   expect(doc.rawBody).toEqual(input.rawBody)
 
-  expect(doc.error.message)
-    .toMatch(/incomplete explicit mapping pair/)
+  expect(doc.error.message).toMatch(/incomplete explicit mapping pair/)
 })

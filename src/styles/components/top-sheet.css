@@ -25,7 +25,8 @@
       background: linear-gradient(
         15deg,
         var(--base-a),
-        var(--base-a)); /* TODO adjust-color($base-a, $lightness: 4%, $hue: 20deg)); */
+        var(--base-a)
+      ); /* TODO adjust-color($base-a, $lightness: 4%, $hue: 20deg)); */
     }
 
     &:hover > .info,

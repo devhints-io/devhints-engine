@@ -18,9 +18,7 @@ function TemplateWrapper ({ children }) {
           { name: 'keywords', content: 'sample, something' }
         ]}
       />
-      <div>
-        {children()}
-      </div>
+      <div>{children()}</div>
     </div>
   )
 }

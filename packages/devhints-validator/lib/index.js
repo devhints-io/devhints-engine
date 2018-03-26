@@ -18,9 +18,11 @@ const { lint } = require('./lint')
 async function run (argv /*: Array<string> */, options /*: RunOptions */ = {}) {
   const filesLists /*: Array<Array<string>> */ = argv.map(spec => glob(spec))
   const files /*: Array<string> */ = flatten(filesLists, 1)
-  const results /*: Array<Result> */ = await Promise.all(files.map((file) => {
-    return runFile(file, options)
-  }))
+  const results /*: Array<Result> */ = await Promise.all(
+    files.map(file => {
+      return runFile(file, options)
+    })
+  )
 
   const all = results
   const fixeds = results.filter(res => res.status === 'fixed')
@@ -51,8 +53,10 @@ async function run (argv /*: Array<string> */, options /*: RunOptions */ = {}) {
     }
 
     return {
-      code: (isSuccess ? 0 : 16),
-      summary: `${all.length} files, ${fixeds.length} fixed, ${errors.length} failed`,
+      code: isSuccess ? 0 : 16,
+      summary: `${all.length} files, ${fixeds.length} fixed, ${
+        errors.length
+      } failed`,
       messages
     }
   }
@@ -68,7 +72,10 @@ async function run (argv /*: Array<string> */, options /*: RunOptions */ = {}) {
  *     console.log(res.status)
  */
 
-async function runFile (path /*: string */, options = {}) /*: Promise<Result> */ {
+async function runFile (
+  path /*: string */,
+  options = {}
+) /*: Promise<Result> */ {
   let doc /*: Document */
   doc = await fetchDoc(path)
   doc = await parseMatter(doc)

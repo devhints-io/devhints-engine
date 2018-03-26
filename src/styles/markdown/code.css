@@ -50,10 +50,7 @@
   /* Line highlight */
   & .line-highlight {
     transform: translate3d(0, 2px, 0);
-    background: linear-gradient(
-      to right,
-      #eee 25%,
-      transparent);
+    background: linear-gradient(to right, #eee 25%, transparent);
     /* TODO rgba($base-c, 0.05) 25%, */
   }
 

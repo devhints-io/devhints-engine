@@ -2,7 +2,8 @@
  * Base
  */
 
-html, body {
+html,
+body {
   background: var(--base-body);
   font-family: var(--body-font);
   font-size: 14px;
@@ -21,7 +22,8 @@ body {
  * Code
  */
 
-pre, code {
+pre,
+code {
   font-family: var(--monospace-font);
   letter-spacing: -0.03em;
 }

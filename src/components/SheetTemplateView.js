@@ -35,7 +35,10 @@ export const View = ({ frontmatter, htmlAst, CONTENT } /*: Props */) => (
     <TopNav back />
 
     <div className='body-area'>
-      <MainHeading title={frontmatter.title || ''} suffix={CONTENT.sheet.suffix || ''} />
+      <MainHeading
+        title={frontmatter.title || ''}
+        suffix={CONTENT.sheet.suffix || ''}
+      />
 
       {/* Introduction */}
       {frontmatter && frontmatter.intro ? (
@@ -85,9 +88,7 @@ export const RelatedPostsGroup = () => (
   <div className='related-posts-group'>
     <h3>Other Vim cheatsheets</h3>
     <div className='related-post-list'>
-      {[0, 1, 2, 3].map(n => (
-        <RelatedPostItem key={n} className='item' />
-      ))}
+      {[0, 1, 2, 3].map(n => <RelatedPostItem key={n} className='item' />)}
     </div>
   </div>
 )
