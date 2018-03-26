@@ -37,10 +37,9 @@ export function map ({ data } /*: Props */) {
  * Export
  */
 
-export default compose(
-  withContext(ALL, () => ({ CONTENT })),
-  mapProps(map)
-)(SheetTemplateView)
+export default compose(withContext(ALL, () => ({ CONTENT })), mapProps(map))(
+  SheetTemplateView
+)
 
 /*
  * Query

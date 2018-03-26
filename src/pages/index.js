@@ -28,7 +28,11 @@ export const Root = ({ data } /*: QueryResult */) => (
   <div>
     <TopNav />
     <SiteHeader />
-    <PagesList links={toLinks((data && data.allMarkdownRemark && data.allMarkdownRemark.edges) || [])} />
+    <PagesList
+      links={toLinks(
+        (data && data.allMarkdownRemark && data.allMarkdownRemark.edges) || []
+      )}
+    />
   </div>
 )
 

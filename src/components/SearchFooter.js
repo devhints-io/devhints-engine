@@ -13,7 +13,12 @@ export default () => (
             <label className='search-box -small'>
               <span className='prefix'>devhints.io</span>
               <span className='sep'>/</span>
-              <input name='' type='text' value='' placeholder='Search 367+ cheatsheets' />
+              <input
+                name=''
+                type='text'
+                value=''
+                placeholder='Search 367+ cheatsheets'
+              />
             </label>
           </form>
         </div>

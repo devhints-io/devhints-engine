@@ -14,9 +14,7 @@ export default () => (
           <span className='fauxlink'>Write yours!</span>
         </summary>
         <div className='comments-section'>
-          <div className='comments'>
-            (Disqus goes here)
-          </div>
+          <div className='comments'>(Disqus goes here)</div>
         </div>
       </details>
     </div>
