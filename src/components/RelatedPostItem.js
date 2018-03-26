@@ -16,7 +16,7 @@ export const View = ({ className, CONTENT } /*: Props */) => (
     <a href='/vimscript'>
       <strong>Vim scripting</strong>
       <span>
-        {(CONTENT && CONTENT.sheet && CONTENT.sheet.suffix) || 'cheatsheet'}
+        {CONTENT.sheet.suffix}
       </span>
     </a>
   </div>

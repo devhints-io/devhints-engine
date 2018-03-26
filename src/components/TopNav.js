@@ -2,17 +2,15 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
-import { CONTENT } from '../../config'
-import { withProps } from 'recompose'
+import { useContext } from '../templates/SheetTemplate/context'
 
 /*::
+   import type { Content } from '../types'
+
    export type Props = {
      // If true, shows the back button
-     back?: boolean
-   }
-
-   export type ExtraProps = {
-     title: string
+     back?: boolean,
+    CONTENT: Content
    }
 */
 
@@ -22,7 +20,7 @@ import { withProps } from 'recompose'
  * @param {Boolean} props.back Shows back button if true
  */
 
-const TopNav = ({ title } /*: Props & ExtraProps */) => (
+export const TopNav = ({ title, CONTENT } /*: Props */) => (
   <nav className='top-nav' data-js-no-preview role='navigation'>
     <div className='container'>
       <div className='left'>
@@ -30,16 +28,10 @@ const TopNav = ({ title } /*: Props & ExtraProps */) => (
       </div>
 
       <Link className='brand' to='/'>
-        {title}
+        {CONTENT.topNav.title}
       </Link>
     </div>
   </nav>
 )
 
-function addProps () /*: ExtraProps */ {
-  return {
-    title: (CONTENT && CONTENT.topNav && CONTENT.topNav.title) || ''
-  }
-}
-
-export default withProps(addProps)(TopNav)
+export default useContext(TopNav)
