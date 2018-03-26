@@ -217,15 +217,13 @@ Text objects let you operate (with an _operator_) in or around text blocks (_obj
 | `s`             | Sentence              |
 | ---             | ---                   |
 | `[` `(` `{` `<` | A [], (), or {} block |
-| `'` `"`         | A quoted string       |
+| `'` `"` `` ` `` | A quoted string       |
 | ---             | ---                   |
 | `b`             | A block [(            |
 | `B`             | A block in [{         |
 | `t`             | A XML tag block       |
 
 <!-- {.-shortcuts} -->
-
-<!-- | `'` `"` <code>`</code> | A quoted string       | -->
 
 ### Examples
 
@@ -342,20 +340,15 @@ Do these in visual or normal mode.
 | Shortcut | Description                                         |
 | -------- | --------------------------------------------------- |
 | `ma`     | Mark this cursor position as `a`                    |
-| `\`a`    | Jump to the cursor position `a`                     |
+| `` `a `` | Jump to the cursor position `a`                     |
 | `'a`     | Jump to the beginning of the line with position `a` |
+| ---      | ---                                                 |
+| `` `^ `` | Last position of cursor in insert mode              |
+| `` `. `` | Last change                                         |
+| ``` `` ``` | Last jump                                           |
 
 <!-- {.-shortcuts} -->
 
-<!-- TODO backtick -->
-
-<!-- | ---             | ---                                                 | -->
-
-<!-- | <code>`^</code> | Last position of cursor in insert mode              | -->
-
-<!-- | <code>`.</code> | Last change                                         | -->
-
-<!-- | <code>``</code> | Last jump                                           | -->
 
 ### Misc
 
