@@ -3,8 +3,5 @@ image: node:slim
 test_all:
   script:
    - yarn
-   - yarn run flow
-   - yarn run validate
-   - yarn run lint
-   - yarn run test
-   - yarn run build
+   - yarn run ci:lint
+   - yarn run ci:test
