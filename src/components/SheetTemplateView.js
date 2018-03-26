@@ -1,6 +1,8 @@
 /* @flow */
 
 import * as React from 'react'
+import { getContext } from 'recompose'
+import Context from '../templates/SheetTemplate/context'
 import CommentsArea from './CommentsArea'
 import PostContent from './PostContent'
 import PreFooter from './PreFooter'
@@ -17,19 +19,19 @@ import TopNav from './TopNav'
     MarkdownNode,
     Content
   } from '../types'
+
+  export type Props = {
+    frontmatter: Frontmatter,
+    htmlAst: HtmlAst,
+    CONTENT: Content
+  }
 */
 
 /**
  * Logic-less view
  */
 
-export default (
-  {
-    frontmatter,
-    htmlAst,
-    CONTENT
-  } /*: { frontmatter: Frontmatter, htmlAst: HtmlAst, CONTENT: Content } */
-) => (
+export const View = ({ frontmatter, htmlAst, CONTENT } /*: Props */) => (
   <React.Fragment>
     <TopNav back />
 
@@ -51,6 +53,8 @@ export default (
     <RelatedPostsArea />
   </React.Fragment>
 )
+
+export default getContext(Context)(View)
 
 /**
  * Related posts area
@@ -83,7 +87,7 @@ export const RelatedPostsGroup = () => (
     <h3>Other Vim cheatsheets</h3>
     <div className='related-post-list'>
       {[0, 1, 2, 3].map(n => (
-        <RelatedPostItem key={n} />
+        <RelatedPostItem key={n} className='item' />
       ))}
     </div>
   </div>

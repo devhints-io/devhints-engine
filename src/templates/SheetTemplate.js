@@ -2,6 +2,8 @@
 /* global graphql */
 
 import React from 'react'
+import Context from './SheetTemplate/context'
+import { withContext } from 'recompose'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
 
@@ -17,7 +19,7 @@ import { CONTENT } from '../../config'
  * Template for sheets
  */
 
-export default function SheetTemplate (
+export function SheetTemplate (
   props /*: { data: { markdownRemark: MarkdownNode } } */
 ) {
   const { data } = props
@@ -29,8 +31,16 @@ export default function SheetTemplate (
   const { markdownRemark } = data
   const { frontmatter, htmlAst } = markdownRemark
 
-  return <SheetTemplateView {...{ frontmatter, htmlAst, CONTENT }} />
+  return <SheetTemplateView {...{ frontmatter, htmlAst }} />
 }
+
+/**
+ * Export
+ */
+
+export default withContext(Context, () => {
+  return { CONTENT }
+})(SheetTemplate)
 
 /*
  * Query

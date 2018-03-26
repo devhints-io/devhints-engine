@@ -24,6 +24,7 @@
     "isotope-layout": "^3.0.5",
     "js-yaml": "^3.11.0",
     "meow": "^4.0.0",
+    "prop-types": "^15.6.1",
     "react-helmet": "^5.2.0",
     "recompose": "^0.26.0",
     "rehype-react": "^3.0.2",
