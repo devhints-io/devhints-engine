@@ -37,7 +37,7 @@ export const TopNav = ({ title, brand } /*: Props */) => (
 )
 
 export const map = mapContext(({ CONTENT } /*: { CONTENT: Content } */) => ({
-  brand: CONTENT.topNav.title
+  brand: (CONTENT && CONTENT.topNav && CONTENT.topNav.title) || 'what'
 }))
 
 export default map(TopNav)

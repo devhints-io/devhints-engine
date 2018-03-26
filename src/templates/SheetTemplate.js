@@ -2,7 +2,7 @@
 /* global graphql */
 
 import React from 'react'
-import Context from './SheetTemplate/context'
+import { ALL } from './SheetTemplate/context'
 import { withContext } from 'recompose'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
@@ -38,9 +38,7 @@ export function SheetTemplate (
  * Export
  */
 
-export default withContext(Context, () => {
-  return { CONTENT }
-})(SheetTemplate)
+export default withContext(ALL, () => ({ CONTENT }))(SheetTemplate)
 
 /*
  * Query
