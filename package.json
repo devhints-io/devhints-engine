@@ -80,7 +80,7 @@
   "private": true,
   "scripts": {
     "build": "gatsby build",
-    "ci:lint": "run-p flow lint lint-md validate format:list",
+    "ci:lint": "run-p flow lint validate format:list",
     "ci:test": "run-p test build",
     "develop": "gatsby develop",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
@@ -88,7 +88,6 @@
     "format:list": "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\"",
     "flow": "flow",
     "lint": "eslint packages/*/lib src",
-    "lint-md": "devhints-markdown-linter sheets/*",
     "test": "jest",
     "validate": "devhints-validator \"sheets/*.md\""
   },
