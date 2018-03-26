@@ -42,10 +42,7 @@ Configure `package.json`:
 ```json
 {
   "scripts": {
-    "develop": "devhints-engine develop",
-    "build": "build",
-    "lint-md": "devhints-markdown-linter",
-    "validator-md": "devhints-validator"
+    "develop": "devhints-engine develop"
   },
   "devhints": {
     "sheets": [
