@@ -6,31 +6,21 @@ import render from '../lib/helpers/hast_to_react'
 
 describe('single element', () => {
   it('works', () => {
-    const input = h('div', [
-      h('h1', 'Hello'),
-      comment('{.hello}')
-    ])
+    const input = h('div', [h('h1', 'Hello'), comment('{.hello}')])
 
     const output = decorate(input)
 
-    const expected = h('div', [
-      h('h1.hello', 'Hello')
-    ])
+    const expected = h('div', [h('h1.hello', 'Hello')])
 
     expect(render(output)).toEqual(render(expected))
   })
 
   it('2 classes', () => {
-    const input = h('div', [
-      h('h1', 'Hello'),
-      comment('{.hi.world}')
-    ])
+    const input = h('div', [h('h1', 'Hello'), comment('{.hi.world}')])
 
     const output = decorate(input)
 
-    const expected = h('div', [
-      h('h1.hi.world', 'Hello')
-    ])
+    const expected = h('div', [h('h1.hi.world', 'Hello')])
 
     expect(render(output)).toEqual(render(expected))
   })
@@ -44,24 +34,17 @@ describe('single element', () => {
 
     const output = decorate(input)
 
-    const expected = h('div', [
-      h('h1.hi.world', 'Hello')
-    ])
+    const expected = h('div', [h('h1.hi.world', 'Hello')])
 
     expect(render(output)).toEqual(render(expected))
   })
 
   it('attrs', () => {
-    const input = h('div', [
-      h('h1', 'Hello'),
-      comment('{required}')
-    ])
+    const input = h('div', [h('h1', 'Hello'), comment('{required}')])
 
     const output = decorate(input)
 
-    const expected = h('div', [
-      h('h1', { required: true }, 'Hello')
-    ])
+    const expected = h('div', [h('h1', { required: true }, 'Hello')])
 
     expect(render(output)).toEqual(render(expected))
   })
@@ -78,10 +61,7 @@ describe('multiple elements', () => {
 
     const output = decorate(input)
 
-    const expected = h('div', [
-      h('h1.one', 'Hello'),
-      h('h2.two', 'Hi')
-    ])
+    const expected = h('div', [h('h1.one', 'Hello'), h('h2.two', 'Hi')])
 
     expect(render(output)).toEqual(render(expected))
   })
@@ -90,19 +70,14 @@ describe('multiple elements', () => {
     const input = h('div', [
       h('h1', 'Hello'),
       comment('{.one}'),
-      h('div', [
-        h('h2', 'Hi'),
-        comment('{.two}')
-      ])
+      h('div', [h('h2', 'Hi'), comment('{.two}')])
     ])
 
     const output = decorate(input)
 
     const expected = h('div', [
       h('h1.one', 'Hello'),
-      h('div', [
-        h('h2.two', 'Hi')
-      ])
+      h('div', [h('h2.two', 'Hi')])
     ])
 
     expect(render(output)).toEqual(render(expected))
@@ -141,10 +116,7 @@ describe('multiple elements', () => {
 
     const output = decorate(input)
 
-    const expected = h('div', [
-      h('h1.one', 'Hello'),
-      comment('oh hey')
-    ])
+    const expected = h('div', [h('h1.one', 'Hello'), comment('oh hey')])
 
     expect(render(output)).toEqual(render(expected))
   })
@@ -158,10 +130,7 @@ describe('multiple elements', () => {
 
     const output = decorate(input)
 
-    const expected = h('div', [
-      h('h1', 'Hello'),
-      comment('oh hey')
-    ])
+    const expected = h('div', [h('h1', 'Hello'), comment('oh hey')])
 
     expect(render(output)).toEqual(render(expected))
   })

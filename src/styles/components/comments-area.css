@@ -20,7 +20,11 @@
   & > .container::before {
     content: '';
     display: block;
-    background: linear-gradient(to right, var(--dark-line-color) 50%, transparent);
+    background: linear-gradient(
+      to right,
+      var(--dark-line-color) 50%,
+      transparent
+    );
     height: 1px;
   }
 }
