@@ -1,9 +1,8 @@
 /* @flow */
 /* global graphql */
 
-import React from 'react'
 import { ALL } from './SheetTemplate/context'
-import { withContext } from 'recompose'
+import { compose, withContext, mapProps } from 'recompose'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
 
@@ -13,17 +12,17 @@ import { CONTENT } from '../../config'
     Frontmatter,
     MarkdownNode
   } from '../types'
+
+  export type Props = {
+    data: { markdownRemark: MarkdownNode }
+  }
 */
 
 /**
- * Template for sheets
+ * Extracts relevant things from the GraphQL result to pass onto the React tree.
  */
 
-export function SheetTemplate (
-  props /*: { data: { markdownRemark: MarkdownNode } } */
-) {
-  const { data } = props
-
+export function map ({ data } /*: Props */) {
   if (!data) {
     throw new Error(`'data' is missing from props, whoa :(`)
   }
@@ -31,14 +30,17 @@ export function SheetTemplate (
   const { markdownRemark } = data
   const { frontmatter, htmlAst } = markdownRemark
 
-  return <SheetTemplateView {...{ frontmatter, htmlAst }} />
+  return { frontmatter, htmlAst }
 }
 
 /**
  * Export
  */
 
-export default withContext(ALL, () => ({ CONTENT }))(SheetTemplate)
+export default compose(
+  withContext(ALL, () => ({ CONTENT })),
+  mapProps(map)
+)(SheetTemplateView)
 
 /*
  * Query
