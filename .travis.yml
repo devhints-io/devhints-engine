@@ -2,11 +2,8 @@ language: node_js
 node_js:
 - '8'
 script:
-- yarn run flow
-- yarn run validate
-- yarn run lint
-- yarn run test
-- yarn run build
+- yarn run ci:lint
+- yarn run ci:test
 cache:
   yarn: true
   directories:
