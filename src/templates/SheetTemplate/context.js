@@ -1,11 +1,21 @@
-import { getContext } from 'recompose'
+/* @flow */
+import { compose, getContext, withProps } from 'recompose'
+import PropTypes from 'prop-types'
+
+/*::
+  import type { Content } from '../../types'
+
+  export type Context = {
+    CONTENT: Content
+  }
+*/
 
 /**
  * Context
  */
 
 export const ALL = {
-  CONTENT: () => null // PropTypes.any
+  CONTENT: PropTypes.any
 }
 
 /**
@@ -19,3 +29,6 @@ export default ALL
  */
 
 export const useContext = getContext(ALL)
+
+export const mapContext = (map /*: (Context) => Object */) =>
+  compose(getContext(ALL), withProps(map))

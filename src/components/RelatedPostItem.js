@@ -1,25 +1,25 @@
 /* @flow */
 import * as React from 'react'
-import { useContext } from '../templates/SheetTemplate/context'
+import { mapContext } from '../templates/SheetTemplate/context'
 
 /*::
-  import type { Content } from '../templates/SheetTemplate/context'
-
   export type Props = {
     className?: string,
-    CONTENT: Content
+    suffix: string
   }
 */
 
-export const View = ({ className, CONTENT } /*: Props */) => (
+export const View = ({ className, suffix } /*: Props */) => (
   <div className={`related-post-item ${className || ''}`}>
     <a href='/vimscript'>
       <strong>Vim scripting</strong>
       <span>
-        {CONTENT.sheet.suffix}
+        {suffix}
       </span>
     </a>
   </div>
 )
 
-export default useContext(View)
+export default mapContext(
+  ({ CONTENT }) => ({ suffix: CONTENT.sheet.suffix })
+)(View)
