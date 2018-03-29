@@ -11,7 +11,7 @@ category: CLI
 ### Navigating
 
 | Description       | Key             |
-| ---               | ---             |
+| ----------------- | --------------- |
 | Left/right        | `h` _/_ `l`     |
 | Back/forward      | `H` _/_ `L`     |
 | ---               | ---             |
@@ -26,7 +26,7 @@ category: CLI
 ### Basic actions
 
 | Description    | Key     |
-| ---            | ---     |
+| -------------- | ------- |
 | Open in editor | `ENTER` |
 | Shell          | `S`     |
 | Quit           | `Q`     |
@@ -40,7 +40,7 @@ category: CLI
 ### Help `?`
 
 | Description  | Key  |
-| ---          | ---  |
+| ------------ | ---- |
 | Key bindings | `?k` |
 | Man page     | `?m` |
 
@@ -54,17 +54,17 @@ category: CLI
 
 <!-- {.-setup} -->
 
-| Description  | Key  |
-| ---          | ---  |
-| Default      | `Mt` |
-| Show size    | `Ms` |
+| Description | Key  |
+| ----------- | ---- |
+| Default     | `Mt` |
+| Show size   | `Ms` |
 
 <!-- {.-shortcuts-right} -->
 
 ### Sort `o`
 
 | Description     | Key           |
-| ---             | ---           |
+| --------------- | ------------- |
 | _Sort by_ name  | `on` _/_ `oN` |
 | _Sort by_ size  | `os` _/_ `oS` |
 | _Sort by_ mtime | `om` _/_ `oM` |
@@ -78,7 +78,7 @@ category: CLI
 ### Basic operations
 
 | Description  | Key   |
-| ---          | ---   |
+| ------------ | ----- |
 | Yank (copy)  | `y`   |
 | Delete (cut) | `d`   |
 | Paste        | `p`   |
@@ -92,7 +92,7 @@ These work just like vim.
 ### Copy
 
 | Description   | Key  |
-| ---           | ---  |
+| ------------- | ---- |
 | **Yank this** | `yy` |
 
 <!-- {.-shortcuts-right} -->
@@ -100,7 +100,7 @@ These work just like vim.
 ### Cut
 
 | Description   | Key  |
-| ---           | ---  |
+| ------------- | ---- |
 | **Cut this**  | `dd` |
 | ---           | ---  |
 | Really delete | `dD` |
@@ -111,7 +111,7 @@ These work just like vim.
 ### Paste
 
 | Description                 | Key  |
-| ---                         | ---  |
+| --------------------------- | ---- |
 | **Paste here**              | `pp` |
 | ---                         | ---  |
 | Paste _append_              | `pP` |
@@ -130,7 +130,7 @@ These work just like vim.
 ### Go to
 
 | Description  | Key  |
-| ---          | ---  |
+| ------------ | ---- |
 | Go to `/`    | `g/` |
 | Go to `/usr` | `gu` |
 | Go to `/var` | `gv` |
