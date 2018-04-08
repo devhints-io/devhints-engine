@@ -1,8 +1,8 @@
 /* @flow */
 /* global graphql */
 
-import { ALL } from './SheetTemplate/context'
-import { compose, withContext, mapProps } from 'recompose'
+import { addContext } from './SheetTemplate/context'
+import { compose, mapProps } from 'recompose'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
 
@@ -37,7 +37,7 @@ export function map ({ data } /*: Props */) {
  * Export
  */
 
-export default compose(withContext(ALL, () => ({ CONTENT })), mapProps(map))(
+export default compose(addContext(() => ({ CONTENT })), mapProps(map))(
   SheetTemplateView
 )
 

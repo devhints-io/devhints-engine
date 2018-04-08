@@ -3,8 +3,7 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
-import { ALL } from '../templates/SheetTemplate/context'
-import { withContext } from 'recompose'
+import { addContext } from '../templates/SheetTemplate/context'
 import TopNav from '../components/TopNav'
 import { CONTENT } from '../../config'
 
@@ -38,7 +37,7 @@ export const Root = ({ data } /*: QueryResult */) => (
   </div>
 )
 
-export default withContext(ALL, () => ({ CONTENT }))(Root)
+export default addContext(() => ({ CONTENT }))(Root)
 
 /**
  * Convert to SiteLinkList.
