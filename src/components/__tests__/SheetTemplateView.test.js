@@ -13,9 +13,9 @@ it.skip('works', () => {
       title: 'Hello'
     }
   }
-  const SheetTemplate = compose(
-    addContext(() => ({ CONTENT }))
-  )(SheetTemplateView)
+  const SheetTemplate = compose(addContext(() => ({ CONTENT })))(
+    SheetTemplateView
+  )
 
   mount(<SheetTemplate {...props} />)
 })
