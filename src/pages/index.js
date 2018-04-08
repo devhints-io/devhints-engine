@@ -79,16 +79,15 @@ const SiteHeaderView = ({ content }) => (
 )
 
 const PagesList = ({ links } /*: { links: SiteLinkList } */) => (
-  <ul>
+  <div className='pages-list' role='main'>
+    <h2 className='category item'>Recently updated</h2>
     {links.map(link => (
-      <li key={link.path}>
-        <Link to={link.path}>
-          <span>{link.title}</span>
-          <code>{link.path}</code>
-        </Link>
-      </li>
+      <Link to={link.path} key={link.path} className='article item'>
+        <code class='slug'>{link.path}</code>
+        {/* <span>{link.title}</span> */}
+      </Link>
     ))}
-  </ul>
+  </div>
 )
 
 /**
