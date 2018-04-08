@@ -27,12 +27,14 @@ import { CONTENT } from '../../config'
 export const Root = ({ data } /*: QueryResult */) => (
   <div>
     <TopNav />
-    <SiteHeader />
-    <PagesList
-      links={toLinks(
-        (data && data.allMarkdownRemark && data.allMarkdownRemark.edges) || []
-      )}
-    />
+    <div className='body-area -slim'>
+      <SiteHeader />
+      <PagesList
+        links={toLinks(
+          (data && data.allMarkdownRemark && data.allMarkdownRemark.edges) || []
+        )}
+      />
+    </div>
   </div>
 )
 
@@ -80,15 +82,34 @@ const SiteHeaderView = ({ content }) => (
 
 const PagesList = ({ links } /*: { links: SiteLinkList } */) => (
   <div className='pages-list' role='main'>
-    <h2 className='category item'>Recently updated</h2>
+    <h2 className='category item'>
+      <span>Recently updated</span>
+    </h2>
     {links.map(link => (
       <Link to={link.path} key={link.path} className='article item'>
-        <code class='slug'>{link.path}</code>
-        {/* <span>{link.title}</span> */}
+        <span className='info'>
+          <code className='slug'>{unpath(link.path)}</code>
+          <abbr
+            className='attribute-peg -new-layout hint--bottom'
+            data-hint='New layout!'
+          >
+            <span />
+          </abbr>
+          <span className='title'>{link.title}</span>
+        </span>
       </Link>
     ))}
   </div>
 )
+
+/**
+ * Unpath helper
+ * Remove the unnecessary slashes
+ */
+
+function unpath (path) {
+  return path.replace(/^\//, '')
+}
 
 /**
  * GraphQL query
