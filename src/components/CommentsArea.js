@@ -10,7 +10,9 @@ export default () => (
       <details className='comments-details'>
         <summary>
           <strong className='count'>0</strong>
+          {' '}
           <span className='suffix'>comments for this cheatsheet.</span>
+          {' '}
           <span className='fauxlink'>Write yours!</span>
         </summary>
         <div className='comments-section'>
