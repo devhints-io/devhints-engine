@@ -48,11 +48,37 @@ export const CONTENT = {
 }
 
 /**
- * Links (temporary)
+ * Google Analytics integration (TODO)
  */
 
-export const LINKS = [
-  { path: '/vim' },
-  { path: '/emacs' },
-  { path: '/sketch' }
-]
+export const GOOGLE_ANALYTICS = {
+  hostname: 'devhints.io',
+  id: 'UA-106902774-1'
+}
+
+/**
+ * Disqus integration (TODO)
+ */
+
+export const DISQUS = {
+  enabled: true,
+  host: 'devhints.disqus.com'
+}
+
+/**
+ * Codefund.io integration (TODO)
+ */
+
+export const CODEFUND = {
+  enabled: true,
+  token: 'c2c8bc62-c275-4c7a-a304-74335c5a1cd0'
+}
+
+/**
+ * Assets
+ * No trailing slash please!
+ */
+
+export ASSETS = {
+  preview_host: 'https://assets.devhints.io/previews'
+}
