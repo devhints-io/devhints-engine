@@ -42,7 +42,7 @@
 /* @import './components/intro-content.css'; */
 @import './components/main-heading.css';
 /* @import './components/missing-message.css'; */
-/* @import './components/notice-box.css'; */
+@import './components/notice-box.css';
 /* @import './components/page-actions.css'; */
 @import './components/pages-list.css';
 @import './components/pre-footer.css';
