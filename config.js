@@ -79,6 +79,6 @@ export const CODEFUND = {
  * No trailing slash please!
  */
 
-export ASSETS = {
+export const ASSETS = {
   preview_host: 'https://assets.devhints.io/previews'
 }
