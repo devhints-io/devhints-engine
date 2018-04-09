@@ -79,7 +79,6 @@
  */
 
 .h3-section > .body {
-  /* Lists */
   & > ul {
     margin: 0;
     padding: 0;
@@ -88,7 +87,7 @@
 
   & > ul > li {
     padding: 8px;
-    padding-left: 32px + 4px;
+    padding-left: calc(32px + 4px);
     position: relative;
   }
 
@@ -106,7 +105,7 @@
     background: var(--gray-text);
     border-radius: 50%;
     left: 16px;
-    top: 16px + 2px;
+    top: calc(16px + 2px);
   }
 
   & > ul > li + li {
