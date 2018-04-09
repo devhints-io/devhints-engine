@@ -88,13 +88,14 @@
 }
 
 .MarkdownBody table.-shortcuts {
-  td:first-child > code {
+  & td:first-child > code {
+    background: green;
     @apply --shortcut-span;
   }
 }
 
 .MarkdownBody table.-shortcuts-right {
-  td:last-child > code {
+  & td:last-child > code {
     @apply --shortcut-span;
   }
 }

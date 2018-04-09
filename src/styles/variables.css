@@ -32,39 +32,28 @@
   --base-mute: #667788; /* Gray */
 
   /* Accent palette */
-  --base-a: color(#8370bd shade(5%)); /* Indigo */
-  --base-b: color(#2b72a2 shade(5%)); /* Blue */
-  --base-c: color(#17c694 shade(5%)); /* Teal */
+  --base-a: #745fb5; /* Indigo */
+  --base-b: #26648e; /* Blue */
+  --base-c: #14af83; /* Teal */
 
   /* Accent variations */
-  --base-b7: #2b72a2; /* TODO */
-  --base-b3: #2b72a2;
-  --base-a7: #8370bd; /* TODO */
-  --base-a3: #8370bd; /* TODO */
-
-  /* --base-a: adjust-color(#8370bd, $lightness: -5%); // indigo */
-  /* --base-b: adjust-color(#2b72a2, $lightness: -5%); // blue */
-  /* --base-c: adjust-color(#17c694, $lightness: -5%); // teal */
-
-  /* --base-a3: adjust-color($base-a, $lightness: 16%, $hue: -20deg); */
-  /* --base-a7: adjust-color($base-a, $lightness: -16%, $hue: 20deg); */
-  /* --base-b3: adjust-color($base-b, $lightness: 16%, $hue: -20deg); */
-  /* --base-b7: adjust-color($base-b, $lightness: -16%, $hue: 20deg); */
-  /* --base-mute7: adjust-color($base-mute, $lightness: -16%); */
-  /* --base-mute6: adjust-color($base-mute, $lightness: -8%); */
-  /* --base-mute4: adjust-color($base-mute, $lightness: 8%); */
-  /* --base-mute3: adjust-color($base-mute, $lightness: 16%); */
+  --base-a3: color(var(--base-a) hue(-20) lightness(+16%));
+  --base-a7: color(var(--base-a) hue(+20) lightness(-16%));
+  --base-b3: color(var(--base-b) hue(-20) lightness(+16%));
+  --base-b7: color(var(--base-b) hue(+20) lightness(-16%));
 
   /* Mute variations */
-  --base-mute7: color(var(--base-mute) shade(30%));
-  --base-mute6: color(var(--base-mute) shade(15%));
-  --base-mute4: color(var(--base-mute) tint(16%));
-  --base-mute3: color(var(--base-mute) tint(32%));
+  --base-mute3: color(var(--base-mute) lightness(+16%));
+  --base-mute4: color(var(--base-mute) lightness(+8%));
+  --base-mute6: color(var(--base-mute) lightness(-8%));
+  --base-mute7: color(var(--base-mute) lightness(-16%));
 
+  /* More grays */
   --body-bg: var(--base-body);
   --gray-bg: #f8f9fa;
   --gray-text: var(--base-mute);
 
+  /* Line colors */
   --line-color: color(var(--base-mute) alpha(5%));
   --dark-line-color: color(var(--base-mute) alpha(20%));
 }
@@ -73,13 +62,8 @@
   --base-a-gradient: linear-gradient(
     5deg,
     var(--base-a),
-    color(var(--base-a) tint(2%))
+    color(var(--base-a) lightness(+2%) hue(+16))
   );
-
-  /*   TODO --base-a-gradient: linear-gradient( */
-  /*   5deg, */
-  /*   $base-a, */
-  /*   adjust-color($base-a, $lightness: 2%, $hue: 16deg)); */
 }
 
 :root /* Shadows */ {
