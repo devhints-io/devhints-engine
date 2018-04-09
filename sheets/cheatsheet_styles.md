@@ -2,12 +2,15 @@
 path: /cheatsheet-styles
 title: Cheatsheet styles
 layout: 2017/sheet
-tags: [WIP]
-updated: 2017-09-22
-intro: |
+tags:
+  - WIP
+updated: 2017-09-22T00:00:00.000Z
+intro: >
   This is a reference of styles that you can use on Devhints cheatsheets. How
   meta!
-  You can refer to this when contributing your own cheatsheets to the [GitHub repo](https://github.com/rstacruz/cheatsheets/).
+
+  You can refer to this when contributing your own cheatsheets to the [GitHub
+  repo](https://github.com/rstacruz/cheatsheets/).
 ---
 
 ## Intro
