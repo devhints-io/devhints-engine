@@ -83,13 +83,12 @@
 
   & thead th {
     font-weight: normal;
-    color: $base-a;
+    color: var(--base-a);
   }
 }
 
 .MarkdownBody table.-shortcuts {
   & td:first-child > code {
-    background: green;
     @apply --shortcut-span;
   }
 }
