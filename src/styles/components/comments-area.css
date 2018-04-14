@@ -12,7 +12,7 @@
   & > .container {
     @apply --gutter-padding-left;
     @apply --gutter-padding-right;
-    max-width: $area-width;
+    max-width: var(--area-width);
     margin: 0 auto;
   }
 

@@ -33,7 +33,7 @@
   }
 
   & {
-    color: $base-text;
+    color: var(--base-text);
     display: block;
   }
 

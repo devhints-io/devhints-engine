@@ -1,6 +1,6 @@
 /*
  * Threshold until section-gutter collapses
- * ($area-width + 32px)
+ * calc(var(--area-width) + 31px)
  */
 
 @custom-media --section-gutter-max (max-width: 1264px);

@@ -12,7 +12,7 @@
   & > a {
     display: block;
     text-decoration: none;
-    color: $base-a;
+    color: var(--base-a);
     border-bottom: 0;
     box-shadow: none;
     margin: -16px;

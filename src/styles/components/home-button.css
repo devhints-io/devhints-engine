@@ -11,7 +11,7 @@
 
   &,
   &:visited {
-    color: $base-mute;
+    color: var(--base-mute);
   }
 
   &:hover,

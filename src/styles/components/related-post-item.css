@@ -57,7 +57,7 @@
 
     &:hover,
     &:focus {
-      /* TODO background: darken($base-a, 8%); */
+      background: color(var(--base-a) lightness(-9%));
     }
   }
 
