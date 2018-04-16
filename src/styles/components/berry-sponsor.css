@@ -38,7 +38,7 @@
   }
 
   & > strong {
-    color: var(--base-head);
+    color: var(--base-bold);
     font-weight: bold;
   }
 

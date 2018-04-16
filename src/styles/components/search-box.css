@@ -3,7 +3,7 @@
  */
 
 .search-box {
-  background: var(--base-panel);
+  background: var(--base-card);
   box-shadow: var(--shadow3);
   display: flex;
   height: 64px;
@@ -20,7 +20,7 @@
     flex: 1 1 auto;
     padding-left: 0;
     font-weight: bold;
-    color: var(--base-head);
+    color: var(--base-bold);
     min-width: 48px;
 
     &::placeholder {
@@ -68,7 +68,7 @@
   // Icon
   &::before {
     content: '';
-    /* TODO @include ion-md-search(32px, $base-head); */
+    /* TODO @include ion-md-search(32px, $base-bold); */
     background-position: center center;
     flex: 0 0 64px;
     width: 64px;

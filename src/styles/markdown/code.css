@@ -39,7 +39,7 @@
   }
 
   & pre > code {
-    color: var(--base-head);
+    color: var(--base-bold);
     max-height: auto;
     padding: 0;
     background: transparent;

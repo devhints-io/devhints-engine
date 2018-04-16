@@ -70,6 +70,10 @@ export const RelatedPostsArea = () => (
   </footer>
 )
 
+/**
+ * Related posts section
+ */
+
 export const RelatedPostsSection = () => (
   <div className='related-posts-section'>
     <div className='callout'>
@@ -83,6 +87,10 @@ export const RelatedPostsSection = () => (
     </div>
   </div>
 )
+
+/**
+ * Related posts group
+ */
 
 export const RelatedPostsGroup = () => (
   <div className='related-posts-group'>

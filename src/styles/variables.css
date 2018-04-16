@@ -25,11 +25,11 @@
 
 :root /* Base colors */ {
   /* Neutral palette */
+  --base-card: #ffffff;
   --base-body: #f1f3f5;
-  --base-panel: #ffffff;
-  --base-head: #111111;
+  --base-mute: #667788;
   --base-text: #334455;
-  --base-mute: #667788; /* Gray */
+  --base-bold: #111111;
 
   /* Accent palette */
   --base-a: #745fb5; /* Indigo */
@@ -38,7 +38,11 @@
 
   /* Accent variations */
   --base-a3: color(var(--base-a) hue(-20) lightness(+16%));
+  --base-a4: color(var(--base-a) hue(-10) lightness(+08%));
+  --base-a5: color(var(--base-a) hue(+00) lightness(+00%));
+  --base-a6: color(var(--base-a) hue(+15) lightness(-08%));
   --base-a7: color(var(--base-a) hue(+20) lightness(-16%));
+
   --base-b3: color(var(--base-b) hue(-20) lightness(+16%));
   --base-b7: color(var(--base-b) hue(+20) lightness(-16%));
 

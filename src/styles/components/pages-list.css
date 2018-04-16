@@ -33,7 +33,7 @@
   }
 
   & > .info > .slug {
-    color: var(--base-head);
+    color: var(--base-bold);
   }
 
   &:visited > .info > .slug {
