@@ -38,12 +38,15 @@
 
   /* Accent variations */
   --base-a3: color(var(--base-a) hue(-20) lightness(+16%));
-  --base-a4: color(var(--base-a) hue(-10) lightness(+08%));
-  --base-a5: color(var(--base-a) hue(+00) lightness(+00%));
-  --base-a6: color(var(--base-a) hue(+15) lightness(-08%));
+  --base-a4: color(var(--base-a) hue(-10) lightness(+8%));
+  --base-a5: color(var(--base-a));
+  --base-a6: color(var(--base-a) hue(+15) lightness(-8%));
   --base-a7: color(var(--base-a) hue(+20) lightness(-16%));
 
   --base-b3: color(var(--base-b) hue(-20) lightness(+16%));
+  --base-b4: color(var(--base-b) hue(-10) lightness(+8%));
+  --base-b5: color(var(--base-b));
+  --base-b6: color(var(--base-b) hue(+10) lightness(-8%));
   --base-b7: color(var(--base-b) hue(+20) lightness(-16%));
 
   /* Mute variations */
