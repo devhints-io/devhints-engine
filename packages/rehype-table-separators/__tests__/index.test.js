@@ -4,10 +4,10 @@ import apply from '../index'
 
 /* eslint-disable no-unused-vars */
 // TODO: move these helpers into a separate place
+import React from 'react'
 import hJsx from '../../rehype-decorate/lib/helpers/h_jsx'
 import render from '../../rehype-decorate/lib/helpers/hast_to_react'
 /* eslint-enable no-unused-vars */
-import React from 'react'
 
 it('exports a function', () => {
   expect(typeof apply).toEqual('function')
