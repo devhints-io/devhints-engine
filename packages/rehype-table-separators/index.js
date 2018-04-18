@@ -1,4 +1,5 @@
 import map from 'unist-util-map'
+import { isTable, isTBody } from './checks'
 
 /**
  * Fixes table separators in an HAST node.
@@ -10,7 +11,7 @@ import map from 'unist-util-map'
 
 function apply (root, options) {
   return map(root, node => {
-    if (node.tagName === 'table') {
+    if (isTable(node)) {
       return mapTable(node, options)
     } else {
       return node
@@ -29,7 +30,7 @@ function apply (root, options) {
 
 export function mapTable (table, options) {
   const children = table.children.reduce((children, child) => {
-    if (child.tagName === 'tbody') {
+    if (isTBody(child)) {
       return [...children, ...reduceTBody(child, options)]
     } else {
       return [...children, child]
