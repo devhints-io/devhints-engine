@@ -17,6 +17,7 @@ module.exports = {
     title: 'Devhints'
   },
   plugins: [
+    'gatsby-plugin-styled-jsx',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
@@ -34,9 +35,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [
-          'gatsby-remark-component'
-        ]
+        plugins: ['gatsby-remark-component']
       }
     }
   ]
