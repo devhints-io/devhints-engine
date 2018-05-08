@@ -1,36 +1,46 @@
 /* @flow */
 /* global graphql */
 
-import React from 'react'
+import * as React from 'react'
 import Link from 'gatsby-link'
 import { addContext } from '../templates/SheetTemplate/context'
 import TopNav from '../components/TopNav'
 import { CONTENT } from '../../config'
+import type { NodeContext, SiteLink, SiteLinkList } from '../types'
 
-/*::
-  import type {
-    MarkdownEdge,
-    MarkdownEdgeList,
-    QueryResult,
-    Frontmatter,
-    SiteLink,
-    SiteLinkList
-  } from '../types'
+/*
+ * Types
+ */
 
-*/
+export type PageNode = {
+  context: NodeContext
+}
+
+export type PageEdge = {
+  node: PageNode
+}
+
+export type QueryResult = {
+  data: {
+    allSitePage: {
+      edges: Array<PageEdge>
+    }
+  }
+}
 
 /**
  * Home page template
  */
 
-export const Root = ({ data } /*: QueryResult */) => (
+export const Root = ({ data }: QueryResult) => (
   <div>
     <TopNav />
     <div className='body-area -slim'>
       <SiteHeader />
       <PagesList
+        title='Recently updated'
         links={toLinks(
-          (data && data.allMarkdownRemark && data.allMarkdownRemark.edges) || []
+          (data && data.allSitePage && data.allSitePage.edges) || []
         )}
       />
     </div>
@@ -40,29 +50,33 @@ export const Root = ({ data } /*: QueryResult */) => (
 export default addContext(() => ({ CONTENT }))(Root)
 
 /**
- * Convert to SiteLinkList.
+ * Convert to Array<SiteLink>.
  */
-function toLinks (edges /*: MarkdownEdgeList */) {
-  const links /*: SiteLinkList */ = edges.map((edge /*: MarkdownEdge */) => {
-    const node = edge.node || {}
-    const meta /* Frontmatter */ = node.frontmatter || {}
-    const link /*: SiteLink */ = {
-      path: meta.path || '/',
-      title: meta.title || ''
-    }
 
-    return link
-  })
+function toLinks (edges: Array<PageEdge>): Array<SiteLink> {
+  return edges
+    .filter(
+      (edge: PageEdge) =>
+        edge.node && edge.node.context && edge.node.context.path
+    )
+    .map((edge: PageEdge) => {
+      const node = edge.node
+      const ctx: NodeContext = node.context
+      const link: SiteLink = {
+        path: ctx.path,
+        title: ctx.title
+      }
 
-  return links
+      return link
+    })
 }
 
 /**
  * Site header
  */
 
-function SiteHeader () {
-  const content = CONTENT.siteHeader || {}
+export const SiteHeader = () => {
+  const content = CONTENT.siteHeader
   return SiteHeaderView({ content })
 }
 
@@ -70,7 +84,11 @@ function SiteHeader () {
  * Site header view
  */
 
-const SiteHeaderView = ({ content }) => (
+export const SiteHeaderView = ({
+  content
+}: {
+  content: { title: string, tagline: string }
+}) => (
   <div className='site-header'>
     <h1>{content.title}</h1>
     <p dangerouslySetInnerHTML={{ __html: content.tagline }} />
@@ -79,10 +97,19 @@ const SiteHeaderView = ({ content }) => (
   </div>
 )
 
-const PagesList = ({ links } /*: { links: SiteLinkList } */) => (
+/**
+ * List of pages
+ */
+
+export type PagesListProps = {
+  links: Array<SiteLink>,
+  title?: string
+}
+
+export const PagesList = ({ title, links }: PagesListProps) => (
   <div className='pages-list' role='main'>
     <h2 className='category item'>
-      <span>Recently updated</span>
+      <span>{title}</span>
     </h2>
     {links.map(link => (
       <Link to={link.path} key={link.path} className='article item'>
@@ -116,12 +143,11 @@ function unpath (path) {
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark {
-      totalCount
+    allSitePage {
       edges {
         node {
           id
-          frontmatter {
+          context {
             path
             title
           }
