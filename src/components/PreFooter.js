@@ -6,8 +6,23 @@ import React from 'react'
  */
 
 export const PreFooter = () => (
-  <div className='pre-footer'>
+  <div className='PreFooter'>
     <i className='icon' />
+
+    <style jsx>{`
+      .PreFooter {
+        padding: 32px;
+        padding-top: 24px;
+        padding-bottom: 48px;
+        text-align: center;
+      }
+
+      .icon::before {
+        content: '';
+        /* TODO @include ion-ios-flash(32px, $base-mute); */
+        opacity: 0.25;
+      }
+    `}</style>
   </div>
 )
 
