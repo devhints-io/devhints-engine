@@ -11,7 +11,7 @@ export type HtmlAst = any
  */
 
 export type Frontmatter = {
-  path?: string,
+  path?: string, // TODO remove this
   title?: string,
   intro?: string
 }

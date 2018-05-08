@@ -4,7 +4,7 @@ import React from 'react'
  * Search footer in the cheatsheets page.
  */
 
-export default () => (
+export const SearchFooter = () => (
   <footer className='search-footer' data-js-no-preview>
     <div className='container'>
       <div className='search-footer-section'>
@@ -31,3 +31,5 @@ export default () => (
     </div>
   </footer>
 )
+
+export default SearchFooter

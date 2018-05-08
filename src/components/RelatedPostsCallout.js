@@ -2,7 +2,7 @@
 import * as React from 'react'
 import SpanPushButton from './SpanPushButton'
 
-export default () => (
+export const RelatedPostsCallout = () => (
   <a className='related-posts-callout' href='.'>
     <div className='text'>
       <i className='icon' />
@@ -13,3 +13,5 @@ export default () => (
     </div>
   </a>
 )
+
+export default RelatedPostsCallout

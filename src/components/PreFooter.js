@@ -1,11 +1,14 @@
+/* @flow */
 import React from 'react'
 
 /**
  * Pre-footer separator in the cheatsheets page
  */
 
-export default () => (
+export const PreFooter = () => (
   <div className='pre-footer'>
     <i className='icon' />
   </div>
 )
+
+export default PreFooter

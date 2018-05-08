@@ -1,5 +1,4 @@
 /* @flow */
-
 import * as React from 'react'
 import { useContext } from '../templates/SheetTemplate/context'
 import CommentsArea from './CommentsArea'
@@ -10,27 +9,23 @@ import SearchFooter from './SearchFooter'
 import RelatedPostsCallout from './RelatedPostsCallout'
 import MainHeading from './MainHeading'
 import TopNav from './TopNav'
+import type { HtmlAst, Frontmatter, Content } from '../types'
 
-/*::
-  import type {
-    HtmlAst,
-    Frontmatter,
-    MarkdownNode,
-    Content
-  } from '../types'
+/**
+ * Properties for the `<View />`
+ */
 
-  export type Props = {
-    frontmatter: Frontmatter,
-    htmlAst: HtmlAst,
-    CONTENT: Content
-  }
-*/
+export type Props = {
+  frontmatter: Frontmatter,
+  htmlAst: HtmlAst,
+  CONTENT: Content
+}
 
 /**
  * Logic-less view
  */
 
-export const View = ({ frontmatter, htmlAst, CONTENT } /*: Props */) => (
+export const View = ({ frontmatter, htmlAst, CONTENT }: Props) => (
   <React.Fragment>
     <TopNav back />
 
