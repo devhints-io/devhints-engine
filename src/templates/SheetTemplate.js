@@ -46,8 +46,8 @@ export default compose(addContext(() => ({ CONTENT })), mapProps(map))(
  */
 
 export const pageQuery = graphql`
-  query SheetByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query SheetByNodeId($node_id: String!) {
+    markdownRemark(id: { eq: $node_id }) {
       htmlAst
       frontmatter {
         path

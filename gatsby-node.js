@@ -10,8 +10,23 @@
 const root = require('path').resolve.bind(null, __dirname)
 
 /**
-  * Create pages.
-  */
+ * Uh
+ */
+
+exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+  const { createNodeField } = boundActionCreators
+  if (node.internal.type === `MarkdownRemark`) {
+    createNodeField({
+      node,
+      name: 'node_id',
+      value: node.id
+    })
+  }
+}
+
+/**
+ * Create pages.
+ */
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
@@ -23,8 +38,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       allMarkdownRemark(limit: 1000) {
         edges {
           node {
+            id
+            fileAbsolutePath
             frontmatter {
-              path
+              title
             }
           }
         }
@@ -36,18 +53,24 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const path = node.fileAbsolutePath
+        .replace(root('sheets'), '')
+        .replace(/\.md$/, '')
+
+      console.log('=>', path)
+
       createPage({
-        path: node.frontmatter.path,
+        path: `/${path}`,
         component: SheetTemplate,
-        context: {} // additional data can be passed via context
+        context: { node_id: node.id }
       })
     })
   })
 }
 
 /**
-  * Modify Webpack configuration.
-  */
+ * Modify Webpack configuration.
+ */
 
 exports.modifyWebpackConfig = ({ config }) => {
   const noop = root('src/lib/helpers/noop.js')

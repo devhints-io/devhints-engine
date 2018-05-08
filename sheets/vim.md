@@ -1,5 +1,4 @@
 ---
-path: /vim
 title: Vim
 category: Apps
 intro: |
