@@ -1,3 +1,9 @@
+/* @flow */
+
+/*::
+  import type { NodeContext } from './src/types'
+*/
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -13,7 +19,7 @@ const root = require('path').resolve.bind(null, __dirname)
  * Uh
  */
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
     createNodeField({
@@ -28,7 +34,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
  * Create pages.
  */
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
+exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
   const { createPage } = boundActionCreators
 
   const SheetTemplate = root('src/templates/SheetTemplate.js')
@@ -57,12 +63,16 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         .replace(root('sheets'), '')
         .replace(/\.md$/, '')
 
-      console.log('=>', path)
+      const context /*: NodeContext */ = {
+        node_id: node.id,
+        path,
+        title: node.frontmatter.title
+      }
 
       createPage({
-        path: `/${path}`,
+        path,
         component: SheetTemplate,
-        context: { node_id: node.id }
+        context
       })
     })
   })
@@ -70,9 +80,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
 /**
  * Modify Webpack configuration.
+ *
+ * This makes it so that jQuery isn't part of the final JS bundle, saving up
+ * some space.
  */
 
-exports.modifyWebpackConfig = ({ config }) => {
+exports.modifyWebpackConfig = ({ config } /*: any */) => {
   const noop = root('src/lib/helpers/noop.js')
 
   // isotope-layout tries to require('jquery'), but let's let that

@@ -90,3 +90,14 @@ export type Content = {
     link: string
   }
 }
+
+export type NodeContext = {
+  // Internal gatsby identifier
+  node_id: string,
+
+  // File path (eg, 'vim')
+  path: string,
+
+  // title
+  title: string
+}
