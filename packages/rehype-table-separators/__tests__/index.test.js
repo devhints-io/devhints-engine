@@ -21,7 +21,7 @@ it('works', () => {
           <td>Hello</td>
           <td>World</td>
         </tr>
-        <tr>
+        <tr className='row'>
           <td>---</td>
           <td>---</td>
         </tr>
@@ -40,8 +40,10 @@ it('works', () => {
           <td>Hello</td>
           <td>World</td>
         </tr>
-      </tbody>
-      <tbody>
+        <tr className='row separator'>
+          <td>---</td>
+          <td>---</td>
+        </tr>
         <tr>
           <td>Hola</td>
           <td>Mundo</td>

@@ -1,5 +1,5 @@
 import map from 'unist-util-map'
-import { isTable, isTBody } from './checks'
+import { isTableRow } from './checks'
 
 /**
  * Fixes table separators in an HAST node.
@@ -11,46 +11,64 @@ import { isTable, isTBody } from './checks'
 
 function apply (root, options) {
   return map(root, node => {
-    if (isTable(node)) {
-      return mapTable(node, options)
-    } else {
-      return node
+    if (isTableRow(node) && isSeparatorRow(node)) {
+      return mapTableRow(node, options)
     }
+
+    return node
   })
 }
 
 /**
- * Maps a table, lol.
- *
- * @param {Node} node The table node
- * @param {Options} [options] Options
- * @returns {Node} a copy of the table that's been processed.
- * @private
+ * Maps a table row, lol.
  */
 
-export function mapTable (table, options) {
-  const children = table.children.reduce((children, child) => {
-    if (isTBody(child)) {
-      return [...children, ...reduceTBody(child, options)]
-    } else {
-      return [...children, child]
-    }
-  }, [])
-
-  return { ...table, children }
+export function mapTableRow (tr, options) {
+  return addClassNames(tr, ['separator'])
 }
 
 /**
- * TBD
- * @private
+ * Adds a className to a Hast node.
  */
 
-export function reduceTBody (tbody, options) {
-  // TODO break apart
-  return [tbody]
+export function addClassNames (node, newClassNames) {
+  const properties = node.properties || {}
+  const className = properties.className || []
+
+  return {
+    ...node,
+    properties: {
+      ...properties,
+      className: [...className, ...newClassNames]
+    }
+  }
 }
 
-/*
+/**
+ * Checks if a given element is a `<tr>` with separator td's.
+ */
+
+export function isSeparatorRow (tr) {
+  const { children } = tr
+  if (!children) return false
+
+  // Can't be if you don't have any td's
+  if (children.length === 0) return false
+
+  return tr.children.reduce((result, td) => {
+    return (
+      result &&
+      td.type === 'element' &&
+      td.tagName === 'td' &&
+      td.children &&
+      td.children.length === 1 &&
+      td.children[0].type === 'text' &&
+      td.children[0].value.match(/^-+$/)
+    )
+  }, true)
+}
+
+/**
  * Export
  */
 
