@@ -124,11 +124,12 @@
     margin: 0;
     padding: 4px 16px;
     font-weight: normal;
+    border-top: solid 1px var(--dark-line-color);
     background: var(--gray-bg);
     color: var(--gray-text);
 
     & + * {
-      border-top: solid 1px var(--line-color);
+      border-top: solid 1px var(--dark-line-color);
     }
   }
 

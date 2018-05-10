@@ -36,9 +36,17 @@
     border-top: solid 1px var(--line-color);
   }
 
+  & tr.separator > td {
+    height: 3px;
+    overflow: hidden;
+    border-top: solid 1px var(--dark-line-color);
+    background: var(--line-color);
+    padding: 0;
+  }
+
   /* Horizontal lines */
   & tbody + tbody {
-    border-top: solid 1px var(--dark-line-color);
+    border-top: solid 1px var(--line-color);
   }
 
   & td,
