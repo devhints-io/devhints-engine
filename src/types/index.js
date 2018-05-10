@@ -101,3 +101,9 @@ export type NodeContext = {
   // title
   title: string
 }
+
+/**
+ * TBD
+ */
+
+export type HastNode = {}
