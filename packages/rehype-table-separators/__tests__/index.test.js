@@ -22,7 +22,7 @@ it('works', () => {
           <td>World</td>
         </tr>
         <tr className='row'>
-          <td>---</td>
+          <td>-</td>
           <td>---</td>
         </tr>
         <tr>
@@ -41,8 +41,8 @@ it('works', () => {
           <td>World</td>
         </tr>
         <tr className='row separator'>
-          <td>---</td>
-          <td>---</td>
+          <td>{''}</td>
+          <td>{''}</td>
         </tr>
         <tr>
           <td>Hola</td>
