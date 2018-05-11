@@ -34,7 +34,7 @@ export const RelatedPostItemView = ({ className, suffix }: ViewProps) => (
 export const RelatedPostItem = (props: Props) => (
   <GetContext>
     {({ CONTENT }) => (
-      <RelatedPostItemView suffix={CONTENT.sheet.suffix} {...props} />
+      <RelatedPostItemView {...props} suffix={CONTENT.sheet.suffix} />
     )}
   </GetContext>
 )

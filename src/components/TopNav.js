@@ -2,14 +2,18 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
-import { mapContext } from '../templates/SheetTemplate/context'
+import { GetContext } from '../templates/SheetTemplate/context'
 
-import type { Content } from '../types'
+/**
+ * Props
+ */
 
 export type Props = {
   // If true, shows the back button
-  back?: boolean,
+  back?: boolean
+}
 
+export type ViewProps = Props & {
   // "devhints.io"
   brand: string
 }
@@ -20,7 +24,7 @@ export type Props = {
  * @param {Boolean} props.back Shows back button if true
  */
 
-export const TopNav = ({ back, title, brand }: Props) => (
+export const TopNavView = ({ back, title, brand }: ViewProps) => (
   <nav className='top-nav' data-js-no-preview role='navigation'>
     <div className='container'>
       <div className='left'>
@@ -34,8 +38,19 @@ export const TopNav = ({ back, title, brand }: Props) => (
   </nav>
 )
 
-export const map = mapContext(({ CONTENT }: { CONTENT: Content }) => ({
-  brand: (CONTENT && CONTENT.topNav && CONTENT.topNav.title) || 'what'
-}))
+/**
+ * Connected view
+ */
 
-export default map(TopNav)
+export const TopNav = (props: Props) => (
+  <GetContext>
+    {({ CONTENT }) => (
+      <TopNavView
+        {...props}
+        brand={(CONTENT && CONTENT.topNav && CONTENT.topNav.title) || 'what'}
+      />
+    )}
+  </GetContext>
+)
+
+export default TopNav

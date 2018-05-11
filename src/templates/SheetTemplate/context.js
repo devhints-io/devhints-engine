@@ -1,15 +1,13 @@
 /* @flow */
 import * as React from 'react'
-import { compose, getContext, withProps, withContext } from 'recompose'
+import { getContext, withContext } from 'recompose'
 import PropTypes from 'prop-types'
 
-/*::
-  import type { Content } from '../../types'
+import type { Content } from '../../types'
 
-  export type Context = {
-    CONTENT: Content
-  }
-*/
+export type Context = {
+  CONTENT: Content
+}
 
 /**
  * Context
@@ -26,24 +24,17 @@ export const ALL = {
 export const useContext = getContext(ALL)
 
 /**
- * HOC for injecting context as props, and mapping
- */
-
-export const mapContext = (map /*: (Context) => Object */) =>
-  compose(getContext(ALL), withProps(map))
-
-/**
  * HOC for adding context
  */
 
-export const addContext = (getContext /*: (any) => Context */) =>
+export const addContext = (getContext: any => Context) =>
   withContext(ALL, getContext)
 
-/*
+/**
  * Get context render props
  */
 
-export const GetContext = (props: { children: any => React.Node }) => {
+export const GetContext = (props: { children: Context => React.Node }) => {
   const { children } = props
   const View = getContext(ALL)(children)
   return <View />
