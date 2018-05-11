@@ -2,11 +2,12 @@
 /* global graphql */
 
 import * as React from 'react'
-import Link from 'gatsby-link'
 import { Provider } from '../templates/SheetTemplate/context'
 import TopNav from '../components/TopNav'
+import SiteHeader from '../components/SiteHeader'
+import PagesList from '../components/PagesList'
 import { CONTENT } from '../../config'
-import type { NodeContext, SiteLink, SiteLinkList } from '../types'
+import type { NodeContext, SiteLink } from '../types'
 
 /*
  * Types
@@ -32,7 +33,7 @@ export type QueryResult = {
  * Home page template
  */
 
-export const Root = ({ data }: QueryResult) => (
+export const RootView = ({ data }: QueryResult) => (
   <div>
     <TopNav />
     <div className='body-area -slim'>
@@ -47,14 +48,16 @@ export const Root = ({ data }: QueryResult) => (
   </div>
 )
 
-export default (props: QueryResult) => (
+export const Root = (props: QueryResult) => (
   <Provider value={{ CONTENT }}>
-    <Root {...props} />
+    <RootView {...props} />
   </Provider>
 )
 
+export default Root
+
 /**
- * Convert to Array<SiteLink>.
+ * Convert page edges to Array<SiteLink>.
  */
 
 function toLinks (edges: Array<PageEdge>): Array<SiteLink> {
@@ -73,72 +76,6 @@ function toLinks (edges: Array<PageEdge>): Array<SiteLink> {
 
       return link
     })
-}
-
-/**
- * Site header
- */
-
-export const SiteHeader = () => {
-  const content = CONTENT.siteHeader
-  return SiteHeaderView({ content })
-}
-
-/**
- * Site header view
- */
-
-export const SiteHeaderView = ({
-  content
-}: {
-  content: { title: string, tagline: string }
-}) => (
-  <div className='site-header'>
-    <h1>{content.title}</h1>
-    <p dangerouslySetInnerHTML={{ __html: content.tagline }} />
-
-    {/* Search form goes here */}
-  </div>
-)
-
-/**
- * List of pages
- */
-
-export type PagesListProps = {
-  links: Array<SiteLink>,
-  title?: string
-}
-
-export const PagesList = ({ title, links }: PagesListProps) => (
-  <div className='pages-list' role='main'>
-    <h2 className='category item'>
-      <span>{title}</span>
-    </h2>
-    {links.map(link => (
-      <Link to={link.path} key={link.path} className='article item'>
-        <span className='info'>
-          <code className='slug'>{unpath(link.path)}</code>
-          <abbr
-            className='attribute-peg -new-layout hint--bottom'
-            data-hint='New layout!'
-          >
-            <span />
-          </abbr>
-          <span className='title'>{link.title}</span>
-        </span>
-      </Link>
-    ))}
-  </div>
-)
-
-/**
- * Unpath helper
- * Remove the unnecessary slashes
- */
-
-function unpath (path) {
-  return path.replace(/^\//, '')
 }
 
 /**
