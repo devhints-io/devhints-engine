@@ -5,27 +5,35 @@ import React from 'react'
  */
 
 export const SearchFooter = () => (
-  <footer className='search-footer' data-js-no-preview>
+  <footer className='SearchFooter' data-js-no-preview>
     <div className='container'>
-      <div className='search-footer-section'>
-        <div className='search'>
-          <form className='search' action='/' method='get'>
-            <SearchBox />
-          </form>
-        </div>
-        <div className='links'>
-          <a className='home-button' href='/'>
-            <i />
-          </a>
-        </div>
-      </div>
+      <SearchFooterSection />
     </div>
+
     <style jsx>{`
       @import 'src/styles/common';
-      @import 'src/styles/components/search-footer-container';
       @import 'src/styles/components/search-footer';
     `}</style>
   </footer>
+)
+
+export const SearchFooterSection = () => (
+  <div className='SearchFooterSection'>
+    <div className='search'>
+      <form className='search' action='/' method='get'>
+        <SearchBox />
+      </form>
+    </div>
+
+    <div className='links'>
+      <HomeButton />
+    </div>
+
+    <style jsx>{`
+      @import 'src/styles/common';
+      @import 'src/styles/components/search-footer-container';
+    `}</style>
+  </div>
 )
 
 export const SearchBox = () => (
@@ -34,6 +42,12 @@ export const SearchBox = () => (
     <span className='sep'>/</span>
     <input name='' type='text' value='' placeholder='Search 367+ cheatsheets' />
   </label>
+)
+
+export const HomeButton = () => (
+  <a className='home-button' href='/'>
+    <i />
+  </a>
 )
 
 export default SearchFooter
