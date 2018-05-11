@@ -3,7 +3,7 @@
 
 import * as React from 'react'
 import Link from 'gatsby-link'
-import { addContext } from '../templates/SheetTemplate/context'
+import { Provider } from '../templates/SheetTemplate/context'
 import TopNav from '../components/TopNav'
 import { CONTENT } from '../../config'
 import type { NodeContext, SiteLink, SiteLinkList } from '../types'
@@ -47,7 +47,11 @@ export const Root = ({ data }: QueryResult) => (
   </div>
 )
 
-export default addContext(() => ({ CONTENT }))(Root)
+export default (props: QueryResult) => (
+  <Provider value={{ CONTENT }}>
+    <Root {...props} />
+  </Provider>
+)
 
 /**
  * Convert to Array<SiteLink>.

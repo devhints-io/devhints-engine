@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react'
-import { useContext } from '../templates/SheetTemplate/context'
+import { Consumer } from '../templates/SheetTemplate/context'
 import CommentsArea from './CommentsArea'
 import PostContent from './PostContent'
 import PreFooter from './PreFooter'
@@ -17,7 +17,10 @@ import type { HtmlAst, Frontmatter, Content } from '../types'
 
 export type Props = {
   frontmatter: Frontmatter,
-  htmlAst: HtmlAst,
+  htmlAst: HtmlAst
+}
+
+export type ViewProps = Props & {
   CONTENT: Content
 }
 
@@ -25,7 +28,7 @@ export type Props = {
  * Logic-less view
  */
 
-export const View = ({ frontmatter, htmlAst, CONTENT }: Props) => (
+export const View = ({ frontmatter, htmlAst, CONTENT }: ViewProps) => (
   <React.Fragment>
     <TopNav back />
 
@@ -51,7 +54,9 @@ export const View = ({ frontmatter, htmlAst, CONTENT }: Props) => (
   </React.Fragment>
 )
 
-export default useContext(View)
+export default (props: Props) => (
+  <Consumer>{({ CONTENT }) => <View {...props} CONTENT={CONTENT} />}</Consumer>
+)
 
 /**
  * Related posts area

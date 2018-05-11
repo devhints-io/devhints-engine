@@ -1,9 +1,8 @@
 /* eslint-env jest */
 import * as React from 'react'
-import { compose } from 'recompose'
 import { mount } from 'enzyme'
 import SheetTemplateView from '../SheetTemplateView'
-import { addContext } from '../../templates/SheetTemplate/context'
+import { Provider } from '../../templates/SheetTemplate/context'
 import { CONTENT } from '../../../config'
 
 it.skip('works', () => {
@@ -13,8 +12,10 @@ it.skip('works', () => {
       title: 'Hello'
     }
   }
-  const SheetTemplate = compose(addContext(() => ({ CONTENT })))(
-    SheetTemplateView
+  const SheetTemplate = props => (
+    <Provider value={{ CONTENT }}>
+      <SheetTemplateView {...props} />
+    </Provider>
   )
 
   mount(<SheetTemplate {...props} />)

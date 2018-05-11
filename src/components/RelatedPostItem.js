@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react'
-import { GetContext } from '../templates/SheetTemplate/context'
+import { Consumer } from '../templates/SheetTemplate/context'
 
 /*
  * Types
@@ -32,11 +32,11 @@ export const RelatedPostItemView = ({ className, suffix }: ViewProps) => (
  */
 
 export const RelatedPostItem = (props: Props) => (
-  <GetContext>
+  <Consumer>
     {({ CONTENT }) => (
       <RelatedPostItemView {...props} suffix={CONTENT.sheet.suffix} />
     )}
-  </GetContext>
+  </Consumer>
 )
 
 export default RelatedPostItem

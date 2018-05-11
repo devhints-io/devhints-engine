@@ -1,45 +1,31 @@
 /* @flow */
 /* global graphql */
 
-import { addContext } from './SheetTemplate/context'
-import { compose, mapProps } from 'recompose'
+import * as React from 'react'
+import { Provider } from './SheetTemplate/context'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
 
-/*::
-  import type {
-    HtmlAst,
-    Frontmatter,
-    MarkdownNode
-  } from '../types'
+import type { MarkdownNode } from '../types'
 
-  export type Props = {
-    data: { markdownRemark: MarkdownNode }
-  }
-*/
-
-/**
- * Extracts relevant things from the GraphQL result to pass onto the React tree.
- */
-
-export function map ({ data } /*: Props */) {
-  if (!data) {
-    throw new Error(`'data' is missing from props, whoa :(`)
-  }
-
-  const { markdownRemark } = data
-  const { frontmatter, htmlAst } = markdownRemark
-
-  return { frontmatter, htmlAst }
+export type Props = {
+  data: { markdownRemark: MarkdownNode }
 }
 
 /**
  * Export
  */
 
-export default compose(addContext(() => ({ CONTENT })), mapProps(map))(
-  SheetTemplateView
+export const SheetTemplate = ({ data }: Props) => (
+  <Provider value={{ CONTENT }}>
+    <SheetTemplateView
+      frontmatter={data.markdownRemark.frontmatter}
+      htmlAst={data.markdownRemark.htmlAst}
+    />
+  </Provider>
 )
+
+export default SheetTemplate
 
 /*
  * Query

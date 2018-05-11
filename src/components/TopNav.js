@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
-import { GetContext } from '../templates/SheetTemplate/context'
+import { Consumer } from '../templates/SheetTemplate/context'
 
 /**
  * Props
@@ -43,14 +43,14 @@ export const TopNavView = ({ back, title, brand }: ViewProps) => (
  */
 
 export const TopNav = (props: Props) => (
-  <GetContext>
+  <Consumer>
     {({ CONTENT }) => (
       <TopNavView
         {...props}
         brand={(CONTENT && CONTENT.topNav && CONTENT.topNav.title) || 'what'}
       />
     )}
-  </GetContext>
+  </Consumer>
 )
 
 export default TopNav
