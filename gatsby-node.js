@@ -1,11 +1,6 @@
-/* @flow */
-
-/*::
-  import type { NodeContext } from './src/types'
-*/
-
 /**
  * Implement Gatsby's Node APIs in this file.
+ * @flow
  *
  * See:
  *
@@ -13,10 +8,20 @@
  * - https://www.gatsbyjs.org/docs/adding-markdown-pages/#create-static-pages-using-gatsbys-node-api
  */
 
+/*::
+   import type { NodeContext } from './src/types'
+ */
+
 const root = require('path').resolve.bind(null, __dirname)
 
 /**
- * Uh
+ * Sheet path
+ */
+
+const SHEET_PATH = require('./gatsby-config').siteMetadata.sheetPath
+
+/**
+ * Add extra node fields
  */
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
@@ -60,7 +65,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       const path = node.fileAbsolutePath
-        .replace(root('sheets'), '')
+        .replace(SHEET_PATH, '')
         .replace(/\.md$/, '')
 
       const context /*: NodeContext */ = {

@@ -14,7 +14,8 @@ module.exports = {
   // Enable this for temp GitHub pages deployment
   // pathPrefix: '/cheatsheets-2018',
   siteMetadata: {
-    title: 'Devhints'
+    title: 'Devhints',
+    sheetPath: SHEET_PATH
   },
   plugins: [
     'gatsby-plugin-styled-jsx',

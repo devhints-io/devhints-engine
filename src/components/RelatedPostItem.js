@@ -1,13 +1,24 @@
 /* @flow */
 import * as React from 'react'
-import { mapContext } from '../templates/SheetTemplate/context'
+import { GetContext } from '../templates/SheetTemplate/context'
+
+/*
+ * Types
+ */
 
 export type Props = {
-  className?: string,
+  className?: string
+}
+
+export type ViewProps = Props & {
   suffix: string
 }
 
-export const View = ({ className, suffix }: Props) => (
+/**
+ * The view
+ */
+
+export const RelatedPostItemView = ({ className, suffix }: ViewProps) => (
   <div className={`related-post-item ${className || ''}`}>
     <a href='/vimscript'>
       <strong>Vim scripting</strong>
@@ -16,6 +27,16 @@ export const View = ({ className, suffix }: Props) => (
   </div>
 )
 
-export default mapContext(({ CONTENT }) => ({ suffix: CONTENT.sheet.suffix }))(
-  View
+/**
+ * Connected view
+ */
+
+export const RelatedPostItem = (props: Props) => (
+  <GetContext>
+    {({ CONTENT }) => (
+      <RelatedPostItemView suffix={CONTENT.sheet.suffix} {...props} />
+    )}
+  </GetContext>
 )
+
+export default RelatedPostItem
