@@ -2,12 +2,13 @@
 import * as React from 'react'
 import { Consumer } from '../templates/SheetTemplate/context'
 import CommentsArea from './CommentsArea'
+import MainHeading from './MainHeading'
+import MiniMarkdown from './MiniMarkdown'
 import PostContent from './PostContent'
 import PreFooter from './PreFooter'
 import RelatedPostItem from './RelatedPostItem'
-import SearchFooter from './SearchFooter'
 import RelatedPostsCallout from './RelatedPostsCallout'
-import MainHeading from './MainHeading'
+import SearchFooter from './SearchFooter'
 import TopNav from './TopNav'
 import type { HtmlAst, Frontmatter, Content } from '../types'
 
@@ -40,7 +41,9 @@ export const View = ({ frontmatter, htmlAst, CONTENT }: ViewProps) => (
 
       {/* Introduction */}
       {frontmatter && frontmatter.intro ? (
-        <div className='intro-content MarkdownBody'>{frontmatter.intro}</div>
+        <div className='intro-content MarkdownBody'>
+          <MiniMarkdown source={frontmatter.intro} />
+        </div>
       ) : null}
 
       {/* Post content */}

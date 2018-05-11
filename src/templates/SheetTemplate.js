@@ -8,15 +8,23 @@ import { CONTENT } from '../../config'
 
 import type { MarkdownNode } from '../types'
 
+/**
+ * Props
+ */
+
 export type Props = {
-  data: { markdownRemark: MarkdownNode }
+  data: {
+    allSitePage: any,
+    markdownRemark: MarkdownNode
+  }
 }
 
 /**
- * Export
+ * Sheet template
  */
 
 export const SheetTemplate = ({ data }: Props) => {
+  // TODO: process data.allSitePage to show related pages
   return (
     <Provider value={{ CONTENT }}>
       <SheetTemplateView
@@ -38,8 +46,8 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $node_id }) {
       htmlAst
       frontmatter {
-        path
         title
+        category
         intro
       }
     }
@@ -48,7 +56,7 @@ export const pageQuery = graphql`
         node {
           id
           context {
-            path
+            nodePath
             title
           }
         }

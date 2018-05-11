@@ -89,7 +89,7 @@ export const query = graphql`
         node {
           id
           context {
-            path
+            nodePath
             title
           }
         }
