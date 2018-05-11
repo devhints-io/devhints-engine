@@ -18,7 +18,6 @@ module.exports = {
     sheetPath: SHEET_PATH
   },
   plugins: [
-    'gatsby-plugin-styled-jsx',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

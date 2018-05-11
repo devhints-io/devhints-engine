@@ -104,3 +104,18 @@ exports.modifyWebpackConfig = ({ config } /*: any */) => {
     }
   })
 }
+
+/**
+ * Add support for styled-jsx.
+ * This is unrolled from `gatsby-plugin-styled-jsx`.
+ */
+
+exports.modifyBabelrc = function ({ babelrc } /*: any */) {
+  return {
+    ...babelrc,
+    plugins: [
+      ...babelrc.plugins,
+      ['styled-jsx/babel', { plugins: ['styled-jsx-plugin-postcss'] }]
+    ]
+  }
+}
