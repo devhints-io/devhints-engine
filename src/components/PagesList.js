@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react'
 import Link from 'gatsby-link'
+import AttributePeg from '../components/AttributePeg'
 
 import { unpath } from '../helpers'
 import type { SiteLink } from '../types'
@@ -27,12 +28,9 @@ export const PagesList = ({ title, links }: Props) => (
       <Link to={link.path} key={link.path} className='article item'>
         <span className='info'>
           <code className='slug'>{unpath(link.path)}</code>
-          <abbr
-            className='attribute-peg -new-layout hint--bottom'
-            data-hint='New layout!'
-          >
-            <span />
-          </abbr>
+
+          <AttributePeg hint='New layout!' />
+
           <span className='title'>{link.title}</span>
         </span>
       </Link>
