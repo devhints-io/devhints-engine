@@ -64,13 +64,13 @@ function toLinks (edges: Array<PageEdge>): Array<SiteLink> {
   return edges
     .filter(
       (edge: PageEdge) =>
-        edge.node && edge.node.context && edge.node.context.path
+        edge.node && edge.node.context && edge.node.context.nodePath
     )
     .map((edge: PageEdge) => {
       const node = edge.node
       const ctx: NodeContext = node.context
       const link: SiteLink = {
-        path: ctx.path,
+        path: ctx.nodePath,
         title: ctx.title
       }
 

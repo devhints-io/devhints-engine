@@ -22,8 +22,8 @@ export type Frontmatter = {
 
 export type MarkdownNode = {
   id: string,
-  htmlAst?: HtmlAst, // AST from Remark
-  frontmatter?: Frontmatter
+  htmlAst: HtmlAst, // AST from Remark
+  frontmatter: Frontmatter
 }
 
 /**
@@ -96,7 +96,7 @@ export type NodeContext = {
   node_id: string,
 
   // File path (eg, 'vim')
-  path: string,
+  nodePath: string,
 
   // title
   title: string

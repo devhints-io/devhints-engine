@@ -16,14 +16,16 @@ export type Props = {
  * Export
  */
 
-export const SheetTemplate = ({ data }: Props) => (
-  <Provider value={{ CONTENT }}>
-    <SheetTemplateView
-      frontmatter={data.markdownRemark.frontmatter}
-      htmlAst={data.markdownRemark.htmlAst}
-    />
-  </Provider>
-)
+export const SheetTemplate = ({ data }: Props) => {
+  return (
+    <Provider value={{ CONTENT }}>
+      <SheetTemplateView
+        frontmatter={data.markdownRemark.frontmatter}
+        htmlAst={data.markdownRemark.htmlAst}
+      />
+    </Provider>
+  )
+}
 
 export default SheetTemplate
 
@@ -39,6 +41,17 @@ export const pageQuery = graphql`
         path
         title
         intro
+      }
+    }
+    allSitePage {
+      edges {
+        node {
+          id
+          context {
+            path
+            title
+          }
+        }
       }
     }
   }

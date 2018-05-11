@@ -70,7 +70,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
 
       const context /*: NodeContext */ = {
         node_id: node.id,
-        path,
+        nodePath: path,
         title: node.frontmatter.title
       }
 
