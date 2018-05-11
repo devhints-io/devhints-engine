@@ -30,7 +30,7 @@
 @import './components/berry-sponsor.css';
 @import './components/body-area.css';
 @import './components/codefund-sponsor.css';
-@import './components/comments-area.css';
+/* @import './components/comments-area.css'; */
 @import './components/comments-details.css';
 @import './components/comments-section.css';
 @import './components/h2-section.css';
@@ -54,8 +54,8 @@
 @import './components/related-posts-group.css';
 @import './components/related-posts-section.css';
 @import './components/search-box.css';
-@import './components/search-footer-container.css';
-@import './components/search-footer.css';
+/* @import './components/search-footer-container.css'; */
+/* @import './components/search-footer.css'; */
 @import './components/side-ad.css'; /* TODO */
 @import './components/site-header.css';
 @import './components/top-nav.css';

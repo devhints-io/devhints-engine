@@ -10,16 +10,7 @@ export const SearchFooter = () => (
       <div className='search-footer-section'>
         <div className='search'>
           <form className='search' action='/' method='get'>
-            <label className='search-box -small'>
-              <span className='prefix'>devhints.io</span>
-              <span className='sep'>/</span>
-              <input
-                name=''
-                type='text'
-                value=''
-                placeholder='Search 367+ cheatsheets'
-              />
-            </label>
+            <SearchBox />
           </form>
         </div>
         <div className='links'>
@@ -29,7 +20,20 @@ export const SearchFooter = () => (
         </div>
       </div>
     </div>
+    <style jsx>{`
+      @import 'src/styles/common';
+      @import 'src/styles/components/search-footer-container';
+      @import 'src/styles/components/search-footer';
+    `}</style>
   </footer>
+)
+
+export const SearchBox = () => (
+  <label className='search-box -small'>
+    <span className='prefix'>devhints.io</span>
+    <span className='sep'>/</span>
+    <input name='' type='text' value='' placeholder='Search 367+ cheatsheets' />
+  </label>
 )
 
 export default SearchFooter
