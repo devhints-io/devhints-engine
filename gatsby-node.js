@@ -29,6 +29,7 @@ const SHEET_PATH = require('./gatsby-config').siteMetadata.sheetPath
 exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
   const { createNodeField } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
+    debug('onCreateNode()', { id: node.id })
     createNodeField({
       node,
       name: 'node_id',
@@ -54,7 +55,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
   debug('createPages(): performing query')
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark {
         edges {
           node {
             id
@@ -86,12 +87,16 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
         category: node.frontmatter.category || 'Default'
       }
 
+      debug('createPages() > edge', { path })
+
       createPage({
         path,
         component: SheetTemplate,
         context
       })
     })
+
+    debug('createPages() > finish')
   })
 }
 
