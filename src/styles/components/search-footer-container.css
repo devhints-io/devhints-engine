@@ -2,7 +2,7 @@
  * Section inside the search footer
  */
 
-.SearchFooterSection {
+.search-footer-section {
   & {
     display: flex;
   }

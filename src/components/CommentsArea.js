@@ -5,7 +5,7 @@ import React from 'react'
  * Comments area
  */
 
-export default () => (
+export const CommentsArea = () => (
   <section className='comments-area' id='comments' data-js-no-preview>
     <div className='container'>
       <details className='comments-details'>
@@ -51,3 +51,5 @@ export default () => (
     `}</style>
   </section>
 )
+
+export default CommentsArea

@@ -2,7 +2,7 @@
  * Search bar around the footer
  */
 
-.SearchFooter {
+.search-footer {
   & {
     @apply --has-container;
     padding-top: 16px;

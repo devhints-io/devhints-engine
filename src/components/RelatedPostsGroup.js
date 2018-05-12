@@ -13,7 +13,7 @@ export type Props = {
  */
 
 export const RelatedPostsGroup = ({ pages, title }: Props) => {
-  const list = pages.slice(0, 3)
+  const list = pages.slice(0, 6)
 
   return (
     <div className='related-posts-group'>
@@ -28,6 +28,24 @@ export const RelatedPostsGroup = ({ pages, title }: Props) => {
           />
         ))}
       </div>
+
+      <style jsx>{`
+        @import 'src/styles/common';
+
+        .related-posts-group {
+          & > h3 {
+            @apply --font-size-1;
+            color: var(--base-a);
+            margin: 0;
+            padding: 0;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: solid 1px var(--dark-line-color);
+            line-height: 1.2;
+            font-weight: 400;
+          }
+        }
+      `}</style>
     </div>
   )
 }

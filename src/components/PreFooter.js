@@ -6,11 +6,11 @@ import React from 'react'
  */
 
 export const PreFooter = () => (
-  <div className='PreFooter'>
+  <div className='pre-footer'>
     <i className='icon' />
 
     <style jsx>{`
-      .PreFooter {
+      .pre-footer {
         padding: 32px;
         padding-top: 24px;
         padding-bottom: 48px;

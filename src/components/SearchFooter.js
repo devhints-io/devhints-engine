@@ -1,11 +1,14 @@
 import React from 'react'
 
+import SearchBox from './SearchBox'
+import HomeButton from './HomeButton'
+
 /**
  * Search footer in the cheatsheets page.
  */
 
 export const SearchFooter = () => (
-  <footer className='SearchFooter' data-js-no-preview>
+  <aside className='search-footer' data-js-no-preview>
     <div className='container'>
       <SearchFooterSection />
     </div>
@@ -14,11 +17,11 @@ export const SearchFooter = () => (
       @import 'src/styles/common';
       @import 'src/styles/components/search-footer';
     `}</style>
-  </footer>
+  </aside>
 )
 
 export const SearchFooterSection = () => (
-  <div className='SearchFooterSection'>
+  <section className='search-footer-section'>
     <div className='search'>
       <form className='search' action='/' method='get'>
         <SearchBox />
@@ -33,21 +36,7 @@ export const SearchFooterSection = () => (
       @import 'src/styles/common';
       @import 'src/styles/components/search-footer-container';
     `}</style>
-  </div>
-)
-
-export const SearchBox = () => (
-  <label className='search-box -small'>
-    <span className='prefix'>devhints.io</span>
-    <span className='sep'>/</span>
-    <input name='' type='text' value='' placeholder='Search 367+ cheatsheets' />
-  </label>
-)
-
-export const HomeButton = () => (
-  <a className='home-button' href='/'>
-    <i />
-  </a>
+  </section>
 )
 
 export default SearchFooter
