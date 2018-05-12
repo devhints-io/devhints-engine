@@ -65,20 +65,11 @@
     "react-test-renderer": "^16.2.0"
   },
   "jest": {
-    "setupFiles": [
-      "./tests/.jest.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/.cache/"
-    ]
+    "setupFiles": ["./tests/.jest.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "testPathIgnorePatterns": ["/node_modules/", "<rootDir>/.cache/"]
   },
-  "keywords": [
-    "devhints"
-  ],
+  "keywords": ["devhints"],
   "license": "UNLICENSED",
   "main": "n/a",
   "private": true,
@@ -86,16 +77,16 @@
     "build": "gatsby build",
     "ci:lint": "run-p flow lint validate format:list",
     "ci:test": "run-p test build",
-    "develop": "gatsby develop",
+    "develop": "rm -rf .cache; gatsby develop",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
-    "format": "prettier-eslint --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\"",
-    "format:list": "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\"",
+    "format":
+      "prettier-eslint --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\"",
+    "format:list":
+      "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\"",
     "flow": "flow",
     "lint": "eslint packages/*/lib src",
     "test": "jest",
     "validate": "devhints-validator \"sheets/*.md\""
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "workspaces": ["packages/*"]
 }

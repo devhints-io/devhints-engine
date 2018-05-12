@@ -5,7 +5,6 @@ import * as React from 'react'
 import { Provider } from './SheetTemplate/context'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
-import { getRelatedPages } from '../lib/page'
 
 import type { NodeContext, MarkdownNode, AllSitePage } from '../types'
 
@@ -15,10 +14,10 @@ import type { NodeContext, MarkdownNode, AllSitePage } from '../types'
 
 export type Props = {
   data: {
-    allSitePage: AllSitePage,
+    relatedPages: AllSitePage,
     markdownRemark: MarkdownNode
-  },
-  pathContext: NodeContext
+  }
+  // pathContext: NodeContext
 }
 
 /**
@@ -26,9 +25,8 @@ export type Props = {
  */
 
 export const SheetTemplate = (props: Props) => {
-  const { data, pathContext } = props
-
-  getRelatedPages({ allSitePage: data.allSitePage, context: pathContext })
+  const { data } = props
+  console.log(props.data.relatedPages)
 
   return (
     <Provider value={{ CONTENT }}>
@@ -47,7 +45,7 @@ export default SheetTemplate
  */
 
 export const pageQuery = graphql`
-  query SheetByNodeId($node_id: String!) {
+  query SheetByNodeId($node_id: String!, $category: String!) {
     markdownRemark(id: { eq: $node_id }) {
       htmlAst
       frontmatter {
@@ -56,12 +54,15 @@ export const pageQuery = graphql`
         intro
       }
     }
-    allSitePage {
+    relatedPages: allSitePage(
+      filter: { context: { category: { eq: $category } } }
+    ) {
       edges {
         node {
           id
           context {
             nodePath
+            category
             title
           }
         }

@@ -90,6 +90,7 @@ export const query = graphql`
           id
           context {
             nodePath
+            category
             title
           }
         }

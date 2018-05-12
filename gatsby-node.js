@@ -21,7 +21,8 @@ const root = require('path').resolve.bind(null, __dirname)
 const SHEET_PATH = require('./gatsby-config').siteMetadata.sheetPath
 
 /**
- * Add extra node fields
+ * Add extra node fields. This allows us to use $node_id and $category in sheet
+ * template queries.
  */
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
@@ -31,6 +32,11 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
       node,
       name: 'node_id',
       value: node.id
+    })
+    createNodeField({
+      node,
+      name: 'category',
+      value: node.frontmatter.category || 'Default'
     })
   }
 }
@@ -53,6 +59,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
             fileAbsolutePath
             frontmatter {
               title
+              category
             }
           }
         }
@@ -71,7 +78,8 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
       const context /*: NodeContext */ = {
         node_id: node.id,
         nodePath: path,
-        title: node.frontmatter.title
+        title: node.frontmatter.title,
+        category: node.frontmatter.category || 'Default'
       }
 
       createPage({
