@@ -19,6 +19,7 @@ export type Props = {
   frontmatter: Frontmatter,
   htmlAst: HtmlAst,
   relatedPages: Array<SiteLink>,
+  topPages: Array<SiteLink>,
   pageCount: number
 }
 
@@ -35,6 +36,7 @@ export const View = ({
   htmlAst,
   CONTENT,
   relatedPages,
+  topPages,
   pageCount
 }: ViewProps) => (
   <React.Fragment>
@@ -60,7 +62,11 @@ export const View = ({
     <PreFooter />
     <CommentsArea />
     <SearchFooter />
-    <RelatedPostsArea pageCount={pageCount} relatedPages={relatedPages} />
+    <RelatedPostsArea
+      pageCount={pageCount}
+      relatedPages={relatedPages}
+      topPages={topPages}
+    />
   </React.Fragment>
 )
 

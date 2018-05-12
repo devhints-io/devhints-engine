@@ -7,25 +7,16 @@ import TopNav from '../components/TopNav'
 import SiteHeader from '../components/SiteHeader'
 import PagesList from '../components/PagesList'
 import { CONTENT } from '../../config'
-import type { NodeContext, SiteLink } from '../types'
+import { toSiteLinks } from '../lib/site_page'
+import type { AllSitePage } from '../types'
 
 /*
  * Types
  */
 
-export type PageNode = {
-  context: NodeContext
-}
-
-export type PageEdge = {
-  node: PageNode
-}
-
 export type QueryResult = {
   data: {
-    allSitePage: {
-      edges: Array<PageEdge>
-    }
+    allSitePage: AllSitePage
   }
 }
 
@@ -40,9 +31,7 @@ export const RootView = ({ data }: QueryResult) => (
       <SiteHeader />
       <PagesList
         title='Recently updated'
-        links={toLinks(
-          (data && data.allSitePage && data.allSitePage.edges) || []
-        )}
+        links={toSiteLinks(data && data.allSitePage)}
       />
     </div>
   </div>
@@ -57,34 +46,12 @@ export const Root = (props: QueryResult) => (
 export default Root
 
 /**
- * Convert page edges to Array<SiteLink>.
- */
-
-function toLinks (edges: Array<PageEdge>): Array<SiteLink> {
-  return edges
-    .filter(
-      (edge: PageEdge) =>
-        edge.node && edge.node.context && edge.node.context.nodePath
-    )
-    .map((edge: PageEdge) => {
-      const node = edge.node
-      const ctx: NodeContext = node.context
-      const link: SiteLink = {
-        path: ctx.nodePath,
-        title: ctx.title
-      }
-
-      return link
-    })
-}
-
-/**
  * GraphQL query
  */
 
 export const query = graphql`
-  query IndexQuery {
-    allSitePage {
+  query IndexPageQuery {
+    allSitePage(filter: { context: { nodeType: { eq: "sheet" } } }) {
       edges {
         node {
           id

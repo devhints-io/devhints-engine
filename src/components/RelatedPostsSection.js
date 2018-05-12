@@ -10,10 +10,15 @@ import type { SiteLink } from '../types'
 
 export type Props = {
   relatedPages: Array<SiteLink>,
+  topPages: Array<SiteLink>,
   pageCount: number
 }
 
-export const RelatedPostsSection = ({ relatedPages, pageCount }: Props) => (
+export const RelatedPostsSection = ({
+  relatedPages,
+  topPages,
+  pageCount
+}: Props) => (
   <div className='related-posts-section'>
     <div className='callout'>
       <RelatedPostsCallout pageCount={pageCount} />
@@ -25,7 +30,7 @@ export const RelatedPostsSection = ({ relatedPages, pageCount }: Props) => (
       />
     </div>
     <div className='group'>
-      <RelatedPostsGroup pages={[]} title='Top cheatsheets' />
+      <RelatedPostsGroup pages={topPages} title='Top cheatsheets' />
     </div>
   </div>
 )

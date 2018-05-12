@@ -5,7 +5,7 @@ import * as React from 'react'
 import { Provider } from './SheetTemplate/context'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
-
+import { toSiteLinks } from '../lib/site_page'
 import type { MarkdownNode, AllSitePage, SiteLink } from '../types'
 
 /**
@@ -29,12 +29,8 @@ export type Props = {
 export const SheetTemplate = (props: Props) => {
   const { data } = props
 
-  const relatedPages: Array<SiteLink> = data.relatedPages.edges.map(edge => {
-    return {
-      path: edge.node.context.nodePath,
-      title: edge.node.context.title
-    }
-  })
+  const relatedPages: Array<SiteLink> = toSiteLinks(data.relatedPages)
+  const topPages: Array<SiteLink> = toSiteLinks(data.topPages)
 
   return (
     <Provider value={{ CONTENT }}>
@@ -42,6 +38,7 @@ export const SheetTemplate = (props: Props) => {
         frontmatter={data.markdownRemark.frontmatter}
         htmlAst={data.markdownRemark.htmlAst}
         relatedPages={relatedPages}
+        topPages={topPages}
         pageCount={data.allPages.totalCount}
       />
     </Provider>
@@ -68,7 +65,9 @@ export const pageQuery = graphql`
     # Pages related to the current one
     # (ie, same category)
     relatedPages: allSitePage(
-      filter: { context: { category: { eq: $category } } }
+      filter: {
+        context: { category: { eq: $category }, nodeType: { eq: "sheet" } }
+      }
       limit: 6
     ) {
       edges {
@@ -84,7 +83,10 @@ export const pageQuery = graphql`
     }
 
     # The top pages
-    topPages: allSitePage(limit: 6) {
+    topPages: allSitePage(
+      filter: { context: { nodeType: { eq: "sheet" } } }
+      limit: 6
+    ) {
       edges {
         node {
           id

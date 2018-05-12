@@ -9,13 +9,14 @@ import type { SiteLink } from '../types'
 
 export type Props = {
   relatedPages: Array<SiteLink>,
+  topPages: Array<SiteLink>,
   pageCount: number
 }
 
-export const RelatedPostsArea = ({ relatedPages, pageCount }: Props) => (
+export const RelatedPostsArea = (props: Props) => (
   <footer className='related-posts-area' id='related' data-js-no-preview>
     <div className='container'>
-      <RelatedPostsSection relatedPages={relatedPages} pageCount={pageCount} />
+      <RelatedPostsSection {...props} />
     </div>
   </footer>
 )

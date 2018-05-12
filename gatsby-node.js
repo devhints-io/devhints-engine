@@ -78,6 +78,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
       const context /*: NodeContext */ = {
         node_id: node.id,
         nodePath: path,
+        nodeType: 'sheet',
         title: node.frontmatter.title,
         category: node.frontmatter.category || 'Default'
       }
