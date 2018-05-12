@@ -52,7 +52,7 @@ export default SheetTemplate
  */
 
 export const pageQuery = graphql`
-  query SheetByNodeId($node_id: String!, $category: String!) {
+  query SheetByNodeId($node_id: String!, $category: String!, $path: String!) {
     markdownRemark(id: { eq: $node_id }) {
       htmlAst
       frontmatter {
@@ -66,8 +66,11 @@ export const pageQuery = graphql`
     # (ie, same category)
     relatedPages: allSitePage(
       filter: {
-        id: { ne: $node_id }
-        context: { category: { eq: $category }, nodeType: { eq: "sheet" } }
+        context: {
+          nodePath: { ne: $path }
+          category: { eq: $category }
+          nodeType: { eq: "sheet" }
+        }
       }
       limit: 6
     ) {
@@ -85,7 +88,9 @@ export const pageQuery = graphql`
 
     # The top pages
     topPages: allSitePage(
-      filter: { id: { ne: $node_id }, context: { nodeType: { eq: "sheet" } } }
+      filter: {
+        context: { nodePath: { ne: $path }, nodeType: { eq: "sheet" } }
+      }
       limit: 6
     ) {
       edges {
