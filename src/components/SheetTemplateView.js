@@ -6,11 +6,10 @@ import MainHeading from './MainHeading'
 import MiniMarkdown from './MiniMarkdown'
 import PostContent from './PostContent'
 import PreFooter from './PreFooter'
-import RelatedPostItem from './RelatedPostItem'
-import RelatedPostsCallout from './RelatedPostsCallout'
+import RelatedPostsArea from './RelatedPostsArea'
 import SearchFooter from './SearchFooter'
 import TopNav from './TopNav'
-import type { HtmlAst, Frontmatter, Content } from '../types'
+import type { HtmlAst, Frontmatter, Content, SiteLink } from '../types'
 
 /**
  * Properties for the `<View />`
@@ -18,7 +17,9 @@ import type { HtmlAst, Frontmatter, Content } from '../types'
 
 export type Props = {
   frontmatter: Frontmatter,
-  htmlAst: HtmlAst
+  htmlAst: HtmlAst,
+  relatedPages: Array<SiteLink>,
+  pageCount: number
 }
 
 export type ViewProps = Props & {
@@ -29,7 +30,13 @@ export type ViewProps = Props & {
  * Logic-less view
  */
 
-export const View = ({ frontmatter, htmlAst, CONTENT }: ViewProps) => (
+export const View = ({
+  frontmatter,
+  htmlAst,
+  CONTENT,
+  relatedPages,
+  pageCount
+}: ViewProps) => (
   <React.Fragment>
     <TopNav back />
 
@@ -53,53 +60,10 @@ export const View = ({ frontmatter, htmlAst, CONTENT }: ViewProps) => (
     <PreFooter />
     <CommentsArea />
     <SearchFooter />
-    <RelatedPostsArea />
+    <RelatedPostsArea pageCount={pageCount} relatedPages={relatedPages} />
   </React.Fragment>
 )
 
 export default (props: Props) => (
   <Consumer>{({ CONTENT }) => <View {...props} CONTENT={CONTENT} />}</Consumer>
-)
-
-/**
- * Related posts area
- */
-
-export const RelatedPostsArea = () => (
-  <footer className='related-posts-area' id='related' data-js-no-preview>
-    <div className='container'>
-      <RelatedPostsSection />
-    </div>
-  </footer>
-)
-
-/**
- * Related posts section
- */
-
-export const RelatedPostsSection = () => (
-  <div className='related-posts-section'>
-    <div className='callout'>
-      <RelatedPostsCallout />
-    </div>
-    <div className='group'>
-      <RelatedPostsGroup />
-    </div>
-    <div className='group'>
-      <RelatedPostsGroup />
-    </div>
-  </div>
-)
-
-/**
- * Related posts group
- */
-
-export const RelatedPostsGroup = () => (
-  <div className='related-posts-group'>
-    <h3>Other Vim cheatsheets</h3>
-    <div className='related-post-list'>
-      {[0, 1, 2, 3].map(n => <RelatedPostItem key={n} className='item' />)}
-    </div>
-  </div>
 )

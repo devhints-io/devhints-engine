@@ -1,5 +1,6 @@
 /* @flow */
 import * as React from 'react'
+import Link from 'gatsby-link'
 import { Consumer } from '../templates/SheetTemplate/context'
 
 /*
@@ -7,7 +8,9 @@ import { Consumer } from '../templates/SheetTemplate/context'
  */
 
 export type Props = {
-  className?: string
+  className?: string,
+  path: string,
+  title: string
 }
 
 export type ViewProps = Props & {
@@ -18,12 +21,17 @@ export type ViewProps = Props & {
  * The view
  */
 
-export const RelatedPostItemView = ({ className, suffix }: ViewProps) => (
+export const RelatedPostItemView = ({
+  className,
+  suffix,
+  title,
+  path
+}: ViewProps) => (
   <div className={`related-post-item ${className || ''}`}>
-    <a href='/vimscript'>
-      <strong>Vim scripting</strong>
+    <Link to={path}>
+      <strong>{title}</strong>
       <span>{suffix}</span>
-    </a>
+    </Link>
   </div>
 )
 
