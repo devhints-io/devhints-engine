@@ -22,6 +22,7 @@
 
   & > i::before {
     content: '';
+    display: inline-block;
     /* TODO @include ion-ios-home-outline(24px, $base-mute); */
     height: 48px;
     line-height: 48px;

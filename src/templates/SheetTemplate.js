@@ -66,6 +66,7 @@ export const pageQuery = graphql`
     # (ie, same category)
     relatedPages: allSitePage(
       filter: {
+        id: { ne: $node_id }
         context: { category: { eq: $category }, nodeType: { eq: "sheet" } }
       }
       limit: 6
@@ -84,7 +85,7 @@ export const pageQuery = graphql`
 
     # The top pages
     topPages: allSitePage(
-      filter: { context: { nodeType: { eq: "sheet" } } }
+      filter: { id: { ne: $node_id }, context: { nodeType: { eq: "sheet" } } }
       limit: 6
     ) {
       edges {

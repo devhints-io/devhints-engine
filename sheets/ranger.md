@@ -121,7 +121,7 @@ These work just like vim.
 | Paste as _absolute symlink_ | `pl` |
 | Paste as _relative symlink_ | `pL` |
 
-<!-- {.-shortcuts.-right} -->
+<!-- {.-shortcuts-right} -->
 
 ## Other features
 
@@ -135,4 +135,4 @@ These work just like vim.
 | Go to `/usr` | `gu` |
 | Go to `/var` | `gv` |
 
-<!-- {.-shortcuts} -->
+<!-- {.-shortcuts-right} -->

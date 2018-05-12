@@ -38,6 +38,7 @@
 
   & > .text > .icon::before {
     content: '';
+    display: inline-block;
     /* TODO @include ion-ios-arrow-back(48px, adjust-color($base-a, $lightness: 16%, $hue: 20deg)); */
     height: 64px;
     width: 64px;
