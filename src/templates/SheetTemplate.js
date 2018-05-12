@@ -5,8 +5,9 @@ import * as React from 'react'
 import { Provider } from './SheetTemplate/context'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
+import { getRelatedPages } from '../lib/page'
 
-import type { MarkdownNode } from '../types'
+import type { NodeContext, MarkdownNode, AllSitePage } from '../types'
 
 /**
  * Props
@@ -14,17 +15,21 @@ import type { MarkdownNode } from '../types'
 
 export type Props = {
   data: {
-    allSitePage: any,
+    allSitePage: AllSitePage,
     markdownRemark: MarkdownNode
-  }
+  },
+  pathContext: NodeContext
 }
 
 /**
  * Sheet template
  */
 
-export const SheetTemplate = ({ data }: Props) => {
-  // TODO: process data.allSitePage to show related pages
+export const SheetTemplate = (props: Props) => {
+  const { data, pathContext } = props
+
+  getRelatedPages({ allSitePage: data.allSitePage, context: pathContext })
+
   return (
     <Provider value={{ CONTENT }}>
       <SheetTemplateView

@@ -107,3 +107,22 @@ export type NodeContext = {
  */
 
 export type HastNode = {}
+
+/**
+ * TBD
+ */
+
+export type PageEdge = {
+  node: {
+    id: string,
+    context: NodeContext
+  }
+}
+
+/**
+ * TBD
+ */
+
+export type AllSitePage = {
+  edges: Array<PageEdge>
+}
