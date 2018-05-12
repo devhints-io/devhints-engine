@@ -13,6 +13,7 @@
  */
 
 const root = require('path').resolve.bind(null, __dirname)
+const debug = require('debug')('app:gatsby-node')
 
 /**
  * Sheet path
@@ -50,6 +51,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
 
   const SheetTemplate = root('src/templates/SheetTemplate.js')
 
+  debug('createPages(): performing query')
   return graphql(`
     {
       allMarkdownRemark(limit: 1000) {
@@ -66,6 +68,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
       }
     }
   `).then(result => {
+    debug('createPages(): got results')
     if (result.errors) {
       return Promise.reject(result.errors)
     }
