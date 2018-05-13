@@ -73,6 +73,7 @@ export const pageQuery = graphql`
         }
       }
       limit: 6
+      sort: { fields: [context___weight], order: ASC }
     ) {
       edges {
         node {
@@ -92,6 +93,7 @@ export const pageQuery = graphql`
         context: { nodePath: { ne: $path }, nodeType: { eq: "sheet" } }
       }
       limit: 6
+      sort: { fields: [context___weight], order: ASC }
     ) {
       edges {
         node {

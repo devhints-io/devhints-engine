@@ -4,7 +4,7 @@
 
 **WIP** - This is a rewrite to migrate Devhints from Jekyll to Gatsby. `devhints-engine` is a static site builder built on Gatsby; actual content is housed over at [rstacruz/cheatsheets](https://github.com/rstacruz/cheatsheets).
 
-[![Status](https://travis-ci.org/rstacruz/devhints-engine.svg?branch=master)](https://travis-ci.org/rstacruz/devhints-engine "See test builds")
+[![Status](https://travis-ci.org/rstacruz/devhints-engine.svg?branch=master)](https://travis-ci.org/rstacruz/devhints-engine 'See test builds')
 
 <br>
 
@@ -32,5 +32,5 @@ Authored and maintained by Rico Sta. Cruz with help from contributors ([list][co
 [![](https://img.shields.io/github/followers/rstacruz.svg?style=social&label=@rstacruz)](https://github.com/rstacruz) &nbsp;
 [![](https://img.shields.io/twitter/follow/rstacruz.svg?style=social&label=@rstacruz)](https://twitter.com/rstacruz)
 
-[MIT]: http://mit-license.org/
+[mit]: http://mit-license.org/
 [contributors]: http://github.com/rstacruz/devhints-engine/contributors
