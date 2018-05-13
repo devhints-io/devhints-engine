@@ -1,9 +1,5 @@
 import map from 'unist-util-map'
-import {
-  isSeparatorTD,
-  isSeparatorRow,
-  addClassNames
-} from './helpers'
+import { isSeparatorTD, isSeparatorRow, addClassNames } from './helpers'
 
 /**
  * Default options
