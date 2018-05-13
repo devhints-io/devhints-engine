@@ -85,7 +85,7 @@
   "main": "n/a",
   "private": true,
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
     "ci:lint": "run-p flow lint validate format:list",
     "ci:test": "run-p test build",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop",
