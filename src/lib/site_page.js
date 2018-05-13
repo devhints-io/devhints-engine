@@ -8,10 +8,12 @@ import type { AllSitePage, PageEdge, SiteLink } from '../types'
 export function toSiteLinks (pages?: AllSitePage): Array<SiteLink> {
   if (!pages || !pages.edges) return []
 
-  return pages.edges.map((edge: PageEdge) => {
-    return {
-      path: edge.node.context.nodePath,
-      title: edge.node.context.title
-    }
-  })
+  return pages.edges.map(toSiteLink)
+}
+
+export function toSiteLink (edge: PageEdge): SiteLink {
+  return {
+    path: edge.node.context.nodePath,
+    title: edge.node.context.title
+  }
 }

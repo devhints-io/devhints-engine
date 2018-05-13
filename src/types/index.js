@@ -92,14 +92,10 @@ export type Content = {
 }
 
 export type NodeContext = {
-  // Internal gatsby identifier
-  node_id: string,
-
-  // File path (eg, 'vim')
-  nodePath: string,
-
-  // title
-  title: string
+  node_id: string, // Internal gatsby identifier of Markdown node
+  nodePath: string, // File path (eg, 'vim')
+  title: string,
+  category: string
 }
 
 /**
@@ -125,4 +121,12 @@ export type PageEdge = {
 
 export type AllSitePage = {
   edges: Array<PageEdge>
+}
+
+/**
+ * `SiteLink`s that are grouped by category.
+ */
+
+export type GroupedSiteLinks = {
+  [string]: Array<SiteLink>
 }

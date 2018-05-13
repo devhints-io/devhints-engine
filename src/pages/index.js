@@ -5,8 +5,9 @@ import * as React from 'react'
 import { Provider } from '../templates/SheetTemplate/context'
 import RootPage from '../components/RootPage'
 import { CONTENT } from '../../config'
-import { toSiteLinks } from '../lib/site_page'
-import type { AllSitePage } from '../types'
+import { toSiteLinks, toSiteLink } from '../lib/site_page'
+import groupBy from 'group-by'
+import type { AllSitePage, PageEdge, GroupedSiteLinks } from '../types'
 
 /*
  * Types
@@ -19,13 +20,30 @@ export type QueryResult = {
   }
 }
 
+/**
+ * Groups by category, returns sitelinks
+ */
+
+function groupByCategory (allPages: AllSitePage): GroupedSiteLinks {
+  const groups: { [string]: Array<PageEdge> } = groupBy(
+    allPages.edges,
+    (edge: PageEdge) => edge.node.context.category
+  )
+
+  return Object.keys(groups).reduce((result, group: string) => {
+    const edges = groups[group]
+    return { ...result, [group]: edges.map(toSiteLink) }
+  }, {})
+}
+
 export const Root = ({ data }: QueryResult) => {
-  // TODO sort out allPages
+  const groups = groupByCategory(data.allPages)
 
   return (
     <Provider value={{ CONTENT }}>
       <RootPage
         allPages={toSiteLinks(data.allPages)}
+        groups={groups}
         recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
       />
     </Provider>

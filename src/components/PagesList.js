@@ -24,7 +24,7 @@ export const PagesList = ({ title, links }: Props) => (
     <h2 className='category item'>
       <span>{title}</span>
     </h2>
-    {links.map(link => (
+    {links.map((link: SiteLink) => (
       <Link to={link.path} key={link.path} className='article item'>
         <span className='info'>
           <code className='slug'>{unpath(link.path)}</code>
