@@ -3,9 +3,7 @@
 
 import * as React from 'react'
 import { Provider } from '../templates/SheetTemplate/context'
-import TopNav from '../components/TopNav'
-import SiteHeader from '../components/SiteHeader'
-import PagesList from '../components/PagesList'
+import RootPage from '../components/RootPage'
 import { CONTENT } from '../../config'
 import { toSiteLinks } from '../lib/site_page'
 import type { AllSitePage } from '../types'
@@ -16,32 +14,23 @@ import type { AllSitePage } from '../types'
 
 export type QueryResult = {
   data: {
-    allSitePage: AllSitePage
+    allPages: AllSitePage,
+    recentlyUpdated: AllSitePage
   }
 }
 
-/**
- * Home page template
- */
+export const Root = ({ data }: QueryResult) => {
+  // TODO sort out allPages
 
-export const RootView = ({ data }: QueryResult) => (
-  <div>
-    <TopNav />
-    <div className='body-area -slim'>
-      <SiteHeader />
-      <PagesList
-        title='Recently updated'
-        links={toSiteLinks(data && data.allSitePage)}
+  return (
+    <Provider value={{ CONTENT }}>
+      <RootPage
+        allPages={toSiteLinks(data.allPages)}
+        recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
       />
-    </div>
-  </div>
-)
-
-export const Root = (props: QueryResult) => (
-  <Provider value={{ CONTENT }}>
-    <RootView {...props} />
-  </Provider>
-)
+    </Provider>
+  )
+}
 
 export default Root
 
@@ -51,7 +40,24 @@ export default Root
 
 export const query = graphql`
   query IndexPageQuery {
-    allSitePage(filter: { context: { nodeType: { eq: "sheet" } } }) {
+    allPages: allSitePage(filter: { context: { nodeType: { eq: "sheet" } } }) {
+      edges {
+        node {
+          id
+          context {
+            nodePath
+            category
+            title
+          }
+        }
+      }
+    }
+
+    # TODO sort by updated at
+    recentlyUpdated: allSitePage(
+      filter: { context: { nodeType: { eq: "sheet" } } }
+      limit: 4
+    ) {
       edges {
         node {
           id
