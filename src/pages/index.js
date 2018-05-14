@@ -72,7 +72,7 @@ export const query = graphql`
     }
 
     recentlyUpdated: allSitePage(
-      filter: { context: { nodeType: { eq: "sheet" } } }
+      filter: { context: { updated: { ne: null }, nodeType: { eq: "sheet" } } }
       sort: { fields: [context___updated], order: DESC }
       limit: 20
     ) {

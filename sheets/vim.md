@@ -2,6 +2,7 @@
 title: Vim
 category: Apps
 weight: -1
+updated: 2018-05-14
 intro: |
   [Vim](http://vim.org) is a text editor.
 ---
