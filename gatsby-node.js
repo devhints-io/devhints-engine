@@ -64,6 +64,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
               title
               category
               weight
+              updated
             }
           }
         }
@@ -85,8 +86,9 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
         nodePath: path,
         nodeType: 'sheet',
         title: node.frontmatter.title,
-        category: node.frontmatter.category || 'Default',
-        weight: node.frontmatter.weight || 0
+        category: node.frontmatter.category || '',
+        weight: node.frontmatter.weight || 0,
+        updated: node.frontmatter.updated
       }
 
       debug('createPages() > edge', { path })

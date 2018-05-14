@@ -71,10 +71,10 @@ export const query = graphql`
       }
     }
 
-    # TODO sort by updated at
     recentlyUpdated: allSitePage(
       filter: { context: { nodeType: { eq: "sheet" } } }
-      limit: 4
+      sort: { fields: [context___updated], order: DESC }
+      limit: 20
     ) {
       edges {
         node {
