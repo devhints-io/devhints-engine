@@ -5,14 +5,14 @@ const root = require('path').resolve.bind(null, __dirname)
  */
 
 const SHEET_PATH = process.env.SHEET_PATH || root('sheets')
+const PATH_PREFIX = process.env.PATH_PREFIX || ''
 
 /*
  * Gatsby configuration
  */
 
 module.exports = {
-  // Enable this for temp GitHub pages deployment
-  pathPrefix: process.env.PATH_PREFIX,
+  pathPrefix: PATH_PREFIX,
   siteMetadata: {
     title: 'Devhints',
     sheetPath: SHEET_PATH
