@@ -12,7 +12,7 @@ const SHEET_PATH = process.env.SHEET_PATH || root('sheets')
 
 module.exports = {
   // Enable this for temp GitHub pages deployment
-  // pathPrefix: '/cheatsheets-2018',
+  pathPrefix: process.env.PATH_PREFIX,
   siteMetadata: {
     title: 'Devhints',
     sheetPath: SHEET_PATH
