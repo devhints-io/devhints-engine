@@ -33,7 +33,7 @@
     }
   }
 
-  // Mobile
+  /* Mobile */
   @media (max-width: 480px) {
     & {
       flex-wrap: wrap;
@@ -47,7 +47,7 @@
     }
   }
 
-  // Tablet
+  /* Tablet */
   @media (min-width: 481px) {
     @media (max-width: 768px) {
       & {
