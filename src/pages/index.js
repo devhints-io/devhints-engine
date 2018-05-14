@@ -5,9 +5,8 @@ import * as React from 'react'
 import { Provider } from '../templates/SheetTemplate/context'
 import RootPage from '../components/RootPage'
 import { CONTENT } from '../../config'
-import { toSiteLinks, toSiteLink } from '../lib/site_page'
-import groupBy from 'group-by'
-import type { AllSitePage, PageEdge, GroupedSiteLinks } from '../types'
+import { toSiteLinks, groupByCategory } from '../lib/site_page'
+import type { AllSitePage } from '../types'
 
 /*
  * Types
@@ -21,20 +20,8 @@ export type QueryResult = {
 }
 
 /**
- * Groups by category, returns sitelinks
+ * Connector for `<RootPage />`
  */
-
-function groupByCategory (allPages: AllSitePage): GroupedSiteLinks {
-  const groups: { [string]: Array<PageEdge> } = groupBy(
-    allPages.edges,
-    (edge: PageEdge) => edge.node.context.category
-  )
-
-  return Object.keys(groups).reduce((result, group: string) => {
-    const edges = groups[group]
-    return { ...result, [group]: edges.map(toSiteLink) }
-  }, {})
-}
 
 export const Root = ({ data }: QueryResult) => {
   const groups = groupByCategory(data.allPages)
