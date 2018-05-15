@@ -4,9 +4,6 @@
     "standard-react"
   ],
   "parser": "babel-eslint",
-  "plugins": [
-    "flowtype-errors"
-  ],
   "rules": {
     "react/prop-types": 0,
     "flowtype-errors/show-errors": 2,
