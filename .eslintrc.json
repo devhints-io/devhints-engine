@@ -3,6 +3,9 @@
     "standard",
     "standard-react"
   ],
+  "plugins": [
+    "flowtype-errors"
+  ],
   "parser": "babel-eslint",
   "rules": {
     "react/prop-types": 0,
