@@ -2,7 +2,7 @@
 /* global graphql */
 
 import * as React from 'react'
-import { Provider } from './SheetTemplate/context'
+import { Provider } from '../lib/context'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
 import { toSiteLinks } from '../lib/site_page'

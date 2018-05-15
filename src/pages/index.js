@@ -2,7 +2,7 @@
 /* global graphql */
 
 import * as React from 'react'
-import { Provider } from '../templates/SheetTemplate/context'
+import { Provider } from '../lib/context'
 import RootPage from '../components/RootPage'
 import { CONTENT } from '../../config'
 import { toSiteLinks, groupByCategory } from '../lib/site_page'

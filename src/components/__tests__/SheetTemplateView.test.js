@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
 import SheetTemplateView from '../SheetTemplateView'
-import { Provider } from '../../templates/SheetTemplate/context'
+import { Provider } from '../../lib/context'
 import { CONTENT } from '../../../config'
 
 it.skip('works', () => {
