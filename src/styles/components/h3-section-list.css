@@ -6,6 +6,9 @@
 .h3-section-list {
   & {
     @apply --section-gutter-horizontal-margin--1;
+  }
+
+  & {
     margin-top: 0;
     margin-bottom: 0;
   }
