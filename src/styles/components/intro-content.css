@@ -1,1 +1,8 @@
-/* Intentionally left blank (for now) */
+@media (min-width: 481px) {
+	.intro-content {
+		max-width: 480px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
