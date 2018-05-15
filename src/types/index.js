@@ -1,4 +1,5 @@
 /* @flow */
+/* eslint-disable no-use-before-define */
 
 /**
  * HAST syntax tree. (todo)
@@ -102,7 +103,24 @@ export type NodeContext = {
  * TBD
  */
 
-export type HastNode = {}
+export type HastComment = {
+  type: 'comment',
+  value: string
+}
+
+export type HastElement = {
+  tagName: string,
+  type: 'element',
+  properties: Object,
+  children: Array<HastNode>,
+}
+
+export type HastText = {
+  type: 'text',
+  value: string
+}
+
+export type HastNode = HastComment | HastElement | HastText
 
 /**
  * TBD

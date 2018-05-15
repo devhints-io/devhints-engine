@@ -20,7 +20,7 @@ export type Props = {
     markdownRemark: MarkdownNode
   }
   // pathContext: NodeContext
-}
+};
 
 /**
  * Sheet template

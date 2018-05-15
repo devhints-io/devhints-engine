@@ -189,7 +189,7 @@ app.start(() => {
 })
 ```
 
-{data-line="2,3"}
+<!-- {data-line="2,3"} -->
 
 Add `{data-line="2,3"}` to add multiple line highlights.
 
