@@ -1,14 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+/* @flow */
+import * as React from 'react'
 import Helmet from 'react-helmet'
 
 import '../styles/index.css'
 
 /**
+ * Props
+ */
+
+export type Props = {
+  children: () => React.Node
+}
+
+/**
  * Base layout
  */
 
-function TemplateWrapper ({ children }) {
+function TemplateWrapper ({ children }: Props) {
   return (
     <div>
       <Helmet
@@ -21,10 +29,6 @@ function TemplateWrapper ({ children }) {
       <div>{children()}</div>
     </div>
   )
-}
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.func
 }
 
 export default TemplateWrapper
