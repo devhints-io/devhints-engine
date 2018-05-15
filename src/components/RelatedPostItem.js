@@ -8,8 +8,13 @@ import { Consumer } from '../templates/SheetTemplate/context'
  */
 
 export type Props = {
+  /** Extra classnames to be appended to the root element */
   className?: string,
+
+  /** Path to be linked to */
   path: string,
+
+  /** Title to be shown */
   title: string
 }
 
