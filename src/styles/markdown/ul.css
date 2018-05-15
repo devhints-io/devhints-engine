@@ -1,1 +1,37 @@
-/* TODO */
+.MarkdownBody ul.-six-column {
+  & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  & > li {
+    flex: 0 0 calc(100% / 6);
+
+    @media (max-width: 480px) {
+      flex: 0 0 calc(100% / 2);
+    }
+
+    @media (max-width: 768px) {
+      flex: 0 0 calc(100% / 4);
+    }
+  }
+}
+
+.MarkdownBody ul.-four-column {
+  & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  & > li {
+    flex: 0 0 calc(100% / 4);
+
+    @media (max-width: 480px) {
+      flex: 0 0 calc(100% / 2);
+    }
+
+    @media (max-width: 768px) {
+      flex: 0 0 calc(100% / 3);
+    }
+  }
+}

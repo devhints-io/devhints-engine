@@ -20,7 +20,7 @@
 @import './markdown/headings.css';
 @import './markdown/table.css';
 @import './markdown/p.css';
-@import './markdown/ul.css'; /* TODO */
+@import './markdown/ul.css';
 
 /* Components */
 @import './components/announcements-item.css';
