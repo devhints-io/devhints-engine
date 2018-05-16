@@ -4,6 +4,10 @@
 import * as React from 'react'
 import transform from './transform'
 import isotopify from './isotopify'
+import { loadPrism } from './prism'
+import debugjs from 'debug'
+
+const debug = debugjs('app:PostContent')
 
 export type Props = {
   // Markdown HAST syntax tree
@@ -31,29 +35,24 @@ export default class PostContent extends React.PureComponent<Props> {
 }
 
 /**
- * Does post transformations
+ * Asynchronously performs transformations needed after rendering.
+ * @returns a Promise that resolves to nothing.
  */
 
-function doPostTransform (element: ?HTMLElement) {
-  if (!element) return
-  isotopify(element)
+function doPostTransform (element: ?HTMLElement): Promise<void> {
+  const log = debug.bind(null, 'doPostTransform()')
+  log('working on', element)
 
-  const Prism = require('prismjs')
-  loadPrismPlugins()
-  Prism.highlightAllUnder(element)
-}
+  return Promise.resolve()
+    .then(() => {
+      if (!element) return
+      log('invoking isotope')
+      isotopify(element)
 
-/**
- * Loads a whole slew of default prism plugins
- */
-
-function loadPrismPlugins () {
-  require('prismjs/plugins/line-highlight/prism-line-highlight.min.js')
-  require('prismjs/plugins/line-highlight/prism-line-highlight.css')
-  require('prismjs/components/prism-jsx.min.js')
-  require('prismjs/components/prism-bash.min.js')
-  require('prismjs/components/prism-scss.min.js')
-  require('prismjs/components/prism-css.min.js')
-  require('prismjs/components/prism-elixir.min.js')
-  require('prismjs/components/prism-ruby.min.js')
+      return loadPrism()
+    })
+    .then(() => {
+      log('highlighting')
+      window.Prism.highlightAllUnder(element)
+    })
 }
