@@ -64,6 +64,7 @@
     "gh-pages": "^1.1.0",
     "hast-util-to-html": "^3.1.0",
     "hastscript": "^3.1.0",
+    "husky": "^0.14.3",
     "jest": "^22.4.2",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.1",
@@ -97,7 +98,8 @@
     "flow": "flow",
     "lint": "eslint packages/*/lib src",
     "test": "jest",
-    "validate": "devhints-validator \"sheets/*.md\""
+    "validate": "devhints-validator \"sheets/*.md\"",
+    "prepush": "yarn run prettier:check"
   },
   "workspaces": [
     "packages/*"
