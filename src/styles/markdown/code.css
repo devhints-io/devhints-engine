@@ -50,7 +50,11 @@
   /* Line highlight */
   & .line-highlight {
     transform: translate3d(0, 2px, 0);
-    background: linear-gradient(to right, color(var(--base-c) alpha(5%)), transparent);
+    background: linear-gradient(
+      to right,
+      color(var(--base-c) alpha(5%)),
+      transparent
+    );
   }
 
   /* Line highlight ranges */

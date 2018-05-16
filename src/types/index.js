@@ -112,7 +112,7 @@ export type HastElement = {
   tagName: string,
   type: 'element',
   properties: Object,
-  children: Array<HastNode>,
+  children: Array<HastNode>
 }
 
 export type HastText = {
