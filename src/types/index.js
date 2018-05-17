@@ -74,6 +74,10 @@ export type SiteLinkList = Array<SiteLink>
  */
 
 export type Content = {
+  home: {
+    title: string,
+    recentlyUpdated: string
+  },
   siteHeader: {
     title: string,
     tagline: string
@@ -147,4 +151,12 @@ export type AllSitePage = {
 
 export type GroupedSiteLinks = {
   [string]: Array<SiteLink>
+}
+
+/**
+ * Global React context
+ */
+
+export type Context = {
+  CONTENT: Content
 }
