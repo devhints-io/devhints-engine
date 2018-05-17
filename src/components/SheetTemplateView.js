@@ -9,7 +9,8 @@ import PreFooter from './PreFooter'
 import RelatedPostsArea from './RelatedPostsArea'
 import SearchFooter from './SearchFooter'
 import TopNav from './TopNav'
-import type { HtmlAst, Frontmatter, Content, SiteLink } from '../types'
+import Helmet from 'react-helmet'
+import type { HtmlAst, Frontmatter, Context, SiteLink } from '../types'
 
 /**
  * Properties for the `<View />`
@@ -24,7 +25,7 @@ export type Props = {
 }
 
 export type ViewProps = Props & {
-  CONTENT: Content
+  sheetSuffix: string
 }
 
 /**
@@ -34,19 +35,20 @@ export type ViewProps = Props & {
 export const View = ({
   frontmatter,
   htmlAst,
-  CONTENT,
   relatedPages,
   topPages,
-  pageCount
+  pageCount,
+  sheetSuffix
 }: ViewProps) => (
   <React.Fragment>
+    <Helmet>
+      <title>{(frontmatter.title || '') + ' ' + sheetSuffix}</title>
+    </Helmet>
+
     <TopNav back />
 
     <div className='body-area'>
-      <MainHeading
-        title={frontmatter.title || ''}
-        suffix={CONTENT.sheet.suffix || ''}
-      />
+      <MainHeading title={frontmatter.title || ''} suffix={sheetSuffix} />
 
       {/* Introduction */}
       {frontmatter && frontmatter.intro ? (
@@ -70,6 +72,25 @@ export const View = ({
   </React.Fragment>
 )
 
-export default (props: Props) => (
-  <Consumer>{({ CONTENT }) => <View {...props} CONTENT={CONTENT} />}</Consumer>
+/**
+ * Sheet template view (connected).
+ *
+ * @example
+ *     <SheetTemplateView
+ *       frontmatter={{ title: 'Vim' }}
+ *       htmlAst={...}
+ *       relatedPages={[ ... ]}
+ *       topPages={[ ... ]}
+ *       pageCount={382}
+ *     />
+ */
+
+export const SheetTemplateView = (props: Props) => (
+  <Consumer>
+    {({ CONTENT }: Context) => (
+      <View {...props} sheetSuffix={CONTENT.sheet.suffix || ''} />
+    )}
+  </Consumer>
 )
+
+export default SheetTemplateView
