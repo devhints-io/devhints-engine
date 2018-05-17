@@ -8,7 +8,7 @@ import type { SiteLink, GroupedSiteLinks } from '../types'
 export type Props = {
   recentlyUpdated: Array<SiteLink>,
   groups: GroupedSiteLinks
-};
+}
 
 /**
  * Home page template
@@ -23,7 +23,9 @@ export const RootPage = ({ recentlyUpdated, groups }: Props) => (
 
       <PagesList title='Recently updated' links={recentlyUpdated} />
 
-      {Object.keys(groups).map((group: string) => (<PagesList key={group} title={group} links={groups[group]} />))}
+      {Object.keys(groups).map((group: string) => (
+        <PagesList key={group} title={group} links={groups[group]} />
+      ))}
     </div>
   </div>
 )
