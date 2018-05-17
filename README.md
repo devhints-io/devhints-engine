@@ -1,11 +1,3 @@
-# devhints-engine
-
-> Gatsby website builder that builds devhints.io
-
-**WIP** - This is a rewrite to migrate Devhints from Jekyll to Gatsby. `devhints-engine` is a static site builder built on Gatsby; actual content is housed over at [rstacruz/cheatsheets](https://github.com/rstacruz/cheatsheets).
-
-[![Status](https://travis-ci.org/rstacruz/devhints-engine.svg?branch=master)](https://travis-ci.org/rstacruz/devhints-engine/builds 'See test builds')
-
 <br>
 
 <p align='center'>
@@ -16,9 +8,17 @@
 
 <br>
 
----
+# devhints-engine
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for developer notes.
+> Gatsby website builder that builds devhints.io
+
+**WIP** - This is a rewrite to migrate Devhints from Jekyll to Gatsby. `devhints-engine` is a static site builder built on Gatsby; actual content is housed over at [rstacruz/cheatsheets](https://github.com/rstacruz/cheatsheets).
+
+[![Status](https://travis-ci.org/rstacruz/devhints-engine.svg?branch=master)](https://travis-ci.org/rstacruz/devhints-engine/builds 'See test builds')
+&nbsp;&middot;&nbsp;
+**[TODO list](https://github.com/rstacruz/devhints-engine/issues/10)**
+&nbsp;&middot;&nbsp;
+**[Developer guide](CONTRIBUTING.md)**
 
 ## Thanks
 
