@@ -3,5 +3,8 @@ image: node:slim
 test_all:
   script:
    - yarn
-   - yarn run ci:lint
-   - yarn run ci:test
+   - yarn run flow
+   - yarn run lint
+   - yarn run prettier:check
+   - yarn run test
+   - yarn run build
