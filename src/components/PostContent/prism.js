@@ -64,7 +64,7 @@ export function loadPrism (): Promise<any> {
 export function loadPrismPlugins (): Promise<void> {
   const urls = [
     'plugins/line-highlight/prism-line-highlight.min.js',
-    'plugins/line-highlight/prism-line-highlight.css'
+    'plugins/line-highlight/prism-line-highlight.min.css'
   ]
 
   return Promise.all(
@@ -137,7 +137,7 @@ export function loadLanguages (langs: Array<string>): Promise<void> {
  */
 
 export function getLanguageURL (lang: string): string {
-  return getPrismURL(`components/prism-${lang}.js`)
+  return getPrismURL(`components/prism-${lang}.min.js`)
 }
 
 /**
@@ -145,13 +145,13 @@ export function getLanguageURL (lang: string): string {
  *
  * @example
  *     getPrismURL()
- *     // => 'https://cdn.jsdelivr.net/npm/prismjs@1.14.0/prism.js'
+ *     // => 'https://cdn.jsdelivr.net/npm/prismjs@1.14.0/prism.min.js'
  *
  *     getPrismURL('package.json')
  *     // => 'https://cdn.jsdelivr.net/npm/prismjs@1.14.0/package.json'
  */
 
-export function getPrismURL (file: string = 'prism.js'): string {
+export function getPrismURL (file: string = 'prism.min.js'): string {
   return `https://cdn.jsdelivr.net/npm/prismjs@${PRISM_VERSION}/${file}`
 }
 
