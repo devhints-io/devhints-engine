@@ -48,7 +48,8 @@ export const CONTENT = {
   // 404 page
   notFound: {
     title: 'Not found',
-    description: "Sorry, we don't have a cheatsheet for this yet. Try searching!",
+    description:
+      "Sorry, we don't have a cheatsheet for this yet. Try searching!",
     home: 'Back to home'
   }
 }
