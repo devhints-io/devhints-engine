@@ -8,52 +8,54 @@
 
 # Contributing
 
-## Developer notes
+<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-### Quick start guide
+- [For developers](#for-developers)
+	- [Quick-start guide](#quick-start-guide)
+	- [Other dev commands](#other-dev-commands)
+- [For Devhints forkers](#for-devhints-forkers)
+	- [Using devhints-engine](#using-devhints-engine)
+- [Other docs](#other-docs)
 
-This sets up a dev environment of `devhints-engine`:
+<!-- /TOC -->
 
-~~~ bash
-yarn               # install dependencies
-yarn run develop   # starts a server
-~~~
+## For developers
 
-### Other commands
+See: **[devhints-engine TODO list](https://github.com/rstacruz/devhints-engine/issues/10)** _(github.com)_.
 
-| Command                      | Description                   |
-| ---                          | ---                           |
-| `yarn test`                  | Run tests                     |
-| `yarn test --watch --notify` | Run tests continuously        |
-| `yarn run build`             | build for production          |
-| `yarn run deploy`            | deploy to gh-pages            |
-| `yarn run fix`               | fix lint errors automatically |
+### Quick-start guide
 
-## Using devhints-engine
+This sets up a dev environment of `devhints-engine`. Note that you need Node 8+ and Yarn 1.5+.
 
-Add it to your project:
+```bash
+#### Clone the repo
+git clone https://github.com/rstacruz/devhints-engine.git
+cd devhints-engine
 
-```
-yarn add github:rstacruz/devhints-engine#master
-```
+#### Install dependencies
+yarn
 
-Configure `package.json`:
+#### Run the server
+yarn develop
 
-```json
-{
-  "scripts": {
-    "develop": "devhints-engine develop"
-  },
-  "devhints": {
-    "sheets": [
-      "./*.md*"
-    ]
-  }
-}
+#### Open in the browser
+open http://localhost:8000/
 ```
 
-Now build using Yarn scripts.
+### Other dev commands
+
+| Command                      | Description            |
+| ---------------------------- | ---------------------- |
+| `yarn test`                  | Run tests              |
+| `yarn test --watch --notify` | Run tests continuously |
+| `yarn run build`             | build for production   |
+
+## For Devhints forkers
+
+### Using devhints-engine
+
+TODO
 
 ## Other docs
 
-- [Writing cheatsheets](docs/writing_cheatsheets.md)
+* [Writing cheatsheets](docs/writing_cheatsheets.md)
