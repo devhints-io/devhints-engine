@@ -76,6 +76,7 @@ export type SiteLinkList = Array<SiteLink>
 export type Content = {
   home: {
     title: string,
+    description: string,
     recentlyUpdated: string
   },
   siteHeader: {

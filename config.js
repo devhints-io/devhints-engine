@@ -5,6 +5,7 @@
 export const CONTENT = {
   home: {
     title: 'Devhints.io — TL;DR for developer documentation',
+    description: 'A ridiculous collection of web development cheatsheets',
     recentlyUpdated: 'Recently updated'
   },
 
@@ -47,8 +48,7 @@ export const CONTENT = {
   // 404 page
   notFound: {
     title: 'Not found',
-    description:
-      "Sorry, we don't have a cheatsheet for this yet. Try searching!",
+    description: "Sorry, we don't have a cheatsheet for this yet. Try searching!",
     home: 'Back to home'
   }
 }

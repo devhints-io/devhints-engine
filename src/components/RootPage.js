@@ -13,24 +13,28 @@ export type Props = {
 }
 
 export type ViewProps = Props & {
-  title: string,
+  metaTitle: string,
+  metaDescription: string,
   recentlyUpdatedLabel: string
 }
 
 /**
- * Home page template
+ * Home page template (pure version).
  */
 
 export const View = ({
   recentlyUpdated,
   groups,
-  title,
+  metaTitle,
+  metaDescription,
   recentlyUpdatedLabel
 }: ViewProps) => (
   <div>
     <Helmet>
-      <title>{title}</title>
+      <title>{metaTitle}</title>
+      <meta name='description' content={metaDescription} />
     </Helmet>
+
     <TopNav />
 
     <div className='body-area -slim'>
@@ -46,14 +50,12 @@ export const View = ({
 )
 
 /**
- * Connector
+ * The home page.
  *
  * @example
  *     <RootPage
  *       groups={{ 'React': [ ... ] }}
  *       recentlyUpdated={[ ... ]}
- *       title={'Devhints.io'}
- *       recentlyUpdatedLabel={'Recently updated'}
  *     />
  */
 
@@ -62,7 +64,8 @@ export const RootPage = (props: Props) => (
     {({ CONTENT }: Context) => (
       <View
         {...props}
-        title={CONTENT.home.title}
+        metaTitle={CONTENT.home.title}
+        metaDescription={CONTENT.home.description}
         recentlyUpdatedLabel={CONTENT.home.recentlyUpdated}
       />
     )}
