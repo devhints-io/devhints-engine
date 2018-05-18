@@ -192,7 +192,10 @@ export function getPrismURL (file: string = 'prism.min.js'): string {
  *     // => ['jsx', 'javascript', 'ruby']
  */
 
-export function getLanguagesInElement (el: HTMLElement): Array<string> {
+export function getLanguagesInElement (el?: HTMLElement): Array<string> {
+  // Just being defensive
+  if (!el) return []
+
   const pres = el.querySelectorAll('[class*="language-"]')
 
   const classNames = Array.from(pres)
