@@ -18,12 +18,19 @@ export const PRISM_VERSION = '1.14.0'
  */
 
 export const LANGUAGE_ALIASES = {
-  js: 'javascript',
-  tsx: 'jsx',
-  rb: 'ruby',
+  coffee: 'coffeescript',
   dockerfile: 'docker',
+  dosini: 'ini',
+  jade: 'pug',
+  js: 'javascript',
+  make: 'makefile',
+  md: 'markdown',
+  rb: 'ruby',
+  sh: 'bash',
+  tsx: 'jsx',
   vimscript: 'vim',
-  dosini: 'ini'
+  yml: 'yaml',
+  zsh: 'bash'
 }
 
 /**
@@ -203,6 +210,9 @@ export function getLanguagesInElement (el: HTMLElement): Array<string> {
     // Sort and dedeplicate
     .sort()
     .filter((value, index, self) => self.indexOf(value) === index)
+
+    // Ignore certain ones
+    .filter((cn: string) => cn !== 'nohighlight')
 
   return classNames
 }
