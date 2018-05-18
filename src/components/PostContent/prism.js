@@ -128,7 +128,12 @@ export function loadScript (url: string): Promise<void> {
         log('success')
         resolve()
       },
-      error: reject
+      error: err => {
+        // Probably a 404 or network error or something, no need to panic. It
+        // won't cause any trouble, so fail silently.
+        log('error:', err)
+        resolve()
+      }
     })
   })
 }
