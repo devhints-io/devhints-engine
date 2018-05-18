@@ -4,18 +4,15 @@ import Link from 'gatsby-link'
 import { CONTENT } from '../../config'
 import ExternalSearchLinks from '../components/ExternalSearchLinks'
 
-export type Props = {|
-  // page: true,
-  // match: {
-  //   path: string,
-  //   url: string,
-  //   params: {},
-  //   isExact: false
-  // },
+export type Props = {
   location: {
     pathname: string // => '/404'
   }
-|}
+}
+
+/**
+ * The 404 page.
+ */
 
 const NotFoundPage = (props: Props) => {
   const keyword = keywordify(props.location.pathname)
