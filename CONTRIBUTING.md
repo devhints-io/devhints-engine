@@ -8,14 +8,11 @@
 
 # Contributing
 
-<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [For developers](#for-developers)
-	- [Quick-start guide](#quick-start-guide)
-	- [Other dev commands](#other-dev-commands)
-- [For Devhints forkers](#for-devhints-forkers)
-	- [Using devhints-engine](#using-devhints-engine)
-- [Other docs](#other-docs)
+* [For developers](#for-developers) - [Quick-start guide](#quick-start-guide) - [Other dev commands](#other-dev-commands)
+* [For Devhints forkers](#for-devhints-forkers) - [Using devhints-engine](#using-devhints-engine)
+* [Other docs](#other-docs)
 
 <!-- /TOC -->
 
