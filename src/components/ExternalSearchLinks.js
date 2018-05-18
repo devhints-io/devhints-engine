@@ -47,7 +47,7 @@ export const ExternalSearchLinks = ({ keyword }: Props) => {
       </li>
       <li>
         <a
-          href={`https://next.duckduckgo.com/?q=${query}+cheatsheet&ia=cheatsheet&iax=1`}
+          href={`https://next.duckduckgo.com/?q=${query}+cheatsheet&ia=cheatsheet&iax=1#zero_click_wrapper`}
         >
           {phrase} cheatsheet on DuckDuckGo
         </a>
