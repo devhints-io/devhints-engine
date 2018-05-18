@@ -1,4 +1,6 @@
 /* @flow */
+/* global HTMLElement */
+
 import loadjs from 'loadjs'
 import debugjs from 'debug'
 
@@ -25,14 +27,17 @@ export const LANGUAGE_ALIASES = {
 }
 
 /**
- * Loads prism asynchronously.
- * @returns a Promise that resolves into the Prism instance.
+ * Asynchrolously loads Prism, the syntax highlighter.
+ * If `el` is given, it tries to infer all the languages used in code blocks
+ * inside that element.
+ *
+ * @returns a Promise that resolves into the `Prism` instance.
  *
  * @example
  *     const Prism = await loadPrism()
  */
 
-export function loadPrism (): Promise<any> {
+export function loadPrism (el?: HTMLElement): Promise<any> {
   const debug = debugjs('app:PostContent.prism/loadPrism()')
 
   return Promise.resolve()
@@ -47,12 +52,14 @@ export function loadPrism (): Promise<any> {
       return loadPrismPlugins()
     })
     .then(() => {
-      // TODO infer languages automatically
-      debug('loading languages...')
-      return loadLanguages(['jsx', 'bash', 'ruby', 'vim'])
+      if (el) {
+        const languages = getLanguagesInElement(el)
+        debug('loading languages...', languages)
+        return loadLanguages(languages)
+      }
     })
     .then(() => {
-      debug('done!!!')
+      debug('done!')
       return window.Prism
     })
 }
@@ -73,8 +80,10 @@ export function loadPrismPlugins (): Promise<void> {
 }
 
 /**
- * Loads a language. Returns a promise that resolves to nothing.
+ * Asynchronously loads support for a given `language` for Prism.
  * See supported languages at: https://cdn.jsdelivr.net/npm/prismjs/components/
+ *
+ * @returns a promise that resolves to nothing.
  *
  * @example
  *     await loadLanguage('javascript')
@@ -95,7 +104,7 @@ export function loadLanguage (lang: string): Promise<void> {
 }
 
 /**
- * Loads a script asynchronously
+ * Loads a script asynchronously.
  */
 
 export function loadScript (url: string): Promise<void> {
@@ -105,7 +114,7 @@ export function loadScript (url: string): Promise<void> {
     log('loading')
     loadjs(url, {
       before: (path, el) => {
-        // Prism wants this
+        // Prism wants this so that it doesn't automatically do magic.
         el.setAttribute('data-manual', true)
       },
       success: () => {
@@ -118,7 +127,10 @@ export function loadScript (url: string): Promise<void> {
 }
 
 /**
- * Loads many languages. Returns a promise.
+ * Asynchronously loads many languages.
+ * Compare with `loadLanguage()`, which only loads one language.
+ *
+ * @returns a promise that resolves to nothing when all languages are loaded.
  *
  * @example
  *     await loadLanguages(['jsx', 'bash'])
@@ -153,6 +165,41 @@ export function getLanguageURL (lang: string): string {
 
 export function getPrismURL (file: string = 'prism.min.js'): string {
   return `https://cdn.jsdelivr.net/npm/prismjs@${PRISM_VERSION}/${file}`
+}
+
+/**
+ * Returns languages used in an element.
+ * @returns an list of languages as an array of strings.
+ *
+ * @example
+ * Assuming the body has `<pre class='language-jsx'>` (and alike for
+ * `javascript` and `ruby`), `getLanguagesInElement()` will return those
+ * languages.
+ *
+ *     getLanguagesInElement(document.body)
+ *     // => ['jsx', 'javascript', 'ruby']
+ */
+
+export function getLanguagesInElement (el: HTMLElement): Array<string> {
+  // TODO actually hook this up
+  const pres = el.querySelectorAll('pre[class^="language-"]')
+
+  const classNames = Array.from(pres)
+    // Get classnames
+    .map((el: HTMLElement) => el.classList && Array.from(el.classList)[0])
+
+    // Only work on the language-* classes
+    .filter((cn: string) => cn.match(/^language-/))
+    .map((cn: string) => cn.replace(/^language-/, ''))
+
+    // Resolve to its canonical version (rb => ruby)
+    .map((cn: string) => LANGUAGE_ALIASES[cn] || cn)
+
+    // Sort and dedeplicate
+    .sort()
+    .filter((value, index, self) => self.indexOf(value) === index)
+
+  return classNames
 }
 
 /**

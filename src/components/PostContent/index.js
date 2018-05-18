@@ -49,7 +49,7 @@ function doPostTransform (element: ?HTMLElement): Promise<void> {
       log('invoking isotope')
       isotopify(element)
 
-      return loadPrism()
+      return loadPrism(element)
     })
     .then(() => {
       log('highlighting')
