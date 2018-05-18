@@ -1,4 +1,6 @@
 /* @flow */
+/* global location */
+
 import React from 'react'
 import Link from 'gatsby-link'
 import { CONTENT } from '../../config'
@@ -16,8 +18,9 @@ export type Props = {|
  */
 
 export const NotFoundPage = () => {
-  const pathname = window && window.location && window.location.pathname
-  const keyword = keywordify(pathname)
+  const pathname: ?string =
+    typeof location !== 'undefined' ? location.pathname : null
+  const keyword: ?string = keywordify(pathname)
 
   return (
     <NotFoundPageView
@@ -54,11 +57,11 @@ export const NotFoundPageView = ({
  *
  *     keywordify('/gatsby') => 'gatsby'
  *     keywordify('/rails/models.html') => 'rails-models'
- *     keywordify() => undefined
+ *     keywordify(null) => null
  */
 
-function keywordify (str?: string): ?string {
-  if (!str) return
+function keywordify (str: ?string): ?string {
+  if (!str) return null
 
   return str
     .slice(1)
