@@ -45,6 +45,13 @@ export const ExternalSearchLinks = ({ keyword }: Props) => {
           Search {phrase} on MDN
         </a>
       </li>
+      <li>
+        <a
+          href={`https://next.duckduckgo.com/?q=${query}+cheatsheet&ia=cheatsheet&iax=1`}
+        >
+          {phrase} cheatsheet on DuckDuckGo
+        </a>
+      </li>
     </ul>
   )
 }
