@@ -68,4 +68,34 @@ describe('getLanguagesInElement()', () => {
     const output = getLanguagesInElement(div)
     expect(output).toEqual(['javascript'])
   })
+
+  it('supports different classname formats', () => {
+    const div = document.createElement('div')
+    div.innerHTML = `
+      <pre class=' -setup language-jsx'>
+        <code>hello()</code>
+      </pre>
+      <pre class=' language-ruby'>
+        <code>hello()</code>
+      </pre>
+  `
+
+    const output = getLanguagesInElement(div)
+    expect(output).toEqual(['jsx', 'ruby'])
+  })
+
+  it('support classnames in code', () => {
+    const div = document.createElement('div')
+    div.innerHTML = `
+      <pre>
+        <code class=' language-jsx'>hello()</code>
+      </pre>
+      <pre>
+        <code class=' language-ruby'>hello()</code>
+      </pre>
+  `
+
+    const output = getLanguagesInElement(div)
+    expect(output).toEqual(['jsx', 'ruby'])
+  })
 })

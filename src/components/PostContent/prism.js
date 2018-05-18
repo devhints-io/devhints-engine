@@ -181,15 +181,20 @@ export function getPrismURL (file: string = 'prism.min.js'): string {
  */
 
 export function getLanguagesInElement (el: HTMLElement): Array<string> {
-  // TODO actually hook this up
-  const pres = el.querySelectorAll('pre[class^="language-"]')
+  const pres = el.querySelectorAll('[class*="language-"]')
 
   const classNames = Array.from(pres)
     // Get classnames
-    .map((el: HTMLElement) => el.classList && Array.from(el.classList)[0])
+    .map((el: HTMLElement) =>
+      Array.from(el.className.split(' ')).find((cn: string) =>
+        cn.match(/^language-/)
+      )
+    )
+
+    // Ensure there aren't any null's
+    .filter(Boolean)
 
     // Only work on the language-* classes
-    .filter((cn: string) => cn.match(/^language-/))
     .map((cn: string) => cn.replace(/^language-/, ''))
 
     // Resolve to its canonical version (rb => ruby)
