@@ -65,10 +65,10 @@ function keywordify (str: ?string): ?string {
 
   return str
     .slice(1)
+    .replace(/^cheatsheets-ng\//, '')
     .replace(/\//g, '-')
     .replace(/ /g, '_')
     .replace(/\.html$/, '')
-    .replace(/^cheatsheets-ng\//, '')
 }
 
 export default NotFoundPage
