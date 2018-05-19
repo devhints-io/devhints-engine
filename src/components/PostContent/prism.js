@@ -4,7 +4,7 @@
 import loadjs from 'loadjs'
 import debugjs from 'debug'
 
-const debug = debugjs('app:PostContent.prism')
+const debug = debugjs('app:Prism')
 
 /**
  * Version of Prism.js to load from CDN
@@ -34,6 +34,15 @@ export const LANGUAGE_ALIASES = {
 }
 
 /**
+ * These languages don't exist (or are built in), don't load them
+ */
+
+export const LANGUAGE_IGNORE = {
+  nohighlight: true,
+  html: true
+}
+
+/**
  * Asynchrolously loads Prism, the syntax highlighter.
  * If `el` is given, it tries to infer all the languages used in code blocks
  * inside that element.
@@ -45,69 +54,41 @@ export const LANGUAGE_ALIASES = {
  */
 
 export function loadPrism (el?: HTMLElement): Promise<any> {
-  const debug = debugjs('app:PostContent.prism/loadPrism()')
-
   return Promise.resolve()
     .then(() => {
-      // Load Prism core
-      if (window.Prism) return
-      debug('loading prism core...')
-      return loadScript(getPrismURL())
+      const urls = getPrismURLs(el)
+      debug('loadPrism() → Loading URLs', urls)
+      return loadScripts(urls)
     })
     .then(() => {
-      debug('loading prism plugins...')
-      return loadPrismPlugins()
-    })
-    .then(() => {
-      if (el) {
-        const languages = getLanguagesInElement(el)
-        debug('loading languages...', languages)
-        return loadLanguages(languages)
-      }
-    })
-    .then(() => {
-      debug('done!')
-      return window.Prism
+      return global.Prism
     })
 }
 
 /**
- * Loads a whole slew of default prism plugins.
+ * Returns JS and CSS URLs to load.
+ * If an `element` is given, it tries to detect what languages are in use in
+ * that element.
  */
 
-export function loadPrismPlugins (): Promise<void> {
-  const urls = [
-    'plugins/line-highlight/prism-line-highlight.min.js',
-    'plugins/line-highlight/prism-line-highlight.min.css'
+export function getPrismURLs (el?: HTMLElement): Array<string> {
+  const languages = getLanguagesInElement(el)
+  const languageURLs = languages.map((lang: string) => getLanguageURL(lang))
+
+  return [
+    ...(global.Prism ? [] : [getPrismURL()]),
+    getPrismURL('plugins/line-highlight/prism-line-highlight.min.js'),
+    getPrismURL('plugins/line-highlight/prism-line-highlight.min.css'),
+    ...languageURLs
   ]
-
-  return Promise.all(
-    urls.map((path: string) => loadScript(getPrismURL(path)))
-  ).then(noop)
 }
 
 /**
- * Asynchronously loads support for a given `language` for Prism.
- * See supported languages at: https://cdn.jsdelivr.net/npm/prismjs/components/
- *
- * @returns a promise that resolves to nothing.
- *
- * @example
- *     await loadLanguage('javascript')
+ * Loads multiple scripts asynchronously.
  */
 
-export function loadLanguage (lang: string): Promise<void> {
-  lang = LANGUAGE_ALIASES[lang] || lang
-
-  // Idempotency: don't bother if it's been loaded already
-  if (window.Prism && window.Prism.languages && window.Prism.languages[lang]) {
-    debug(`loadLanguage(${lang}): already loaded`)
-    return Promise.resolve()
-  }
-
-  // Load asynchronously using `loadjs`
-  const url = getLanguageURL(lang)
-  return loadScript(url)
+export function loadScripts (urls: Array<string>): Promise<void> {
+  return Promise.all(urls.map((url: string) => loadScript(url))).then(noop)
 }
 
 /**
@@ -115,41 +96,27 @@ export function loadLanguage (lang: string): Promise<void> {
  */
 
 export function loadScript (url: string): Promise<void> {
-  const log = debugjs('app:PostContent.prism/loadScript()')
-
   return new Promise((resolve, reject) => {
-    log('loading')
     loadjs(url, {
       before: (path, el) => {
         // Prism wants this so that it doesn't automatically do magic.
-        el.setAttribute('data-manual', true)
+        el.setAttribute('data-manual', '')
+
+        // Don't halt HTML processing!
+        el.setAttribute('defer', '')
+        el.removeAttribute('async')
       },
       success: () => {
-        log('success')
         resolve()
       },
       error: err => {
         // Probably a 404 or network error or something, no need to panic. It
         // won't cause any trouble, so fail silently.
-        log('error:', err)
+        debug('loadScript() error:', err)
         resolve()
       }
     })
   })
-}
-
-/**
- * Asynchronously loads many languages.
- * Compare with `loadLanguage()`, which only loads one language.
- *
- * @returns a promise that resolves to nothing when all languages are loaded.
- *
- * @example
- *     await loadLanguages(['jsx', 'bash'])
- */
-
-export function loadLanguages (langs: Array<string>): Promise<void> {
-  return Promise.all(langs.map(loadLanguage)).then(noop)
 }
 
 /**
@@ -220,7 +187,7 @@ export function getLanguagesInElement (el?: HTMLElement): Array<string> {
     .filter((value, index, self) => self.indexOf(value) === index)
 
     // Ignore certain ones
-    .filter((cn: string) => cn !== 'nohighlight')
+    .filter((cn: string) => !LANGUAGE_IGNORE[cn])
 
   return classNames
 }
