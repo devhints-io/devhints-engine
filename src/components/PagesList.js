@@ -1,10 +1,11 @@
 /* @flow */
 import * as React from 'react'
 import Link from 'gatsby-link'
-import AttributePeg from '../components/AttributePeg'
 
+import AttributePeg from '../components/AttributePeg'
+import { Consumer } from '../lib/context'
 import { unpath } from '../helpers'
-import type { SiteLink } from '../types'
+import type { SiteLink, Context } from '../types'
 
 /**
  * Types
@@ -15,11 +16,15 @@ export type Props = {
   title?: string
 }
 
+export type ViewProps = Props & {
+  updatedLabel: string
+}
+
 /**
  * List of pages
  */
 
-export const PagesList = ({ title, links }: Props) => (
+export const PagesListView = ({ title, links, updatedLabel }: ViewProps) => (
   <div className='pages-list' role='main'>
     <h2 className='category item'>
       <span>{title}</span>
@@ -29,13 +34,21 @@ export const PagesList = ({ title, links }: Props) => (
         <span className='info'>
           <code className='slug'>{unpath(link.path)}</code>
 
-          <AttributePeg hint='New layout!' />
+          <AttributePeg hint={updatedLabel} />
 
           <span className='title'>{link.title}</span>
         </span>
       </Link>
     ))}
   </div>
+)
+
+export const PagesList = (props: Props) => (
+  <Consumer>
+    {({ CONTENT }: Context) => (
+      <PagesListView {...props} updatedLabel={CONTENT.home.updatedLabel} />
+    )}
+  </Consumer>
 )
 
 export default PagesList

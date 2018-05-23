@@ -77,7 +77,8 @@ export type Content = {
   home: {
     title: string,
     description: string,
-    recentlyUpdated: string
+    recentlyUpdated: string,
+    updatedLabel: string
   },
   siteHeader: {
     title: string,

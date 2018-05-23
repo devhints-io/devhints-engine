@@ -1,6 +1,7 @@
 /* Vendor */
 @import '../../node_modules/sanitize.css/sanitize.css';
 @import '../../node_modules/responsive-modular-scale.css/responsive-modular-scale.css';
+@import '../../node_modules/hint.css/hint.css';
 
 /* Variables */
 @import './variables.css';

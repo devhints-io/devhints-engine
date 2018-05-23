@@ -6,7 +6,8 @@ export const CONTENT = {
   home: {
     title: 'Devhints.io — TL;DR for developer documentation',
     description: 'A ridiculous collection of web development cheatsheets',
-    recentlyUpdated: 'Recently updated'
+    recentlyUpdated: 'Recently updated',
+    updatedLabel: 'Updated'
   },
 
   // Home page banner (SiteHeader)

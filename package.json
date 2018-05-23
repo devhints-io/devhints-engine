@@ -23,6 +23,7 @@
     "gatsby-transformer-remark": "^1.7.37",
     "glob": "^7.1.2",
     "group-by": "^0.0.1",
+    "hint.css": "^2.5.0",
     "isotope-layout": "^3.0.5",
     "js-yaml": "^3.11.0",
     "loadjs": "^3.5.4",
