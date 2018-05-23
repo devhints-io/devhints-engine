@@ -12,20 +12,20 @@
   border-radius: 50%;
   transition: all 100ms linear;
 
-  // Smaller on mobile
+  /* Smaller on mobile */
   @media (max-width: 480px) {
     width: 32px;
     height: 32px;
     line-height: calc(32px - 2);
   }
 
-  // Colors
+  /* Colors */
   &,
   &:visited {
     color: var(--base-mute);
   }
 
-  // Active
+  /* Active */
   &:hover,
   &:focus {
     color: white;
@@ -33,7 +33,7 @@
     opacity: 1;
   }
 
-  // Icon
+  /* Icon */
   &::before {
     content: '';
     /* TODO @include ion-md-arrow-back(24px, $base-text); */

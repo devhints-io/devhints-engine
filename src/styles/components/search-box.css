@@ -65,7 +65,7 @@
     }
   }
 
-  // Icon
+  /* Icon */
   &::before {
     content: '';
     /* TODO @include ion-md-search(32px, $base-bold); */
