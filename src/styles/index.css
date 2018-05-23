@@ -20,6 +20,7 @@
 @import './markdown/headings.css';
 @import './markdown/table.css';
 @import './markdown/p.css';
+@import './markdown/prism.css';
 @import './markdown/ul.css';
 
 /* Components */
