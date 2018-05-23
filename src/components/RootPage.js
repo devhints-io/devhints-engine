@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import TopNav from '../components/TopNav'
 import SiteHeader from '../components/SiteHeader'
 import PagesList from '../components/PagesList'
+import CommonHead from '../components/CommonHead'
 import { Consumer } from '../lib/context'
 import type { Context, SiteLink, GroupedSiteLinks } from '../types'
 
@@ -34,6 +35,8 @@ export const View = ({
       <title>{metaTitle}</title>
       <meta name='description' content={metaDescription} />
     </Helmet>
+
+    <CommonHead />
 
     <TopNav />
 

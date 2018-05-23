@@ -8,6 +8,7 @@ import PostContent from './PostContent'
 import PreFooter from './PreFooter'
 import RelatedPostsArea from './RelatedPostsArea'
 import SearchFooter from './SearchFooter'
+import CommonHead from './CommonHead'
 import TopNav from './TopNav'
 import Helmet from 'react-helmet'
 import type { HtmlAst, Frontmatter, Context, SiteLink } from '../types'
@@ -44,6 +45,8 @@ export const View = ({
     <Helmet>
       <title>{(frontmatter.title || '') + ' ' + sheetSuffix}</title>
     </Helmet>
+
+    <CommonHead />
 
     <TopNav back />
 
