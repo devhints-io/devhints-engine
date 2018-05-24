@@ -5,7 +5,7 @@
 </p>
 
 <p align='center'>
-**[devhints.io](https://devhints.io)**
+<strong><a href='https://devhints.io'>devhints.io</a></strong>
 </p>
 
 <br>
