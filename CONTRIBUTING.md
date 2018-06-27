@@ -46,26 +46,26 @@ open http://localhost:8000/
 
 ### Via Docker
 
-You can also run it via Docker. This is preferred for Windows machines. You only need to install Docker ([macOS](https://docs.docker.com/docker-for-mac/install/), [Windows](https://docs.docker.com/docker-for-windows/install/), [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Arch Linux](https://www.archlinux.org/packages/community/x86_64/docker/)).
-
-- `docker-compose up` will turn on the Docker container.
-- `docker-compose exec web <command>` will run commands inside the main Docker container.
-
-Here's a quick-start guide:
+You can also run it via Docker. This is preferred for Windows machines. You only need to [install Docker](https://gist.github.com/rstacruz/297fc799f094f55d062b982f7dac9e41).
 
 ```bash
 # Clone the repo
 git clone https://github.com/rstacruz/devhints-engine.git
 cd devhints-engine
 
-# Server
-docker-compose up
+# First-time setup
+docker-compose run --rm web yarn
 
-# Browser
-open http://localhost:8000/
+# Start the server
+docker-compose up
 ```
 
+Open <http://localhost:8000/> in your browser afterwards.
+
 ### Other dev commands
+
+- `docker-compose up` will turn on the Docker container.
+- `docker-compose run --rm web <COMMAND>` runs something in a Docker container.
 
 | Command                      | Description            |
 | ---------------------------- | ---------------------- |
