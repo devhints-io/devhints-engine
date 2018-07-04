@@ -8,24 +8,11 @@
 
 # Contributing
 
-<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Contributing](#contributing)
-  - [For developers](#for-developers)
-    - [Quick-start guide](#quick-start-guide)
-    - [Via Docker](#via-docker)
-    - [Other dev commands](#other-dev-commands)
-  - [For Devhints forkers](#for-devhints-forkers)
-    - [Using devhints-engine](#using-devhints-engine)
-  - [Other docs](#other-docs)
-
-<!-- /TOC -->
-
 ## For developers
 
 See: **[devhints-engine TODO list](https://github.com/rstacruz/devhints-engine/issues/10)** _(github.com)_.
 
-### Quick-start guide
+## Dev setup (traditional)
 
 This sets up a dev environment of `devhints-engine`. Note that you need Node 8+ and Yarn 1.5+.
 
@@ -34,44 +21,45 @@ This sets up a dev environment of `devhints-engine`. Note that you need Node 8+ 
 git clone https://github.com/rstacruz/devhints-engine.git
 cd devhints-engine
 
-# Install dependencies
-yarn
+# First-time setup
+yarn --force
 
-# Run the server
+# Start the server
 yarn develop
 
 # Open in the browser
-open http://localhost:8000/
+open http://localhost:19336/
 ```
 
-### Via Docker
+## Dev setup (via Docker)
 
-You can also run it via Docker. This is preferred for Windows machines. You only need to [install Docker](https://gist.github.com/rstacruz/297fc799f094f55d062b982f7dac9e41).
+You can also run it via Docker. You only need to [install Docker](https://gist.github.com/rstacruz/297fc799f094f55d062b982f7dac9e41) (with docker-compose).
 
 ```bash
+alias dr='docker-compose run --rm --service-ports web'
+
 # Clone the repo
 git clone https://github.com/rstacruz/devhints-engine.git
 cd devhints-engine
 
 # First-time setup
-docker-compose run --rm web yarn
+dr yarn --force
 
 # Start the server
 docker-compose up
 ```
 
-Open <http://localhost:8000/> in your browser afterwards.
+Open <http://localhost:19336/> in your browser afterwards.
 
 ### Other dev commands
-
-- `docker-compose up` will turn on the Docker container.
-- `docker-compose run --rm web <COMMAND>` runs something in a Docker container.
 
 | Command                      | Description            |
 | ---------------------------- | ---------------------- |
 | `yarn test`                  | Run tests              |
 | `yarn test --watch --notify` | Run tests continuously |
 | `yarn run build`             | build for production   |
+
+Prefix them with `docker-compose run --rm --service-ports web` to run them inside the Docker container.
 
 ## For Devhints forkers
 
@@ -81,4 +69,4 @@ TODO
 
 ## Other docs
 
-* [Writing cheatsheets](docs/writing_cheatsheets.md)
+- [Writing cheatsheets](docs/writing_cheatsheets.md)
