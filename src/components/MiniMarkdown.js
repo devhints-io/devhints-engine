@@ -6,6 +6,13 @@ export type Props = {
   source: string
 }
 
+/**
+ * Renders mini-Markdown as HTML. Supports a subset of Markdown.
+ *
+ * @example
+ *     <MiniMarkdown source='hello, *world*!' />
+ */
+
 export const MiniMarkdown = ({ source }: Props) => (
   <span
     className='mini-markdown'
@@ -16,9 +23,13 @@ export const MiniMarkdown = ({ source }: Props) => (
 /**
  * A very simply markdown-to-HTML converter, but only works with a very small
  * subset of inline elements. Returns HTML.
+ *
+ * @example
+ *     markdownish('hello *world*')
+ *     // => 'hello <em>world</em>'
  */
 
-export function markdownish (source: string) {
+export function markdownish (source: string): string {
   return (
     source
       // Code
@@ -43,9 +54,13 @@ export function markdownish (source: string) {
 /**
  * Splits paragraph sections into `<p>` elements.
  * Returns HTML.
+ *
+ * @example
+ *     paragraphify('hello\n\nthere')
+ *     // => '<p>hello</p><p>there</p>'
  */
 
-export function paragraphify (source: string) {
+export function paragraphify (source: string): string {
   return source
     .split('\n\n')
     .map(para => `<p>${para}</p>`)
@@ -53,7 +68,7 @@ export function paragraphify (source: string) {
 }
 
 /**
- * Quotes a string
+ * Quotes a string.
  * @private
  */
 
