@@ -13,6 +13,10 @@ export type Props = {
   pageCount: number
 }
 
+/**
+ * Related posts area
+ */
+
 export const RelatedPostsArea = (props: Props) => (
   <footer className='related-posts-area' id='related' data-js-no-preview>
     <div className='container'>
@@ -20,5 +24,9 @@ export const RelatedPostsArea = (props: Props) => (
     </div>
   </footer>
 )
+
+/*
+ * Export
+ */
 
 export default RelatedPostsArea
