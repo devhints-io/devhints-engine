@@ -11,7 +11,7 @@ export type Props = {
   relatedPages: Array<SiteLink>,
   topPages: Array<SiteLink>,
   pageCount: number,
-  categoryName?: string
+  category?: string
 }
 
 /**

@@ -68,7 +68,7 @@ export const View = ({
     <CommentsArea />
     <SearchFooter />
     <RelatedPostsArea
-      {...{ pageCount, relatedPages, topPages, categoryName: frontmatter.category }}
+      {...{ pageCount, relatedPages, topPages, category: frontmatter.category }}
     />
   </React.Fragment>
 )

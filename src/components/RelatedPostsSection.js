@@ -9,7 +9,7 @@ import type { Props } from './RelatedPostsArea'
  */
 
 export const RelatedPostsSection = ({
-  categoryName,
+  category,
   pageCount,
   relatedPages,
   topPages
@@ -22,9 +22,7 @@ export const RelatedPostsSection = ({
       <RelatedPostsGroup
         pages={relatedPages}
         title={
-          categoryName
-            ? `Other ${categoryName} cheatsheets`
-            : 'Related cheatsheets'
+          category ? `Other ${category} cheatsheets` : 'Related cheatsheets'
         }
       />
     </div>
