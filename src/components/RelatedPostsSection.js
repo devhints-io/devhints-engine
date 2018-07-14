@@ -2,22 +2,17 @@
 import * as React from 'react'
 import RelatedPostsGroup from './RelatedPostsGroup'
 import RelatedPostsCallout from './RelatedPostsCallout'
-import type { SiteLink } from '../types'
+import type { Props } from './RelatedPostsArea'
 
 /**
  * Related posts section
  */
 
-export type Props = {
-  relatedPages: Array<SiteLink>,
-  topPages: Array<SiteLink>,
-  pageCount: number
-}
-
 export const RelatedPostsSection = ({
+  categoryName,
+  pageCount,
   relatedPages,
-  topPages,
-  pageCount
+  topPages
 }: Props) => (
   <div className='related-posts-section'>
     <div className='callout'>
@@ -26,7 +21,11 @@ export const RelatedPostsSection = ({
     <div className='group'>
       <RelatedPostsGroup
         pages={relatedPages}
-        title='Other {CATEGORY} cheatsheets'
+        title={
+          categoryName
+            ? `Other ${categoryName} cheatsheets`
+            : 'Related cheatsheets'
+        }
       />
     </div>
     <div className='group'>

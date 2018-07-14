@@ -68,9 +68,7 @@ export const View = ({
     <CommentsArea />
     <SearchFooter />
     <RelatedPostsArea
-      pageCount={pageCount}
-      relatedPages={relatedPages}
-      topPages={topPages}
+      {...{ pageCount, relatedPages, topPages, categoryName: frontmatter.category }}
     />
   </React.Fragment>
 )
@@ -80,7 +78,7 @@ export const View = ({
  *
  * @example
  *     <SheetTemplateView
- *       frontmatter={{ title: 'Vim' }}
+ *       frontmatter={{ title: 'Vim', category: 'Editors' }}
  *       htmlAst={...}
  *       relatedPages={[ ... ]}
  *       topPages={[ ... ]}

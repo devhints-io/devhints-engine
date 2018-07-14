@@ -10,7 +10,8 @@ import type { SiteLink } from '../types'
 export type Props = {
   relatedPages: Array<SiteLink>,
   topPages: Array<SiteLink>,
-  pageCount: number
+  pageCount: number,
+  categoryName?: string
 }
 
 /**
