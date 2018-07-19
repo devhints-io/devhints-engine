@@ -12,7 +12,7 @@
  */
 
 .cs__header {
-  color: var(--base-mute);
+  color: var(--text-mute);
   @apply --font-size--1;
   display: block;
   margin-bottom: 8px;
@@ -33,23 +33,23 @@
   }
 
   & {
-    color: var(--base-text);
+    color: var(--text-body);
     display: block;
   }
 
   & > strong {
-    color: var(--base-bold);
+    color: var(--text-bold);
     font-weight: bold;
   }
 
   &:hover,
   &:focus {
     & > strong {
-      color: var(--base-text);
+      color: var(--text-body);
     }
 
     & > span {
-      color: var(--base-mute);
+      color: var(--text-mute);
     }
   }
 }

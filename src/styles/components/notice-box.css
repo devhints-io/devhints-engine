@@ -1,7 +1,7 @@
 .notice-box {
   & {
     margin-bottom: 24px;
-    color: var(--base-mute);
+    color: var(--text-mute);
   }
 
   @media (max-width: 480px) {

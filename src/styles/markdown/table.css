@@ -15,12 +15,12 @@
     font-size: 1rem;
     padding: 5px 6px;
     padding-left: 8px; /* compensation */
-    background: var(--gray-bg);
+    background: var(--bg-gray);
     border-bottom: solid 1px var(--dark-line-color);
     border-radius: 3px;
     margin-right: 2px;
     letter-spacing: 0.05em;
-    color: var(--base-text);
+    color: var(--text-body);
     position: relative;
     top: -1px;
   }
@@ -85,7 +85,7 @@
   & td:first-child > code ~ em {
     @apply --font-size--1;
     font-style: normal;
-    color: var(--gray-text);
+    color: var(--text-mute);
   }
 
   & thead {
@@ -94,7 +94,7 @@
 
   & thead th {
     font-weight: normal;
-    color: var(--base-a);
+    color: var(--brand-a);
   }
 }
 
@@ -148,12 +148,12 @@
   }
 
   & tr:last-child {
-    background: var(--gray-bg);
+    background: var(--bg-gray);
   }
 
   & tr:last-child td {
     @apply --font-size--1;
-    color: var(--base-mute);
+    color: var(--text-mute);
     white-space: auto;
   }
 }

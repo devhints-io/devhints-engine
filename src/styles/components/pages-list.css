@@ -29,15 +29,15 @@
 
   &,
   &:visited {
-    color: var(--base-mute3);
+    color: var(--text-mute3);
   }
 
   & > .info > .slug {
-    color: var(--base-bold);
+    color: var(--text-bold);
   }
 
   &:visited > .info > .slug {
-    color: var(--base-text);
+    color: var(--text-body);
   }
 
   & > .info > .title::before {
@@ -58,12 +58,12 @@
   &:hover,
   &:focus {
     & {
-      color: var(--base-mute);
+      color: var(--text-mute);
     }
 
     & > .info > .title {
       opacity: 1;
-      color: var(--base-a);
+      color: var(--brand-a);
     }
   }
 }
@@ -74,5 +74,5 @@
   margin: 16px 0;
   padding: 0 0 16px 0;
   font-weight: normal;
-  color: var(--base-a);
+  color: var(--brand-a);
 }

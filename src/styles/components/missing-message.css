@@ -19,7 +19,7 @@
   & > h3 {
     @apply --font-size-1;
     font-weight: normal;
-    color: var(--base-text);
+    color: var(--text-body);
     flex: 1 0 auto;
     text-align: left;
   }
@@ -31,7 +31,7 @@
   }
 
   & > p {
-    color: var(--base-mute);
+    color: var(--text-mute);
     flex: 0 0 auto;
   }
 

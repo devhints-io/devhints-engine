@@ -68,7 +68,7 @@
     height: 1px;
     background: linear-gradient(
       to right,
-      color(var(--base-a) alpha(20%)),
+      color(var(--brand-a) alpha(20%)),
       transparent 80%
     );
   }
@@ -102,7 +102,7 @@
     display: inline-block;
     width: 4px;
     height: 4px;
-    background: var(--gray-text);
+    background: var(--text-mute);
     border-radius: 50%;
     left: 16px;
     top: calc(16px + 2px);
@@ -129,8 +129,8 @@
     margin: 0;
     padding: 4px 16px;
     font-weight: normal;
-    background: var(--gray-bg);
-    color: var(--gray-text);
+    background: var(--bg-gray);
+    color: var(--text-mute);
 
     /* & + * {
       border-top: solid 1px var(--dark-line-color);
@@ -142,19 +142,19 @@
   & > ul ~ p,
   & > iframe ~ p,
   & > table ~ p {
-    background: var(--gray-bg);
-    color: var(--gray-text);
+    background: var(--bg-gray);
+    color: var(--text-mute);
 
     /* Links */
     & a,
     & a:visited {
-      color: var(--base-text);
+      color: var(--text-body);
       text-decoration: none;
       border-bottom: solid 1px var(--line-color);
     }
 
     & a:hover {
-      color: var(--base-b);
+      color: var(--brand-b);
     }
   }
 
@@ -185,7 +185,7 @@ ul.-also-see.-also-see.-also-see {
   & {
     display: flex;
     flex-wrap: wrap;
-    background: var(--gray-bg);
+    background: var(--bg-gray);
   }
 
   & > li {

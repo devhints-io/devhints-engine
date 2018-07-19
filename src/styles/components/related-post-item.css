@@ -19,26 +19,26 @@
   & > a,
   & > a:visited {
     background: white;
-    color: var(--base-mute);
+    color: var(--text-mute);
 
     & > strong {
-      color: var(--base-a);
+      color: var(--brand-a);
     }
 
     &:hover,
     &:focus {
-      color: var(--base-a);
+      color: var(--brand-a);
     }
 
     &:hover > strong,
     &:focus > strong {
-      /* TODO color: darken(var(--base-a), 16%); */
+      /* TODO color: darken(var(--brand-a), 16%); */
     }
   }
 
   &:first-of-type > a,
   &:first-of-type > a:visited {
-    background: var(--base-a);
+    background: var(--brand-a);
     color: color(white alpha(50%));
 
     & > strong {
@@ -57,7 +57,7 @@
 
     &:hover,
     &:focus {
-      background: color(var(--base-a) lightness(-9%));
+      background: color(var(--brand-a) lightness(-9%));
     }
   }
 

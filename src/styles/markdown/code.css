@@ -1,5 +1,5 @@
 .MarkdownBody code {
-  color: var(--gray-text);
+  color: var(--text-mute);
   font-size: var(--code-size);
 }
 
@@ -39,7 +39,7 @@
   }
 
   & pre > code {
-    color: var(--base-bold);
+    color: var(--text-bold);
     max-height: auto;
     padding: 0;
     background: transparent;
@@ -52,7 +52,7 @@
     transform: translate3d(0, 2px, 0);
     background: linear-gradient(
       to right,
-      color(var(--base-c) alpha(5%)),
+      color(var(--brand-c) alpha(5%)),
       transparent
     );
   }
@@ -73,5 +73,5 @@
 .MarkdownBody p.-setup,
 .MarkdownBody ul.-setup,
 .MarkdownBody p.-crosslink {
-  background: var(--gray-bg);
+  background: var(--bg-gray);
 }

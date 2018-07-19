@@ -17,7 +17,7 @@
   & > .title {
     @apply --font-size-1;
     font-weight: normal;
-    color: var(--base-a);
+    color: var(--brand-a);
     margin: 0;
     padding: 0;
   }
@@ -46,7 +46,7 @@
 
     &:hover,
     &:focus {
-      color: var(--base-a);
+      color: var(--brand-a);
     }
   }
 

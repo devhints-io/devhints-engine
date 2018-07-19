@@ -11,12 +11,12 @@
 
   &,
   &:visited {
-    color: var(--base-mute);
+    color: var(--text-mute);
   }
 
   &:hover,
   &:focus {
-    background-color: var(--base-a);
+    background-color: var(--brand-a);
     color: white;
   }
 

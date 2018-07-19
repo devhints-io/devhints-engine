@@ -20,7 +20,7 @@
 
   & > h1 > em {
     font-style: normal;
-    color: color(var(--gray-text) alpha(20%));
+    color: color(var(--text-mute) alpha(20%));
   }
 }
 

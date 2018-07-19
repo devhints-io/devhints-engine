@@ -4,11 +4,11 @@
 
 html,
 body {
-  background: var(--base-body);
+  background: var(--bg-body);
   font-family: var(--body-font);
   font-size: 14px;
   line-height: 1.6;
-  color: var(--base-text);
+  color: var(--text-body);
   overflow-x: hidden;
 }
 
@@ -46,15 +46,15 @@ pre {
  */
 
 a {
-  color: var(--base-b);
+  color: var(--brand-b);
 }
 
 a:visited {
-  color: var(--base-b7);
+  color: var(--brand-b7);
 }
 
 a:hover {
-  color: var(--base-b3);
+  color: var(--brand-b3);
 }
 
 /* prism.js adds aria-hidden which it probably shouldn't */

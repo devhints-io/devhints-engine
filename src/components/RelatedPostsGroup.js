@@ -35,7 +35,7 @@ export const RelatedPostsGroup = ({ pages, title }: Props) => {
         .related-posts-group {
           & > h3 {
             @apply --font-size-1;
-            color: var(--base-a);
+            color: var(--brand-a);
             margin: 0;
             padding: 0;
             margin-bottom: 16px;

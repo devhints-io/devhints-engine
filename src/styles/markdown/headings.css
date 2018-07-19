@@ -18,13 +18,13 @@
   margin-bottom: 16px;
   font-family: var(--heading-font);
   font-weight: 400;
-  color: var(--base-a);
+  color: var(--brand-a);
 }
 
 .MarkdownBody {
   & a,
   & a:visited {
-    color: var(--base-b);
+    color: var(--brand-b);
     text-decoration: none;
   }
 
@@ -34,7 +34,7 @@
 
   & em {
     font-style: normal;
-    color: var(--gray-text);
+    color: var(--text-mute);
   }
 
   & iframe {

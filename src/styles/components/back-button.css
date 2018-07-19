@@ -22,14 +22,14 @@
   /* Colors */
   &,
   &:visited {
-    color: var(--base-mute);
+    color: var(--text-mute);
   }
 
   /* Active */
   &:hover,
   &:focus {
     color: white;
-    background: var(--base-a);
+    background: var(--brand-a);
     opacity: 1;
   }
 

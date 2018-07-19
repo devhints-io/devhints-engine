@@ -13,7 +13,7 @@
 
   & > summary {
     @apply --font-size-1;
-    color: var(--base-a);
+    color: var(--brand-a);
     padding: 24px 0;
     white-space: nowrap;
     cursor: pointer;
@@ -23,11 +23,11 @@
   & > summary:focus {
     &,
     & > .suffix {
-      color: var(--base-a7);
+      color: var(--brand-a7);
     }
 
     & > .fauxlink {
-      border-bottom: solid 1px var(--base-a7);
+      border-bottom: solid 1px var(--brand-a7);
     }
   }
 
@@ -39,16 +39,16 @@
     /* TODO @include ion-md-chatboxes(24px, $base-a); */
     content: '';
     vertical-align: middle;
-    color: var(--base-a);
+    color: var(--brand-a);
     margin: 0 8px;
   }
 
   & > summary > .suffix {
-    color: var(--base-mute);
+    color: var(--text-mute);
   }
 
   & > summary > .fauxlink {
     margin-left: 4px;
-    border-bottom: solid 1px color(var(--base-a) alpha(25%));
+    border-bottom: solid 1px color(var(--brand-a) alpha(25%));
   }
 }

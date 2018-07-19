@@ -62,11 +62,11 @@
 
     &,
     &:visited {
-      color: var(--base-text);
+      color: var(--text-body);
     }
 
     &:hover {
-      color: var(--base-a);
+      color: var(--brand-a);
     }
   }
 
