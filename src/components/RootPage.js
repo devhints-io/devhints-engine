@@ -1,10 +1,10 @@
 /* @flow */
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import TopNav from '../components/TopNav'
-import SiteHeader from '../components/SiteHeader'
-import PagesList from '../components/PagesList'
-import CommonHead from '../components/CommonHead'
+import TopNav from './TopNav'
+import SiteHeader from './SiteHeader'
+import PagesList from './PagesList'
+import CommonHead from './CommonHead'
 import { Consumer } from '../lib/context'
 import type { Context, SiteLink, GroupedSiteLinks } from '../types'
 
