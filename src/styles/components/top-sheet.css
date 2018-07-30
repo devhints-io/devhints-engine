@@ -11,7 +11,7 @@
     width: auto;
     border-radius: 3px;
     box-shadow: var(--shadow2);
-    text-shadow: 0 1px 1px color(var(--text-body) alpha(30%));
+    text-shadow: 0 1px 1px color-mod(var(--text-body) alpha(30%));
     white-space: nowrap;
   }
 
@@ -25,13 +25,13 @@
       background: linear-gradient(
         15deg,
         var(--brand-a),
-        color(var(--brand-a) lightness(+4%) hue(+20deg))
+        color-mod(var(--brand-a) lightness(+4%) hue(+20deg))
       );
     }
 
     &:hover > .info,
     &:focus > .info {
-      background: color(var(--brand-a) lightness(-8%));
+      background: color-mod(var(--brand-a) lightness(-8%));
     }
   }
 
@@ -40,13 +40,13 @@
       background: linear-gradient(
         15deg,
         var(--text-mute),
-        color(var(--text-mute) lightness(+4%) hue(-10deg))
+        color-mod(var(--text-mute) lightness(+4%) hue(-10deg))
       );
     }
 
     &:hover > .info,
     &:focus > .info {
-      background: color(var(--text-mute) lightness(-8%));
+      background: color-mod(var(--text-mute) lightness(-8%));
     }
   }
 
@@ -55,13 +55,13 @@
       background: linear-gradient(
         15deg,
         var(--brand-c),
-        color(var(--brand-c) lightness(+2%) hue(+6deg))
+        color-mod(var(--brand-c) lightness(+2%) hue(+6deg))
       );
     }
 
     &:hover > .info,
     &:focus > .info {
-      background: color(var(--brand-c) lightness(-8%));
+      background: color-mod(var(--brand-c) lightness(-8%));
     }
   }
 

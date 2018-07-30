@@ -36,20 +36,20 @@
   & > .prefix {
     @apply --font-size-0;
     display: block;
-    color: color(var(--text-mute) alpha(50%));
+    color: color-mod(var(--text-mute) alpha(50%));
     font-weight: 400;
     user-select: none;
     line-height: 1.5em;
     padding: 2px 8px;
     border-radius: 3px;
-    background: color(var(--bg-body) alpha(50%));
+    background: color-mod(var(--bg-body) alpha(50%));
     margin: 0 0 0 16px;
-    box-shadow: 0 1px 1px color(var(--text-mute) alpha(25%));
+    box-shadow: 0 1px 1px color-mod(var(--text-mute) alpha(25%));
   }
 
   & > .sep {
     @apply --font-size-2;
-    color: color(var(--text-mute) alpha(50%));
+    color: color-mod(var(--text-mute) alpha(50%));
     margin: 0 8px;
   }
 
