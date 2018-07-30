@@ -39,7 +39,7 @@
   &:first-of-type > a,
   &:first-of-type > a:visited {
     background: var(--brand-a);
-    color: color-mod(white alpha(50%));
+    color: color(white alpha(50%));
 
     & > strong {
       color: white;
@@ -57,7 +57,7 @@
 
     &:hover,
     &:focus {
-      background: color-mod(var(--brand-a) lightness(-9%));
+      background: color(var(--brand-a) lightness(-9%));
     }
   }
 

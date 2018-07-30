@@ -68,7 +68,7 @@
     height: 1px;
     background: linear-gradient(
       to right,
-      color-mod(var(--brand-a) alpha(20%)),
+      color(var(--brand-a) alpha(20%)),
       transparent 80%
     );
   }
