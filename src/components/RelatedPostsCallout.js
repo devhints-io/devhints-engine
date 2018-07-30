@@ -18,6 +18,7 @@ export const RelatedPostsCallout = ({ pageCount }: Props) => (
         <SpanPushButton className='-dark'>Devhints home</SpanPushButton>
       </div>
     </Link>
+
     <style jsx>{`
       @import 'src/styles/common';
 

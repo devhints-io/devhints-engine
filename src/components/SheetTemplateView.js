@@ -9,6 +9,7 @@ import PreFooter from './PreFooter'
 import RelatedPostsArea from './RelatedPostsArea'
 import SearchFooter from './SearchFooter'
 import CommonHead from './CommonHead'
+import IntroContent from './IntroContent'
 import TopNav from './TopNav'
 import Helmet from 'react-helmet'
 import type { HtmlAst, Frontmatter, Context, SiteLink } from '../types'
@@ -55,9 +56,9 @@ export const View = ({
 
       {/* Introduction */}
       {frontmatter && frontmatter.intro ? (
-        <div className='intro-content MarkdownBody'>
+        <IntroContent className='MarkdownBody'>
           <MiniMarkdown source={frontmatter.intro} />
-        </div>
+        </IntroContent>
       ) : null}
 
       {/* Post content */}
