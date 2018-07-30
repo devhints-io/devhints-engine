@@ -9,5 +9,5 @@ import * as React from 'react'
 */
 
 export default ({ className, children } /*: Props */) => (
-  <span className={`push-button #{className || ''}`}>{children}</span>
+  <span className={`push-button ${className || ''}`}>{children}</span>
 )
