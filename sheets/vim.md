@@ -400,6 +400,6 @@ Works like `:qa`, but throws an error. Great for aborting Git commands.
 
 ## Also see
 
-* [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
-* [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
-* [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_
+- [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
+- [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
+- [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_

@@ -1,15 +1,13 @@
 {
   "extends": [
     "standard",
-    "standard-react"
+    "standard-jsx"
   ],
   "plugins": [
-    "flowtype-errors"
+    "flowtype"
   ],
   "parser": "babel-eslint",
   "rules": {
-    "react/prop-types": 0,
-    "flowtype-errors/show-errors": 2,
-    "flowtype-errors/show-warnings": 1
+    "react/prop-types": 0
   }
 }

@@ -28,7 +28,6 @@
     "js-yaml": "^3.12.0",
     "loadjs": "^3.5.4",
     "meow": "^5.0.0",
-    "prettier-eslint_d": "^0.0.3",
     "prop-types": "^15.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
@@ -51,16 +50,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
-    "eslint": "^5.2.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
     "eslint-plugin-flowtype": "^2.46.1",
-    "eslint-plugin-flowtype-errors": "^3.5.1",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-standard": "^3.0.1",
     "flow-bin": "^0.77.0",
     "gh-pages": "^1.1.0",
     "hast-util-to-html": "^4.0.1",
@@ -68,7 +58,8 @@
     "husky": "^0.14.3",
     "jest": "^23.4.2",
     "npm-run-all": "^4.1.2",
-    "react-test-renderer": "^16.4.1"
+    "react-test-renderer": "^16.4.1",
+    "standard": "^11.0.1"
   },
   "jest": {
     "setupFiles": [
