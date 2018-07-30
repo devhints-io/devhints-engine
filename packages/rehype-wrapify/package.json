@@ -2,7 +2,7 @@
   "name": "rehype-wrapify",
   "version": "0.1.0",
   "devDependencies": {
-    "jest": "^22.4.2"
+    "jest": "^23.4.2"
   },
   "license": "MIT",
   "main": "index.js",
