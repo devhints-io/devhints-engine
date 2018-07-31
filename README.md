@@ -14,8 +14,9 @@
 
 > :construction: Gatsby website builder that builds devhints.io
 
-[![Travis](https://img.shields.io/travis/rstacruz/devhints-engine/master.svg)
-](https://travis-ci.org/rstacruz/devhints-engine/builds 'See test builds')
+<!-- [![Travis](https://img.shields.io/travis/rstacruz/devhints-engine/master.svg)](https://travis-ci.org/rstacruz/devhints-engine/builds 'See test builds') -->
+
+[![GitLab CI](https://gitlab.com/rstacruz/devhints-engine/badges/master/build.svg)](https://gitlab.com/rstacruz/devhints-engine/pipelines 'See test builds')
 
 **devhints-engine** is a rewrite to migrate Devhints from Jekyll to Gatsby. `devhints-engine` is a static site builder built on Gatsby; actual content is housed over at [rstacruz/cheatsheets](https://github.com/rstacruz/cheatsheets).
 
