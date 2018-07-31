@@ -104,14 +104,14 @@ Each section can have the following children:
 
 #### White
 
-* `pre`
-* `ul`
-* `table`
+- `pre`
+- `ul`
+- `table`
 
 #### Gray
 
-* `p`
-* `h4`
+- `p`
+- `h4`
 
 ### Prime section
 
@@ -237,9 +237,9 @@ Add `-wrap` to wrap long lines.
 
 ### Lists
 
-* This is
-* a list
-* with a few items
+- This is
+- a list
+- with a few items
 
 Here's an extra paragraph after the list.
 
@@ -247,14 +247,14 @@ Here's an extra paragraph after the list.
 
 #### Part 1
 
-* `createElement()`
-* `componentDidMount()`
-* `componentWillUnmount()`
+- `createElement()`
+- `componentDidMount()`
+- `componentWillUnmount()`
 
 #### Part 2
 
-* `shouldComponentUpdate()`
-* `componentWillReceiveProps()`
+- `shouldComponentUpdate()`
+- `componentWillReceiveProps()`
 
 Here's an extra paragraph after the list.
 
@@ -264,17 +264,17 @@ Here's an extra paragraph after the list.
 
 ### Six columns
 
-* One
-* Two
-* Three
-* Four
-* Five
-* Six
-* Seven
-* Eight
-* Nine
-* Ten
-* Eleven
+- One
+- Two
+- Three
+- Four
+- Five
+- Six
+- Seven
+- Eight
+- Nine
+- Ten
+- Eleven
 
 <!-- {.-six-column} -->
 
@@ -282,17 +282,17 @@ Add `{.-six-column}` to make large lists.
 
 ### Four columns
 
-* One
-* Two
-* Three
-* Four
-* Five
-* Six
-* Seven
-* Eight
-* Nine
-* Ten
-* Eleven
+- One
+- Two
+- Three
+- Four
+- Five
+- Six
+- Seven
+- Eight
+- Nine
+- Ten
+- Eleven
 
 <!-- {.-four-column} -->
 
@@ -300,16 +300,16 @@ Add `{.-four-column}` to make large lists.
 
 ### Also see
 
-* One
-* Two
-* Three
-* Four
-* Five
-* Six
-* Seven
-* Eight
-* Nine
-* Ten
+- One
+- Two
+- Three
+- Four
+- Five
+- Six
+- Seven
+- Eight
+- Nine
+- Ten
 
 <!-- {.-also-see} -->
 

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 
-import AttributePeg from '../components/AttributePeg'
+import AttributePeg from './AttributePeg'
 import { Consumer } from '../lib/context'
 import { unpath } from '../helpers'
 import type { SiteLink, Context } from '../types'

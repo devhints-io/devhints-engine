@@ -18,12 +18,6 @@ module.exports = {
     sheetPath: SHEET_PATH
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: root('src/cms/cms.js')
-      }
-    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,

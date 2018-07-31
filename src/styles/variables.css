@@ -56,9 +56,6 @@
   --text-mute6: color(var(--text-mute) lightness(-8%));
   --text-mute7: color(var(--text-mute) lightness(-16%));
 
-  /* More grays */
-  --text-mute: var(--text-mute);
-
   /* Line colors */
   --line-color: color(var(--text-mute) alpha(5%));
   --dark-line-color: color(var(--text-mute) alpha(20%));

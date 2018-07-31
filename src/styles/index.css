@@ -41,7 +41,7 @@
 @import './components/headline-ad.css'; /* TODO */
 @import './components/hint-mark.css';
 @import './components/home-button.css';
-@import './components/intro-content.css';
+/* @import './components/intro-content.css'; DONE */
 @import './components/main-heading.css';
 @import './components/missing-message.css';
 @import './components/notice-box.css';
@@ -52,7 +52,7 @@
 @import './components/related-post-item.css';
 @import './components/related-post-list.css';
 @import './components/related-posts-area.css';
-@import './components/related-posts-callout.css';
+/* @import './components/related-posts-callout.css'; DONE */
 /* @import './components/related-posts-group.css'; */
 @import './components/related-posts-section.css';
 @import './components/search-box.css';
