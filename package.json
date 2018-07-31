@@ -71,7 +71,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "<rootDir>/.cache/"
-    ]
+    ],
+    "testURL": "http://localhost"
   },
   "keywords": [
     "devhints"
