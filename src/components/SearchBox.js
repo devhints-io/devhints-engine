@@ -7,7 +7,12 @@ export const SearchBox = () => (
   <label className='search-box -small'>
     <span className='prefix'>devhints.io</span>
     <span className='sep'>/</span>
-    <input name='' type='text' defaultValue='' placeholder='Search 367+ cheatsheets' />
+    <input
+      name=''
+      type='text'
+      defaultValue=''
+      placeholder='Search 367+ cheatsheets'
+    />
     <i className='icon' dangerouslySetInnerHTML={{ __html: searchLine }} />
 
     <style jsx>{STYLE}</style>
@@ -71,7 +76,8 @@ export const STYLE = css`
     background-color: color(var(--bg-body) alpha(50%));
     margin: 0 0 0 16px;
     box-shadow: none;
-    transition: background-color 150ms linear, color 150ms linear, box-shadow 150ms linear, transform 150ms ease;
+    transition: background-color 150ms linear, color 150ms linear,
+      box-shadow 150ms linear, transform 150ms ease;
     transform: translate3d(0, 0, 0);
   }
 
