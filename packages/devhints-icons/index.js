@@ -2,3 +2,4 @@
 
 export { default as homeLine } from '!raw-loader!./icons/home-line.svg'
 export { default as talkBubblesLine } from '!raw-loader!./icons/talk-bubbles-line.svg'
+export { default as talkBubblesSolid } from '!raw-loader!./icons/talk-bubbles-solid.svg'
