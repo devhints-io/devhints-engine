@@ -1,12 +1,14 @@
 /* @flow */
 import * as React from 'react'
 import css from 'styled-jsx/css'
+import { searchLine } from 'devhints-icons'
 
 export const SearchBox = () => (
   <label className='search-box -small'>
     <span className='prefix'>devhints.io</span>
     <span className='sep'>/</span>
-    <input name='' type='text' value='' placeholder='Search 367+ cheatsheets' />
+    <input name='' type='text' defaultValue='' placeholder='Search 367+ cheatsheets' />
+    <i className='icon' dangerouslySetInnerHTML={{ __html: searchLine }} />
 
     <style jsx>{STYLE}</style>
   </label>
@@ -26,6 +28,8 @@ export const STYLE = css`
     height: 64px;
     align-items: center;
     cursor: text;
+    transition: box-shadow 150ms linear;
+    border-radius: 3px;
   }
 
   input {
@@ -45,6 +49,10 @@ export const STYLE = css`
       font-weight: normal;
       color: var(--text-mute);
     }
+
+    &:focus::placeholder {
+      color: color(var(--text-mute) alpha(25%));
+    }
   }
 
   input:focus {
@@ -60,9 +68,18 @@ export const STYLE = css`
     line-height: 1.5em;
     padding: 2px 8px;
     border-radius: 3px;
-    background: color(var(--bg-body) alpha(50%));
+    background-color: color(var(--bg-body) alpha(50%));
     margin: 0 0 0 16px;
-    box-shadow: 0 1px 1px color(var(--text-mute) alpha(25%));
+    box-shadow: none;
+    transition: background-color 150ms linear, color 150ms linear, box-shadow 150ms linear, transform 150ms ease;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .search-box:focus-within .prefix {
+    background-color: var(--brand-b3);
+    color: white;
+    box-shadow: var(--shadow6);
+    transform: translate3d(0, -1px, 0);
   }
 
   .sep {
@@ -71,9 +88,35 @@ export const STYLE = css`
     margin: 0 8px;
   }
 
+  .search-box:focus-within .sep {
+    color: var(--brand-b3);
+  }
+
+  .icon {
+    display: inline-block;
+    margin: 0 12px 0 0;
+    position: relative;
+    top: -2px;
+  }
+
+  .icon :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  .icon :global(.clr-i-outline) {
+    fill: var(--brand-a);
+    transition: fill 250ms linear;
+  }
+
+  /* Icon, on focus */
+  .search-box:focus-within .icon :global(.clr-i-outline) {
+    fill: var(--brand-b3);
+  }
+
   /*
- * Small
- */
+   * Small
+   */
 
   .search-box.-small {
     height: 48px;

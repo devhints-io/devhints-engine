@@ -9,11 +9,11 @@ import { talkBubblesLine, talkBubblesSolid } from 'devhints-icons'
 export const CommentsAreaSummary = ({ count }: { count: number }) => (
   <summary className='comments-area-summary'>
     <i
-      className='-line'
+      className='icon -line'
       dangerouslySetInnerHTML={{ __html: talkBubblesLine }}
     />
     <i
-      className='-solid'
+      className='icon -solid'
       dangerouslySetInnerHTML={{ __html: talkBubblesSolid }}
     />
     <strong className='count'>{count}</strong>{' '}
@@ -64,32 +64,32 @@ export const CommentsAreaSummary = ({ count }: { count: number }) => (
       }
 
       /* Icon */
-      i > :global(svg) {
+      .icon :global(svg) {
         width: 24px;
         height: 24px;
       }
 
-      i :global(.clr-i-outline) {
+      .icon :global(.clr-i-outline) {
         fill: var(--brand-a);
       }
 
       /* Icon on non-hover */
-      i.-line {
+      .icon.-line {
         display: inline;
       }
 
-      i.-solid {
+      .icon.-solid {
         display: none;
         margin-right: -4px;
       }
 
       /* Icon on hover */
       summary:hover {
-        & i.-solid {
+        & .icon.-solid {
           display: inline;
         }
 
-        & i.-line {
+        & .icon.-line {
           display: none;
         }
       }
