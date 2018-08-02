@@ -93,7 +93,6 @@ export const CommentsAreaSummary = ({ count }: { count: number }) => (
           display: none;
         }
       }
-
     `}</style>
   </summary>
 )
