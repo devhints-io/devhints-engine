@@ -33,14 +33,14 @@
 @import './components/body-area.css';
 @import './components/codefund-sponsor.css';
 /* @import './components/comments-area.css'; */
-@import './components/comments-details.css';
+/* @import './components/comments-details.css'; DONE */
 @import './components/comments-section.css';
 @import './components/h2-section.css';
 @import './components/h3-section-list.css';
 @import './components/h3-section.css';
 @import './components/headline-ad.css'; /* TODO */
 @import './components/hint-mark.css';
-@import './components/home-button.css';
+/* @import './components/home-button.css'; DONE */
 /* @import './components/intro-content.css'; DONE */
 @import './components/main-heading.css';
 @import './components/missing-message.css';
@@ -55,7 +55,7 @@
 /* @import './components/related-posts-callout.css'; DONE */
 /* @import './components/related-posts-group.css'; */
 @import './components/related-posts-section.css';
-@import './components/search-box.css';
+/* @import './components/search-box.css'; DONE */
 /* @import './components/search-footer-container.css'; */
 /* @import './components/search-footer.css'; */
 @import './components/side-ad.css'; /* TODO */
