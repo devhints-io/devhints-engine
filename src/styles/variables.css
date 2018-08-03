@@ -78,6 +78,11 @@
   --shadow6: 0 6px 8px color(var(--text-mute) alpha(3%)),
     0 1px 2px color(var(--text-mute) alpha(30%)),
     0 8px 12px color(var(--brand-b3) alpha(1%));
+
+  /* TODO improve shadow9 */
+  --shadow9: 0 6px 8px color(var(--brand-b3) alpha(3%)),
+    0 1px 2px color(var(--brand-b3) alpha(30%)),
+    0 10px 18px color(var(--brand-b3) alpha(5%));
 }
 
 :root /* Modular scale */ {
