@@ -1,12 +1,14 @@
 ```
-     #                #        "             m                    "
-  mmm#   mmm   m   m  # mm   mmm    m mm   mm#mm   mmm          mmm     mmm
- #" "#  #"  #  "m m"  #"  #    #    #"  #    #    #   "           #    #" "#
- #   #  #""""   #m#   #   #    #    #   #    #     """m           #    #   #
- "#m##  "#mm"    #    #   #  mm#mm  #   #    "mm  "mmm"    #    mm#mm  "#m#"
+╺┳┓   ┏━╸   ╻ ╻   ╻ ╻   ╻   ┏┓╻   ╺┳╸   ┏━┓       ╻   ┏━┓
+ ┃┃   ┣╸    ┃┏┛   ┣━┫   ┃   ┃┗┫    ┃    ┗━┓       ┃   ┃ ┃
+╺┻┛   ┗━╸   ┗┛    ╹ ╹   ╹   ╹ ╹    ╹    ┗━┛   ╹   ╹   ┗━┛
 ```
 
 # Contributing
+
+- [GitLab CI](https://gitlab.com/rstacruz/devhints-engine/pipelines)
+- [Netlify preview](http://devhints-engine-preview.netlify.com/)
+- [Netlify admin](https://app.netlify.com/sites/devhints-engine-preview/settings/general)
 
 ## For developers
 
