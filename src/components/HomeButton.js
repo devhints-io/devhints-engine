@@ -43,7 +43,8 @@ export const HomeButton = () => (
         fill: var(--dark-line-color);
       }
 
-      :global(.home-button:hover) :global(.clr-i-outline) {
+      :global(.home-button:hover) :global(.clr-i-outline),
+      :global(.home-button:focus) :global(.clr-i-outline) {
         fill: white;
       }
     `}</style>
