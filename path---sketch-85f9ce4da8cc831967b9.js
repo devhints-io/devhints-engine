@@ -1,2 +1,0 @@
-webpackJsonp([0x82e762fe2e59],{335:function(t,e){t.exports={data:{markdownRemark:{html:"<p>What is going on</p>",frontmatter:{path:"/sketch",title:"Sketch",intro:null}}},pathContext:{}}}});
-//# sourceMappingURL=path---sketch-85f9ce4da8cc831967b9.js.map
