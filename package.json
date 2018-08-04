@@ -84,13 +84,14 @@
     "build": "gatsby build --prefix-paths && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
-    "prettier:fix": "prettier-eslint --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
-    "prettier:check": "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
     "flow": "flow",
     "lint": "eslint packages/*/lib src",
+    "prepush": "yarn run prettier:check",
+    "prettier:check": "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
+    "prettier:fix": "prettier-eslint --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
+    "start": "yarn run develop",
     "test": "jest",
-    "validate": "devhints-validator \"sheets/*.md\"",
-    "prepush": "yarn run prettier:check"
+    "validate": "devhints-validator \"sheets/*.md\""
   },
   "workspaces": [
     "packages/*"
