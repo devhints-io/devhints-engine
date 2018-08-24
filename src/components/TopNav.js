@@ -1,7 +1,9 @@
 /* @flow */
-import React from 'react'
 import Link from 'gatsby-link'
+import React from 'react'
+
 import { Consumer } from '../lib/context'
+import BackButton from './BackButton'
 
 /**
  * Props
@@ -26,9 +28,7 @@ export type ViewProps = Props & {
 export const TopNavView = ({ back, title, brand }: ViewProps) => (
   <nav className='top-nav' data-js-no-preview role='navigation'>
     <div className='container'>
-      <div className='left'>
-        {back ? <Link className='home back-button' to='/' /> : null}
-      </div>
+      <div className='left'>{back ? <BackButton /> : null}</div>
 
       <Link className='brand' to='/'>
         {brand}
