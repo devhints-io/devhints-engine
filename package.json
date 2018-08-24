@@ -82,7 +82,7 @@
   "private": true,
   "scripts": {
     "build": "gatsby build --prefix-paths && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
-    "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop",
+    "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
     "lint": "eslint packages/*/lib src",
