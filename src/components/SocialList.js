@@ -3,8 +3,12 @@ import React from 'react'
 
 export type Props = {
   className?: string,
+
+  // Typically not passed, but you can
   url?: string,
-  description: string
+
+  // Page description; not available for home page
+  description?: string
 }
 
 /**
