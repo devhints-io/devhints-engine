@@ -41,38 +41,46 @@ export const View = ({
   topPages,
   pageCount,
   sheetSuffix
-}: ViewProps) => (
-  <React.Fragment>
-    <Helmet>
-      <title>{(frontmatter.title || '') + ' ' + sheetSuffix}</title>
-    </Helmet>
+}: ViewProps) => {
+  const title = frontmatter.title || ''
+  return (
+    <React.Fragment>
+      <Helmet>
+        <title>{`${title} ${sheetSuffix}`}</title>
+      </Helmet>
 
-    <CommonHead />
+      <CommonHead />
 
-    <TopNav back />
+      <TopNav back title={title} />
 
-    <div className='body-area'>
-      <MainHeading title={frontmatter.title || ''} suffix={sheetSuffix} />
+      <div className='body-area'>
+        <MainHeading title={title} suffix={sheetSuffix} />
 
-      {/* Introduction */}
-      {frontmatter && frontmatter.intro ? (
-        <IntroContent className='MarkdownBody'>
-          <MiniMarkdown source={frontmatter.intro} />
-        </IntroContent>
-      ) : null}
+        {/* Introduction */}
+        {frontmatter && frontmatter.intro ? (
+          <IntroContent className='MarkdownBody'>
+            <MiniMarkdown source={frontmatter.intro} />
+          </IntroContent>
+        ) : null}
 
-      {/* Post content */}
-      <PostContent className='post-content MarkdownBody' {...{ htmlAst }} />
-    </div>
+        {/* Post content */}
+        <PostContent className='post-content MarkdownBody' {...{ htmlAst }} />
+      </div>
 
-    <PreFooter />
-    <CommentsArea />
-    <SearchFooter />
-    <RelatedPostsArea
-      {...{ pageCount, relatedPages, topPages, category: frontmatter.category }}
-    />
-  </React.Fragment>
-)
+      <PreFooter />
+      <CommentsArea />
+      <SearchFooter />
+      <RelatedPostsArea
+        {...{
+          pageCount,
+          relatedPages,
+          topPages,
+          category: frontmatter.category
+        }}
+      />
+    </React.Fragment>
+  )
+}
 
 /**
  * Sheet template view (connected).

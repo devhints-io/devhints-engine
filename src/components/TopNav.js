@@ -4,6 +4,7 @@ import React from 'react'
 
 import { Consumer } from '../lib/context'
 import BackButton from './BackButton'
+import SocialList from './SocialList'
 
 /**
  * Props
@@ -11,7 +12,8 @@ import BackButton from './BackButton'
 
 export type Props = {
   // If true, shows the back button
-  back?: boolean
+  back?: boolean,
+  title: string
 }
 
 export type ViewProps = Props & {
@@ -20,7 +22,7 @@ export type ViewProps = Props & {
 }
 
 /**
- * Top navigation in most pages
+ * `<TopNav />` - Top navigation in most pages.
  *
  * @param {Boolean} props.back Shows back button if true
  */
@@ -33,6 +35,10 @@ export const TopNavView = ({ back, title, brand }: ViewProps) => (
       <Link className='brand' to='/'>
         {brand}
       </Link>
+
+      <div className='actions'>
+        <SocialList description={title} />
+      </div>
     </div>
   </nav>
 )
