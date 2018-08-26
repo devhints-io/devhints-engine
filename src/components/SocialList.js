@@ -21,7 +21,14 @@ export type Props = {
 
 export const SocialList = ({ className, url, description }: Props) => {
   const e = encodeURIComponent
-  if (!url) url = window.location.href
+
+  if (!url) {
+    // There's very little sense to show this component in a server
+    // side rendering.
+    if (!window || !window.location) return null
+    url = window.location.href
+  }
+
   if (!description) description = 'The ultimate search tool'
 
   const tweetText = `${description} ${url}`
