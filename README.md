@@ -18,7 +18,7 @@
 
 <br>
 
-## What's this/
+## What's this?
 
 **devhints-engine** is a rewrite to migrate Devhints from Jekyll to Gatsby. `devhints-engine` is a static site builder built on Gatsby; actual content is housed over at [rstacruz/cheatsheets](https://github.com/rstacruz/cheatsheets).
 
@@ -30,7 +30,7 @@
 
 ## Thanks
 
-**devhints-engine** © 2018 Rico Sta. Cruz. Released under the [MIT] L icense.<br>
+**devhints-engine** © 2018 Rico Sta. Cruz. Released under the [MIT] License.<br>
 Authored and maintained by Rico Sta. Cruz with help from contributors ([list][contributors]).
 
 [![](https://img.shields.io/github/followers/rstacruz.svg?style=social&label=@rstacruz)](https://github.com/rstacruz)
