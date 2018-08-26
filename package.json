@@ -72,7 +72,10 @@
       "/node_modules/",
       "<rootDir>/.cache/"
     ],
-    "testURL": "http://localhost"
+    "testURL": "http://localhost",
+    "moduleNameMappers": {
+      ".*raw-loader.*": "<rootDir>/src/lib/noop-string.js"
+    }
   },
   "keywords": [
     "devhints"
