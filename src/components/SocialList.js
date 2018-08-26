@@ -25,7 +25,7 @@ export const SocialList = ({ className, url, description }: Props) => {
   if (!url) {
     // There's very little sense to show this component in a server
     // side rendering.
-    if (!window || !window.location) return null
+    if (typeof window === 'undefined') return null
     url = window.location.href
   }
 
