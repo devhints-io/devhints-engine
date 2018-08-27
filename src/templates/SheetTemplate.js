@@ -2,6 +2,7 @@
 /* global graphql */
 
 import * as React from 'react'
+import Layout from '../containers/Layout'
 import { Provider } from '../lib/context'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
@@ -33,15 +34,17 @@ export const SheetTemplate = (props: Props) => {
   const topPages: Array<SiteLink> = toSiteLinks(data.topPages)
 
   return (
-    <Provider value={{ CONTENT }}>
-      <SheetTemplateView
-        frontmatter={data.markdownRemark.frontmatter}
-        htmlAst={data.markdownRemark.htmlAst}
-        relatedPages={relatedPages}
-        topPages={topPages}
-        pageCount={data.allPages.totalCount}
-      />
-    </Provider>
+    <Layout>
+      <Provider value={{ CONTENT }}>
+        <SheetTemplateView
+          frontmatter={data.markdownRemark.frontmatter}
+          htmlAst={data.markdownRemark.htmlAst}
+          relatedPages={relatedPages}
+          topPages={topPages}
+          pageCount={data.allPages.totalCount}
+        />
+      </Provider>
+    </Layout>
   )
 }
 

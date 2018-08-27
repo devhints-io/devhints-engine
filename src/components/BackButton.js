@@ -2,11 +2,14 @@
 import Link from 'gatsby-link'
 import React from 'react'
 import css from 'styled-jsx/css'
+import { talkBubblesLine as arrowLeft } from 'devhints-icons'
 
 export const BackButton = () => {
   return (
     <span>
-      <Link className='home back-button' to='/' />
+      <Link className='home back-button' to='/'>
+        <i className='icon' dangerouslySetInnerHTML={{ __html: arrowLeft }} />
+      </Link>
       <style jsx>{STYLE}</style>
     </span>
   )
@@ -24,6 +27,7 @@ export const STYLE = css`
     display: inline-block;
     border-radius: 50%;
     transition: all 100ms linear;
+    background: white;
 
     /* Smaller on mobile */
     @media (max-width: 480px) {

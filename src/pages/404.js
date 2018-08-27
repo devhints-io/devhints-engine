@@ -1,8 +1,10 @@
 /* @flow */
 /* global location */
 
-import React from 'react'
+import Layout from '../containers/Layout'
 import Link from 'gatsby-link'
+import React from 'react'
+
 import { CONTENT } from '../../config'
 import ExternalSearchLinks from '../components/ExternalSearchLinks'
 
@@ -23,12 +25,14 @@ export const NotFoundPage = () => {
   const keyword: ?string = keywordify(pathname)
 
   return (
-    <NotFoundPageView
-      keyword={keyword}
-      title={CONTENT.notFound.notFound}
-      description={CONTENT.notFound.description}
-      home={CONTENT.notFound.home}
-    />
+    <Layout>
+      <NotFoundPageView
+        keyword={keyword}
+        title={CONTENT.notFound.notFound}
+        description={CONTENT.notFound.description}
+        home={CONTENT.notFound.home}
+      />
+    </Layout>
   )
 }
 

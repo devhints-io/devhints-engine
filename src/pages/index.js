@@ -2,6 +2,7 @@
 /* global graphql */
 
 import * as React from 'react'
+import Layout from '../containers/Layout'
 import { Provider } from '../lib/context'
 import RootPage from '../components/RootPage'
 import { CONTENT } from '../../config'
@@ -27,13 +28,15 @@ export const Root = ({ data }: QueryResult) => {
   const groups = groupByCategory(data.allPages)
 
   return (
-    <Provider value={{ CONTENT }}>
-      <RootPage
-        allPages={toSiteLinks(data.allPages)}
-        groups={groups}
-        recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
-      />
-    </Provider>
+    <Layout>
+      <Provider value={{ CONTENT }}>
+        <RootPage
+          allPages={toSiteLinks(data.allPages)}
+          groups={groups}
+          recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
+        />
+      </Provider>
+    </Layout>
   )
 }
 
