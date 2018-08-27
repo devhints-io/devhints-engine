@@ -14,7 +14,6 @@
 
 const root = require('path').resolve.bind(null, __dirname)
 const debug = require('debug')('app:gatsby-node')
-const { SearchContext } = require('@devhints/search')
 
 /**
  * Sheet path
@@ -53,8 +52,6 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
 
   const SheetTemplate = root('src/templates/SheetTemplate.js')
   const NullTemplate = root('src/templates/NullTemplate.js')
-
-  const search = new SearchContext()
 
   debug('createPages(): performing query')
   return graphql(`
@@ -98,8 +95,6 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
 
         debug('createPages() > edge', { path })
 
-        search.push(context)
-
         createPage({
           path,
           component: SheetTemplate,
@@ -108,20 +103,6 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
       })
 
       debug('createPages() > finish')
-    })
-    .then(() => {
-      // Build search index
-      const searchIndex = search.buildIndex()
-      createPage({
-        path: '/SEARCHINDEX',
-        component: NullTemplate,
-        context: {
-          node_id: '..',
-          category: '',
-          title: '',
-          searchIndex
-        }
-      })
     })
 }
 

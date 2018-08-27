@@ -31,6 +31,20 @@ module.exports = {
       options: {
         plugins: ['gatsby-remark-component']
       }
+    },
+
+    {
+      // https://github.com/andrew-codes/gatsby-plugin-elasticlunr-search
+      resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: ['title'],
+
+        resolvers: {
+          MarkdownRemark: {
+            title: node => node.frontmatter.title
+          }
+        }
+      }
     }
   ]
 }

@@ -1,8 +1,9 @@
 /* @flow */
-/* global location */
+/* global location, graphql */
 
 import Layout from '../containers/Layout'
 import Link from 'gatsby-link'
+import { Index } from 'elasticlunr'
 import React from 'react'
 
 import { CONTENT } from '../../config'
@@ -12,14 +13,15 @@ export type Props = {|
   keyword: ?string, // => 'rails' | null
   title: string, // => 'Not Found'
   description: string, // => 'Try searching!'
-  home: string // => 'Back to home'
+  home: string, // => 'Back to home'
+  siteSearchIndex: any
 |}
 
 /**
  * The 404 page.
  */
 
-export const NotFoundPage = () => {
+export const NotFoundPage = ({ data }) => {
   const pathname: ?string =
     typeof location !== 'undefined' ? location.pathname : null
   const keyword: ?string = keywordify(pathname)
@@ -31,6 +33,7 @@ export const NotFoundPage = () => {
         title={CONTENT.notFound.notFound}
         description={CONTENT.notFound.description}
         home={CONTENT.notFound.home}
+        siteSearchIndex={data && data.siteSearchIndex}
       />
     </Layout>
   )
@@ -44,16 +47,59 @@ export const NotFoundPageView = ({
   keyword,
   title,
   description,
-  home
+  home,
+  siteSearchIndex
 }: Props) => {
   return (
     <div>
       <h1>{title}</h1>
       <p>{description}</p>
       {keyword && <ExternalSearchLinks keyword={keyword} />}
+      <SearchProvider siteSearchIndex={siteSearchIndex} />
       <Link to='/'>{home}</Link>
     </div>
   )
+}
+
+class SearchProvider extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      query: ``,
+      results: []
+    }
+  }
+
+  getOrCreateIndex = () =>
+    this.index ? this.index : Index.load(this.props.siteSearchIndex.index)
+
+  search = evt => {
+    const query = evt.target.value
+    this.index = this.getOrCreateIndex()
+    this.setState({
+      query,
+      // Query the index with search string to get an [] of IDs
+      results: this.index
+        .search(query)
+        // Map over each ID and return the full document
+        .map(({ ref }) => this.index.documentStore.getDoc(ref))
+    })
+  }
+
+  render () {
+    return (
+      <div>
+        <input type='text' value={this.state.query} onChange={this.search} />
+        <ul>
+          {this.state.results.map(page => (
+            <li>
+              {page.title}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
 }
 
 /**
@@ -76,3 +122,11 @@ function keywordify (str: ?string): ?string {
 }
 
 export default NotFoundPage
+
+export const query = graphql`
+  query SearchIndexExampleQuery {
+    siteSearchIndex {
+      index
+    }
+  }
+`
