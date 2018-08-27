@@ -19,9 +19,7 @@ intro: >
 ## This h2 has a class
 
 <!-- {.-two-column} -->
-```
 
-```
 This paragraph has a class
 
 <!-- {.-brief} -->
@@ -32,11 +30,13 @@ See: [CSS classes](/devhints/classes)
 ### Tables
 
 ```
+.
 | Example         | Output                 |
 | --------------- | ---------------------- |
 | `%m/%d/%Y`      | `06/05/2013`           |
 | `%A, %B %e, %Y` | `Sunday, June 5, 2013` |
 | `%b %e %a`      | `Jun 5 Sun`            |
+.
 ```
 
 See: [Tables](/devhints/tables)
