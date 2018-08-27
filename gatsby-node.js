@@ -14,6 +14,7 @@
 
 const root = require('path').resolve.bind(null, __dirname)
 const debug = require('debug')('app:gatsby-node')
+const { SearchContext } = require('@devhints/search')
 
 /**
  * Sheet path
@@ -51,6 +52,9 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
   const { createPage } = boundActionCreators
 
   const SheetTemplate = root('src/templates/SheetTemplate.js')
+  const NullTemplate = root('src/templates/NullTemplate.js')
+
+  const search = new SearchContext()
 
   debug('createPages(): performing query')
   return graphql(`
@@ -70,38 +74,55 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
         }
       }
     }
-  `).then(result => {
-    debug('createPages(): got results')
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
-
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const path = node.fileAbsolutePath
-        .replace(SHEET_PATH, '')
-        .replace(/\.md$/, '')
-
-      const context /*: NodeContext */ = {
-        node_id: node.id,
-        nodePath: path,
-        nodeType: 'sheet',
-        title: node.frontmatter.title,
-        category: node.frontmatter.category || '',
-        weight: node.frontmatter.weight || 0,
-        updated: node.frontmatter.updated
+  `)
+    .then(result => {
+      debug('createPages(): got results')
+      if (result.errors) {
+        return Promise.reject(result.errors)
       }
 
-      debug('createPages() > edge', { path })
+      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        const path = node.fileAbsolutePath
+          .replace(SHEET_PATH, '')
+          .replace(/\.md$/, '')
 
+        const context /*: NodeContext */ = {
+          node_id: node.id,
+          nodePath: path,
+          nodeType: 'sheet',
+          title: node.frontmatter.title,
+          category: node.frontmatter.category || '',
+          weight: node.frontmatter.weight || 0,
+          updated: node.frontmatter.updated
+        }
+
+        debug('createPages() > edge', { path })
+
+        search.push(context)
+
+        createPage({
+          path,
+          component: SheetTemplate,
+          context
+        })
+      })
+
+      debug('createPages() > finish')
+    })
+    .then(() => {
+      // Build search index
+      const searchIndex = search.buildIndex()
       createPage({
-        path,
-        component: SheetTemplate,
-        context
+        path: '/SEARCHINDEX',
+        component: NullTemplate,
+        context: {
+          node_id: '..',
+          category: '',
+          title: '',
+          searchIndex
+        }
       })
     })
-
-    debug('createPages() > finish')
-  })
 }
 
 /**
