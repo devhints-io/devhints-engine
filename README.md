@@ -4,17 +4,17 @@
 <a href='https://devhints.io/'><img src='https://github.com/rstacruz/cheatsheets/raw/master/_docs/images/screenshot.png' width=600></a>
 </p>
 
+<p align='center'>
+⚡ <strong><a href='https://devhints.io'>devhints.io</a></strong> ⚡
+</p>
+
 <br>
 
 <h1 align='center'>devhints-engine</h1>
 
 <p align='center'>Gatsby website builder that builds devhints.io.</p>
 
-<p align='center'><img src='https://img.shields.io/travis/rstacruz/devhints-engine/master.svg'></p>
-
-<p align='center'>
-<strong><a href='https://devhints.io'>devhints.io</a></strong>
-</p>
+<p align='center'><a href='http://travis-ci.org/rstacruz/devhints-engine'><img src='https://img.shields.io/travis/rstacruz/devhints-engine/master.svg?colorA=234444' alt='Travis CI builds'></a></p>
 
 <br>
 
