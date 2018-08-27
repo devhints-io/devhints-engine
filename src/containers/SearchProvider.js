@@ -1,6 +1,7 @@
 /* @flow */
+/* global HTMLInputElement */
 import { Index } from 'elasticlunr'
-import React from 'react'
+import * as React from 'react'
 
 export type Props = {
   siteSearchIndex: { index: any }
@@ -51,7 +52,7 @@ export class SearchProvider extends React.Component<Props, State> {
    * states.
    */
 
-  doSearch = evt => {
+  doSearch = (evt: { target: HTMLInputElement }) => {
     const query = evt.target.value
     this.index = this.getOrCreateIndex()
     this.setState({
