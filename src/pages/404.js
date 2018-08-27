@@ -9,6 +9,12 @@ import { CONTENT } from '../../config'
 import ExternalSearchLinks from '../components/ExternalSearchLinks'
 import { SearchProvider } from '../containers'
 
+export type PageProps = {
+  data: {
+    siteSearchIndex: any
+  }
+}
+
 export type Props = {|
   keyword: ?string, // => 'rails' | null
   title: string, // => 'Not Found'
@@ -21,7 +27,7 @@ export type Props = {|
  * The 404 page.
  */
 
-export const NotFoundPage = ({ data }) => {
+export const NotFoundPage = ({ data }: PageProps) => {
   const pathname: ?string =
     typeof location !== 'undefined' ? location.pathname : null
   const keyword: ?string = keywordify(pathname)
