@@ -10,7 +10,6 @@ export type Context = {
  * Le context
  */
 
-// $FlowFixMe
 export const ctx = React.createContext({})
 
 export const Provider = ctx.Provider

@@ -51,6 +51,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
   const { createPage } = boundActionCreators
 
   const SheetTemplate = root('src/templates/SheetTemplate.js')
+  const NullTemplate = root('src/templates/NullTemplate.js')
 
   debug('createPages(): performing query')
   return graphql(`

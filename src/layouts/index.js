@@ -1,34 +1,18 @@
 /* @flow */
 import * as React from 'react'
-import Helmet from 'react-helmet'
-
-import '../styles/index.css'
-
-/**
- * Props
- */
 
 export type Props = {
   children: () => React.Node
 }
 
 /**
- * Base layout
+ * Base layout:
+ * Make this as simple as possible for in preparation for Gatsby v2
+ * https://next.gatsbyjs.org/docs/migrating-from-v1-to-v2/
  */
 
 function TemplateWrapper ({ children }: Props) {
-  return (
-    <div>
-      <Helmet
-        title='Devhints.io'
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
-        ]}
-      />
-      <div>{children()}</div>
-    </div>
-  )
+  return children()
 }
 
 export default TemplateWrapper

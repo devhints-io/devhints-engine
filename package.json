@@ -44,6 +44,7 @@
     "styled-jsx-plugin-postcss": "^0.1.3"
   },
   "devDependencies": {
+    "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^23.0.0-alpha.0",
     "enzyme": "^3.3.0",
@@ -72,7 +73,10 @@
       "/node_modules/",
       "<rootDir>/.cache/"
     ],
-    "testURL": "http://localhost"
+    "testURL": "http://localhost",
+    "moduleNameMapper": {
+      ".*raw-loader.*": "<rootDir>/src/lib/noop-string.js"
+    }
   },
   "keywords": [
     "devhints"
@@ -82,15 +86,16 @@
   "private": true,
   "scripts": {
     "build": "gatsby build --prefix-paths && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
-    "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop",
+    "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
-    "prettier:fix": "prettier-eslint --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
-    "prettier:check": "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
     "flow": "flow",
     "lint": "eslint packages/*/lib src",
+    "prepush": "yarn run prettier:check",
+    "prettier:check": "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
+    "prettier:fix": "prettier-eslint --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
+    "start": "yarn run develop",
     "test": "jest",
-    "validate": "devhints-validator \"sheets/*.md\"",
-    "prepush": "yarn run prettier:check"
+    "validate": "devhints-validator \"sheets/*.md\""
   },
   "workspaces": [
     "packages/*"
