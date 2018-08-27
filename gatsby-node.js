@@ -71,39 +71,38 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
         }
       }
     }
-  `)
-    .then(result => {
-      debug('createPages(): got results')
-      if (result.errors) {
-        return Promise.reject(result.errors)
+  `).then(result => {
+    debug('createPages(): got results')
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const path = node.fileAbsolutePath
+        .replace(SHEET_PATH, '')
+        .replace(/\.md$/, '')
+
+      const context /*: NodeContext */ = {
+        node_id: node.id,
+        nodePath: path,
+        nodeType: 'sheet',
+        title: node.frontmatter.title,
+        category: node.frontmatter.category || '',
+        weight: node.frontmatter.weight || 0,
+        updated: node.frontmatter.updated
       }
 
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        const path = node.fileAbsolutePath
-          .replace(SHEET_PATH, '')
-          .replace(/\.md$/, '')
+      debug('createPages() > edge', { path })
 
-        const context /*: NodeContext */ = {
-          node_id: node.id,
-          nodePath: path,
-          nodeType: 'sheet',
-          title: node.frontmatter.title,
-          category: node.frontmatter.category || '',
-          weight: node.frontmatter.weight || 0,
-          updated: node.frontmatter.updated
-        }
-
-        debug('createPages() > edge', { path })
-
-        createPage({
-          path,
-          component: SheetTemplate,
-          context
-        })
+      createPage({
+        path,
+        component: SheetTemplate,
+        context
       })
-
-      debug('createPages() > finish')
     })
+
+    debug('createPages() > finish')
+  })
 }
 
 /**

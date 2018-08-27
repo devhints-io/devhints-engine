@@ -13,7 +13,12 @@ export type Result = {
 export type RenderProps = {
   query: string,
   results: Array<Result>,
-  onChange: (any) => void
+  onChange: any => void
+}
+
+export type State = {
+  query: string,
+  results: Array<Result>
 }
 
 /**
@@ -26,7 +31,9 @@ export type RenderProps = {
  *     </SearchProvider>
  */
 
-export class SearchProvider extends React.Component<Props> {
+export class SearchProvider extends React.Component<Props, State> {
+  index: any
+
   state = {
     query: '',
     results: []
