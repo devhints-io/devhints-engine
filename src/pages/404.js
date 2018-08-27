@@ -4,6 +4,7 @@
 import Layout from '../containers/Layout'
 import Link from 'gatsby-link'
 import React from 'react'
+import { keywordify } from '@devhints/helpers'
 
 import { CONTENT } from '../../config'
 import ExternalSearchLinks from '../components/ExternalSearchLinks'
@@ -65,25 +66,6 @@ export const NotFoundPageView = ({
       <Link to='/'>{home}</Link>
     </div>
   )
-}
-
-/**
- * Convert pathname to keywords.
- *
- *     keywordify('/gatsby') => 'gatsby'
- *     keywordify('/rails/models.html') => 'rails-models'
- *     keywordify(null) => null
- */
-
-function keywordify (str: ?string): ?string {
-  if (!str) return null
-
-  return str
-    .slice(1)
-    .replace(/^cheatsheets-ng\//, '')
-    .replace(/\//g, '-')
-    .replace(/ /g, '_')
-    .replace(/\.html$/, '')
 }
 
 export default NotFoundPage
