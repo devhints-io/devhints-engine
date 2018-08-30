@@ -40,12 +40,26 @@ export class SearchProvider extends React.Component<Props, State> {
     results: []
   }
 
+  // Options passed onto elasticlunr.js
+  searchOpts = {
+    fields: {
+      nodePath: { boost: 3 },
+      title: { boost: 1 }
+    },
+    expand: true
+  }
+
   /**
    * Returns the ElasticLunr index.
    */
 
-  getOrCreateIndex = () =>
-    this.index ? this.index : Index.load(this.props.siteSearchIndex.index)
+  getOrCreateIndex = () => {
+    if (this.index) return this.index
+
+    const index = Index.load(this.props.siteSearchIndex.index)
+    this.index = index
+    return index
+  }
 
   /**
    * Performs a search, and updates the `state.query` and `state.results`
@@ -54,15 +68,15 @@ export class SearchProvider extends React.Component<Props, State> {
 
   doSearch = (evt: { target: HTMLInputElement }) => {
     const query = evt.target.value
-    this.index = this.getOrCreateIndex()
-    this.setState({
-      query,
-      // Query the index with search string to get an [] of IDs
-      results: this.index
-        .search(query)
-        // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref))
-    })
+    const index = this.getOrCreateIndex()
+
+    // Query the index with search string to get an [] of IDs,
+    // then map over each ID and return the full document
+    const results = index
+      .search(query, this.searchOpts)
+      .map(({ ref }) => this.index.documentStore.getDoc(ref))
+
+    this.setState({ query, results })
   }
 
   render () {
