@@ -1,11 +1,51 @@
 // @flow
 import React from 'react'
 import css from 'styled-jsx/css'
-import { github } from 'devhints-icons'
+import { github as githubIcon } from 'devhints-icons'
+
+import { Consumer } from '../lib/context'
+import type { Context } from '../../src/types'
+
+/*
+ * Types
+ */
 
 export type Props = {
   // eg, '/vim'
   path?: string
+}
+
+export type ViewProps = Props & {
+  labels: {
+    edit: string, //        => 'Edit'
+    editOnGithub: string // => 'Edit on GitHub'
+  },
+  editURL: string
+}
+
+/**
+ * Connector
+ */
+
+export const PageActions = (props: Props) => {
+  const repo = 'https://github.com/rstacruz/cheatsheets'
+  const branch = 'master'
+  const url = `${repo}/blob/${branch}${props.path || ''}.md`
+
+  return (
+    <Consumer>
+      {({ CONTENT }: Context) => (
+        <PageActionsView
+          labels={{
+            edit: CONTENT.topNav.edit,
+            editOnGithub: CONTENT.topNav.editOnGithub
+          }}
+          editURL={url}
+          {...props}
+        />
+      )}
+    </Consumer>
+  )
 }
 
 /**
@@ -15,23 +55,20 @@ export type Props = {
  *     <PageActions />
  */
 
-export const PageActions = ({ path }: Props) => {
+export const PageActionsView = ({ path, labels, editURL }: ViewProps) => {
   if (!path) return null
-
-  const repo = 'https://github.com/rstacruz/cheatsheets' // TODO get proper URL
-  const branch = 'master' // TODO get proper branch
-  const url = `${repo}/blob/${branch}${path}.md`
 
   return (
     <ul className='page-actions'>
       <style jsx>{STYLE}</style>
-      <li
-        className='item github hint--bottom'
-        data-hint='Edit this page on GitHub'
-      >
-        <a href={url} className='link' target='edit'>
-          <i className='icon' dangerouslySetInnerHTML={{ __html: github }} />
-          <span className='text -visible'>Edit</span>
+
+      <li className='item github hint--bottom' data-hint={labels.editOnGithub}>
+        <a href={editURL} className='link' target='edit'>
+          <i
+            className='icon'
+            dangerouslySetInnerHTML={{ __html: githubIcon }}
+          />
+          <span className='text -visible'>{labels.edit}</span>
         </a>
       </li>
     </ul>
