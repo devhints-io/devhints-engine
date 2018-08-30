@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import css from 'styled-jsx/css'
 import { facebook, twitter } from 'devhints-icons'
 
 /**
@@ -41,14 +42,17 @@ export const SocialList = ({ className, description, permalink }: Props) => {
 
   return (
     <ul className={`social-list ${className || ''}`}>
-      <li className='facebook link hint--bottom' data-hint='Share on Facebook'>
-        <a href={facebookURL} target='share'>
+      <style jsx>{STYLE}</style>
+
+      <li className='facebook item hint--bottom' data-hint='Share on Facebook'>
+        <a href={facebookURL} className='link' target='share'>
           <i className='icon' dangerouslySetInnerHTML={{ __html: facebook }} />
           <span className='text'>Facebook</span>
         </a>
       </li>
-      <li className='twitter link hint--bottom' data-hint='Share on Twitter'>
-        <a href={twitterURL} target='share'>
+
+      <li className='twitter item hint--bottom' data-hint='Share on Twitter'>
+        <a href={twitterURL} className='link' target='share'>
           <i className='icon' dangerouslySetInnerHTML={{ __html: twitter }} />
           <span className='text'>Twitter</span>
         </a>
@@ -56,5 +60,51 @@ export const SocialList = ({ className, description, permalink }: Props) => {
     </ul>
   )
 }
+
+/**
+ * CSS
+ */
+
+export const STYLE = css`
+  @import 'src/styles/common';
+
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .item {
+    display: inline;
+  }
+
+  .icon :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  a.link {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-decoration: none;
+  }
+
+  .link,
+  .link:visited {
+    color: var(--text-mute);
+  }
+
+  .link:hover,
+  .link:focus {
+    color: var(--brand-a);
+  }
+
+  .text {
+    display: none;
+  }
+`
 
 export default SocialList

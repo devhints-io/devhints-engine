@@ -33,8 +33,6 @@ export const View = ({
   recentlyUpdatedLabel,
   siteSearchIndex
 }: ViewProps) => {
-  const permalink = typeof window !== 'undefined' ? window.location.href : null
-
   return (
     <div>
       <Helmet>
@@ -44,7 +42,7 @@ export const View = ({
 
       <CommonHead />
 
-      <TopNav permalink={permalink} />
+      <TopNav />
 
       <div className='body-area -slim'>
         <SiteHeader />

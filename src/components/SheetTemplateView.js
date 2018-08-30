@@ -23,6 +23,7 @@ export type Props = {
   htmlAst: HtmlAst,
   relatedPages: Array<SiteLink>,
   topPages: Array<SiteLink>,
+  path: string, // eg, '/vim'
   pageCount: number
 }
 
@@ -40,9 +41,9 @@ export const View = ({
   relatedPages,
   topPages,
   pageCount,
-  sheetSuffix
+  sheetSuffix,
+  path
 }: ViewProps) => {
-  const permalink = typeof window !== 'undefined' ? window.location.href : null
   const title = frontmatter.title || ''
 
   return (
@@ -53,7 +54,7 @@ export const View = ({
 
       <CommonHead />
 
-      <TopNav back title={title} permalink={permalink} />
+      <TopNav back title={title} path={path} />
 
       <div className='body-area'>
         <MainHeading title={title} suffix={sheetSuffix} />

@@ -20,7 +20,10 @@ export type Props = {
   title?: string,
 
   // URL of this current page
-  permalink?: ?string
+  permalink?: ?string,
+
+  // Path of the current page
+  path?: string
 }
 
 export type ViewProps = Props & {
@@ -37,7 +40,15 @@ export type ViewProps = Props & {
  *     <TopNav />
  */
 
-export const TopNavView = ({ back, title, brand, permalink }: ViewProps) => {
+export const TopNavView = ({
+  back,
+  title,
+  brand,
+  path,
+  permalink
+}: ViewProps) => {
+  const isSheetPage = !!title
+
   return (
     <nav className='top-nav' data-js-no-preview role='navigation'>
       <style jsx>{STYLE}</style>
@@ -51,8 +62,8 @@ export const TopNavView = ({ back, title, brand, permalink }: ViewProps) => {
         <div className='actions'>
           <SocialList description={title} permalink={permalink} />
 
-          {/* Don't show 'edit on github' for home page */}
-          {title ? <PageActions /> : null}
+          {/* Don't show 'Edit on Github' for home page */}
+          {isSheetPage ? <PageActions path={path} /> : null}
         </div>
       </div>
     </nav>
@@ -60,7 +71,8 @@ export const TopNavView = ({ back, title, brand, permalink }: ViewProps) => {
 }
 
 /**
- * Connected view
+ * Connected view.
+ * TODO: Move this to containers/
  */
 
 export const TopNav = (props: Props) => (
@@ -69,6 +81,7 @@ export const TopNav = (props: Props) => (
       <TopNavView
         {...props}
         brand={(CONTENT && CONTENT.topNav && CONTENT.topNav.title) || ''}
+        permalink={window && window.location && window.location.href}
       />
     )}
   </Consumer>
@@ -167,6 +180,7 @@ export const STYLE = css`
       position: absolute;
       @apply --gutter-right;
       top: calc((64px - 32px) / 2);
+      line-height: 1em;
     }
 
     .left {
