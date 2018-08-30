@@ -29,28 +29,32 @@ export const View = ({
   metaTitle,
   metaDescription,
   recentlyUpdatedLabel
-}: ViewProps) => (
-  <div>
-    <Helmet>
-      <title>{metaTitle}</title>
-      <meta name='description' content={metaDescription} />
-    </Helmet>
+}: ViewProps) => {
+  const permalink = typeof window !== 'undefined' ? window.location.href : null
 
-    <CommonHead />
+  return (
+    <div>
+      <Helmet>
+        <title>{metaTitle}</title>
+        <meta name='description' content={metaDescription} />
+      </Helmet>
 
-    <TopNav />
+      <CommonHead />
 
-    <div className='body-area -slim'>
-      <SiteHeader />
+      <TopNav permalink={permalink} />
 
-      <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
+      <div className='body-area -slim'>
+        <SiteHeader />
 
-      {Object.keys(groups).map((group: string) => (
-        <PagesList key={group} title={group} links={groups[group]} />
-      ))}
+        <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
+
+        {Object.keys(groups).map((group: string) => (
+          <PagesList key={group} title={group} links={groups[group]} />
+        ))}
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 /**
  * The home page.

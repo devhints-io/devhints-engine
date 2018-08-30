@@ -4,11 +4,11 @@ import React from 'react'
 export type Props = {
   className?: string,
 
-  // Typically not passed, but you can
-  url?: string,
-
   // Page description; not available for home page
-  description?: string
+  description?: string,
+
+  // URL of the current page
+  permalink?: ?string
 }
 
 /**
@@ -16,18 +16,16 @@ export type Props = {
  *
  * @example
  *     <SocialList
+ *       permalink='https://my.page.com/'
  *       description='Vim' />
  */
 
-export const SocialList = ({ className, url, description }: Props) => {
+export const SocialList = ({ className, description, permalink }: Props) => {
   const e = encodeURIComponent
+  const url = permalink
 
-  if (!url) {
-    // There's very little sense to show this component in a server
-    // side rendering.
-    if (typeof window === 'undefined') return null
-    url = window.location.href
-  }
+  // Don't draw anything in server-side rendering
+  if (!url) return null
 
   if (!description) description = 'The ultimate search tool'
 
@@ -40,12 +38,12 @@ export const SocialList = ({ className, url, description }: Props) => {
     <ul className={`social-list ${className || ''}`}>
       <li className='facebook link hint--bottom' data-hint='Share on Facebook'>
         <a href={facebookURL} target='share'>
-          <span className='text'>F</span>
+          <span className='text'>Face</span>
         </a>
       </li>
       <li className='twitter link hint--bottom' data-hint='Share on Twitter'>
         <a href={twitterURL} target='share'>
-          <span className='text'>T</span>
+          <span className='text'>Twit</span>
         </a>
       </li>
     </ul>

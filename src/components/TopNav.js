@@ -16,7 +16,10 @@ export type Props = {
   back?: boolean,
 
   // Title of the page. (Home page doesn't have one)
-  title?: string
+  title?: string,
+
+  // URL of this current page
+  permalink?: ?string
 }
 
 export type ViewProps = Props & {
@@ -33,24 +36,26 @@ export type ViewProps = Props & {
  *     <TopNav />
  */
 
-export const TopNavView = ({ back, title, brand }: ViewProps) => (
-  <nav className='top-nav' data-js-no-preview role='navigation'>
-    <div className='container'>
-      <div className='left'>{back ? <BackButton /> : null}</div>
+export const TopNavView = ({ back, title, brand, permalink }: ViewProps) => {
+  return (
+    <nav className='top-nav' data-js-no-preview role='navigation'>
+      <div className='container'>
+        <div className='left'>{back ? <BackButton /> : null}</div>
 
-      <Link className='brand' to='/'>
-        {brand}
-      </Link>
+        <Link className='brand' to='/'>
+          {brand}
+        </Link>
 
-      <div className='actions'>
-        <SocialList description={title} />
+        <div className='actions'>
+          <SocialList description={title} permalink={permalink} />
 
-        {/* Don't show 'edit on github' for home page */}
-        {title ? <PageActions /> : null}
+          {/* Don't show 'edit on github' for home page */}
+          {title ? <PageActions /> : null}
+        </div>
       </div>
-    </div>
-  </nav>
-)
+    </nav>
+  )
+}
 
 /**
  * Connected view

@@ -42,7 +42,9 @@ export const View = ({
   pageCount,
   sheetSuffix
 }: ViewProps) => {
+  const permalink = typeof window !== 'undefined' ? window.location.href : null
   const title = frontmatter.title || ''
+
   return (
     <React.Fragment>
       <Helmet>
@@ -51,7 +53,7 @@ export const View = ({
 
       <CommonHead />
 
-      <TopNav back title={title} />
+      <TopNav back title={title} permalink={permalink} />
 
       <div className='body-area'>
         <MainHeading title={title} suffix={sheetSuffix} />
