@@ -166,5 +166,7 @@ export type Context = {
 
 export type SearchPageItem = {
   id: string,
-  title: string
+  title: string,
+  category: string,
+  nodePath: string
 }

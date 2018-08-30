@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import Link from 'gatsby-link'
 
 import type { SearchPageItem } from '../types'
 
@@ -11,8 +12,11 @@ export type Props = {
 const SearchItem = ({ page }: Props) => {
   return (
     <li>
-      <a href='#'>{page.title}</a>
-      <span>{JSON.stringify(page)}</span>
+      <Link to={page.nodePath}>
+        <strong>{page.nodePath}</strong>
+        <small>{page.title}</small>
+        <small>{page.category}</small>
+      </Link>
     </li>
   )
 }
