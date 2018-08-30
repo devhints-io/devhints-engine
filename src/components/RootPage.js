@@ -7,10 +7,12 @@ import PagesList from './PagesList'
 import CommonHead from './CommonHead'
 import { Consumer } from '../lib/context'
 import type { Context, SiteLink, GroupedSiteLinks } from '../types'
+import { SearchProvider } from '../containers'
 
 export type Props = {
   recentlyUpdated: Array<SiteLink>,
-  groups: GroupedSiteLinks
+  groups: GroupedSiteLinks,
+  siteSearchIndex: any
 }
 
 export type ViewProps = Props & {
@@ -28,7 +30,8 @@ export const View = ({
   groups,
   metaTitle,
   metaDescription,
-  recentlyUpdatedLabel
+  recentlyUpdatedLabel,
+  siteSearchIndex
 }: ViewProps) => {
   const permalink = typeof window !== 'undefined' ? window.location.href : null
 
@@ -45,6 +48,8 @@ export const View = ({
 
       <div className='body-area -slim'>
         <SiteHeader />
+
+        <SearchProvider siteSearchIndex={siteSearchIndex} />
 
         <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
 

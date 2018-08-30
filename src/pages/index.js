@@ -16,7 +16,8 @@ import type { AllSitePage } from '../types'
 export type QueryResult = {
   data: {
     allPages: AllSitePage,
-    recentlyUpdated: AllSitePage
+    recentlyUpdated: AllSitePage,
+    siteSearchIndex: any
   }
 }
 
@@ -34,6 +35,7 @@ export const Root = ({ data }: QueryResult) => {
           allPages={toSiteLinks(data.allPages)}
           groups={groups}
           recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
+          siteSearchIndex={data && data.siteSearchIndex}
         />
       </Provider>
     </Layout>
@@ -48,6 +50,10 @@ export default Root
 
 export const query = graphql`
   query IndexPageQuery {
+    siteSearchIndex {
+      index
+    }
+
     allPages: allSitePage(filter: { context: { nodeType: { eq: "sheet" } } }) {
       edges {
         node {

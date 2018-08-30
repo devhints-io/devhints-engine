@@ -163,3 +163,8 @@ export type GroupedSiteLinks = {
 export type Context = {
   CONTENT: Content
 }
+
+export type SearchPageItem = {
+  id: string,
+  title: string
+}

@@ -1,25 +1,25 @@
 /* @flow */
 /* global HTMLInputElement */
-import { Index } from 'elasticlunr'
 import * as React from 'react'
+
+import { Index } from 'elasticlunr'
+
+import SearchItem from '../components/SearchItem'
+import type { SearchPageItem } from '../types'
 
 export type Props = {
   siteSearchIndex: { index: any }
 }
 
-export type Result = {
-  title: string
-}
-
 export type RenderProps = {
   query: string,
-  results: Array<Result>,
+  results: Array<SearchPageItem>,
   onChange: any => void
 }
 
 export type State = {
   query: string,
-  results: Array<Result>
+  results: Array<SearchPageItem>
 }
 
 /**
@@ -86,8 +86,8 @@ export const SearchView = ({ query, results, onChange }: RenderProps) => {
     <div>
       <input type='text' value={query} onChange={onChange} />
       <ul>
-        {results.map(page => (
-          <li>{page.title}</li>
+        {results.map((page: SearchPageItem) => (
+          <SearchItem page={page} key={page.title} />
         ))}
       </ul>
     </div>
