@@ -81,7 +81,11 @@ export const TopNav = (props: Props) => (
       <TopNavView
         {...props}
         brand={(CONTENT && CONTENT.topNav && CONTENT.topNav.title) || ''}
-        permalink={window && window.location && window.location.href}
+        permalink={
+          typeof window !== 'undefined' &&
+          window.location &&
+          window.location.href
+        }
       />
     )}
   </Consumer>
