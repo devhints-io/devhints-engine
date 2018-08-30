@@ -112,9 +112,9 @@ export const STYLE = css`
     line-height: calc(32px - 2px);
     text-decoration: none;
     white-space: nowrap;
-    padding: 0 8px;
+    padding: 0 16px;
     border: solid 1px var(--dark-line-color);
-    border-radius: 3px;
+    border-radius: 24px;
     @apply --font-size--1;
   }
 
@@ -125,7 +125,8 @@ export const STYLE = css`
 
   .link:hover,
   .link:focus {
-    background-color: var(--brand-a);
+    background: var(--brand-a-gradient), var(--brand-a);
+    box-shadow: var(--shadow3);
     color: white;
   }
 `
