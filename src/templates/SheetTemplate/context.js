@@ -1,10 +1,5 @@
 /* @flow */
 import * as React from 'react'
-import type { Content } from '../../types'
-
-export type Context = {
-  CONTENT: Content
-}
 
 /*
  * Le context
