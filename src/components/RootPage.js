@@ -5,7 +5,7 @@ import TopNav from './TopNav'
 import SiteHeader from './SiteHeader'
 import PagesList from './PagesList'
 import CommonHead from './CommonHead'
-import { Consumer } from '../lib/context'
+import { Consumer } from '../contexts/SiteContext'
 import type { Context, SiteLink, GroupedSiteLinks } from '../types'
 import { SearchProvider } from '../containers'
 

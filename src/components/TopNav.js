@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import React from 'react'
 import css from 'styled-jsx/css'
 
-import { Consumer } from '../lib/context'
+import { Consumer } from '../contexts/SiteContext'
 import BackButton from './BackButton'
 import SocialList from './SocialList'
 import PageActions from './PageActions'
@@ -82,9 +82,10 @@ export const TopNav = (props: Props) => (
         {...props}
         brand={(CONTENT && CONTENT.topNav && CONTENT.topNav.title) || ''}
         permalink={
-          typeof window !== 'undefined' &&
-          window.location &&
-          window.location.href
+          (typeof window !== 'undefined' &&
+            window.location &&
+            window.location.href) ||
+          null
         }
       />
     )}

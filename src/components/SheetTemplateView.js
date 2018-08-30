@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react'
-import { Consumer } from '../lib/context'
+import { Consumer } from '../contexts/SiteContext'
 import CommentsArea from './CommentsArea'
 import MainHeading from './MainHeading'
 import MiniMarkdown from './MiniMarkdown'

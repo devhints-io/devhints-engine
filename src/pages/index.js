@@ -3,7 +3,7 @@
 
 import * as React from 'react'
 import Layout from '../containers/Layout'
-import { Provider } from '../lib/context'
+import { Provider } from '../contexts/SiteContext'
 import RootPage from '../components/RootPage'
 import { CONTENT } from '../../config'
 import { toSiteLinks, groupByCategory } from '../lib/site_page'

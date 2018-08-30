@@ -3,7 +3,7 @@
 
 import * as React from 'react'
 import Layout from '../containers/Layout'
-import { Provider } from '../lib/context'
+import { Provider } from '../contexts/SiteContext'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
 import { toSiteLinks } from '../lib/site_page'
