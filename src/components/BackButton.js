@@ -2,7 +2,7 @@
 import Link from 'gatsby-link'
 import React from 'react'
 import css from 'styled-jsx/css'
-import { talkBubblesLine as arrowLeft } from 'devhints-icons'
+import { mdArrowBack as arrowLeft } from 'devhints-icons'
 
 export const BackButton = () => {
   return (
@@ -27,7 +27,6 @@ export const STYLE = css`
     display: inline-block;
     border-radius: 50%;
     transition: all 100ms linear;
-    background: white;
 
     /* Smaller on mobile */
     @media (max-width: 480px) {
@@ -46,20 +45,13 @@ export const STYLE = css`
     &:hover,
     &:focus {
       color: white;
-      background: var(--brand-a);
+      background: color(var(--brand-b) alpha(4%));
       opacity: 1;
     }
 
-    /* Icon */
-    &::before {
-      content: '';
-      /* TODO @include ion-md-arrow-back(24px, $base-text); */
-      vertical-align: middle;
-    }
-
-    &:hover::before,
-    &:focus::before {
-      /* TODO @include ion-md-arrow-back(24px, white); */
+    &:hover .icon,
+    &:focus .icon {
+      color: var(--brand-a);
     }
 
     /* Icon: smaller on mobile */
@@ -68,6 +60,15 @@ export const STYLE = css`
         font-size: 16px;
       }
     }
+  }
+
+  .icon {
+    transition: color 100ms linear;
+  }
+
+  .icon :global(svg) {
+    height: 24px;
+    width: 24px;
   }
 `
 

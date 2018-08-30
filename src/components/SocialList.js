@@ -1,5 +1,10 @@
 // @flow
 import React from 'react'
+import { facebook, twitter } from 'devhints-icons'
+
+/**
+ * Props
+ */
 
 export type Props = {
   className?: string,
@@ -38,12 +43,14 @@ export const SocialList = ({ className, description, permalink }: Props) => {
     <ul className={`social-list ${className || ''}`}>
       <li className='facebook link hint--bottom' data-hint='Share on Facebook'>
         <a href={facebookURL} target='share'>
-          <span className='text'>Face</span>
+          <i className='icon' dangerouslySetInnerHTML={{ __html: facebook }} />
+          <span className='text'>Facebook</span>
         </a>
       </li>
       <li className='twitter link hint--bottom' data-hint='Share on Twitter'>
         <a href={twitterURL} target='share'>
-          <span className='text'>Twit</span>
+          <i className='icon' dangerouslySetInnerHTML={{ __html: twitter }} />
+          <span className='text'>Twitter</span>
         </a>
       </li>
     </ul>
