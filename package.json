@@ -74,8 +74,12 @@
       "<rootDir>/.cache/"
     ],
     "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
     "moduleNameMapper": {
-      ".*raw-loader.*": "<rootDir>/src/lib/noop-string.js"
+      ".*raw-loader.*": "<rootDir>/src/lib/noop-string.js",
+      ".*\\.css$": "<rootDir>/src/lib/noop-string.js"
     }
   },
   "keywords": [
