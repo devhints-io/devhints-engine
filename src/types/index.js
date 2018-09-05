@@ -161,7 +161,8 @@ export type GroupedSiteLinks = {
  */
 
 export type Context = {
-  CONTENT: Content
+  CONTENT: Content,
+  sheet?: Sheet
 }
 
 export type SearchPageItem = {
@@ -169,4 +170,10 @@ export type SearchPageItem = {
   title: string,
   category: string,
   nodePath: string
+}
+
+export type Sheet = {
+  path: string,
+  title: ?string,
+  htmlAst: any
 }
