@@ -65,7 +65,7 @@
   --brand-a-gradient: linear-gradient(
     5deg,
     var(--brand-a),
-    color(var(--brand-a) lightness(+2%) hue(+16))
+    color(var(--brand-a) lightness(+2%) hue(+32))
   );
 }
 

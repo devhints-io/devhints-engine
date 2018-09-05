@@ -3,11 +3,11 @@
 
 import * as React from 'react'
 import Layout from '../containers/Layout'
-import { Provider } from '../lib/context'
+import { Provider } from '../contexts/SiteContext'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
 import { toSiteLinks } from '../lib/site_page'
-import type { MarkdownNode, AllSitePage, SiteLink } from '../types'
+import type { MarkdownNode, AllSitePage, SiteLink, NodeContext } from '../types'
 
 /**
  * Props
@@ -19,8 +19,8 @@ export type Props = {
     topPages: AllSitePage,
     allPages: { totalCount: number },
     markdownRemark: MarkdownNode
-  }
-  // pathContext: NodeContext
+  },
+  pathContext: NodeContext
 }
 
 /**
@@ -29,6 +29,7 @@ export type Props = {
 
 export const SheetTemplate = (props: Props) => {
   const { data } = props
+  const nodePath = props.pathContext.nodePath
 
   const relatedPages: Array<SiteLink> = toSiteLinks(data.relatedPages)
   const topPages: Array<SiteLink> = toSiteLinks(data.topPages)
@@ -39,6 +40,7 @@ export const SheetTemplate = (props: Props) => {
         <SheetTemplateView
           frontmatter={data.markdownRemark.frontmatter}
           htmlAst={data.markdownRemark.htmlAst}
+          path={nodePath}
           relatedPages={relatedPages}
           topPages={topPages}
           pageCount={data.allPages.totalCount}

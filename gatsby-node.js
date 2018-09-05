@@ -51,7 +51,6 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
   const { createPage } = boundActionCreators
 
   const SheetTemplate = root('src/templates/SheetTemplate.js')
-  const NullTemplate = root('src/templates/NullTemplate.js')
 
   debug('createPages(): performing query')
   return graphql(`
@@ -78,9 +77,7 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const path = node.fileAbsolutePath
-        .replace(SHEET_PATH, '')
-        .replace(/\.md$/, '')
+      const path = relativize(node.fileAbsolutePath)
 
       const context /*: NodeContext */ = {
         node_id: node.id,
@@ -140,4 +137,12 @@ exports.modifyBabelrc = function ({ babelrc } /*: any */) {
       ['styled-jsx/babel', { plugins: ['styled-jsx-plugin-postcss'] }]
     ]
   }
+}
+
+/**
+ * Get a relative path
+ */
+
+function relativize (path /*: string */) {
+  return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
 }

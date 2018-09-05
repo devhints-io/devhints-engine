@@ -7,6 +7,14 @@ const root = require('path').resolve.bind(null, __dirname)
 const SHEET_PATH = process.env.SHEET_PATH || root('sheets')
 const PATH_PREFIX = process.env.PATH_PREFIX
 
+/**
+ * Get a relative path
+ */
+
+function relativize (path /*: string */) {
+  return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
+}
+
 /*
  * Gatsby configuration
  */
@@ -37,11 +45,13 @@ module.exports = {
       // https://github.com/andrew-codes/gatsby-plugin-elasticlunr-search
       resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
       options: {
-        fields: ['title'],
+        fields: ['title', 'category', 'fileAbsolutePath'],
 
         resolvers: {
           MarkdownRemark: {
-            title: node => node.frontmatter.title
+            title: node => node.frontmatter.title,
+            category: node => node.frontmatter.category || '',
+            nodePath: node => relativize(node.fileAbsolutePath)
           }
         }
       }

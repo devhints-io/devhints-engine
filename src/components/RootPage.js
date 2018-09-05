@@ -5,12 +5,14 @@ import TopNav from './TopNav'
 import SiteHeader from './SiteHeader'
 import PagesList from './PagesList'
 import CommonHead from './CommonHead'
-import { Consumer } from '../lib/context'
+import { Consumer } from '../contexts/SiteContext'
 import type { Context, SiteLink, GroupedSiteLinks } from '../types'
+import { SearchProvider } from '../containers'
 
 export type Props = {
   recentlyUpdated: Array<SiteLink>,
-  groups: GroupedSiteLinks
+  groups: GroupedSiteLinks,
+  siteSearchIndex: any
 }
 
 export type ViewProps = Props & {
@@ -28,29 +30,34 @@ export const View = ({
   groups,
   metaTitle,
   metaDescription,
-  recentlyUpdatedLabel
-}: ViewProps) => (
-  <div>
-    <Helmet>
-      <title>{metaTitle}</title>
-      <meta name='description' content={metaDescription} />
-    </Helmet>
+  recentlyUpdatedLabel,
+  siteSearchIndex
+}: ViewProps) => {
+  return (
+    <div>
+      <Helmet>
+        <title>{metaTitle}</title>
+        <meta name='description' content={metaDescription} />
+      </Helmet>
 
-    <CommonHead />
+      <CommonHead />
 
-    <TopNav />
+      <TopNav />
 
-    <div className='body-area -slim'>
-      <SiteHeader />
+      <div className='body-area -slim'>
+        <SiteHeader />
 
-      <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
+        <SearchProvider siteSearchIndex={siteSearchIndex} />
 
-      {Object.keys(groups).map((group: string) => (
-        <PagesList key={group} title={group} links={groups[group]} />
-      ))}
+        <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
+
+        {Object.keys(groups).map((group: string) => (
+          <PagesList key={group} title={group} links={groups[group]} />
+        ))}
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 /**
  * The home page.

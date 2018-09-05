@@ -1,14 +1,20 @@
 // @flow
 import React from 'react'
+import css from 'styled-jsx/css'
+import { facebook, twitter } from 'devhints-icons'
+
+/**
+ * Props
+ */
 
 export type Props = {
   className?: string,
 
-  // Typically not passed, but you can
-  url?: string,
-
   // Page description; not available for home page
-  description?: string
+  description?: string,
+
+  // URL of the current page
+  permalink?: ?string
 }
 
 /**
@@ -16,18 +22,16 @@ export type Props = {
  *
  * @example
  *     <SocialList
+ *       permalink='https://my.page.com/'
  *       description='Vim' />
  */
 
-export const SocialList = ({ className, url, description }: Props) => {
+export const SocialList = ({ className, description, permalink }: Props) => {
   const e = encodeURIComponent
+  const url = permalink
 
-  if (!url) {
-    // There's very little sense to show this component in a server
-    // side rendering.
-    if (typeof window === 'undefined') return null
-    url = window.location.href
-  }
+  // Don't draw anything in server-side rendering
+  if (!url) return null
 
   if (!description) description = 'The ultimate search tool'
 
@@ -38,18 +42,69 @@ export const SocialList = ({ className, url, description }: Props) => {
 
   return (
     <ul className={`social-list ${className || ''}`}>
-      <li className='facebook link hint--bottom' data-hint='Share on Facebook'>
-        <a href={facebookURL} target='share'>
-          <span className='text'>F</span>
+      <style jsx>{STYLE}</style>
+
+      <li className='facebook item hint--bottom' data-hint='Share on Facebook'>
+        <a href={facebookURL} className='link' target='share'>
+          <i className='icon' dangerouslySetInnerHTML={{ __html: facebook }} />
+          <span className='text'>Facebook</span>
         </a>
       </li>
-      <li className='twitter link hint--bottom' data-hint='Share on Twitter'>
-        <a href={twitterURL} target='share'>
-          <span className='text'>T</span>
+
+      <li className='twitter item hint--bottom' data-hint='Share on Twitter'>
+        <a href={twitterURL} className='link' target='share'>
+          <i className='icon' dangerouslySetInnerHTML={{ __html: twitter }} />
+          <span className='text'>Twitter</span>
         </a>
       </li>
     </ul>
   )
 }
+
+/**
+ * CSS
+ */
+
+export const STYLE = css`
+  @import 'src/styles/common';
+
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .item {
+    display: inline;
+  }
+
+  .icon :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  a.link {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-decoration: none;
+  }
+
+  .link,
+  .link:visited {
+    color: var(--text-mute);
+  }
+
+  .link:hover,
+  .link:focus {
+    color: var(--brand-a);
+  }
+
+  .text {
+    display: none;
+  }
+`
 
 export default SocialList

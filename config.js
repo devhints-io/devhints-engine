@@ -90,3 +90,12 @@ export const CODEFUND = {
 export const ASSETS = {
   preview_host: 'https://assets.devhints.io/previews'
 }
+
+/**
+ * GitHub (TODO)
+ */
+
+export const GITHUB = {
+  repo: 'https://github.com/rstacruz/cheatsheets',
+  branch: 'master'
+}

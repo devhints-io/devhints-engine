@@ -32,4 +32,24 @@
       padding-right: var(--gut-small);
     }
   }
+
+  --gutter-right: {
+    & {
+      right: var(--gut);
+    }
+
+    @media (max-width: 480px) {
+      right: var(--gut-small);
+    }
+  }
+
+  --gutter-left: {
+    & {
+      left: var(--gut);
+    }
+
+    @media (max-width: 480px) {
+      left: var(--gut-small);
+    }
+  }
 }

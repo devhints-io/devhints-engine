@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react'
-import { Consumer } from '../lib/context'
+import { Consumer } from '../contexts/SiteContext'
 import CommentsArea from './CommentsArea'
 import MainHeading from './MainHeading'
 import MiniMarkdown from './MiniMarkdown'
@@ -23,6 +23,7 @@ export type Props = {
   htmlAst: HtmlAst,
   relatedPages: Array<SiteLink>,
   topPages: Array<SiteLink>,
+  path: string, // eg, '/vim'
   pageCount: number
 }
 
@@ -40,9 +41,11 @@ export const View = ({
   relatedPages,
   topPages,
   pageCount,
-  sheetSuffix
+  sheetSuffix,
+  path
 }: ViewProps) => {
   const title = frontmatter.title || ''
+
   return (
     <React.Fragment>
       <Helmet>
@@ -51,7 +54,7 @@ export const View = ({
 
       <CommonHead />
 
-      <TopNav back title={title} />
+      <TopNav back title={title} path={path} />
 
       <div className='body-area'>
         <MainHeading title={title} suffix={sheetSuffix} />
