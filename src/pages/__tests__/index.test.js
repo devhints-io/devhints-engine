@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import { Root } from '../index'
 
 const EDGES = [
@@ -16,14 +16,48 @@ const EDGES = [
   }
 ]
 
-it('works', () => {
-  const data = {
-    siteSearchIndex: {
-      index: {}
-    },
-    allPages: {
-      edges: EDGES
+describe('Main page', () => {
+  let wrap, swrap
+
+  beforeEach(() => {
+    const data = {
+      siteSearchIndex: {
+        index: {}
+      },
+      allPages: {
+        edges: EDGES
+      }
     }
-  }
-  mount(<Root data={data} />)
+
+    wrap = mount(<Root data={data} />)
+    swrap = shallow(<Root data={data} />)
+  })
+
+  it.skip('works', () => {
+    console.log(wrap.debug())
+  })
+
+  it('matches (shallow)', () => {
+    expect(swrap).toMatchSnapshot()
+  })
+
+  it('matches (deep)', () => {
+    expect(wrap).toMatchSnapshot()
+  })
+
+  it('has links to vim', () => {
+    expect(wrap.containsMatchingElement(<code>vim</code>)).toBeTruthy()
+    expect(
+      wrap.containsMatchingElement(<span className='title'>Vim</span>)
+    ).toBeTruthy()
+  })
+
+  it('headings', () => {
+    expect(
+      wrap
+        .find('.pages-list h2')
+        .at(0)
+        .text()
+    ).toEqual('Recently updated')
+  })
 })
