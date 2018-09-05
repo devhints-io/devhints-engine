@@ -47,6 +47,7 @@
     "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.0.0-alpha.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.4.0",
     "enzyme-to-json": "^3.3.3",
@@ -74,9 +75,9 @@
       "<rootDir>/.cache/"
     ],
     "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(devhints|@devhints)).+$"
+    ],
     "moduleNameMapper": {
       ".*raw-loader.*": "<rootDir>/src/lib/noop-string.js",
       ".*\\.css$": "<rootDir>/src/lib/noop-string.js"
