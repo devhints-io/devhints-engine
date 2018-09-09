@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { Index } from 'elasticlunr'
 
-import type { SearchPageItem } from '../types'
+import type { SearchPageItem, SiteSearchIndex } from '../types'
 
 // To be passed onto children
 export type RenderProps = {
@@ -14,7 +14,7 @@ export type RenderProps = {
 }
 
 export type Props = {
-  siteSearchIndex: { index: any },
+  siteSearchIndex: SiteSearchIndex,
   children: RenderProps => React.Node
 }
 

@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react'
+import * as React from 'react'
 import { talkBubblesLine, talkBubblesSolid } from 'devhints-icons'
 import css from 'styled-jsx/css'
 

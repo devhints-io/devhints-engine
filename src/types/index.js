@@ -183,3 +183,7 @@ export type DisqusData = {
   url: string,
   identifier: string
 }
+
+export type SiteSearchIndex = {
+  index: any /* index from elasticlunr */
+}

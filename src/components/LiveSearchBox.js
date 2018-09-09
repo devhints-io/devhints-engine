@@ -2,11 +2,12 @@
 import * as React from 'react'
 
 import SearchItem from './SearchItem'
-import SearchProvider, {
-  type RenderProps,
-  type Props
-} from '../providers/SearchProvider'
-import type { SearchPageItem } from '../types'
+import SearchProvider, { type RenderProps } from '../providers/SearchProvider'
+import type { SearchPageItem, SiteSearchIndex } from '../types'
+
+export type Props = {
+  siteSearchIndex: SiteSearchIndex
+}
 
 export const LiveSearchBoxView = ({
   query,
