@@ -3,7 +3,12 @@ import * as React from 'react'
 
 import type { DisqusData } from '../types'
 
-export type Props = DisqusData & { children?: () => React.Node }
+export type RenderProps = {
+  thread: React.Node,
+  count: React.Node
+}
+
+export type Props = DisqusData & { children?: RenderProps => React.Node }
 
 /**
  * Disqus doesn't need to load right away.
@@ -18,9 +23,11 @@ const DISQUS_DELAY = 100
 export class DisqusScript extends React.Component<Props> {
   componentDidMount () {
     const { host, url, identifier } = this.props
+    console.log('[DisqusScript] cdm')
 
     setTimeout(() => {
       window.disqus_config = function () {
+        console.log('[disqus_config]')
         this.page.url = url
         this.page.identifier = identifier
       }
@@ -32,10 +39,21 @@ export class DisqusScript extends React.Component<Props> {
   render () {
     const { host, url, identifier, children } = this.props
     const data = { host, url, identifier }
+
+    // Render props to be passed on
+    const rprops: RenderProps = {
+      thread: <div id='disqus_thread' />,
+      count: (
+        <span data-disqus-identifier={identifier} data-disqus-url={url}>
+          No comments
+        </span>
+      )
+    }
+
     return (
       <React.Fragment>
         <noscript data={JSON.stringify(data)} />
-        {typeof children === 'function' ? children() : null}
+        {typeof children === 'function' ? children(rprops) : null}
       </React.Fragment>
     )
   }
@@ -55,6 +73,7 @@ export default DisqusScript
  */
 
 export function injectScript (host: string) {
+  console.log('injectScript()', host)
   injectEmbed(host)
   injectCount(host)
 }

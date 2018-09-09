@@ -1,7 +1,9 @@
 // @flow
 import React from 'react'
-import type { DisqusData } from '../types'
 import DisqusScript from '../providers/DisqusScript'
+
+import type { DisqusData } from '../types'
+import type { RenderProps } from '../providers/DisqusScript'
 
 export const DisqusDiscussion = () => {
   // Disqus configuration
@@ -13,8 +15,13 @@ export const DisqusDiscussion = () => {
 
   return (
     <DisqusScript {...disqus}>
-      {() => {
-        return <span>(Disqus here)</span>
+      {({ thread, count }: RenderProps) => {
+        return (
+          <React.Fragment>
+            <span>{count}</span>
+            {thread}
+          </React.Fragment>
+        )
       }}
     </DisqusScript>
   )
