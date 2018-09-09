@@ -1,24 +1,55 @@
 /* @flow */
-import React from 'react'
+import * as React from 'react'
 import CommentsAreaSummary from './CommentsAreaSummary'
-import CommentsSection from './CommentsSection'
 import css from 'styled-jsx/css'
+import DisqusScript from '../providers/DisqusScript'
+
+import type { DisqusData } from '../types'
+import type { RenderProps } from '../providers/DisqusScript'
+
+export type ViewProps = {
+  thread: React.Node,
+  count: React.Node
+}
 
 /**
  * Comments area
  */
 
-export const CommentsArea = () => (
+export const CommentsAreaView = ({ thread, count }: ViewProps) => (
   <section className='comments-area' id='comments' data-js-no-preview>
     <div className='container'>
       <details>
-        <CommentsAreaSummary count={0} />
-        <CommentsSection />
+        <CommentsAreaSummary count={count} />
+        <div className='comments-section'>
+          <div className='comments'>{thread}</div>
+        </div>
       </details>
     </div>
     <style jsx>{STYLE}</style>
   </section>
 )
+
+/**
+ * Connector
+ */
+
+export const CommentsArea = () => {
+  // Disqus configuration
+  const disqus: DisqusData = {
+    host: 'devhints.disqus.com',
+    url: 'https://devhints.io/react',
+    identifier: 'react'
+  }
+
+  return (
+    <DisqusScript {...disqus}>
+      {({ thread, count }: RenderProps) => {
+        return <CommentsAreaView {...{ thread, count }} />
+      }}
+    </DisqusScript>
+  )
+}
 
 /*
  * CSS

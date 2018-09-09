@@ -44,8 +44,12 @@ export class DisqusScript extends React.Component<Props> {
     const rprops: RenderProps = {
       thread: <div id='disqus_thread' />,
       count: (
-        <span data-disqus-identifier={identifier} data-disqus-url={url}>
-          No comments
+        <span
+          className='disqus-comment-count'
+          data-disqus-identifier={identifier}
+          data-disqus-url={url}
+        >
+          Comments
         </span>
       )
     }
