@@ -177,3 +177,9 @@ export type Sheet = {
   title: ?string,
   htmlAst: any
 }
+
+export type DisqusData = {
+  host: string,
+  url: string,
+  identifier: string
+}
