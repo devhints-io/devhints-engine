@@ -2716,17 +2716,19 @@ exports[`Main page matches (deep) 1`] = `
                 </div>
               </SiteHeaderView>
             </SiteHeader>
-            <SearchProvider
+            <LiveSearchBox
               siteSearchIndex={
                 Object {
                   "index": Object {},
                 }
               }
             >
-              <SearchView
-                onChange={[Function]}
-                query=""
-                results={Array []}
+              <SearchProvider
+                siteSearchIndex={
+                  Object {
+                    "index": Object {},
+                  }
+                }
               >
                 <div>
                   <input
@@ -2736,8 +2738,8 @@ exports[`Main page matches (deep) 1`] = `
                   />
                   <ul />
                 </div>
-              </SearchView>
-            </SearchProvider>
+              </SearchProvider>
+            </LiveSearchBox>
             <PagesList
               links={Array []}
               title="Recently updated"
@@ -2844,82 +2846,6 @@ exports[`Main page matches (deep) 1`] = `
 `;
 
 exports[`Main page matches (shallow) 1`] = `
-<Layout>
-  <ContextProvider
-    value={
-      Object {
-        "CONTENT": Object {
-          "commentsArea": Object {
-            "link": "Write yours!",
-            "suffix": "for this cheatsheet.",
-          },
-          "home": Object {
-            "description": "A ridiculous collection of web development cheatsheets",
-            "recentlyUpdated": "Recently updated",
-            "title": "Devhints.io — TL;DR for developer documentation",
-            "updatedLabel": "Updated",
-          },
-          "notFound": Object {
-            "description": "Sorry, we don't have a cheatsheet for this yet. Try searching!",
-            "home": "Back to home",
-            "title": "Not found",
-          },
-          "relatedPostsCallout": Object {
-            "description": "Over SIZE curated cheatsheets, by developers for developers.",
-            "link": "Devhints home",
-          },
-          "searchForm": Object {
-            "defaultPlaceholder": "Search SIZE+ cheatsheets",
-            "homePlaceholder": "Search...",
-            "prefix": "devhints.io",
-          },
-          "sheet": Object {
-            "suffix": "cheatsheet",
-          },
-          "siteHeader": Object {
-            "tagline": "Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.",
-            "title": "Rico's cheatsheets",
-          },
-          "topNav": Object {
-            "edit": "Edit",
-            "editOnGithub": "Edit this page on GitHub",
-            "title": "Devhints.io",
-          },
-        },
-      }
-    }
-  >
-    <RootPage
-      allPages={
-        Array [
-          Object {
-            "path": "/vim",
-            "title": "Vim",
-          },
-        ]
-      }
-      groups={
-        Object {
-          "Apps": Array [
-            Object {
-              "path": "/vim",
-              "title": "Vim",
-            },
-          ],
-        }
-      }
-      recentlyUpdated={Array []}
-      siteSearchIndex={
-        Object {
-          "index": Object {},
-        }
-      }
-    />
-  </ContextProvider>
-</Layout>
-`;
-
-exports[`Main page matches 1`] = `
 <Layout>
   <ContextProvider
     value={

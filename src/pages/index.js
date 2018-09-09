@@ -7,7 +7,7 @@ import { Provider } from '../contexts/SiteContext'
 import RootPage from '../components/RootPage'
 import { CONTENT } from '../../config'
 import { toSiteLinks, groupByCategory } from '../lib/site_page'
-import type { AllSitePage } from '../types'
+import type { AllSitePage, SiteSearchIndex } from '../types'
 
 /*
  * Types
@@ -17,7 +17,7 @@ export type QueryResult = {
   data: {
     allPages: AllSitePage,
     recentlyUpdated: AllSitePage,
-    siteSearchIndex: any
+    siteSearchIndex: SiteSearchIndex
   }
 }
 
