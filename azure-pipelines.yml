@@ -8,5 +8,6 @@ steps:
     versionSpec: '8.x'
   
 - script: |
-    npm install
-    npm run ci
+    npm install -g yarn
+    yarn
+    yarn run ci
