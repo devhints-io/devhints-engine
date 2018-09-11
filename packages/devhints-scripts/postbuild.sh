@@ -6,7 +6,7 @@ for fn in */*.html; do
     dest=${fn/\/index/}
     dir=${dest/.html/}
     mv "$fn" "$dest"
-    rmdir "$dir" || true
+    rmdir "$dir" &>/dev/null || true
 done
 
 # Remove JavScript sourcemaps

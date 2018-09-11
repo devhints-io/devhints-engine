@@ -7,7 +7,7 @@ import PagesList from './PagesList'
 import CommonHead from './CommonHead'
 import { Consumer } from '../contexts/SiteContext'
 import type { Context, SiteLink, GroupedSiteLinks } from '../types'
-import { SearchProvider } from '../containers'
+import LiveSearchBox from '../components/LiveSearchBox'
 
 export type Props = {
   recentlyUpdated: Array<SiteLink>,
@@ -47,7 +47,7 @@ export const View = ({
       <div className='body-area -slim'>
         <SiteHeader />
 
-        <SearchProvider siteSearchIndex={siteSearchIndex} />
+        <LiveSearchBox siteSearchIndex={siteSearchIndex} />
 
         <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
 

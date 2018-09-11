@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react'
+import * as React from 'react'
 import { talkBubblesLine, talkBubblesSolid } from 'devhints-icons'
 import css from 'styled-jsx/css'
 
@@ -7,7 +7,7 @@ import css from 'styled-jsx/css'
  * Summary in the comments area
  */
 
-export const CommentsAreaSummary = ({ count }: { count: number }) => (
+export const CommentsAreaSummary = ({ count }: { count: React.Node }) => (
   <summary className='comments-area-summary'>
     <i
       className='icon -line'
@@ -18,7 +18,7 @@ export const CommentsAreaSummary = ({ count }: { count: number }) => (
       dangerouslySetInnerHTML={{ __html: talkBubblesSolid }}
     />
     <strong className='count'>{count}</strong>{' '}
-    <span className='suffix'>comments for this cheatsheet.</span>{' '}
+    <span className='suffix'>for this cheatsheet.</span>{' '}
     <span className='fauxlink'>Write yours!</span>
     <style jsx>{STYLE}</style>
   </summary>

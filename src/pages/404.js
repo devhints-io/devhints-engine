@@ -8,7 +8,7 @@ import { keywordify } from '@devhints/helpers'
 
 import { CONTENT } from '../../config'
 import ExternalSearchLinks from '../components/ExternalSearchLinks'
-import { SearchProvider } from '../containers'
+import LiveSearchBox from '../components/LiveSearchBox'
 
 export type PageProps = {
   data: {
@@ -62,7 +62,7 @@ export const NotFoundPageView = ({
       <h1>{title}</h1>
       <p>{description}</p>
       {keyword && <ExternalSearchLinks keyword={keyword} />}
-      <SearchProvider siteSearchIndex={siteSearchIndex} />
+      <LiveSearchBox siteSearchIndex={siteSearchIndex} />
       <Link to='/'>{home}</Link>
     </div>
   )

@@ -12,7 +12,7 @@ import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'
 import TopNav from './TopNav'
 import Helmet from 'react-helmet'
-import type { HtmlAst, Frontmatter, Context, SiteLink } from '../types'
+import type { HtmlAst, Frontmatter, Context, SiteLink, Sheet } from '../types'
 
 /**
  * Properties for the `<View />`
@@ -28,8 +28,42 @@ export type Props = {
 }
 
 export type ViewProps = Props & {
-  sheetSuffix: string
+  sheet: Sheet,
+  labels: {
+    sheetSuffix: string
+  }
 }
+
+/**
+ * Sheet template view (connected).
+ *
+ * @example
+ *     <SheetTemplateView
+ *       frontmatter={{ title: 'Vim', category: 'Editors' }}
+ *       htmlAst={...}
+ *       relatedPages={[ ... ]}
+ *       topPages={[ ... ]}
+ *       pageCount={382}
+ *     />
+ */
+
+export const SheetTemplateView = (props: Props) => (
+  <Consumer>
+    {({ CONTENT, sheet }: Context) => {
+      if (!sheet) return null
+
+      return (
+        <View
+          {...props}
+          sheet={sheet}
+          labels={{
+            sheetSuffix: CONTENT.sheet.suffix || ''
+          }}
+        />
+      )
+    }}
+  </Consumer>
+)
 
 /**
  * Logic-less view
@@ -41,15 +75,16 @@ export const View = ({
   relatedPages,
   topPages,
   pageCount,
-  sheetSuffix,
-  path
+  labels,
+  path,
+  sheet
 }: ViewProps) => {
-  const title = frontmatter.title || ''
+  const title = sheet.title || ''
 
   return (
     <React.Fragment>
       <Helmet>
-        <title>{`${title} ${sheetSuffix}`}</title>
+        <title>{`${title} ${labels.sheetSuffix}`}</title>
       </Helmet>
 
       <CommonHead />
@@ -57,7 +92,7 @@ export const View = ({
       <TopNav back title={title} path={path} />
 
       <div className='body-area'>
-        <MainHeading title={title} suffix={sheetSuffix} />
+        <MainHeading title={title} suffix={labels.sheetSuffix} />
 
         {/* Introduction */}
         {frontmatter && frontmatter.intro ? (
@@ -84,26 +119,5 @@ export const View = ({
     </React.Fragment>
   )
 }
-
-/**
- * Sheet template view (connected).
- *
- * @example
- *     <SheetTemplateView
- *       frontmatter={{ title: 'Vim', category: 'Editors' }}
- *       htmlAst={...}
- *       relatedPages={[ ... ]}
- *       topPages={[ ... ]}
- *       pageCount={382}
- *     />
- */
-
-export const SheetTemplateView = (props: Props) => (
-  <Consumer>
-    {({ CONTENT }: Context) => (
-      <View {...props} sheetSuffix={CONTENT.sheet.suffix || ''} />
-    )}
-  </Consumer>
-)
 
 export default SheetTemplateView

@@ -20,7 +20,7 @@
     "gatsby-remark-component": "^1.1.3",
     "gatsby-source-filesystem": "^1.5.27",
     "gatsby-transformer-remark": "^1.7.37",
-    "glob": "^7.1.2",
+    "glob": "^7.1.3",
     "group-by": "^0.0.1",
     "hint.css": "^2.5.0",
     "isotope-layout": "^3.0.5",
@@ -28,39 +28,40 @@
     "loadjs": "^3.5.4",
     "meow": "^5.0.0",
     "prop-types": "^15.6.2",
-    "react": "16.4.1",
-    "react-dom": "16.4.1",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
-    "recompose": "^0.27.1",
+    "recompose": "^0.30.0",
     "rehype-react": "^3.0.3",
     "remark": "^9.0.0",
     "remark-cli": "^5.0.0",
-    "remark-frontmatter": "^1.2.0",
+    "remark-frontmatter": "^1.2.1",
     "remark-preset-lint-markdown-style-guide": "^2.1.2",
     "responsive-modular-scale.css": "^0.1.0",
-    "sanitize.css": "^6.0.0",
-    "styled-jsx": "^2.2.6",
+    "sanitize.css": "^7.0.3",
+    "styled-jsx": "^3.0.2",
     "styled-jsx-plugin-postcss": "^0.1.3"
   },
   "devDependencies": {
     "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
-    "babel-eslint": "^8.2.2",
+    "babel-eslint": "^9.0.0",
     "babel-jest": "^23.0.0-alpha.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.4.0",
     "enzyme-to-json": "^3.3.3",
     "eslint-plugin-flowtype": "^2.46.1",
-    "flow-bin": "^0.77.0",
+    "flow-bin": "^0.80.0",
     "gh-pages": "^1.1.0",
     "hast-util-to-html": "^4.0.1",
     "hastscript": "^4.0.0",
     "husky": "^0.14.3",
-    "jest": "^23.4.2",
+    "jest": "^23.5.0",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.1",
-    "react-test-renderer": "^16.4.1",
-    "standard": "^11.0.1"
+    "react-test-renderer": "^16.4.2",
+    "standard": "^12.0.1"
   },
   "jest": {
     "setupFiles": [
@@ -74,8 +75,12 @@
       "<rootDir>/.cache/"
     ],
     "testURL": "http://localhost",
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(devhints|@devhints)).+$"
+    ],
     "moduleNameMapper": {
-      ".*raw-loader.*": "<rootDir>/src/lib/noop-string.js"
+      ".*raw-loader.*": "<rootDir>/src/lib/noop-string.js",
+      ".*\\.css$": "<rootDir>/src/lib/noop-string.js"
     }
   },
   "keywords": [
@@ -85,6 +90,7 @@
   "main": "n/a",
   "private": true,
   "scripts": {
+    "ci": "run-s -l flow lint prettier:check test",
     "build": "gatsby build --prefix-paths && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",

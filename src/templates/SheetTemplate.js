@@ -7,7 +7,13 @@ import { Provider } from '../contexts/SiteContext'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'
 import { toSiteLinks } from '../lib/site_page'
-import type { MarkdownNode, AllSitePage, SiteLink, NodeContext } from '../types'
+import type {
+  MarkdownNode,
+  AllSitePage,
+  SiteLink,
+  NodeContext,
+  Sheet
+} from '../types'
 
 /**
  * Props
@@ -34,9 +40,17 @@ export const SheetTemplate = (props: Props) => {
   const relatedPages: Array<SiteLink> = toSiteLinks(data.relatedPages)
   const topPages: Array<SiteLink> = toSiteLinks(data.topPages)
 
+  const frontmatter = data.markdownRemark.frontmatter
+
+  const sheet: Sheet = {
+    path: nodePath,
+    title: frontmatter.title,
+    htmlAst: data.markdownRemark.htmlAst
+  }
+
   return (
     <Layout>
-      <Provider value={{ CONTENT }}>
+      <Provider value={{ CONTENT, sheet }}>
         <SheetTemplateView
           frontmatter={data.markdownRemark.frontmatter}
           htmlAst={data.markdownRemark.htmlAst}

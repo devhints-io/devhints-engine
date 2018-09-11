@@ -4,17 +4,18 @@ import * as React from 'react'
 
 import { Index } from 'elasticlunr'
 
-import SearchItem from '../components/SearchItem'
-import type { SearchPageItem } from '../types'
+import type { SearchPageItem, SiteSearchIndex } from '../types'
 
-export type Props = {
-  siteSearchIndex: { index: any }
-}
-
+// To be passed onto children
 export type RenderProps = {
   query: string,
   results: Array<SearchPageItem>,
   onChange: any => void
+}
+
+export type Props = {
+  siteSearchIndex: SiteSearchIndex,
+  children: RenderProps => React.Node
 }
 
 export type State = {
@@ -80,32 +81,14 @@ export class SearchProvider extends React.Component<Props, State> {
   }
 
   render () {
-    // TODO: Render prop
-    return (
-      <SearchView
-        query={this.state.query}
-        results={this.state.results}
-        onChange={this.doSearch}
-      />
-    )
+    const rprops: RenderProps = {
+      query: this.state.query,
+      results: this.state.results,
+      onChange: this.doSearch
+    }
+
+    return this.props.children(rprops)
   }
-}
-
-/**
- * TODO: Move this
- */
-
-export const SearchView = ({ query, results, onChange }: RenderProps) => {
-  return (
-    <div>
-      <input type='text' value={query} onChange={onChange} />
-      <ul>
-        {results.map((page: SearchPageItem) => (
-          <SearchItem page={page} key={page.title} />
-        ))}
-      </ul>
-    </div>
-  )
 }
 
 export default SearchProvider
