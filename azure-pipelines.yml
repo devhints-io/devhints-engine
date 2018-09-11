@@ -1,0 +1,13 @@
+# Build NodeJS Express app using Azure Pipelines
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript?view=vsts
+pool:
+  vmImage: 'Ubuntu 16.04'
+  
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  
+- script: |
+    yarn
+    yarn run ci
