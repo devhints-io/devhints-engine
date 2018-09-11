@@ -1,0 +1,12 @@
+# https://github.com/MicrosoftDocs/pipelines-javascript/blob/master/azure-pipelines.yml
+pool:
+  vmImage: 'Ubuntu 16.04'
+  
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  
+- script: |
+    npm install
+    npm run ci
