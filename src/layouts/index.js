@@ -12,7 +12,7 @@ export type Props = {
  */
 
 function TemplateWrapper ({ children }: Props) {
-  return children()
+  return children
 }
 
 export default TemplateWrapper
