@@ -26,19 +26,24 @@ export type Data = {
 
 export const Root = () => {
   return (
-    <StaticQuery query={query} render={(data: Data) => {
-      const groups = groupByCategory(data.allPages)
-        return <Layout>
-          <Provider value={{ CONTENT }}>
-            <RootPage
-              allPages={toSiteLinks(data.allPages)}
-              groups={groups}
-              recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
-              siteSearchIndex={data && data.siteSearchIndex}
-            />
-          </Provider>
-        </Layout>
-      }} />
+    <StaticQuery
+      query={query}
+      render={(data: Data) => {
+        const groups = groupByCategory(data.allPages)
+        return (
+          <Layout>
+            <Provider value={{ CONTENT }}>
+              <RootPage
+                allPages={toSiteLinks(data.allPages)}
+                groups={groups}
+                recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
+                siteSearchIndex={data && data.siteSearchIndex}
+              />
+            </Provider>
+          </Layout>
+        )
+      }}
+    />
   )
 }
 
