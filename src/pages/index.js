@@ -2,6 +2,7 @@
 /* global graphql */
 
 import * as React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
 import Layout from '../containers/Layout'
 import { Provider } from '../contexts/SiteContext'
 import RootPage from '../components/RootPage'
@@ -13,32 +14,31 @@ import type { AllSitePage, SiteSearchIndex } from '../types'
  * Types
  */
 
-export type QueryResult = {
-  data: {
-    allPages: AllSitePage,
-    recentlyUpdated: AllSitePage,
-    siteSearchIndex: SiteSearchIndex
-  }
+export type Data = {
+  allPages: AllSitePage,
+  recentlyUpdated: AllSitePage,
+  siteSearchIndex: SiteSearchIndex
 }
 
 /**
  * Connector for `<RootPage />`
  */
 
-export const Root = ({ data }: QueryResult) => {
-  const groups = groupByCategory(data.allPages)
-
+export const Root = () => {
   return (
-    <Layout>
-      <Provider value={{ CONTENT }}>
-        <RootPage
-          allPages={toSiteLinks(data.allPages)}
-          groups={groups}
-          recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
-          siteSearchIndex={data && data.siteSearchIndex}
-        />
-      </Provider>
-    </Layout>
+    <StaticQuery query={query} render={(data: Data) => {
+      const groups = groupByCategory(data.allPages)
+        return <Layout>
+          <Provider value={{ CONTENT }}>
+            <RootPage
+              allPages={toSiteLinks(data.allPages)}
+              groups={groups}
+              recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
+              siteSearchIndex={data && data.siteSearchIndex}
+            />
+          </Provider>
+        </Layout>
+      }} />
   )
 }
 
