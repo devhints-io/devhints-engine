@@ -109,12 +109,12 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
  * some space.
  */
 
-exports.modifyWebpackConfig = ({ config } /*: any */) => {
+exports.onCreateWebpackConfig = ({ _stage, actions } /*: any */) => {
   const noop = root('src/lib/helpers/noop.js')
 
   // isotope-layout tries to require('jquery'), but let's let that
   // fail silently. We don't want it to load jQuery.
-  config.merge({
+  actions.setWebpackConfig({
     resolve: {
       alias: {
         jquery: noop,
@@ -122,21 +122,6 @@ exports.modifyWebpackConfig = ({ config } /*: any */) => {
       }
     }
   })
-}
-
-/**
- * Add support for styled-jsx.
- * This is unrolled from `gatsby-plugin-styled-jsx`.
- */
-
-exports.modifyBabelrc = function ({ babelrc } /*: any */) {
-  return {
-    ...babelrc,
-    plugins: [
-      ...babelrc.plugins,
-      ['styled-jsx/babel', { plugins: ['styled-jsx-plugin-postcss'] }]
-    ]
-  }
 }
 
 /**

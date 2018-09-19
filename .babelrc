@@ -1,15 +1,26 @@
 {
-  "presets": [
+  presets: [
     [
-      "env",
+      "@babel/preset-env",
       {
-        "forceAllTransforms": true
-      }
+        loose: true,
+        modules: false,
+        useBuiltIns: "usage",
+        shippedProposals: true,
+        targets: {
+          browsers: [">0.25%", "not dead"],
+        },
+      },
     ],
-    "react"
+    [
+      "@babel/preset-react",
+      {
+        useBuiltIns: true,
+        pragma: "React.createElement",
+      },
+    ],
   ],
-  "plugins": [
-    "babel-plugin-transform-class-properties",
+  plugins: [
     [
       "styled-jsx/babel",
       {
@@ -17,6 +28,21 @@
           "styled-jsx-plugin-postcss"
         ]
       }
-    ]
-  ]
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        loose: true,
+      },
+    ],
+    "@babel/plugin-syntax-dynamic-import",
+    "babel-plugin-macros",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        helpers: true,
+        regenerator: true,
+      },
+    ],
+  ],
 }
