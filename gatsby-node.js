@@ -109,12 +109,27 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
  * some space.
  */
 
-exports.onCreateWebpackConfig = ({ _stage, actions } /*: any */) => {
+exports.onCreateWebpackConfig = ({ loaders, actions } /*: any */) => {
   const noop = root('src/lib/helpers/noop.js')
 
-  // isotope-layout tries to require('jquery'), but let's let that
-  // fail silently. We don't want it to load jQuery.
   actions.setWebpackConfig({
+    // Be sure our internals are babelified; unfortunately I can't make this work right now.
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.jsx?$/,
+    //       use: [
+    //         loaders.js({
+    //           exclude: /node_modules/,
+    //           include: [/node_modules\/@devhints/, /node_modules\/styled-jsx/]
+    //         })
+    //       ]
+    //     }
+    //   ]
+    // },
+
+    // isotope-layout tries to require('jquery'), but let's let that
+    // fail silently. We don't want it to load jQuery.
     resolve: {
       alias: {
         jquery: noop,

@@ -8,7 +8,7 @@
  *     keywordify(null) => null
  */
 
-export function keywordify (str: ?string): ?string {
+export function keywordify (str /*: ?string */) /*: ?string */ {
   if (!str) return null
 
   return str
