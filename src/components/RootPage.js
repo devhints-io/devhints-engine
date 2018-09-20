@@ -39,11 +39,8 @@ export const View = ({
         <title>{metaTitle}</title>
         <meta name='description' content={metaDescription} />
       </Helmet>
-
       <CommonHead />
-
       <TopNav />
-
       <div className='body-area -slim'>
         <SiteHeader />
 

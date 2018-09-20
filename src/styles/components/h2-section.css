@@ -2,15 +2,13 @@
  * h2 section
  */
 
-.h2-section {
-  /* Hide the first h2 heading */
-  &:first-child:not(.-no-hide) > h2 {
-    display: none;
-  }
+/* Hide the first h2 heading */
+.h2-section:first-child:not(.-no-hide) > h2 {
+  display: none;
+}
 
-  @media (min-width: 481px) {
-    & + & {
-      margin-top: 48px;
-    }
+@media (min-width: 481px) {
+  .h2-section + .h2-section {
+    margin-top: 48px;
   }
 }

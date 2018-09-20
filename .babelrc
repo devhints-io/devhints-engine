@@ -23,14 +23,6 @@
   ],
   plugins: [
     [
-      "styled-jsx/babel",
-      {
-        "plugins": [
-          "styled-jsx-plugin-postcss"
-        ]
-      }
-    ],
-    [
       "@babel/plugin-proposal-class-properties",
       {
         loose: true,
@@ -45,5 +37,13 @@
         regenerator: true,
       },
     ],
-  ],
+    [
+      "styled-jsx/babel",
+      {
+        "plugins": [
+          "styled-jsx-plugin-postcss"
+        ]
+      }
+    ]
+  ]
 }
