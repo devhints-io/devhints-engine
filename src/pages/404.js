@@ -1,19 +1,18 @@
 /* @flow */
-/* global location, graphql */
+/* global location */
 
 import Layout from '../containers/Layout'
 import Link from 'gatsby-link'
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import { keywordify } from '@devhints/helpers'
 
 import { CONTENT } from '../../config'
 import ExternalSearchLinks from '../components/ExternalSearchLinks'
 import LiveSearchBox from '../components/LiveSearchBox'
 
-export type PageProps = {
-  data: {
-    siteSearchIndex: any
-  }
+export type Data = {
+  siteSearchIndex: any
 }
 
 export type Props = {|
@@ -28,23 +27,28 @@ export type Props = {|
  * The 404 page.
  */
 
-export const NotFoundPage = ({ data }: PageProps) => {
-  const pathname: ?string =
-    typeof location !== 'undefined' ? location.pathname : null
-  const keyword: ?string = keywordify(pathname)
+export const NotFoundPage = () => (
+  <StaticQuery
+    query={query}
+    render={(data: Data) => {
+      const pathname: ?string =
+        typeof location !== 'undefined' ? location.pathname : null
+      const keyword: ?string = keywordify(pathname)
 
-  return (
-    <Layout>
-      <NotFoundPageView
-        keyword={keyword}
-        title={CONTENT.notFound.notFound}
-        description={CONTENT.notFound.description}
-        home={CONTENT.notFound.home}
-        siteSearchIndex={data && data.siteSearchIndex}
-      />
-    </Layout>
-  )
-}
+      return (
+        <Layout>
+          <NotFoundPageView
+            keyword={keyword}
+            title={CONTENT.notFound.notFound}
+            description={CONTENT.notFound.description}
+            home={CONTENT.notFound.home}
+            siteSearchIndex={data && data.siteSearchIndex}
+          />
+        </Layout>
+      )
+    }}
+  />
+)
 
 /**
  * The 404 page view.
