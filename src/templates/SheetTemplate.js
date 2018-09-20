@@ -2,6 +2,7 @@
 /* global graphql */
 
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../containers/Layout'
 import { Provider } from '../contexts/SiteContext'
 import SheetTemplateView from '../components/SheetTemplateView'
@@ -20,13 +21,15 @@ import type {
  */
 
 export type Props = {
-  data: {
-    relatedPages: AllSitePage,
-    topPages: AllSitePage,
-    allPages: { totalCount: number },
-    markdownRemark: MarkdownNode
-  },
-  pathContext: NodeContext
+  pageContext: NodeContext,
+  data: Data
+}
+
+export type Data = {
+  relatedPages: AllSitePage,
+  topPages: AllSitePage,
+  allPages: { totalCount: number },
+  markdownRemark: MarkdownNode
 }
 
 /**
@@ -34,8 +37,8 @@ export type Props = {
  */
 
 export const SheetTemplate = (props: Props) => {
-  const { data } = props
-  const nodePath = props.pathContext.nodePath
+  const data = props.data
+  const nodePath = props.pageContext.nodePath
 
   const relatedPages: Array<SiteLink> = toSiteLinks(data.relatedPages)
   const topPages: Array<SiteLink> = toSiteLinks(data.topPages)
@@ -70,7 +73,7 @@ export default SheetTemplate
  * Query
  */
 
-export const pageQuery = graphql`
+export const query = graphql`
   query SheetByNodeId($node_id: String!, $category: String!, $path: String!) {
     markdownRemark(id: { eq: $node_id }) {
       htmlAst

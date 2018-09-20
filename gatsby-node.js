@@ -26,8 +26,8 @@ const SHEET_PATH = require('./gatsby-config').siteMetadata.sheetPath
  * template queries.
  */
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, getNode, actions } /*: any */) => {
+  const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     debug('onCreateNode()', { id: node.id })
     createNodeField({
@@ -47,8 +47,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
  * Create pages.
  */
 
-exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ actions, graphql } /*: any */) => {
+  const { createPage } = actions
 
   const SheetTemplate = root('src/templates/SheetTemplate.js')
 
