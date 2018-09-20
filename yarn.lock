@@ -4802,6 +4802,13 @@ gatsby-plugin-page-creator@^2.0.0:
     parse-filepath "^1.0.1"
     slash "^1.0.0"
 
+gatsby-plugin-postcss@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-postcss/-/gatsby-plugin-postcss-2.0.0.tgz#ca2e7f4c1d05e88ea33c63a5fcf7980a2a83f907"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    postcss-loader "^3.0.0"
+
 gatsby-plugin-react-helmet@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.0.tgz#d833a7f7f65b6d2c5adb2d99095a7bd3882d33cd"
@@ -8854,6 +8861,15 @@ postcss-loader@^2.1.3:
     postcss-load-config "^2.0.0"
     schema-utils "^0.4.0"
 
+postcss-loader@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-3.0.0.tgz#6b97943e47c72d845fa9e03f273773d4e8dd6c2d"
+  dependencies:
+    loader-utils "^1.1.0"
+    postcss "^7.0.0"
+    postcss-load-config "^2.0.0"
+    schema-utils "^1.0.0"
+
 postcss-logical@^1.1.1:
   version "1.1.1"
   resolved "http://registry.npmjs.org/postcss-logical/-/postcss-logical-1.1.1.tgz#bcabf0638d8aa747743b32bc52f9d90d4a3313d2"
@@ -9249,7 +9265,7 @@ postcss@^6.0.13:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^7.0.1, postcss@^7.0.2:
+postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.2.tgz#7b5a109de356804e27f95a960bef0e4d5bc9bb18"
   dependencies:
