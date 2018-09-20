@@ -4,12 +4,12 @@
 
 :root {
   --syntax-a: var(--brand-b);
-  --syntax-a3: color(var(--syntax-a) lightness(+8%) hue(-10deg));
-  --syntax-a7: color(var(--syntax-a) lightness(-8%) hue(+10deg));
+  --syntax-a3: color-mod(var(--syntax-a) lightness(+8%) hue(-10deg));
+  --syntax-a7: color-mod(var(--syntax-a) lightness(-8%) hue(+10deg));
 
   --syntax-b: var(--brand-c);
-  --syntax-b3: color(var(--syntax-b) lightness(+8%) hue(-10deg));
-  --syntax-b7: color(var(--syntax-b) lightness(-8%) hue(+10deg));
+  --syntax-b3: color-mod(var(--syntax-b) lightness(+8%) hue(-10deg));
+  --syntax-b7: color-mod(var(--syntax-b) lightness(-8%) hue(+10deg));
 
   --syntax-m: #aaaaaa;
 }

@@ -33,7 +33,7 @@ export const RelatedPostsCallout = ({ pageCount }: Props) => (
           color: white;
           border-radius: 2px;
           box-shadow: var(--shadow2);
-          text-shadow: 0 1px 1px color(black alpha(20%));
+          text-shadow: 0 1px 1px color-mod(black alpha(20%));
         }
 
         &,
@@ -43,7 +43,7 @@ export const RelatedPostsCallout = ({ pageCount }: Props) => (
 
         &:hover,
         &:focus {
-          background: color(var(--brand-a) lightness(-8%));
+          background: color-mod(var(--brand-a) lightness(-8%));
         }
       }
 
@@ -60,10 +60,10 @@ export const RelatedPostsCallout = ({ pageCount }: Props) => (
       .icon::before {
         content: '';
         display: inline-block;
-        /* TODO @include ion-ios-arrow-back(48px, adjust-color($base-a, $lightness: 16%, $hue: 20deg)); */
+        /* TODO @include ion-ios-arrow-back(48px, adjust-color-mod($base-a, $lightness: 16%, $hue: 20deg)); */
         height: 64px;
         width: 64px;
-        border: solid 2px color(var(--brand-a) lightness(+16%) hue(+20deg));
+        border: solid 2px color-mod(var(--brand-a) lightness(+16%) hue(+20deg));
         border-radius: 50%;
         text-indent: -2px;
         text-shadow: none;

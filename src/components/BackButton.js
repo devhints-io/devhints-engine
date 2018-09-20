@@ -45,7 +45,7 @@ export const STYLE = css`
     &:hover,
     &:focus {
       color: white;
-      background: color(var(--brand-b) alpha(4%));
+      background: color-mod(var(--brand-b) alpha(4%));
       opacity: 1;
     }
 
