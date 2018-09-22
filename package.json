@@ -81,7 +81,7 @@
   },
   "jest": {
     "setupFiles": [
-      "./tests/.jest.js"
+      "./tests/jest.setup.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -92,7 +92,7 @@
     ],
     "testURL": "http://localhost",
     "transformIgnorePatterns": [
-      "/node_modules/(?!(devhints|@devhints|rehype-decorate|gatsby\/cache-dir)).+$"
+      "/node_modules/(?!(devhints|@devhints|rehype-decorate\/|gatsby\/)).+$"
     ],
     "moduleNameMapper": {
       ".*raw-loader.*": "<rootDir>/__mocks__/filemock.js",
