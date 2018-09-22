@@ -51,7 +51,7 @@
   "devDependencies": {
     "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "@babel/preset-flow": "^7.0.0",
-    "babel-core": "^7.0.0-0",
+    "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
     "enzyme": "^3.6.0",
@@ -71,6 +71,7 @@
     "hast-util-to-html": "^4.0.1",
     "hastscript": "^4.0.0",
     "husky": "^0.14.3",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "npm-run-all": "^4.1.2",
     "postcss-browser-reporter": "^0.5.0",
@@ -91,11 +92,11 @@
     ],
     "testURL": "http://localhost",
     "transformIgnorePatterns": [
-      "/node_modules/(?!(devhints|@devhints)).+$"
+      "/node_modules/(?!(devhints|@devhints|rehype-decorate|gatsby\/cache-dir)).+$"
     ],
     "moduleNameMapper": {
-      ".*raw-loader.*": "<rootDir>/src/lib/noop-string.js",
-      ".*\\.css$": "<rootDir>/src/lib/noop-string.js"
+      ".*raw-loader.*": "<rootDir>/__mocks__/filemock.js",
+      ".*\\.css$": "<rootDir>/__mocks__/filemock.js"
     }
   },
   "keywords": [
