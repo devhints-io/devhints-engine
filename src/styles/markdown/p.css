@@ -3,7 +3,7 @@
  */
 
 .MarkdownBody.MarkdownBody {
-  img {
+  & img {
     max-width: 100%;
   }
 }

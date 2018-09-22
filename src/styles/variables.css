@@ -38,51 +38,51 @@
   --brand-c: #14af83; /* Teal */
 
   /* Accent variations */
-  --brand-a3: color(var(--brand-a) hue(-20) lightness(+16%));
-  --brand-a4: color(var(--brand-a) hue(-10) lightness(+8%));
-  --brand-a5: color(var(--brand-a));
-  --brand-a6: color(var(--brand-a) hue(+15) lightness(-8%));
-  --brand-a7: color(var(--brand-a) hue(+20) lightness(-16%));
+  --brand-a3: color-mod(var(--brand-a) hue(-20) lightness(+16%));
+  --brand-a4: color-mod(var(--brand-a) hue(-10) lightness(+8%));
+  --brand-a5: color-mod(var(--brand-a));
+  --brand-a6: color-mod(var(--brand-a) hue(+15) lightness(-8%));
+  --brand-a7: color-mod(var(--brand-a) hue(+20) lightness(-16%));
 
-  --brand-b3: color(var(--brand-b) hue(-20) lightness(+16%));
-  --brand-b4: color(var(--brand-b) hue(-10) lightness(+8%));
-  --brand-b5: color(var(--brand-b));
-  --brand-b6: color(var(--brand-b) hue(+10) lightness(-8%));
-  --brand-b7: color(var(--brand-b) hue(+20) lightness(-16%));
+  --brand-b3: color-mod(var(--brand-b) hue(-20) lightness(+16%));
+  --brand-b4: color-mod(var(--brand-b) hue(-10) lightness(+8%));
+  --brand-b5: color-mod(var(--brand-b));
+  --brand-b6: color-mod(var(--brand-b) hue(+10) lightness(-8%));
+  --brand-b7: color-mod(var(--brand-b) hue(+20) lightness(-16%));
 
   /* Mute variations */
-  --text-mute3: color(var(--text-mute) lightness(+16%));
-  --text-mute4: color(var(--text-mute) lightness(+8%));
-  --text-mute6: color(var(--text-mute) lightness(-8%));
-  --text-mute7: color(var(--text-mute) lightness(-16%));
+  --text-mute3: color-mod(var(--text-mute) lightness(+16%));
+  --text-mute4: color-mod(var(--text-mute) lightness(+8%));
+  --text-mute6: color-mod(var(--text-mute) lightness(-8%));
+  --text-mute7: color-mod(var(--text-mute) lightness(-16%));
 
   /* Line colors */
-  --line-color: color(var(--text-mute) alpha(5%));
-  --dark-line-color: color(var(--text-mute) alpha(20%));
+  --line-color: color-mod(var(--text-mute) alpha(5%));
+  --dark-line-color: color-mod(var(--text-mute) alpha(20%));
 }
 
 :root /* Gradients */ {
   --brand-a-gradient: linear-gradient(
     5deg,
     var(--brand-a),
-    color(var(--brand-a) lightness(+2%) hue(+32))
+    color-mod(var(--brand-a) lightness(+2%) hue(+32))
   );
 }
 
 :root /* Shadows */ {
-  --shadow2: 0 1px 1px color(var(--text-mute) alpha(55%));
+  --shadow2: 0 1px 1px color-mod(var(--text-mute) alpha(55%));
 
-  --shadow3: 0 6px 8px color(var(--text-mute) alpha(3%)),
-    0 1px 2px color(var(--text-mute) alpha(30%));
+  --shadow3: 0 6px 8px color-mod(var(--text-mute) alpha(3%)),
+    0 1px 2px color-mod(var(--text-mute) alpha(30%));
 
-  --shadow6: 0 6px 8px color(var(--text-mute) alpha(3%)),
-    0 1px 2px color(var(--text-mute) alpha(30%)),
-    0 8px 12px color(var(--brand-b3) alpha(1%));
+  --shadow6: 0 6px 8px color-mod(var(--text-mute) alpha(3%)),
+    0 1px 2px color-mod(var(--text-mute) alpha(30%)),
+    0 8px 12px color-mod(var(--brand-b3) alpha(1%));
 
   /* TODO improve shadow9 */
-  --shadow9: 0 6px 8px color(var(--brand-b3) alpha(3%)),
-    0 1px 2px color(var(--brand-b3) alpha(30%)),
-    0 10px 18px color(var(--brand-b3) alpha(5%));
+  --shadow9: 0 6px 8px color-mod(var(--brand-b3) alpha(3%)),
+    0 1px 2px color-mod(var(--brand-b3) alpha(30%)),
+    0 10px 18px color-mod(var(--brand-b3) alpha(5%));
 }
 
 :root /* Modular scale */ {

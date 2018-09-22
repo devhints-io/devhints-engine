@@ -3,7 +3,7 @@
     min-height: 114px;
   }
 
-  .cf-wrapper {
+  & .cf-wrapper {
     margin-left: auto;
     margin-right: auto;
   }

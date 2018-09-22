@@ -52,7 +52,7 @@
     transform: translate3d(0, 2px, 0);
     background: linear-gradient(
       to right,
-      color(var(--brand-c) alpha(5%)),
+      color-mod(var(--brand-c) alpha(5%)),
       transparent
     );
   }

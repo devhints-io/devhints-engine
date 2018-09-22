@@ -56,7 +56,7 @@ export const STYLE = css`
     }
 
     &:focus::placeholder {
-      color: color(var(--text-mute) alpha(25%));
+      color: color-mod(var(--text-mute) alpha(25%));
     }
   }
 
@@ -67,13 +67,13 @@ export const STYLE = css`
   .prefix {
     @apply --font-size-0;
     display: block;
-    color: color(var(--text-mute) alpha(50%));
+    color: color-mod(var(--text-mute) alpha(50%));
     font-weight: 400;
     user-select: none;
     line-height: 1.5em;
     padding: 2px 8px;
     border-radius: 3px;
-    background-color: color(var(--bg-body) alpha(50%));
+    background-color: color-mod(var(--bg-body) alpha(50%));
     margin: 0 0 0 16px;
     box-shadow: none;
     transition: background-color 150ms linear, color 150ms linear,
@@ -90,7 +90,7 @@ export const STYLE = css`
 
   .sep {
     @apply --font-size-2;
-    color: color(var(--text-mute) alpha(50%));
+    color: color-mod(var(--text-mute) alpha(50%));
     margin: 0 8px;
   }
 

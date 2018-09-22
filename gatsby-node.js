@@ -26,8 +26,8 @@ const SHEET_PATH = require('./gatsby-config').siteMetadata.sheetPath
  * template queries.
  */
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, getNode, actions } /*: any */) => {
+  const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     debug('onCreateNode()', { id: node.id })
     createNodeField({
@@ -47,8 +47,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators } /*: any */) => {
  * Create pages.
  */
 
-exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ actions, graphql } /*: any */) => {
+  const { createPage } = actions
 
   const SheetTemplate = root('src/templates/SheetTemplate.js')
 
@@ -109,12 +109,27 @@ exports.createPages = ({ boundActionCreators, graphql } /*: any */) => {
  * some space.
  */
 
-exports.modifyWebpackConfig = ({ config } /*: any */) => {
+exports.onCreateWebpackConfig = ({ loaders, actions } /*: any */) => {
   const noop = root('src/lib/helpers/noop.js')
 
-  // isotope-layout tries to require('jquery'), but let's let that
-  // fail silently. We don't want it to load jQuery.
-  config.merge({
+  actions.setWebpackConfig({
+    // Be sure our internals are babelified; unfortunately I can't make this work right now.
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.jsx?$/,
+    //       use: [
+    //         loaders.js({
+    //           exclude: /node_modules/,
+    //           include: [/node_modules\/@devhints/, /node_modules\/styled-jsx/]
+    //         })
+    //       ]
+    //     }
+    //   ]
+    // },
+
+    // isotope-layout tries to require('jquery'), but let's let that
+    // fail silently. We don't want it to load jQuery.
     resolve: {
       alias: {
         jquery: noop,
@@ -122,21 +137,6 @@ exports.modifyWebpackConfig = ({ config } /*: any */) => {
       }
     }
   })
-}
-
-/**
- * Add support for styled-jsx.
- * This is unrolled from `gatsby-plugin-styled-jsx`.
- */
-
-exports.modifyBabelrc = function ({ babelrc } /*: any */) {
-  return {
-    ...babelrc,
-    plugins: [
-      ...babelrc.plugins,
-      ['styled-jsx/babel', { plugins: ['styled-jsx-plugin-postcss'] }]
-    ]
-  }
 }
 
 /**

@@ -4,7 +4,7 @@
  */
 
 .MarkdownBody.MarkdownBody {
-  a + em {
+  & a + em {
     opacity: 0.5;
   }
 }

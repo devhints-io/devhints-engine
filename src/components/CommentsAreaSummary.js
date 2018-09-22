@@ -69,7 +69,7 @@ export const STYLE = css`
 
   .fauxlink {
     margin-left: 4px;
-    border-bottom: solid 1px color(var(--brand-a) alpha(25%));
+    border-bottom: solid 1px color-mod(var(--brand-a) alpha(25%));
   }
 
   /* Icon */
