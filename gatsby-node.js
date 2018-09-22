@@ -21,27 +21,8 @@ const debug = require('debug')('app:gatsby-node')
 
 const SHEET_PATH = require('./gatsby-config').siteMetadata.sheetPath
 
-/**
- * Add extra node fields. This allows us to use $node_id and $category in sheet
- * template queries.
- */
-
-exports.onCreateNode = ({ node, getNode, actions } /*: any */) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    debug('onCreateNode()', { id: node.id })
-    createNodeField({
-      node,
-      name: 'node_id',
-      value: node.id
-    })
-    createNodeField({
-      node,
-      name: 'category',
-      value: node.frontmatter.category || 'Default'
-    })
-  }
-}
+exports.onCreateNode = require('./src/gatsby/on_create_node.js')
+exports.onCreateWebpackConfig = require('./src/gatsby/on_create_webpack_config.js')
 
 /**
  * Create pages.
@@ -99,43 +80,6 @@ exports.createPages = ({ actions, graphql } /*: any */) => {
     })
 
     debug('createPages() > finish')
-  })
-}
-
-/**
- * Modify Webpack configuration.
- *
- * This makes it so that jQuery isn't part of the final JS bundle, saving up
- * some space.
- */
-
-exports.onCreateWebpackConfig = ({ loaders, actions } /*: any */) => {
-  const noop = root('src/lib/helpers/noop.js')
-
-  actions.setWebpackConfig({
-    // Be sure our internals are babelified; unfortunately I can't make this work right now.
-    // module: {
-    //   rules: [
-    //     {
-    //       test: /\.jsx?$/,
-    //       use: [
-    //         loaders.js({
-    //           exclude: /node_modules/,
-    //           include: [/node_modules\/@devhints/, /node_modules\/styled-jsx/]
-    //         })
-    //       ]
-    //     }
-    //   ]
-    // },
-
-    // isotope-layout tries to require('jquery'), but let's let that
-    // fail silently. We don't want it to load jQuery.
-    resolve: {
-      alias: {
-        jquery: noop,
-        jsdom: noop
-      }
-    }
   })
 }
 
