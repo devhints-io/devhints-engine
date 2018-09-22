@@ -1,8 +1,6 @@
 // @flow
 
-const { resolve } = require('path')
-
-const root = (...args) => resolve(__dirname, '..', '..', ...args)
+const { root } = require('./helpers')
 
 /**
  * Modify Webpack configuration.
