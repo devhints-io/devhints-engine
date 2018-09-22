@@ -1,5 +1,4 @@
 /* @flow */
-/* global graphql */
 
 import * as React from 'react'
 import { graphql } from 'gatsby'
@@ -21,16 +20,16 @@ import type {
  * Props
  */
 
-export type Props = {
-  pageContext: NodeContext,
-  data: Data
-}
-
 export type Data = {
   relatedPages: AllSitePage,
   topPages: AllSitePage,
   allPages: { totalCount: number },
   markdownRemark: MarkdownNode
+}
+
+export type Props = {
+  pageContext: NodeContext,
+  data: Data
 }
 
 /**
