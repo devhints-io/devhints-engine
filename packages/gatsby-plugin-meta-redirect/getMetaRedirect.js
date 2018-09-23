@@ -1,20 +1,21 @@
-'use strict';
+module.exports = function getMetaRedirect (toPath) {
+  let url = toPath.trim()
 
-module.exports = function getMetaRedirect(toPath) {
-  var url = toPath.trim();
-
-  var hasProtocol = url.includes('://');
+  const hasProtocol = url.includes('://')
   if (!hasProtocol) {
-    var hasLeadingSlash = url.startsWith('/');
+    const hasLeadingSlash = url.startsWith('/')
     if (!hasLeadingSlash) {
-      url = `/${url}`;
+      url = `/${url}`
     }
 
-    var resemblesFile = url.includes('.');
+    const resemblesFile = url.includes('.')
     if (!resemblesFile) {
-      url = `${url}/`.replace(/\/\/+/g, '/');
+      url = `${url}/`.replace(/\/\/+/g, '')
     }
   }
 
-  return `<meta http-equiv="refresh" content="0; URL='${url}'" />`;
-};
+  // Remove trailing slash
+  url = url.replace(/\/$/, '')
+
+  return `<meta http-equiv="refresh" content="0; URL='${url}'" />`
+}
