@@ -1,7 +1,7 @@
 // @flow
 
 /*::
-   import type { NodeContext, GatsbyActions, AllMarkdownRemark } from '../types'
+   import type { NodeContext, GatsbyActions, AllMarkdownRemark } from '../web/types'
 
    type Actions = GatsbyActions
 
