@@ -1,86 +1,111 @@
 // @flow
 
 /*::
-   import type { NodeContext } from '../types'
+   import type { NodeContext, GatsbyActions, AllMarkdownRemark } from '../types'
+
+   type Actions = GatsbyActions
+
+   type GraphqlResult<Result> = {
+     errors?: Error,
+     data: Result
+   }
+
+   type Data = {
+     allMarkdownRemark: AllMarkdownRemark
+   }
+
+   type Graphql = (string) => Promise<GraphqlResult<Data>>
  */
-const { root } = require('./helpers')
+
+const { root, relativize } = require('./helpers')
 const debug = require('debug')('app:gatsby:createPages')
-
-/**
- * Sheet path
- */
-
-const SHEET_PATH = require('../../gatsby-config').siteMetadata.sheetPath
 
 /**
  * Create pages.
  */
 
-const createPages = ({ actions, graphql } /*: any */) => {
-  const { createPage } = actions
-
-  const SheetTemplate = root('src/templates/SheetTemplate.js')
-
-  return graphql(`
-    {
-      allMarkdownRemark {
-        edges {
-          node {
-            id
-            fileAbsolutePath
-            frontmatter {
-              title
-              category
-              weight
-              updated
-            }
-          }
-        }
-      }
-    }
-  `).then(result => {
+const createPages = (
+  { actions, graphql } /*: { actions: Actions, graphql: Graphql } */
+) => {
+  return graphql(QUERY).then(result => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const path = relativize(node.fileAbsolutePath)
-
-      const context /*: NodeContext */ = {
-        node_id: node.id,
-        nodePath: path,
-        nodeType: 'sheet',
-        title: node.frontmatter.title,
-        category: node.frontmatter.category || '',
-        weight: node.frontmatter.weight || 0,
-        updated: node.frontmatter.updated
-      }
-
-      debug('Creating', { path })
-
-      createPage({
-        path,
-        component: SheetTemplate,
-        context
-      })
+      buildPage({ node, actions })
     })
-
-    debug('Finished')
   })
 }
 
 /**
- * Get a relative path.
- *
- *     relativize('/path/to/react.md')
- *     // => 'react'
- *
- *     relativize('/path/to/devhints/code.md')
- *     // => 'devhints/code'
+ * Build a page from a node
  */
 
-function relativize (path /*: string */) {
-  return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
+function buildPage ({ node, actions } /*: { node: any, actions: Actions } */) {
+  const { createPage, createRedirect } = actions
+  const path = relativize(node.fileAbsolutePath)
+  const SheetTemplate = root('src/templates/SheetTemplate.js')
+
+  const context /*: NodeContext */ = {
+    node_id: node.id,
+    nodePath: path,
+    nodeType: 'sheet',
+    title: node.frontmatter.title,
+    category: node.frontmatter.category || '',
+    weight: node.frontmatter.weight || 0,
+    updated: node.frontmatter.updated
+  }
+
+  debug('Creating page:', { path })
+
+  createPage({
+    path,
+    component: SheetTemplate,
+    context
+  })
+
+  const aliases = node.frontmatter.aliases || []
+  aliases.forEach((alias /*: string */) => {
+    const paths = {
+      fromPath: `/${alias}`,
+      toPath: path
+    }
+
+    debug('Creating redirect:', paths)
+
+    createRedirect({
+      ...paths,
+      isPermanent: true,
+      redirectInBrowser: true
+    })
+  })
+
+  debug('Finished')
 }
+
+/**
+ * The graphql query
+ */
+
+const QUERY = `
+  {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          fileAbsolutePath
+          frontmatter {
+            title
+            category
+            weight
+            updated
+            aliases
+          }
+        }
+      }
+    }
+  }
+`
 
 module.exports = createPages

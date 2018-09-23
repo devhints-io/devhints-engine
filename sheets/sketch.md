@@ -2,6 +2,8 @@
 path: /sketch
 title: Sketch
 weight: -10
+aliases:
+  - sketchapp
 ---
 
 ## Shortcuts
