@@ -1,15 +1,15 @@
 /* @flow */
 /* global location */
 
-import Layout from '../containers/Layout'
+import Layout from '../web/containers/Layout'
 import Link from 'gatsby-link'
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { keywordify } from '@devhints/helpers'
 
 import { CONTENT } from '../../config'
-import ExternalSearchLinks from '../components/ExternalSearchLinks'
-import LiveSearchBox from '../components/LiveSearchBox'
+import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
+import LiveSearchBox from '../web/components/LiveSearchBox'
 
 export type Data = {
   siteSearchIndex: any

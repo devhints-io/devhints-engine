@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../containers/Layout'
 import { Provider } from '../contexts/SiteContext'
 import SheetTemplateView from '../components/SheetTemplateView'
-import { CONTENT } from '../../config'
+import { CONTENT } from '../../../config'
 import { toSiteLinks } from '../lib/site_page'
 
 import type {

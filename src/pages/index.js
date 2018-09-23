@@ -2,12 +2,12 @@
 
 import * as React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import Layout from '../containers/Layout'
-import { Provider } from '../contexts/SiteContext'
-import RootPage from '../components/RootPage'
+import Layout from '../web/containers/Layout'
+import { Provider } from '../web/contexts/SiteContext'
+import RootPage from '../web/components/RootPage'
 import { CONTENT } from '../../config'
-import { toSiteLinks, groupByCategory } from '../lib/site_page'
-import type { AllSitePage, SiteSearchIndex } from '../types'
+import { toSiteLinks, groupByCategory } from '../web/lib/site_page'
+import type { AllSitePage, SiteSearchIndex } from '../web/types'
 
 /*
  * Types
