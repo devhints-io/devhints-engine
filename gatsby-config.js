@@ -1,6 +1,3 @@
-// Because gatsby-plugin-meta-redirect
-global.regeneratorRuntime = require('regenerator-runtime')
-
 const root = require('path').resolve.bind(null, __dirname)
 
 /*
@@ -60,6 +57,6 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-meta-redirect'
+    '@devhints/gatsby-plugin-meta-redirect'
   ]
 }

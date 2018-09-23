@@ -1,0 +1,22 @@
+{
+  "name": "@devhints/gatsby-plugin-meta-redirect",
+  "version": "1.1.0",
+  "repository": "git@github.com:getchalk/gatsby-plugin-meta-redirect.git",
+  "author": "Danny Wilson <dwilson@getchalk.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin"
+  ],
+  "scripts": {
+    "clean": "git clean -xdf ./*.js",
+    "build": "babel src -d .",
+    "test": "jest",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "fs-extra": "^5.0.0",
+    "path": "^0.12.7"
+  }
+}
