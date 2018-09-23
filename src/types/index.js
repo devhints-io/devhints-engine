@@ -15,7 +15,8 @@ export type Frontmatter = {
   path?: string, // TODO remove this
   title?: string,
   intro?: string,
-  category?: string
+  category?: string,
+  aliases?: Array<string>
 }
 
 /**
@@ -48,10 +49,12 @@ export type MarkdownEdgeList = Array<MarkdownEdge>
 
 export type QueryResult = {
   data: {
-    allMarkdownRemark?: {
-      edges: MarkdownEdgeList
-    }
+    allMarkdownRemark?: AllMarkdownRemark
   }
+}
+
+export type AllMarkdownRemark = {
+  edges: MarkdownEdgeList
 }
 
 /**
@@ -186,4 +189,22 @@ export type DisqusData = {
 
 export type SiteSearchIndex = {
   index: any /* index from elasticlunr */
+}
+
+/**
+ * Actions from gatsby-node.js
+ */
+
+export type GatsbyActions = {
+  createPage: ({
+    path: string,
+    component: string,
+    context: NodeContext
+  }) => void,
+  createRedirect: ({
+    fromPath: string,
+    toPath: string,
+    isPermanent?: boolean,
+    redirectInBrowser?: boolean
+  }) => void
 }

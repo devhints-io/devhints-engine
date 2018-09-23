@@ -13,6 +13,7 @@
     "fs-extra": "^7.0.0",
     "gatsby": "^2.0.3",
     "gatsby-link": "^2.0.1",
+    "gatsby-plugin-meta-redirect": "^1.1.0",
     "gatsby-plugin-postcss": "^2.0.0",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-styled-jsx": "^3.0.1",
@@ -92,7 +93,7 @@
     ],
     "testURL": "http://localhost",
     "transformIgnorePatterns": [
-      "/node_modules/(?!(devhints|@devhints|rehype-decorate\/|gatsby\/)).+$"
+      "/node_modules/(?!(devhints|@devhints|rehype-decorate/|gatsby/)).+$"
     ],
     "moduleNameMapper": {
       ".*raw-loader.*": "<rootDir>/__mocks__/filemock.js",
