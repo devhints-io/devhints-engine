@@ -66,7 +66,7 @@ export const SocialList = ({ className, description, permalink }: Props) => {
  */
 
 export const STYLE = css`
-  @import 'src/styles/common';
+  @import 'src/web/styles/common';
 
   ul,
   li {

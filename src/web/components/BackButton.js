@@ -16,7 +16,7 @@ export const BackButton = () => {
 }
 
 export const STYLE = css`
-  @import 'src/styles/common';
+  @import 'src/web/styles/common';
 
   :global(.back-button) {
     text-decoration: none;

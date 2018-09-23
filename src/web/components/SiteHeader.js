@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { CONTENT } from '../../config'
+import { CONTENT } from '../../../config'
 
 /**
  * Properties

@@ -20,7 +20,7 @@ export const RelatedPostsCallout = ({ pageCount }: Props) => (
     </Link>
 
     <style jsx>{`
-      @import 'src/styles/common';
+      @import 'src/web/styles/common';
 
       :global(.related-posts-callout) {
         & {

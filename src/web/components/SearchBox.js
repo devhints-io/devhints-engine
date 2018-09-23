@@ -20,7 +20,7 @@ export const SearchBox = () => (
 )
 
 export const STYLE = css`
-  @import 'src/styles/common';
+  @import 'src/web/styles/common';
 
   /*
    * Search box

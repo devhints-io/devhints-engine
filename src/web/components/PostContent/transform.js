@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react'
-import decorate from '../../../packages/rehype-decorate'
-import wrapify from '../../../packages/rehype-wrapify'
-import separatify from '../../../packages/rehype-table-separators'
+import decorate from '../../../../packages/rehype-decorate'
+import wrapify from '../../../../packages/rehype-wrapify'
+import separatify from '../../../../packages/rehype-table-separators'
 import RehypeReact from 'rehype-react'
 import type { HastNode } from '../../types'
 

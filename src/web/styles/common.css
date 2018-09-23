@@ -1,5 +1,5 @@
 /* Vendor */
-@import '../../node_modules/responsive-modular-scale.css/responsive-modular-scale.css';
+@import '../../../node_modules/responsive-modular-scale.css/responsive-modular-scale.css';
 
 /* Variables */
 @import './variables.css';

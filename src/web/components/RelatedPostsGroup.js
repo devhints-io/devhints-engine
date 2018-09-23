@@ -30,7 +30,7 @@ export const RelatedPostsGroup = ({ pages, title }: Props) => {
       </div>
 
       <style jsx>{`
-        @import 'src/styles/common';
+        @import 'src/web/styles/common';
 
         .related-posts-group {
           & > h3 {

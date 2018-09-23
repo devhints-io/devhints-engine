@@ -29,7 +29,7 @@ export const CommentsAreaSummary = ({ count }: { count: React.Node }) => (
  */
 
 export const STYLE = css`
-  @import 'src/styles/common';
+  @import 'src/web/styles/common';
 
   /* Root component */
   summary {

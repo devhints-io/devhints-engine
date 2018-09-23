@@ -56,7 +56,7 @@ export const CommentsArea = () => {
  */
 
 export const STYLE = css`
-  @import 'src/styles/common';
+  @import 'src/web/styles/common';
 
   .comments-area {
     margin: 32px 0 16px 0;

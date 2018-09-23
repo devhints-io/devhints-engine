@@ -80,7 +80,7 @@ export const PageActionsView = ({ path, labels, editURL }: ViewProps) => {
  */
 
 export const STYLE = css`
-  @import 'src/styles/common';
+  @import 'src/web/styles/common';
 
   ul,
   li {
