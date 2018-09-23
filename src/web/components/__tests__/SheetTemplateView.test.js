@@ -3,7 +3,7 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import SheetTemplateView from '../SheetTemplateView'
 import { Provider } from '../../contexts/SiteContext'
-import { CONTENT } from '../../../config'
+import { CONTENT } from '../../../../config'
 
 it.skip('works', () => {
   const props = {
