@@ -15,6 +15,7 @@ export type RenderProps = {
 
 export type Props = {
   siteSearchIndex: SiteSearchIndex,
+  initialValue?: string,
   children: RenderProps => React.Node
 }
 
@@ -50,6 +51,15 @@ export class SearchProvider extends React.Component<Props, State> {
     expand: true
   }
 
+  constructor (props: Props) {
+    super(props)
+    const query = props.initialValue
+
+    if (query) {
+      Object.assign(this.state, this.doSearch(query))
+    }
+  }
+
   /**
    * Returns the ElasticLunr index.
    */
@@ -62,13 +72,20 @@ export class SearchProvider extends React.Component<Props, State> {
     return index
   }
 
-  /**
-   * Performs a search, and updates the `state.query` and `state.results`
-   * states.
+  /*
+   * Update results after typing in.
    */
 
-  doSearch = (evt: { target: HTMLInputElement }) => {
+  handleInput = (evt: { target: HTMLInputElement }) => {
     const query = evt.target.value
+    this.setState(this.doSearch(query))
+  }
+
+  /**
+   * Performs a search, and returns a state update.
+   */
+
+  doSearch = (query: string) => {
     const index = this.getOrCreateIndex()
 
     // Query the index with search string to get an [] of IDs,
@@ -77,14 +94,14 @@ export class SearchProvider extends React.Component<Props, State> {
       .search(query, this.searchOpts)
       .map(({ ref }) => this.index.documentStore.getDoc(ref))
 
-    this.setState({ query, results })
+    return { query, results }
   }
 
   render () {
     const rprops: RenderProps = {
       query: this.state.query,
       results: this.state.results,
-      onChange: this.doSearch
+      onChange: this.handleInput
     }
 
     return this.props.children(rprops)
