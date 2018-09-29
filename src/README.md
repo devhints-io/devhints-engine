@@ -8,3 +8,5 @@ Contents:
 | [pages/](pages/)     | Gatsby Pages            |
 | [web/](web/)         | Main web stuff          |
 | [helpers/](helpers/) | Helpers used everywhere |
+| | |
+| [search/](search/) | Search |

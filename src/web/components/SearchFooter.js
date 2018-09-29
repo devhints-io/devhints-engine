@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react'
 
-import SearchBox from './SearchBox'
 import HomeButton from './HomeButton'
+import SearchBox from '../../search/components/SearchBox'
 
 /**
  * Search footer in the cheatsheets page.

@@ -2,8 +2,8 @@
 import * as React from 'react'
 
 import SearchItem from './SearchItem'
-import SearchProvider, { type RenderProps } from '../providers/SearchProvider'
-import type { SearchPageItem, SiteSearchIndex } from '../types'
+import SearchProvider, { type RenderProps } from '../containers/SearchProvider'
+import type { SearchPageItem, SiteSearchIndex } from '../../web/types'
 
 export type Props = {
   siteSearchIndex: SiteSearchIndex

@@ -1,13 +1,14 @@
 /* @flow */
-import * as React from 'react'
 import Helmet from 'react-helmet'
-import TopNav from './TopNav'
-import SiteHeader from './SiteHeader'
-import PagesList from './PagesList'
-import CommonHead from './CommonHead'
+import * as React from 'react'
+
 import { Consumer } from '../contexts/SiteContext'
 import type { Context, SiteLink, GroupedSiteLinks } from '../types'
-import LiveSearchBox from '../components/LiveSearchBox'
+import { LiveSearchBox } from '../../search'
+import CommonHead from './CommonHead'
+import PagesList from './PagesList'
+import SiteHeader from './SiteHeader'
+import TopNav from './TopNav'
 
 export type Props = {
   recentlyUpdated: Array<SiteLink>,

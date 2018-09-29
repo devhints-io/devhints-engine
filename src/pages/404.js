@@ -9,7 +9,7 @@ import { keywordify } from '@devhints/helpers'
 
 import { CONTENT } from '../../config'
 import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
-import LiveSearchBox from '../web/components/LiveSearchBox'
+import LiveSearchBox from '../search/components/LiveSearchBox'
 
 export type Data = {
   siteSearchIndex: any
