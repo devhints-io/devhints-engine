@@ -75,6 +75,27 @@ export const CommonHead = () => (
       @import 'src/web/styles/components/side-ad.css'; /* TODO */
       @import 'src/web/styles/components/site-header.css';
       /* @import 'src/web/styles/components/top-nav.css'; DONE */
+
+      a,
+      button,
+      summary {
+        border-radius: 3px;
+        transition: background-color 100ms linear;
+      }
+
+      a:focus,
+      button:focus,
+      summary:focus {
+        outline: 0;
+        background-color: color-mod(var(--brand-b) alpha(6%));
+        animation: focus-in 300ms linear;
+      }
+
+      @keyframes focus-in {
+        0% {
+          background-color: color-mod(var(--brand-b) alpha(12%));
+        }
+      }
     `}</style>
   </React.Fragment>
 )
