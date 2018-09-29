@@ -1,20 +1,21 @@
 /* @flow */
 
-import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../containers/Layout'
-import { Provider } from '../contexts/SiteContext'
-import SheetTemplateView from '../components/SheetTemplateView'
-import { CONTENT } from '../../../config'
-import { toSiteLinks } from '../lib/site_page'
+import * as React from 'react'
 
 import type {
-  MarkdownNode,
   AllSitePage,
-  SiteLink,
+  MarkdownNode,
   NodeContext,
-  Sheet
+  Sheet,
+  SiteLink,
+  SiteSearchIndex
 } from '../types'
+import { CONTENT } from '../../../config'
+import { Provider } from '../contexts/SiteContext'
+import { toSiteLinks } from '../lib/site_page'
+import Layout from '../containers/Layout'
+import SheetTemplateView from '../components/SheetTemplateView'
 
 /**
  * Props
@@ -24,7 +25,8 @@ export type Data = {
   relatedPages: AllSitePage,
   topPages: AllSitePage,
   allPages: { totalCount: number },
-  markdownRemark: MarkdownNode
+  markdownRemark: MarkdownNode,
+  siteSearchIndex: SiteSearchIndex
 }
 
 export type Props = {
@@ -51,9 +53,11 @@ export const SheetTemplate = (props: Props) => {
     htmlAst: data.markdownRemark.htmlAst
   }
 
+  const { siteSearchIndex } = data
+
   return (
     <Layout>
-      <Provider value={{ CONTENT, sheet }}>
+      <Provider value={{ CONTENT, sheet, siteSearchIndex }}>
         <SheetTemplateView
           frontmatter={data.markdownRemark.frontmatter}
           htmlAst={data.markdownRemark.htmlAst}
@@ -132,6 +136,11 @@ export const query = graphql`
     # Number of total cheatsheets
     allPages: allSitePage {
       totalCount
+    }
+
+    # Search
+    siteSearchIndex {
+      index
     }
   }
 `

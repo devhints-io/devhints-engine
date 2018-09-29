@@ -1,2 +1,2 @@
 // Main entry point
-export { default as LiveSearchBox } from './components/LiveSearchBox'
+export { default as LiveSearchInput } from './containers/LiveSearchInput'

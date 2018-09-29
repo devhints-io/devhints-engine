@@ -165,7 +165,8 @@ export type GroupedSiteLinks = {
 
 export type Context = {
   CONTENT: Content,
-  sheet?: Sheet
+  sheet?: Sheet,
+  siteSearchIndex?: SiteSearchIndex
 }
 
 export type SearchPageItem = {

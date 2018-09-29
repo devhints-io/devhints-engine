@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { Consumer } from '../contexts/SiteContext'
 import type { Context, SiteLink, GroupedSiteLinks } from '../types'
-import { LiveSearchBox } from '../../search'
+import { LiveSearchInput } from '../../search'
 import CommonHead from './CommonHead'
 import PagesList from './PagesList'
 import SiteHeader from './SiteHeader'
@@ -45,7 +45,7 @@ export const View = ({
       <div className='body-area -slim'>
         <SiteHeader />
 
-        <LiveSearchBox siteSearchIndex={siteSearchIndex} />
+        <LiveSearchInput siteSearchIndex={siteSearchIndex} />
 
         <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
 

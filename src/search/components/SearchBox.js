@@ -1,18 +1,29 @@
 /* @flow */
 import * as React from 'react'
 import css from 'styled-jsx/css'
+
 import { searchLine } from 'devhints-icons'
 
-export const SearchBox = () => (
+import { Consumer } from '../../web/contexts/SiteContext'
+import type { Context, SiteSearchIndex } from '../../web/types'
+import LiveSearchInput from '../containers/LiveSearchInput'
+
+export type Props = {}
+
+export type ViewProps = {
+  siteSearchIndex: SiteSearchIndex
+}
+
+export const SearchBoxView = ({ siteSearchIndex }: ViewProps) => (
   <label className='search-box -small'>
     <span className='prefix'>devhints.io</span>
     <span className='sep'>/</span>
-    <input
-      name=''
-      type='text'
-      defaultValue=''
-      placeholder='Search 367+ cheatsheets'
+
+    <LiveSearchInput
+      siteSearchIndex={siteSearchIndex}
+      placeholder='Search 360+ cheatsheets'
     />
+
     <i className='icon' dangerouslySetInnerHTML={{ __html: searchLine }} />
 
     <style jsx>{STYLE}</style>
@@ -153,4 +164,13 @@ export const STYLE = css`
   }
 `
 
+export const SearchBox = (props: Props) => {
+  return (
+    <Consumer>
+      {({ siteSearchIndex }: Context) => (
+        <SearchBoxView {...props} siteSearchIndex={siteSearchIndex} />
+      )}
+    </Consumer>
+  )
+}
 export default SearchBox
