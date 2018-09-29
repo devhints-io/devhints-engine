@@ -11,7 +11,8 @@ export type Props = {
 }
 
 export type State = {
-  isActivated: boolean
+  isActivated: boolean,
+  initialValue: string
 }
 
 /**
@@ -20,7 +21,8 @@ export type State = {
 
 class LiveSearchBox extends React.Component<Props, State> {
   state = {
-    isActivated: false
+    isActivated: false,
+    initialValue: ''
   }
 
   render () {
@@ -40,7 +42,7 @@ class LiveSearchBox extends React.Component<Props, State> {
         {isActivated ? (
           <SearchModal
             siteSearchIndex={this.props.siteSearchIndex}
-            initialValue={'v'}
+            initialValue={this.state.initialValue}
             onDismiss={this.dismissModal}
           />
         ) : null}
@@ -60,8 +62,7 @@ class LiveSearchBox extends React.Component<Props, State> {
     const value = e.target.value
 
     if (value.trim().length) {
-      this.setState({ isActivated: true })
-      // TODO: pass on the value
+      this.setState({ isActivated: true, initialValue: value })
     }
   }
 }
