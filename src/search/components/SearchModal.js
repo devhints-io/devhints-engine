@@ -1,7 +1,4 @@
-/**
- * The search modal.
- * @flow
- */
+// @flow
 
 import * as React from 'react'
 
@@ -19,6 +16,29 @@ export type Props = {
 export type ViewProps = RenderProps & {
   onDismiss: () => any
 }
+
+/**
+ * The search modal.
+ * @name SearchModal
+ */
+
+export const SearchModal = (props: Props) => {
+  return (
+    <SearchProvider {...props}>
+      {rprops => (
+        <SearchModalView
+          {...rprops}
+          initialValue={props.initialValue}
+          onDismiss={props.onDismiss}
+        />
+      )}
+    </SearchProvider>
+  )
+}
+
+/**
+ * Search modal view.
+ */
 
 export const SearchModalView = ({
   query,
@@ -43,20 +63,6 @@ export const SearchModalView = ({
 
       <style jsx>{STYLE}</style>
     </div>
-  )
-}
-
-export const SearchModal = (props: Props) => {
-  return (
-    <SearchProvider {...props}>
-      {rprops => (
-        <SearchModalView
-          {...rprops}
-          initialValue={props.initialValue}
-          onDismiss={props.onDismiss}
-        />
-      )}
-    </SearchProvider>
   )
 }
 

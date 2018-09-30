@@ -66,6 +66,7 @@ export const GOOGLE_ANALYTICS = {
 
 /**
  * Disqus integration (TODO)
+ * @name DISQUS
  */
 
 export const DISQUS = {
@@ -75,6 +76,7 @@ export const DISQUS = {
 
 /**
  * Codefund.io integration (TODO)
+ * @name CODEFUND
  */
 
 export const CODEFUND = {
@@ -83,8 +85,8 @@ export const CODEFUND = {
 }
 
 /**
- * Assets
- * No trailing slash please!
+ * Assets. No trailing slash please!
+ * @name ASSETS
  */
 
 export const ASSETS = {
@@ -93,6 +95,7 @@ export const ASSETS = {
 
 /**
  * GitHub (TODO)
+ * @name GITHUB
  */
 
 export const GITHUB = {

@@ -34,7 +34,9 @@ export type ViewProps = Props & {
 /**
  * Top navigation in most pages.
  *
- * @param {Boolean} props.back Shows back button if true
+ * @param {Object} props Properties
+ * @param {boolean} props.back Shows back button if true
+ * @param {string} props.title Title of the page
  *
  * @example
  *     <TopNav />

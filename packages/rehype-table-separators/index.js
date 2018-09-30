@@ -11,6 +11,7 @@ export const DEFAULTS = {
 
 /**
  * Fixes table separators in an HAST node.
+ * @name apply
  * @returns {Node} a copy of the root node, but with tables fixed.
  *
  * @param {Node} root The root node
