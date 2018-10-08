@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import type { SearchPageItem } from '../types'
+import type { SearchPageItem } from '../../web/types'
 
 export type Props = {
   page: SearchPageItem
