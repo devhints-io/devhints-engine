@@ -104,10 +104,10 @@
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
-    "lint": "eslint packages/*/lib src",
+    "lint": "eslint 'packages/*/lib/**/*.js' src",
     "prepush": "yarn run prettier:check",
-    "prettier:check": "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
-    "prettier:fix": "prettier-eslint --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
+    "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
+    "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
     "start": "yarn run develop",
     "test": "jest",
     "validate": "devhints-validator \"sheets/*.md\""
