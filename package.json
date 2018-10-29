@@ -105,7 +105,6 @@
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
     "lint": "eslint 'packages/*/lib/**/*.js' src",
-    "prepush": "yarn run prettier:check",
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
     "start": "yarn run develop",
@@ -118,5 +117,10 @@
   "resolutions": {
     "graphql": "0.13.2",
     "**/graphql": "0.13.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run prettier:check"
+    }
   }
 }
