@@ -8,18 +8,18 @@ import css from 'styled-jsx/css'
  */
 
 export const CommentsAreaSummary = ({ count }: { count: React.Node }) => (
-  <summary className='comments-area-summary'>
+  <summary className="comments-area-summary">
     <i
-      className='icon -line'
+      className="icon -line"
       dangerouslySetInnerHTML={{ __html: talkBubblesLine }}
     />
     <i
-      className='icon -solid'
+      className="icon -solid"
       dangerouslySetInnerHTML={{ __html: talkBubblesSolid }}
     />
-    <strong className='count'>{count}</strong>{' '}
-    <span className='suffix'>for this cheatsheet.</span>{' '}
-    <span className='fauxlink'>Write yours!</span>
+    <strong className="count">{count}</strong>{' '}
+    <span className="suffix">for this cheatsheet.</span>{' '}
+    <span className="fauxlink">Write yours!</span>
     <style jsx>{STYLE}</style>
   </summary>
 )

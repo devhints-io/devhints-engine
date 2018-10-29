@@ -51,7 +51,7 @@ export class SearchProvider extends React.Component<Props, State> {
     expand: true
   }
 
-  constructor (props: Props) {
+  constructor(props: Props) {
     super(props)
     const query = props.initialValue
 
@@ -97,7 +97,7 @@ export class SearchProvider extends React.Component<Props, State> {
     return { query, results }
   }
 
-  render () {
+  render() {
     const rprops: RenderProps = {
       query: this.state.query,
       results: this.state.results,

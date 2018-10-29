@@ -1,4 +1,4 @@
-module.exports = function getMetaRedirect (toPath) {
+module.exports = function getMetaRedirect(toPath) {
   let url = toPath.trim()
 
   const hasProtocol = url.includes('://')

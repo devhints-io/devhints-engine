@@ -2,7 +2,7 @@
   "name": "rehype-decorate",
   "version": "0.1.0",
   "devDependencies": {
-    "hastscript": "^4.0.0"
+    "hastscript": "^4.1.0"
   },
   "license": "MIT",
   "main": "index.js",

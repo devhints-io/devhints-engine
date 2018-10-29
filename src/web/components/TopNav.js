@@ -52,16 +52,16 @@ export const TopNavView = ({
   const isSheetPage = !!title
 
   return (
-    <nav className='top-nav' data-js-no-preview role='navigation'>
+    <nav className="top-nav" data-js-no-preview role="navigation">
       <style jsx>{STYLE}</style>
-      <div className='container'>
-        <div className='left'>{back ? <BackButton /> : null}</div>
+      <div className="container">
+        <div className="left">{back ? <BackButton /> : null}</div>
 
-        <Link className='brand top-nav-brand' to='/'>
+        <Link className="brand top-nav-brand" to="/">
           {brand}
         </Link>
 
-        <div className='actions'>
+        <div className="actions">
           <SocialList description={title} permalink={permalink} />
 
           {/* Don't show 'Edit on Github' for home page */}

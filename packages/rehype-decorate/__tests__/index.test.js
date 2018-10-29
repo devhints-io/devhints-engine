@@ -140,6 +140,6 @@ describe('multiple elements', () => {
  * Helper for writing comment nodes
  */
 
-function comment (value) {
+function comment(value) {
   return { type: 'comment', value }
 }

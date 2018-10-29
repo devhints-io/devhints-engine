@@ -33,7 +33,7 @@ class LiveSearchInput extends React.Component<Props, State> {
     initialValue: ''
   }
 
-  render () {
+  render() {
     const { props } = this
     const { isActivated } = this.state
     const { placeholder } = props
@@ -41,10 +41,10 @@ class LiveSearchInput extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <input
-          type='text'
+          type="text"
           placeholder={placeholder || 'Search...'}
           onChange={this.handleInput}
-          value=''
+          value=""
         />
 
         {isActivated ? (

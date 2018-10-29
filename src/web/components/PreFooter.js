@@ -7,8 +7,8 @@ import css from 'styled-jsx/css'
  */
 
 export const PreFooter = () => (
-  <div className='pre-footer'>
-    <i className='icon' />
+  <div className="pre-footer">
+    <i className="icon" />
 
     <style jsx>{STYLE}</style>
   </div>

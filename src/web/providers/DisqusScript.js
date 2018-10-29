@@ -1,5 +1,7 @@
 // @flow
+/* eslint-disable no-console */
 import * as React from 'react'
+import debugjs from 'debug'
 
 import type { DisqusData } from '../types'
 
@@ -16,18 +18,20 @@ export type Props = DisqusData & { children?: RenderProps => React.Node }
 
 const DISQUS_DELAY = 100
 
+const debug = debugjs('app:DisqusScript')
+
 /*
  * Injects a disqus script.
  */
 
 export class DisqusScript extends React.Component<Props> {
-  componentDidMount () {
+  componentDidMount() {
     const { host, url, identifier } = this.props
-    console.log('[DisqusScript] cdm')
+    debug('componentDidMount() started for "%s".', url)
 
     setTimeout(() => {
-      window.disqus_config = function () {
-        console.log('[disqus_config]')
+      window.disqus_config = function() {
+        debug('Disqus has called window.disqus_config().')
         this.page.url = url
         this.page.identifier = identifier
       }
@@ -36,16 +40,16 @@ export class DisqusScript extends React.Component<Props> {
     }, DISQUS_DELAY)
   }
 
-  render () {
+  render() {
     const { host, url, identifier, children } = this.props
     const data = { host, url, identifier }
 
     // Render props to be passed on
     const rprops: RenderProps = {
-      thread: <div id='disqus_thread' />,
+      thread: <div id="disqus_thread" />,
       count: (
         <span
-          className='disqus-comment-count'
+          className="disqus-comment-count"
           data-disqus-identifier={identifier}
           data-disqus-url={url}
         >
@@ -76,13 +80,13 @@ export default DisqusScript
  *     inject('devhints.disqus.com')
  */
 
-export function injectScript (host: string) {
-  console.log('injectScript()', host)
+export function injectScript(host: string) {
+  debug('injectScript("%s") called', host)
   injectEmbed(host)
   injectCount(host)
 }
 
-export function injectEmbed (host: string) {
+export function injectEmbed(host: string) {
   const s = document.createElement('script')
   s.src = `https://${host}/embed.js`
   s.setAttribute('data-timestamp', `#{+new Date()}`)
@@ -90,7 +94,7 @@ export function injectEmbed (host: string) {
   if (parent) parent.appendChild(s)
 }
 
-export function injectCount (host: string) {
+export function injectCount(host: string) {
   const s = document.createElement('script')
   s.src = `https://${host}/count.js`
   s.id = 'dsq-count-scr'

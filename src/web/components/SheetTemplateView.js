@@ -91,18 +91,18 @@ export const View = ({
 
       <TopNav back title={title} path={path} />
 
-      <div className='body-area'>
+      <div className="body-area">
         <MainHeading title={title} suffix={labels.sheetSuffix} />
 
         {/* Introduction */}
         {frontmatter && frontmatter.intro ? (
-          <IntroContent className='MarkdownBody'>
+          <IntroContent className="MarkdownBody">
             <MiniMarkdown source={frontmatter.intro} />
           </IntroContent>
         ) : null}
 
         {/* Post content */}
-        <PostContent className='post-content MarkdownBody' {...{ htmlAst }} />
+        <PostContent className="post-content MarkdownBody" {...{ htmlAst }} />
       </div>
 
       <PreFooter />

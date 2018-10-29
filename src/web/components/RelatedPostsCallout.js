@@ -9,13 +9,13 @@ export type Props = {
 
 export const RelatedPostsCallout = ({ pageCount }: Props) => (
   <span>
-    <Link className='related-posts-callout' to='/'>
-      <div className='text'>
-        <i className='icon' />
-        <span className='description'>
+    <Link className="related-posts-callout" to="/">
+      <div className="text">
+        <i className="icon" />
+        <span className="description">
           Over {pageCount} curated cheatsheets, by developers for developers.
         </span>
-        <SpanPushButton className='-dark'>Devhints home</SpanPushButton>
+        <SpanPushButton className="-dark">Devhints home</SpanPushButton>
       </div>
     </Link>
 

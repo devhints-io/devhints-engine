@@ -15,16 +15,16 @@ export type ViewProps = {
 }
 
 export const SearchBoxView = ({ siteSearchIndex }: ViewProps) => (
-  <label className='search-box -small'>
-    <span className='prefix'>devhints.io</span>
-    <span className='sep'>/</span>
+  <label className="search-box -small">
+    <span className="prefix">devhints.io</span>
+    <span className="sep">/</span>
 
     <LiveSearchInput
       siteSearchIndex={siteSearchIndex}
-      placeholder='Search 360+ cheatsheets'
+      placeholder="Search 360+ cheatsheets"
     />
 
-    <i className='icon' dangerouslySetInnerHTML={{ __html: searchLine }} />
+    <i className="icon" dangerouslySetInnerHTML={{ __html: searchLine }} />
 
     <style jsx>{STYLE}</style>
   </label>

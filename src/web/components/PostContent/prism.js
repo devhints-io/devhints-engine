@@ -53,7 +53,7 @@ export const LANGUAGE_IGNORE = {
  *     const Prism = await loadPrism()
  */
 
-export function loadPrism (el?: HTMLElement): Promise<any> {
+export function loadPrism(el?: HTMLElement): Promise<any> {
   return Promise.resolve()
     .then(() => {
       const urls = getPrismURLs(el)
@@ -71,7 +71,7 @@ export function loadPrism (el?: HTMLElement): Promise<any> {
  * that element.
  */
 
-export function getPrismURLs (el?: HTMLElement): Array<string> {
+export function getPrismURLs(el?: HTMLElement): Array<string> {
   const languages = getLanguagesInElement(el)
   const languageURLs = languages.map((lang: string) => getLanguageURL(lang))
 
@@ -87,7 +87,7 @@ export function getPrismURLs (el?: HTMLElement): Array<string> {
  * Loads multiple scripts asynchronously.
  */
 
-export function loadScripts (urls: Array<string>): Promise<void> {
+export function loadScripts(urls: Array<string>): Promise<void> {
   return Promise.all(urls.map((url: string) => loadScript(url))).then(noop)
 }
 
@@ -95,8 +95,8 @@ export function loadScripts (urls: Array<string>): Promise<void> {
  * Loads a script asynchronously.
  */
 
-export function loadScript (url: string): Promise<void> {
-  return new Promise((resolve, reject) => {
+export function loadScript(url: string): Promise<void> {
+  return new Promise(resolve => {
     loadjs(url, {
       before: (path, el) => {
         // Prism wants this so that it doesn't automatically do magic.
@@ -127,7 +127,7 @@ export function loadScript (url: string): Promise<void> {
  *     // => 'https://cdn.jsdelivr.net/npm/prismjs@1.14.0/components/prism-javascript.min.js'
  */
 
-export function getLanguageURL (lang: string): string {
+export function getLanguageURL(lang: string): string {
   return getPrismURL(`components/prism-${lang}.min.js`)
 }
 
@@ -142,7 +142,7 @@ export function getLanguageURL (lang: string): string {
  *     // => 'https://cdn.jsdelivr.net/npm/prismjs@1.14.0/package.json'
  */
 
-export function getPrismURL (file: string = 'prism.min.js'): string {
+export function getPrismURL(file: string = 'prism.min.js'): string {
   return `https://cdn.jsdelivr.net/npm/prismjs@${PRISM_VERSION}/${file}`
 }
 
@@ -159,7 +159,7 @@ export function getPrismURL (file: string = 'prism.min.js'): string {
  *     // => ['jsx', 'javascript', 'ruby']
  */
 
-export function getLanguagesInElement (el?: HTMLElement): Array<string> {
+export function getLanguagesInElement(el?: HTMLElement): Array<string> {
   // Just being defensive
   if (!el) return []
 
@@ -199,6 +199,6 @@ export function getLanguagesInElement (el?: HTMLElement): Array<string> {
  *     Promise.all(...).then(noop)
  */
 
-function noop () {
+function noop() {
   // Return undefined
 }

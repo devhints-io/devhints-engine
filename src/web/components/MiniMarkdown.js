@@ -15,7 +15,7 @@ export type Props = {
 
 export const MiniMarkdown = ({ source }: Props) => (
   <span
-    className='mini-markdown'
+    className="mini-markdown"
     dangerouslySetInnerHTML={{ __html: paragraphify(markdownish(source)) }}
   />
 )
@@ -29,7 +29,7 @@ export const MiniMarkdown = ({ source }: Props) => (
  *     // => 'hello <em>world</em>'
  */
 
-export function markdownish (source: string): string {
+export function markdownish(source: string): string {
   return (
     source
       // Code
@@ -60,7 +60,7 @@ export function markdownish (source: string): string {
  *     // => '<p>hello</p><p>there</p>'
  */
 
-export function paragraphify (source: string): string {
+export function paragraphify(source: string): string {
   return source
     .split('\n\n')
     .map(para => `<p>${para}</p>`)
@@ -72,7 +72,7 @@ export function paragraphify (source: string): string {
  * @private
  */
 
-function s (str: string) {
+function s(str: string) {
   return JSON.stringify(str)
 }
 

@@ -27,7 +27,7 @@
  * Returns the class name of a HAST node.
  */
 
-export function getClassName (node /*: HastNode */) {
+export function getClassName(node /*: HastNode */) {
   return node && (node.properties || {}).className
 }
 
@@ -35,7 +35,7 @@ export function getClassName (node /*: HastNode */) {
  * Updates the last child of a HAST node.
  */
 
-export function updateLastChild (
+export function updateLastChild(
   node /*: HastNode */,
   fn /*: HastNode => HastNode */
 ) {
@@ -47,7 +47,7 @@ export function updateLastChild (
  * Updates the last item on a list with a given `fn` function.
  */
 
-export function updateLast (
+export function updateLast(
   list /*: HastNodeList */,
   fn /*: HastNode => HastNode */
 ) {
@@ -61,7 +61,7 @@ export function updateLast (
  * Updates the `children` of a HAST node.
  */
 
-export function updateChildren (
+export function updateChildren(
   node /*: HastNode */,
   fn /*: HastNodeList => HastNodeList */
 ) {
@@ -73,7 +73,7 @@ export function updateChildren (
  * Adds a child to a HAST node.
  */
 
-export function appendChild (node /*: HastNode */, item /*: HastNode */) {
+export function appendChild(node /*: HastNode */, item /*: HastNode */) {
   const children = [...(node.children || []), item]
   return { ...node, children }
 }

@@ -63,6 +63,14 @@ Open <http://localhost:19336/> in your browser afterwards.
 
 Prefix them with `docker-compose run --rm --service-ports web` to run them inside the Docker container.
 
+### Debug messages
+
+Run this in the JavaScript console:
+
+```js
+localStorage.debug = 'app:*'
+```
+
 ## For Devhints forkers
 
 ### Using devhints-engine

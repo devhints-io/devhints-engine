@@ -10,7 +10,7 @@ import {
  * Wrap everything.
  */
 
-export default function (root) {
+export default function(root) {
   root = wrapH2(root)
 
   root = updateChildren(root, children =>
@@ -26,7 +26,7 @@ export default function (root) {
  * Wrap H2 headings.
  */
 
-export function wrapH2 (root) {
+export function wrapH2(root) {
   return wrapify(root, {
     tagName: 'h2',
     sectionClass: ['h2-section'],
@@ -38,7 +38,7 @@ export function wrapH2 (root) {
  * Wraps H3 headings.
  */
 
-export function wrapH3 (root) {
+export function wrapH3(root) {
   return wrapify(root, {
     tagName: 'h3',
     sectionClass: ['h3-section'],
@@ -50,7 +50,7 @@ export function wrapH3 (root) {
  * Wraps headings.
  */
 
-export function wrapify (
+export function wrapify(
   root,
   { tagName = 'h2', sectionClass = ['h2-section'], bodyClass = ['body'] } = {}
 ) {
@@ -80,7 +80,7 @@ export function wrapify (
  * Creates a wrapper element.
  */
 
-function wrapper (className /*: Array<string> */, children /*: HastNodeList */) {
+function wrapper(className /*: Array<string> */, children /*: HastNodeList */) {
   return {
     type: 'element',
     tagName: 'div',

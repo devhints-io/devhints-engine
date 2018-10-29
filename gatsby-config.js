@@ -11,7 +11,7 @@ const PATH_PREFIX = process.env.PATH_PREFIX
  * Get a relative path
  */
 
-function relativize (path /*: string */) {
+function relativize(path /*: string */) {
   return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
 }
 

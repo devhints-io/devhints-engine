@@ -59,16 +59,16 @@ export const PageActionsView = ({ path, labels, editURL }: ViewProps) => {
   if (!path) return null
 
   return (
-    <ul className='page-actions'>
+    <ul className="page-actions">
       <style jsx>{STYLE}</style>
 
-      <li className='item github hint--bottom' data-hint={labels.editOnGithub}>
-        <a href={editURL} className='link' target='edit'>
+      <li className="item github hint--bottom" data-hint={labels.editOnGithub}>
+        <a href={editURL} className="link" target="edit">
           <i
-            className='icon'
+            className="icon"
             dangerouslySetInnerHTML={{ __html: githubIcon }}
           />
-          <span className='text -visible'>{labels.edit}</span>
+          <span className="text -visible">{labels.edit}</span>
         </a>
       </li>
     </ul>

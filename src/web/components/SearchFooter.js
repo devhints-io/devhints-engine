@@ -9,8 +9,8 @@ import SearchBox from '../../search/components/SearchBox'
  */
 
 export const SearchFooter = () => (
-  <aside className='search-footer' data-js-no-preview>
-    <div className='container'>
+  <aside className="search-footer" data-js-no-preview>
+    <div className="container">
       <SearchFooterSection />
     </div>
 
@@ -22,14 +22,14 @@ export const SearchFooter = () => (
 )
 
 export const SearchFooterSection = () => (
-  <section className='search-footer-section'>
-    <div className='search'>
-      <form className='search' action='/' method='get'>
+  <section className="search-footer-section">
+    <div className="search">
+      <form className="search" action="/" method="get">
         <SearchBox />
       </form>
     </div>
 
-    <div className='links'>
+    <div className="links">
       <HomeButton />
     </div>
 

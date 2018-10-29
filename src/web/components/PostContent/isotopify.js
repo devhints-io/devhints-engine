@@ -5,7 +5,7 @@
  * Lays out each h3-section using Isotope.
  */
 
-export default function isotopify (el: ?HTMLElement) {
+export default function isotopify(el: ?HTMLElement) {
   if (!el || !el.children) return
 
   // If we're running on the server, don't bother with this
@@ -24,7 +24,7 @@ export default function isotopify (el: ?HTMLElement) {
  * Applies an Isotope layout to the given HTML element `el`'s H3 sections.
  */
 
-function isotopifyItem (el: HTMLElement) {
+function isotopifyItem(el: HTMLElement) {
   // Load this lazily, so that it doesn't happen on the server
   const Isotope = require('isotope-layout/dist/isotope.pkgd.js')
 

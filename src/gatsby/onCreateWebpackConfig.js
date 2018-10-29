@@ -9,7 +9,9 @@ const { root } = require('./helpers')
  * some space.
  */
 
-const onCreateWebpackConfig = ({ loaders, actions } /*: any */) => {
+const onCreateWebpackConfig = (
+  { actions } /*: { loaders: any, actions: any } */
+) => {
   const noop = root('src/web/lib/helpers/noop.js')
 
   actions.setWebpackConfig({

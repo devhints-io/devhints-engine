@@ -42,7 +42,7 @@ const createPages = (
  * Build a page from a node
  */
 
-function buildPage ({ node, actions } /*: { node: any, actions: Actions } */) {
+function buildPage({ node, actions } /*: { node: any, actions: Actions } */) {
   const { createPage, createRedirect } = actions
   const path = relativize(node.fileAbsolutePath)
   const SheetTemplate = root('src/web/templates/SheetTemplate.js')

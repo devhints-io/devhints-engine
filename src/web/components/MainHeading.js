@@ -10,12 +10,14 @@ export type Props = {
  * Main heading
  */
 
-export default ({ title, suffix }: Props) => (
-  <header className='main-heading -center'>
-    <h1 className='h1'>
+const MainHeading = ({ title, suffix }: Props) => (
+  <header className="main-heading -center">
+    <h1 className="h1">
       {title} <em>{suffix}</em>
     </h1>
 
-    <div className='adbox' />
+    <div className="adbox" />
   </header>
 )
+
+export default MainHeading

@@ -6,7 +6,9 @@
  * This allows us to use $node_id and $category in sheet template queries.
  */
 
-const onCreateNode = ({ node, getNode, actions } /*: any */) => {
+const onCreateNode = (
+  { node, actions } /*: { node: any, getNode: any, actions: any } */
+) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {

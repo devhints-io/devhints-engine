@@ -9,7 +9,7 @@ import css from 'styled-jsx/css'
  */
 
 export const HomeButton = () => (
-  <Link className='home-button' to='/'>
+  <Link className="home-button" to="/">
     <i dangerouslySetInnerHTML={{ __html: homeLine }} />
 
     <style jsx>{STYLE}</style>

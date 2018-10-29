@@ -10,7 +10,7 @@ export type Props = {
  */
 
 export const AttributePeg = ({ hint }: Props) => (
-  <abbr className='attribute-peg -new-layout hint--bottom' data-hint={hint}>
+  <abbr className="attribute-peg -new-layout hint--bottom" data-hint={hint}>
     <span />
   </abbr>
 )

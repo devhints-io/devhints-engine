@@ -17,12 +17,12 @@ export type ViewProps = {
  */
 
 export const CommentsAreaView = ({ thread, count }: ViewProps) => (
-  <section className='comments-area' id='comments' data-js-no-preview>
-    <div className='container'>
+  <section className="comments-area" id="comments" data-js-no-preview>
+    <div className="container">
       <details>
         <CommentsAreaSummary count={count} />
-        <div className='comments-section'>
-          <div className='comments'>{thread}</div>
+        <div className="comments-section">
+          <div className="comments">{thread}</div>
         </div>
       </details>
     </div>
