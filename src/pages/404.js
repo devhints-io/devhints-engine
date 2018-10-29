@@ -1,15 +1,15 @@
 /* @flow */
 /* global location */
 
-import Layout from '../containers/Layout'
+import Layout from '../web/containers/Layout'
 import Link from 'gatsby-link'
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { keywordify } from '@devhints/helpers'
 
 import { CONTENT } from '../../config'
-import ExternalSearchLinks from '../components/ExternalSearchLinks'
-import LiveSearchBox from '../components/LiveSearchBox'
+import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
+import { LiveSearchInput } from '../search'
 
 export type Data = {
   siteSearchIndex: any
@@ -66,7 +66,7 @@ export const NotFoundPageView = ({
       <h1>{title}</h1>
       <p>{description}</p>
       {keyword && <ExternalSearchLinks keyword={keyword} />}
-      <LiveSearchBox siteSearchIndex={siteSearchIndex} />
+      <LiveSearchInput siteSearchIndex={siteSearchIndex} />
       <Link to='/'>{home}</Link>
     </div>
   )

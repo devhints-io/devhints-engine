@@ -9,7 +9,7 @@
  */
 
 module.exports = {
-  onCreateNode: require('./src/gatsby/on_create_node.js'),
-  onCreateWebpackConfig: require('./src/gatsby/on_create_webpack_config.js'),
-  createPages: require('./src/gatsby/create_pages.js')
+  onCreateNode: require('./src/gatsby/onCreateNode'),
+  onCreateWebpackConfig: require('./src/gatsby/onCreateWebpackConfig'),
+  createPages: require('./src/gatsby/createPages')
 }
