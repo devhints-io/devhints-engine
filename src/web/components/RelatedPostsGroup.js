@@ -16,13 +16,13 @@ export const RelatedPostsGroup = ({ pages, title }: Props) => {
   const list = pages.slice(0, 6)
 
   return (
-    <div className='related-posts-group'>
+    <div className="related-posts-group">
       <h3>{title}</h3>
-      <div className='related-post-list'>
+      <div className="related-post-list">
         {list.map(({ path, title }: SiteLink) => (
           <RelatedPostItem
             key={path}
-            className='item'
+            className="item"
             path={path}
             title={title}
           />

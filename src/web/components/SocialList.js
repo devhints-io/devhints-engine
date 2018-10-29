@@ -44,17 +44,17 @@ export const SocialList = ({ className, description, permalink }: Props) => {
     <ul className={`social-list ${className || ''}`}>
       <style jsx>{STYLE}</style>
 
-      <li className='facebook item hint--bottom' data-hint='Share on Facebook'>
-        <a href={facebookURL} className='link' target='share'>
-          <i className='icon' dangerouslySetInnerHTML={{ __html: facebook }} />
-          <span className='text'>Facebook</span>
+      <li className="facebook item hint--bottom" data-hint="Share on Facebook">
+        <a href={facebookURL} className="link" target="share">
+          <i className="icon" dangerouslySetInnerHTML={{ __html: facebook }} />
+          <span className="text">Facebook</span>
         </a>
       </li>
 
-      <li className='twitter item hint--bottom' data-hint='Share on Twitter'>
-        <a href={twitterURL} className='link' target='share'>
-          <i className='icon' dangerouslySetInnerHTML={{ __html: twitter }} />
-          <span className='text'>Twitter</span>
+      <li className="twitter item hint--bottom" data-hint="Share on Twitter">
+        <a href={twitterURL} className="link" target="share">
+          <i className="icon" dangerouslySetInnerHTML={{ __html: twitter }} />
+          <span className="text">Twitter</span>
         </a>
       </li>
     </ul>

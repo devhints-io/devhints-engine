@@ -12,7 +12,7 @@ const { fixAttributes } = require('./fix_attributes')
  * @returns a `Result`.
  */
 
-function lint (document /*: Document */) {
+function lint(document /*: Document */) {
   // Pass thru an error
   if (document.error) {
     return {
@@ -43,7 +43,7 @@ function lint (document /*: Document */) {
  * Serialize a document into a file string contents.
  */
 
-function serialize (doc /*: Document */) {
+function serialize(doc /*: Document */) {
   const { attributes, body } = doc
 
   const matter /*: string */ = yaml.safeDump(attributes).trim()

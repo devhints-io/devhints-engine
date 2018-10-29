@@ -15,7 +15,7 @@ const { lint } = require('./lint')
  * RUN!
  */
 
-async function run (argv /*: Array<string> */, options /*: RunOptions */ = {}) {
+async function run(argv /*: Array<string> */, options /*: RunOptions */ = {}) {
   const filesLists /*: Array<Array<string>> */ = argv.map(spec => glob(spec))
   const files /*: Array<string> */ = flatten(filesLists, 1)
   const results /*: Array<Result> */ = await Promise.all(
@@ -72,7 +72,7 @@ async function run (argv /*: Array<string> */, options /*: RunOptions */ = {}) {
  *     console.log(res.status)
  */
 
-async function runFile (
+async function runFile(
   path /*: string */,
   options = {}
 ) /*: Promise<Result> */ {
@@ -94,7 +94,7 @@ async function runFile (
  * Updates a file.
  */
 
-async function writeResult (result /*: Result */) {
+async function writeResult(result /*: Result */) {
   const doc = result.document
   if (!doc) return
 
@@ -111,7 +111,7 @@ async function writeResult (result /*: Result */) {
  *
  */
 
-async function fetchDoc (path /*: string */) /*: Promise<Document> */ {
+async function fetchDoc(path /*: string */) /*: Promise<Document> */ {
   const rawBody = await readFile(path, 'utf-8')
   const doc /*: Document */ = { path, rawBody }
   return doc
@@ -121,7 +121,7 @@ async function fetchDoc (path /*: string */) /*: Promise<Document> */ {
  * Parse frontmatter out of a file
  */
 
-async function parseMatter (doc /*: Document */) {
+async function parseMatter(doc /*: Document */) {
   try {
     const { attributes, body } = fastmatter(doc.rawBody)
     doc = { ...doc, attributes, body }

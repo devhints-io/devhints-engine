@@ -2,7 +2,7 @@
  * Checks if a given element is a `<tr>` with separator td's.
  */
 
-export function isSeparatorRow (tr) {
+export function isSeparatorRow(tr) {
   const { children } = tr
   if (!children) return false
 
@@ -19,7 +19,7 @@ export function isSeparatorRow (tr) {
  * Checks if a given node is a separator TD.
  */
 
-export function isSeparatorTD (td) {
+export function isSeparatorTD(td) {
   return (
     td &&
     td.type === 'element' &&
@@ -35,7 +35,7 @@ export function isSeparatorTD (td) {
  * Adds a className to a Hast node.
  */
 
-export function addClassNames (node, newClassNames) {
+export function addClassNames(node, newClassNames) {
   const properties = node.properties || {}
   const className = properties.className || []
 

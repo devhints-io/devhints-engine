@@ -13,7 +13,7 @@ import type { HastNode } from '../../types'
  * @returns a React Element.
  */
 
-export default function transform (htmlAst: HastNode): React.Node {
+export default function transform(htmlAst: HastNode): React.Node {
   // Perform transformations
   htmlAst = separatify(wrapify(decorate(htmlAst)))
 

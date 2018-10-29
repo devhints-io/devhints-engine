@@ -7,8 +7,8 @@ import { mdArrowBack as arrowLeft } from 'devhints-icons'
 export const BackButton = () => {
   return (
     <span>
-      <Link className='home back-button' to='/'>
-        <i className='icon' dangerouslySetInnerHTML={{ __html: arrowLeft }} />
+      <Link className="home back-button" to="/">
+        <i className="icon" dangerouslySetInnerHTML={{ __html: arrowLeft }} />
       </Link>
       <style jsx>{STYLE}</style>
     </span>

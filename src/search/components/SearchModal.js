@@ -47,10 +47,10 @@ export const SearchModalView = ({
   onDismiss
 }: ViewProps) => {
   return (
-    <div className='search-modal'>
+    <div className="search-modal">
       <button onClick={onDismiss}>&times;</button>
 
-      <input type='text' value={query} onChange={onChange} autoFocus />
+      <input type="text" value={query} onChange={onChange} autoFocus />
       {results && results.length ? (
         <ul>
           {results.map((page: SearchPageItem) => (

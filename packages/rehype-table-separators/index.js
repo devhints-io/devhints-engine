@@ -18,7 +18,7 @@ export const DEFAULTS = {
  * @param {Options} [options] The options
  */
 
-function apply (root, options) {
+function apply(root, options) {
   const opts = { ...DEFAULTS, ...options }
 
   return map(root, (node, _, parent) => {

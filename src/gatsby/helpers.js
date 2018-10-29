@@ -25,7 +25,7 @@ const root = (...args) => resolve(__dirname, '..', '..', ...args)
  *     // => 'devhints/code'
  */
 
-function relativize (path /*: string */) {
+function relativize(path /*: string */) {
   return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
 }
 

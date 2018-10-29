@@ -14,11 +14,11 @@ export type Props = {
  * Base layout
  */
 
-function Layout ({ children }: Props) {
+function Layout({ children }: Props) {
   return (
     <React.Fragment>
       <Helmet
-        title='Devhints.io'
+        title="Devhints.io"
         meta={[
           { name: 'description', content: 'Sample' },
           { name: 'keywords', content: 'sample, something' }

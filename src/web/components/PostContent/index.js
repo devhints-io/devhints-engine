@@ -22,12 +22,12 @@ export type Props = {
  */
 
 export default class PostContent extends React.PureComponent<Props> {
-  render () {
+  render() {
     const { htmlAst, className } = this.props
     let content = transform(htmlAst)
 
     return (
-      <div className={className} role='main' ref={doPostTransform}>
+      <div className={className} role="main" ref={doPostTransform}>
         {content}
       </div>
     )
@@ -39,7 +39,7 @@ export default class PostContent extends React.PureComponent<Props> {
  * @returns a Promise that resolves to nothing.
  */
 
-function doPostTransform (element: ?HTMLElement): Promise<void> {
+function doPostTransform(element: ?HTMLElement): Promise<void> {
   const log = debug.bind(null, 'doPostTransform()')
   log('working on', element)
 

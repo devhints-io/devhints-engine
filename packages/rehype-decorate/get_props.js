@@ -9,7 +9,7 @@
  *     // => { className: ['hello'] }
  */
 
-export default function getProps (input /*: string */) {
+export default function getProps(input /*: string */) {
   return reduce(input, {}, (state, input) => {
     let m
     ;[m, input] = match(input, /^\s*\.([a-zA-Z0-9\-_]+)/)
@@ -44,7 +44,7 @@ export default function getProps (input /*: string */) {
  *      => [ null, 'abc123456' ]
  */
 
-function match (str, re) {
+function match(str, re) {
   const m = str.match(re)
 
   if (m) {
@@ -60,7 +60,7 @@ function match (str, re) {
  * @private
  */
 
-function reduce (input, state, fn) {
+function reduce(input, state, fn) {
   if (!input) return state
   ;[state, input] = fn(state, input)
   return reduce(input, state, fn)
@@ -71,7 +71,7 @@ function reduce (input, state, fn) {
  * @private
  */
 
-function addClassName (state, className) {
+function addClassName(state, className) {
   return {
     ...state,
     className: [...(state.className || []), className]

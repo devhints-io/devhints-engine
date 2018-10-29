@@ -6,7 +6,7 @@ export const COMMENT = /^\s*{\s*(.*?)\s*}\s*$/
  * Decorates.
  */
 
-export default function decorate (
+export default function decorate(
   root /*: HastNode */,
   options /*: Options */ = {}
 ) {
@@ -22,7 +22,7 @@ export default function decorate (
  * Decorates a list of nodes.
  */
 
-export function decorateFragment (
+export function decorateFragment(
   list /*: HastNodeList */,
   options /*: Options */ = {}
 ) {
@@ -33,7 +33,7 @@ export function decorateFragment (
  * Reduces a list of nodes. (lol)
  */
 
-export function reduceNodes (list /*: HastNodeList */, node /*: HastNode */) {
+export function reduceNodes(list /*: HastNodeList */, node /*: HastNode */) {
   const commentProps = parseComment(node)
 
   // Pass-thru for non-comments
@@ -55,7 +55,7 @@ export function reduceNodes (list /*: HastNodeList */, node /*: HastNode */) {
  *     // => { className: ['hello', 'world']
  */
 
-export function parseComment (node /*: HastNode */) /*: HastProps? */ {
+export function parseComment(node /*: HastNode */) /*: HastProps? */ {
   if (node.type !== 'comment') return
 
   const m = node.value.match(COMMENT)
@@ -68,7 +68,7 @@ export function parseComment (node /*: HastNode */) /*: HastProps? */ {
  * Applies properties into a HAST node.
  */
 
-function applyProps (node /*: HastNode */, props /*: HastProps */) {
+function applyProps(node /*: HastNode */, props /*: HastProps */) {
   // Reject text nodes
   if (node.type !== 'element') return node
 
@@ -99,7 +99,7 @@ function applyProps (node /*: HastNode */, props /*: HastProps */) {
  *     => undefined
  */
 
-function last (list /* Array<*> */) /*: * */ {
+function last(list /* Array<*> */) /*: * */ {
   if (!list.length) return
   return list[list.length - 1]
 }
@@ -116,7 +116,7 @@ function last (list /* Array<*> */) /*: * */ {
  *     => ['a', 'b', 'c']
  */
 
-function trimEnd (list /*: Array<*> */, n /*: number */ = 1) {
+function trimEnd(list /*: Array<*> */, n /*: number */ = 1) {
   const result /*: Array<*> */ = list.slice(0, list.length - n)
   return result
 }

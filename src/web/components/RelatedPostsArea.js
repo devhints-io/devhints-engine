@@ -19,8 +19,8 @@ export type Props = {
  */
 
 export const RelatedPostsArea = (props: Props) => (
-  <footer className='related-posts-area' id='related' data-js-no-preview>
-    <div className='container'>
+  <footer className="related-posts-area" id="related" data-js-no-preview>
+    <div className="container">
       <RelatedPostsSection {...props} />
     </div>
   </footer>

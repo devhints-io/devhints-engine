@@ -11,7 +11,7 @@ export type Props = {
  * https://next.gatsbyjs.org/docs/migrating-from-v1-to-v2/
  */
 
-function TemplateWrapper ({ children }: Props) {
+function TemplateWrapper({ children }: Props) {
   return children
 }
 

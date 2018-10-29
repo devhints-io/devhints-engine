@@ -18,7 +18,7 @@ export type Props = {
  */
 
 export const SiteHeaderView = ({ content: { title, tagline } }: Props) => (
-  <div className='site-header'>
+  <div className="site-header">
     <h1>{title}</h1>
     <p dangerouslySetInnerHTML={{ __html: tagline }} />
 
