@@ -7,7 +7,7 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   settings: {
     react: {
-      version: '16.6.0'
+      version: '16.5.0'
     }
   },
   parserOptions: {
@@ -21,6 +21,5 @@ module.exports = {
   parser: 'babel-eslint',
   rules: {
     'react/prop-types': 0
-
   }
 }
