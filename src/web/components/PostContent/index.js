@@ -9,6 +9,9 @@ import debugjs from 'debug'
 
 const debug = debugjs('app:PostContent')
 
+// $FlowFixMe$ Shim for React 0.17
+const pure = React.pure || (t => t)
+
 export type Props = {
   // Markdown HAST syntax tree
   htmlAst: any,
@@ -21,18 +24,18 @@ export type Props = {
  * Post content with transform magic.
  */
 
-export default class PostContent extends React.PureComponent<Props> {
-  render() {
-    const { htmlAst, className } = this.props
-    let content = transform(htmlAst)
+const PostContent = pure((props: Props) => {
+  const { htmlAst, className } = props
+  let content = transform(htmlAst)
 
-    return (
-      <div className={className} role="main" ref={doPostTransform}>
-        {content}
-      </div>
-    )
-  }
-}
+  return (
+    <div className={className} role="main" ref={doPostTransform}>
+      {content}
+    </div>
+  )
+})
+
+export default PostContent
 
 /**
  * Asynchronously performs transformations needed after rendering.
