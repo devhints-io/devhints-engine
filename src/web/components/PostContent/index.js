@@ -58,4 +58,7 @@ function doPostTransform(element: ?HTMLElement): Promise<void> {
       log('highlighting')
       window.Prism.highlightAllUnder(element)
     })
+    .catch(error => {
+      log('Prism/isotope error:', error)
+    })
 }

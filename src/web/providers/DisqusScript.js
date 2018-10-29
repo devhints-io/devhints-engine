@@ -1,6 +1,7 @@
 // @flow
 /* eslint-disable no-console */
 import * as React from 'react'
+import debugjs from 'debug'
 
 import type { DisqusData } from '../types'
 
@@ -17,6 +18,8 @@ export type Props = DisqusData & { children?: RenderProps => React.Node }
 
 const DISQUS_DELAY = 100
 
+const debug = debugjs('app:DisqusScript')
+
 /*
  * Injects a disqus script.
  */
@@ -24,11 +27,11 @@ const DISQUS_DELAY = 100
 export class DisqusScript extends React.Component<Props> {
   componentDidMount() {
     const { host, url, identifier } = this.props
-    console.log('[DisqusScript] cdm')
+    debug('componentDidMount() started for "%s".', url)
 
     setTimeout(() => {
       window.disqus_config = function() {
-        console.log('[disqus_config]')
+        debug('Disqus has called window.disqus_config().')
         this.page.url = url
         this.page.identifier = identifier
       }
@@ -78,7 +81,7 @@ export default DisqusScript
  */
 
 export function injectScript(host: string) {
-  console.log('injectScript()', host)
+  debug('injectScript("%s") called', host)
   injectEmbed(host)
   injectCount(host)
 }
