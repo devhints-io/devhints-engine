@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-console */
 import * as React from 'react'
 
 import type { DisqusData } from '../types'
@@ -21,12 +22,12 @@ const DISQUS_DELAY = 100
  */
 
 export class DisqusScript extends React.Component<Props> {
-  componentDidMount () {
+  componentDidMount() {
     const { host, url, identifier } = this.props
     console.log('[DisqusScript] cdm')
 
     setTimeout(() => {
-      window.disqus_config = function () {
+      window.disqus_config = function() {
         console.log('[disqus_config]')
         this.page.url = url
         this.page.identifier = identifier
@@ -36,16 +37,16 @@ export class DisqusScript extends React.Component<Props> {
     }, DISQUS_DELAY)
   }
 
-  render () {
+  render() {
     const { host, url, identifier, children } = this.props
     const data = { host, url, identifier }
 
     // Render props to be passed on
     const rprops: RenderProps = {
-      thread: <div id='disqus_thread' />,
+      thread: <div id="disqus_thread" />,
       count: (
         <span
-          className='disqus-comment-count'
+          className="disqus-comment-count"
           data-disqus-identifier={identifier}
           data-disqus-url={url}
         >
@@ -76,13 +77,13 @@ export default DisqusScript
  *     inject('devhints.disqus.com')
  */
 
-export function injectScript (host: string) {
+export function injectScript(host: string) {
   console.log('injectScript()', host)
   injectEmbed(host)
   injectCount(host)
 }
 
-export function injectEmbed (host: string) {
+export function injectEmbed(host: string) {
   const s = document.createElement('script')
   s.src = `https://${host}/embed.js`
   s.setAttribute('data-timestamp', `#{+new Date()}`)
@@ -90,7 +91,7 @@ export function injectEmbed (host: string) {
   if (parent) parent.appendChild(s)
 }
 
-export function injectCount (host: string) {
+export function injectCount(host: string) {
   const s = document.createElement('script')
   s.src = `https://${host}/count.js`
   s.id = 'dsq-count-scr'

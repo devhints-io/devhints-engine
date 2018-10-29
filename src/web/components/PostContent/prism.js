@@ -96,7 +96,7 @@ export function loadScripts (urls: Array<string>): Promise<void> {
  */
 
 export function loadScript (url: string): Promise<void> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     loadjs(url, {
       before: (path, el) => {
         // Prism wants this so that it doesn't automatically do magic.
