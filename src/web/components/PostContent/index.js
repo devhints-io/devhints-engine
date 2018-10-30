@@ -10,7 +10,7 @@ import debugjs from 'debug'
 const debug = debugjs('app:PostContent')
 
 // $FlowFixMe$ Shim for React 0.17
-const pure = React.pure || (t => t)
+const memo = React.memo
 
 export type Props = {
   // Markdown HAST syntax tree
@@ -24,7 +24,7 @@ export type Props = {
  * Post content with transform magic.
  */
 
-const PostContent = pure((props: Props) => {
+const PostContent = memo((props: Props) => {
   const { htmlAst, className } = props
   let content = transform(htmlAst)
 
