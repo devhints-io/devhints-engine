@@ -7,6 +7,7 @@
     "devhints-validator": "packages/devhints-validator/bin/devhints-validator"
   },
   "dependencies": {
+    "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "array-flatten": "^2.1.1",
     "debug": "^4.1.0",
     "fastmatter": "^2.1.0",
@@ -49,7 +50,6 @@
     "styled-jsx-plugin-postcss": "^2.0.0"
   },
   "devDependencies": {
-    "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "@babel/preset-flow": "^7.0.0",
     "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^10.0.1",
