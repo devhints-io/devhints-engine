@@ -9,4 +9,5 @@ services:
       - .:/app
     ports:
       - '19336:19336'
+    user: '1000'
     command: ["yarn", "develop", "--host", "0.0.0.0"]
