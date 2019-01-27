@@ -5,22 +5,22 @@ import css from 'styled-jsx/css'
 
 import { Consumer } from '../contexts/SiteContext'
 import BackButton from './BackButton'
-import SocialList from './SocialList'
 import PageActions from './PageActions'
+import SocialList from './SocialList'
 
 /**
  * Props
  */
 
-export type Props = {
+export interface Props {
   // If true, shows the back button
-  back?: boolean,
+  back?: boolean
 
   // Title of the page. (Home page doesn't have one)
-  title?: string,
+  title?: string
 
   // URL of this current page
-  permalink?: ?string,
+  permalink?: string | null
 
   // Path of the current page
   path?: string

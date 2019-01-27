@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * Convert pathname to keywords.
  *
@@ -8,8 +6,8 @@
  *     keywordify(null) => null
  */
 
-export function keywordify(str /*: ?string */) /*: ?string */ {
-  if (!str) return null
+export function keywordify(str: string | null | void) {
+  if (!str) { return null }
 
   return str
     .slice(1)

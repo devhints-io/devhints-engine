@@ -1,18 +1,14 @@
-/* @flow */
 import groupBy from 'group-by'
-import {
-  AllSitePage,
-  PageEdge,
-  SiteLink,
-  GroupedSiteLinks
-} from '../types'
+import { AllSitePage, GroupedSiteLinks, PageEdge, SiteLink } from '../types'
 
 /**
  * Converts AllSitePage to SiteLinks
  */
 
-export function toSiteLinks(pages?: AllSitePage): Array<SiteLink> {
-  if (!pages || !pages.edges) return []
+export function toSiteLinks(pages?: AllSitePage): SiteLink[] {
+  if (!pages || !pages.edges) {
+    return []
+  }
 
   return pages.edges.map(toSiteLink)
 }
@@ -33,7 +29,7 @@ export function toSiteLink(edge: PageEdge): SiteLink {
  */
 
 export function groupByCategory(allPages: AllSitePage): GroupedSiteLinks {
-  const groups: { [string]: Array<PageEdge> } = groupBy(
+  const groups: { [key: string]: PageEdge[] } = groupBy(
     allPages.edges,
     (edge: PageEdge) => edge.node.context.category
   )

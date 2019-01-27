@@ -1,13 +1,12 @@
-/* @flow */
-import * as React from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 
 /**
  * Props
  */
 
-export type Props = {
-  children: React.Node
+export interface Props {
+  children: React.ReactNode
 }
 
 /**

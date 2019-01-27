@@ -1,27 +1,24 @@
-/* @flow */
-/* global location */
-
-import Layout from '../web/containers/Layout'
+import { keywordify } from '@devhints/helpers'
+import { graphql, StaticQuery } from 'gatsby'
 import Link from 'gatsby-link'
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { keywordify } from '@devhints/helpers'
+import Layout from '../web/containers/Layout'
 
 import { CONTENT } from '../../config'
-import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
 import { LiveSearchInput } from '../search'
+import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
 
-export type Data = {
+export interface Data {
   siteSearchIndex: any
 }
 
-export type Props = {|
-  keyword: ?string, // => 'rails' | null
-  title: string, // => 'Not Found'
-  description: string, // => 'Try searching!'
-  home: string, // => 'Back to home'
+export interface Props {
+  keyword: string | void | null // => 'rails' | null
+  title: string // => 'Not Found'
+  description: string // => 'Try searching!'
+  home: string // => 'Back to home'
   siteSearchIndex: any
-|}
+}
 
 /**
  * The 404 page.
@@ -31,9 +28,9 @@ export const NotFoundPage = () => (
   <StaticQuery
     query={query}
     render={(data: Data) => {
-      const pathname: ?string =
+      const pathname: string | null =
         typeof location !== 'undefined' ? location.pathname : null
-      const keyword: ?string = keywordify(pathname)
+      const keyword: string | null = keywordify(pathname)
 
       return (
         <Layout>

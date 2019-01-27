@@ -1,34 +1,33 @@
-/* @flow */
-import * as React from 'react'
+import React from 'react'
+import Helmet from 'react-helmet'
 import { Consumer } from '../contexts/SiteContext'
+import { Context, Frontmatter, HtmlAst, Sheet, SiteLink } from '../types'
 import CommentsArea from './CommentsArea'
+import CommonHead from './CommonHead'
+import IntroContent from './IntroContent'
 import MainHeading from './MainHeading'
 import MiniMarkdown from './MiniMarkdown'
 import PostContent from './PostContent'
 import PreFooter from './PreFooter'
 import RelatedPostsArea from './RelatedPostsArea'
 import SearchFooter from './SearchFooter'
-import CommonHead from './CommonHead'
-import IntroContent from './IntroContent'
 import TopNav from './TopNav'
-import Helmet from 'react-helmet'
-import { HtmlAst, Frontmatter, Context, SiteLink, Sheet } from '../types'
 
 /**
  * Properties for the `<View />`
  */
 
-export type Props = {
-  frontmatter: Frontmatter,
-  htmlAst: HtmlAst,
-  relatedPages: Array<SiteLink>,
-  topPages: Array<SiteLink>,
-  path: string, // eg, '/vim'
+export interface Props {
+  frontmatter: Frontmatter
+  htmlAst: HtmlAst
+  relatedPages: SiteLink[]
+  topPages: SiteLink[]
+  path: string // eg, '/vim'
   pageCount: number
 }
 
 export type ViewProps = Props & {
-  sheet: Sheet,
+  sheet: Sheet
   labels: {
     sheetSuffix: string
   }
@@ -50,7 +49,9 @@ export type ViewProps = Props & {
 export const SheetTemplateView = (props: Props) => (
   <Consumer>
     {({ CONTENT, sheet }: Context) => {
-      if (!sheet) return null
+      if (!sheet) {
+        return null
+      }
 
       return (
         <View

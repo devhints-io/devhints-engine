@@ -6,7 +6,9 @@ import { SiteSearchIndex } from '../types'
  */
 
 export interface ConsumerRenderProps {
-  siteSearchIndex: SiteSearchIndex
+  siteSearchIndex?: SiteSearchIndex
+  CONTENT?: any // TODO
+  sheet?: any // TODO
 }
 
 export interface ConsumerProps {

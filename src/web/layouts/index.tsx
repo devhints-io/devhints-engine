@@ -1,8 +1,7 @@
-/* @flow */
-import * as React from 'react'
+import React from 'react'
 
-export type Props = {
-  children: () => React.Node
+export interface Props {
+  children: () => React.ReactNode
 }
 
 /**
