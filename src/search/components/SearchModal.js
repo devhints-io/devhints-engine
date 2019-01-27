@@ -5,7 +5,7 @@ import * as React from 'react'
 import SearchItem from './SearchItem'
 import SearchProvider, { type RenderProps } from '../containers/SearchProvider'
 import type { SearchPageItem, SiteSearchIndex } from '../../web/types'
-import css from 'styled-jsx/css'
+import CSS from './SearchModal.module.css'
 
 export type Props = {
   siteSearchIndex: SiteSearchIndex,
@@ -47,12 +47,12 @@ export const SearchModalView = ({
   onDismiss
 }: ViewProps) => {
   return (
-    <div className="search-modal">
+    <div className={CSS.root}>
       <button onClick={onDismiss}>&times;</button>
 
       <input type="text" value={query} onChange={onChange} autoFocus />
       {results && results.length ? (
-        <ul>
+        <ul className={CSS.list}>
           {results.map((page: SearchPageItem) => (
             <SearchItem page={page} key={page.title} />
           ))}
@@ -60,23 +60,8 @@ export const SearchModalView = ({
       ) : (
         <span>No results found</span>
       )}
-
-      <style jsx>{STYLE}</style>
     </div>
   )
 }
-
-export const STYLE = css`
-  .search-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    padding: 32px;
-    background: white;
-    z-index: 1;
-  }
-`
 
 export default SearchModal

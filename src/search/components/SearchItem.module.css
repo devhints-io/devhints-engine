@@ -1,0 +1,14 @@
+.root {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.link {
+  text-deocration: none;
+}
+
+.path {
+  font-weight: bold;
+}

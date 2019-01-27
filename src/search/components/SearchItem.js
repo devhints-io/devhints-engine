@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
+import CSS from './SearchItem.module.css'
 
 import type { SearchPageItem } from '../../web/types'
 
@@ -11,11 +12,11 @@ export type Props = {
 
 const SearchItem = ({ page }: Props) => {
   return (
-    <li>
-      <Link to={page.nodePath}>
-        <strong>{page.nodePath}</strong>
-        <small>{page.title}</small>
-        <small>{page.category}</small>
+    <li className={CSS.root}>
+      <Link to={page.nodePath} className={CSS.link}>
+        <strong className={CSS.path}>{page.nodePath}</strong>
+        <small className={CSS.title}>{page.title}</small>
+        <small className={CSS.category}>{page.category}</small>
       </Link>
     </li>
   )
