@@ -6,9 +6,17 @@
 }
 
 .link {
-  text-deocration: none;
+  text-decoration: none;
 }
 
 .path {
   font-weight: bold;
+}
+
+.title {
+  margin-left: 8px;
+}
+
+.category {
+  margin-left: 8px;
 }
