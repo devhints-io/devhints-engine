@@ -4,8 +4,8 @@ import debugjs from 'debug'
 import { DisqusData } from '../types'
 
 export type RenderProps = {
-  thread: React.Node,
-  count: React.Node
+  thread: React.ReactNode
+  count: React.ReactNode
 }
 
 export type Props = DisqusData & {
@@ -30,9 +30,12 @@ export class DisqusScript extends React.Component<Props> {
     debug('componentDidMount() started for "%s".', url)
 
     setTimeout(() => {
+      // @ts-ignore
       window.disqus_config = function() {
         debug('Disqus has called window.disqus_config().')
+        // @ts-ignore
         this.page.url = url
+        // @ts-ignore
         this.page.identifier = identifier
       }
 
@@ -58,9 +61,11 @@ export class DisqusScript extends React.Component<Props> {
       )
     }
 
+    // @ts-ignore
     return (
       <React.Fragment>
-        <noscript data={JSON.stringify(data)} />
+        {/* <noscript data> isn't standard HTML */}
+        {React.createElement('noscript', { data: JSON.stringify(data) })}
         {typeof children === 'function' ? children(rprops) : null}
       </React.Fragment>
     )
