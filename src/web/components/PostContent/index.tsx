@@ -1,15 +1,15 @@
-import React from 'react'
-import transform from './transform'
-import isotopify from './isotopify'
-import { loadPrism } from './prism'
 import debugjs from 'debug'
+import React from 'react'
+import isotopify from './isotopify'
+import { loadPrism, PrismType } from './prism'
+import transform from './transform'
 
 const debug = debugjs('app:PostContent')
 
-// @ts-ignore
+// @ts-ignore React.memo isn't typed? Why?
 const memo = React.memo
 
-export type Props = {
+export interface Props {
   // Markdown HAST syntax tree
   htmlAst: any
 
@@ -23,7 +23,7 @@ export type Props = {
 
 const PostContent = memo((props: Props) => {
   const { htmlAst, className } = props
-  let content = transform(htmlAst)
+  const content = transform(htmlAst)
 
   return (
     <div className={className} role="main" ref={doPostTransform}>
@@ -45,16 +45,20 @@ function doPostTransform(element: HTMLElement | null | void): Promise<void> {
 
   return Promise.resolve()
     .then(() => {
-      // @ts-ignore
-      if (!element) return global.Prism
-      log('invoking isotope')
+      if (!element) {
+        // @ts-ignore - Prism polutes the global namespaec
+        return global.Prism
+      }
+      log('Invoking Isotope')
       isotopify(element)
 
       return loadPrism(element)
     })
-    .then(Prism => {
-      log('highlighting')
-      Prism.highlightAllUnder(element)
+    .then((Prism: PrismType) => {
+      if (element) {
+        log('Highlighting via Prism')
+        Prism.highlightAllUnder(element)
+      }
     })
     .catch((error: Error) => {
       log('Prism/isotope error:', error)

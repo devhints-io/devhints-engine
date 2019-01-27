@@ -73,6 +73,8 @@
     "postcss-reporter": "^6.0.0",
     "prettier": "^1.14.3",
     "react-test-renderer": "^16.6.0",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.4"
   },
   "jest": {
@@ -108,7 +110,8 @@
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
     "tsc": "tsc",
-    "lint": "eslint 'packages/*/lib/**/*.js' src",
+    "lint:eslint": "eslint 'packages/*/lib/**/*.js' src",
+    "lint": "tslint --project .",
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "start": "yarn run develop",
@@ -121,10 +124,5 @@
   "resolutions": {
     "graphql": "0.13.2",
     "**/graphql": "0.13.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn run prettier:check"
-    }
   }
 }

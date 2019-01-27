@@ -1,9 +1,9 @@
-import React from 'react'
 import debugjs from 'debug'
+import React from 'react'
 
 import { DisqusData } from '../types'
 
-export type RenderProps = {
+export interface RenderProps {
   thread: React.ReactNode
   count: React.ReactNode
 }
@@ -96,7 +96,9 @@ export function injectEmbed(host: string) {
   s.src = `https://${host}/embed.js`
   s.setAttribute('data-timestamp', `#{+new Date()}`)
   const parent = document.head || document.body
-  if (parent) parent.appendChild(s)
+  if (parent) {
+    parent.appendChild(s)
+  }
 }
 
 export function injectCount(host: string) {
@@ -105,5 +107,7 @@ export function injectCount(host: string) {
   s.id = 'dsq-count-scr'
   s.async = true
   const parent = document.head || document.body
-  if (parent) parent.appendChild(s)
+  if (parent) {
+    parent.appendChild(s)
+  }
 }

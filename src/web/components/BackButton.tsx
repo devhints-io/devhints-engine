@@ -1,8 +1,8 @@
+import cn from 'classnames'
+import { mdArrowBack as arrowLeft } from 'devhints-icons'
 import Link from 'gatsby-link'
 import React from 'react'
 import CSS from './BackButton.module.css'
-import cn from 'classnames'
-import { mdArrowBack as arrowLeft } from 'devhints-icons'
 
 export const BackButton = () => {
   return (

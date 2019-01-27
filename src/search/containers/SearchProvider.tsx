@@ -1,23 +1,23 @@
-import React from 'react'
 import { Index } from 'elasticlunr'
+import React from 'react'
 import { SearchPageItem, SiteSearchIndex } from '../../web/types'
 
 // To be passed onto children
-export type RenderProps = {
+export interface RenderProps {
   query: string
-  results: Array<SearchPageItem>
+  results: SearchPageItem[]
   onChange: (arg0: any) => void
 }
 
-export type Props = {
+export interface Props {
   siteSearchIndex: SiteSearchIndex
   initialValue?: string
   children: (rprops: RenderProps) => React.ReactNode
 }
 
-export type State = {
+export interface State {
   query: string
-  results: Array<SearchPageItem>
+  results: SearchPageItem[]
 }
 
 /**
@@ -61,7 +61,7 @@ export class SearchProvider extends React.Component<Props, State> {
    */
 
   getOrCreateIndex = () => {
-    if (this.index) return this.index
+    if (this.index) { return this.index }
 
     const index = Index.load(this.props.siteSearchIndex.index)
     this.index = index

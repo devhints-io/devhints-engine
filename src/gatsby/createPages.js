@@ -45,7 +45,7 @@ const createPages = (
 function buildPage({ node, actions } /*: { node: any, actions: Actions } */) {
   const { createPage, createRedirect } = actions
   const path = relativize(node.fileAbsolutePath)
-  const SheetTemplate = root('src/web/templates/SheetTemplate.js')
+  const SheetTemplate = root('src/web/templates/SheetTemplate.tsx')
 
   const context /*: NodeContext */ = {
     node_id: node.id,

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import SearchItem from './SearchItem'
-import SearchProvider, { RenderProps } from '../containers/SearchProvider'
 import { SearchPageItem, SiteSearchIndex } from '../../web/types'
+import SearchProvider, { RenderProps } from '../containers/SearchProvider'
+import SearchItem from './SearchItem'
 import CSS from './SearchModal.module.css'
 
-export type Props = {
+export interface Props {
   siteSearchIndex: SiteSearchIndex
   initialValue: string
   onDismiss: () => any

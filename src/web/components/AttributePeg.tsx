@@ -1,6 +1,6 @@
 import React from 'react'
 
-export type Props = {
+export interface Props {
   hint: string
 }
 

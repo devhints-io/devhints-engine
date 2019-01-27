@@ -8,19 +8,19 @@ export type HtmlAst = any
  * Frontmatter for cheat sheets.
  */
 
-export type Frontmatter = {
+export interface Frontmatter {
   path?: string // TODO remove this
   title?: string
   intro?: string
   category?: string
-  aliases?: Array<string>
+  aliases?: string[]
 }
 
 /**
  * Markdown node.
  */
 
-export type MarkdownNode = {
+export interface MarkdownNode {
   id: string
   htmlAst: HtmlAst // AST from Remark
   frontmatter: Frontmatter
@@ -30,7 +30,7 @@ export type MarkdownNode = {
  * An 'edge' from an allMarkdownRemark.
  */
 
-export type MarkdownEdge = {
+export interface MarkdownEdge {
   node: MarkdownNode
 }
 
@@ -38,19 +38,19 @@ export type MarkdownEdge = {
  * List of MarkdownEdge's.
  */
 
-export type MarkdownEdgeList = Array<MarkdownEdge>
+export type MarkdownEdgeList = MarkdownEdge[]
 
 /**
  * Result from a query with markdownRemark.
  */
 
-export type QueryResult = {
+export interface QueryResult {
   data: {
     allMarkdownRemark?: AllMarkdownRemark
   }
 }
 
-export type AllMarkdownRemark = {
+export interface AllMarkdownRemark {
   edges: MarkdownEdgeList
 }
 
@@ -58,7 +58,7 @@ export type AllMarkdownRemark = {
  * A link to a cheatsheet.
  */
 
-export type SiteLink = {
+export interface SiteLink {
   path: string
   title: string
 }
@@ -67,14 +67,14 @@ export type SiteLink = {
  * An array of SiteLinks.
  */
 
-export type SiteLinkList = Array<SiteLink>
+export type SiteLinkList = SiteLink[]
 
 /**
  * Content config.
  * See `config.js`.
  */
 
-export type Content = {
+export interface Content {
   home: {
     title: string
     description: string
@@ -99,7 +99,7 @@ export type Content = {
   }
 }
 
-export type NodeContext = {
+export interface NodeContext {
   node_id: string // Internal gatsby identifier of Markdown node
   nodePath: string // File path (eg, 'vim')
   title: string
@@ -110,19 +110,19 @@ export type NodeContext = {
  * TBD
  */
 
-export type HastComment = {
+export interface HastComment {
   type: 'comment'
   value: string
 }
 
-export type HastElement = {
+export interface HastElement {
   tagName: string
   type: 'element'
-  properties: Object
-  children: Array<HastNode>
+  properties: object
+  children: HastNode[]
 }
 
-export type HastText = {
+export interface HastText {
   type: 'text'
   value: string
 }
@@ -133,7 +133,7 @@ export type HastNode = HastComment | HastElement | HastText
  * TBD
  */
 
-export type PageEdge = {
+export interface PageEdge {
   node: {
     id: string
     context: NodeContext
@@ -144,47 +144,47 @@ export type PageEdge = {
  * TBD
  */
 
-export type AllSitePage = {
-  edges: Array<PageEdge>
+export interface AllSitePage {
+  edges: PageEdge[]
 }
 
 /**
  * `SiteLink`s that are grouped by category.
  */
 
-export type GroupedSiteLinks = {
-  [key: string]: Array<SiteLink>
+export interface GroupedSiteLinks {
+  [key: string]: SiteLink[]
 }
 
 /**
  * Global React context
  */
 
-export type Context = {
+export interface Context {
   CONTENT: Content
   sheet?: Sheet
   siteSearchIndex?: SiteSearchIndex
 }
 
-export type SearchPageItem = {
+export interface SearchPageItem {
   id: string
   title: string
   category: string
   nodePath: string
 }
 
-export type Sheet = {
+export interface Sheet {
   path: string
   title: string | null | void
   htmlAst: any
 }
 
-export type DisqusData = {
+export interface DisqusData {
   host: string
   url: string
   identifier: string
 }
 
-export type SiteSearchIndex = {
+export interface SiteSearchIndex {
   index: any /* index from elasticlunr */
 }

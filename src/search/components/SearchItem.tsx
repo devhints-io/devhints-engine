@@ -1,10 +1,10 @@
-import React from 'react'
 import Link from 'gatsby-link'
+import React from 'react'
 import CSS from './SearchItem.module.css'
 
 import { SearchPageItem } from '../../web/types'
 
-export type Props = {
+export interface Props {
   page: SearchPageItem
 }
 

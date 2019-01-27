@@ -5,11 +5,11 @@ import { SiteSearchIndex } from '../types'
  * Le context
  */
 
-export type ConsumerRenderProps = {
+export interface ConsumerRenderProps {
   siteSearchIndex: SiteSearchIndex
 }
 
-export type ConsumerProps = {
+export interface ConsumerProps {
   children: (rprops: ConsumerRenderProps) => any
 }
 

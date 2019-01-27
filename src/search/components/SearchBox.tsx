@@ -1,13 +1,9 @@
-import React from 'react'
 import cn from 'classnames'
-import CSS from './SearchBox.module.css'
-
 import { searchLine } from 'devhints-icons'
-
+import React from 'react'
 import { Consumer, ConsumerRenderProps } from '../../web/contexts/SiteContext'
 import LiveSearchInput from '../containers/LiveSearchInput'
-
-export type Props = {}
+import CSS from './SearchBox.module.css'
 
 export const SearchBoxView = ({ siteSearchIndex }: ConsumerRenderProps) => (
   <label className={cn(CSS.root, CSS.isSmall)}>
@@ -23,7 +19,7 @@ export const SearchBoxView = ({ siteSearchIndex }: ConsumerRenderProps) => (
   </label>
 )
 
-export const SearchBox = (props: Props) => {
+export const SearchBox = () => {
   return (
     <Consumer>
       {({ siteSearchIndex }: ConsumerRenderProps) => (

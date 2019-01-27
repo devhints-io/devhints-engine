@@ -4,15 +4,15 @@
 
 import React from 'react'
 
-import SearchModal from '../components/SearchModal'
 import { SiteSearchIndex } from '../../web/types'
+import SearchModal from '../components/SearchModal'
 
-export type Props = {
+export interface Props {
   siteSearchIndex: SiteSearchIndex
   placeholder?: string
 }
 
-export type State = {
+export interface State {
   // This will be set to `true` when it's activated.
   isActivated: boolean
 

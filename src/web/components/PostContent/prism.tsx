@@ -1,10 +1,16 @@
-import loadjs from 'loadjs'
 import debugjs from 'debug'
+import loadjs from 'loadjs'
 
 const debug = debugjs('app:Prism')
 
-// Type for window.Prism
-export type PrismType = {}
+/*
+ * Type for window.Prism.
+ * Consider later using @types/prismjs or something
+ */
+
+export interface PrismType {
+  highlightAllUnder: (el: HTMLElement) => void
+}
 
 /**
  * Version of Prism.js to load from CDN
@@ -72,7 +78,7 @@ export function loadPrism(el?: HTMLElement): Promise<PrismType> {
  * that element.
  */
 
-export function getPrismURLs(el?: HTMLElement): Array<string> {
+export function getPrismURLs(el?: HTMLElement): string[] {
   const languages = getLanguagesInElement(el)
   const languageURLs = languages.map((lang: string) => getLanguageURL(lang))
 
@@ -89,7 +95,7 @@ export function getPrismURLs(el?: HTMLElement): Array<string> {
  * Loads multiple scripts asynchronously.
  */
 
-export function loadScripts(urls: Array<string>): Promise<void> {
+export function loadScripts(urls: string[]): Promise<void> {
   return Promise.all(urls.map((url: string) => loadScript(url))).then(noop)
 }
 
@@ -162,22 +168,24 @@ export function getPrismURL(file: string = 'prism.min.js'): string {
  *     // => ['jsx', 'javascript', 'ruby']
  */
 
-export function getLanguagesInElement(el?: HTMLElement): Array<string> {
+export function getLanguagesInElement(el?: HTMLElement): string[] {
   // Just being defensive
-  if (!el) return []
+  if (!el) {
+    return []
+  }
 
-  const pres = el.querySelectorAll('[class*="language-"]')
+  const pres = el.querySelectorAll<HTMLElement>('[class*="language-"]')
 
   // Get classnames
   let classNames
-  classNames = Array.from(pres).map(el =>
-    Array.from(el.className.split(' ')).find(
+  classNames = Array.from(pres).map((pre: HTMLElement) =>
+    Array.from(pre.className.split(' ')).find(
       (cn: string) => !!cn.match(/^language-/)
     )
   )
 
   // Ensure there aren't any null's
-  classNames = classNames.filter(Boolean) as Array<string>
+  classNames = classNames.filter(Boolean) as string[]
 
   const result = classNames
     // Only work on the language-* classes
