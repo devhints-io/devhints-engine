@@ -1,5 +1,3 @@
-/* @flow */
-
 /**
  * Unpath helper
  * Remove the unnecessary slashes

@@ -1,9 +1,8 @@
 /**
  * Put me anywhere for a cool search box.
- * @flow
  */
 
-import * as React from 'react'
+import React from 'react'
 
 import SearchModal from '../components/SearchModal'
 import { SiteSearchIndex } from '../../web/types'

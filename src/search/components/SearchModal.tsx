@@ -1,6 +1,4 @@
-// @flow
-
-import * as React from 'react'
+import React from 'react'
 
 import SearchItem from './SearchItem'
 import SearchProvider, { RenderProps } from '../containers/SearchProvider'
