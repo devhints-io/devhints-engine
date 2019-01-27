@@ -1,6 +1,5 @@
 /* @flow */
 import * as React from 'react'
-import css from 'styled-jsx/css'
 import cn from 'classnames'
 import CSS from './SearchBox.module.css'
 
@@ -27,12 +26,8 @@ export const SearchBoxView = ({ siteSearchIndex }: ViewProps) => (
     />
 
     <i className={CSS.icon} dangerouslySetInnerHTML={{ __html: searchLine }} />
-
-    <style jsx>{STYLE}</style>
   </label>
 )
-
-export const STYLE = css
 
 export const SearchBox = (props: Props) => {
   return (

@@ -1,8 +1,8 @@
-@import 'src/web/styles/common';
+@import '../../web/styles/common';
 
 /*
-   * Search box
-   */
+ * Search box
+ */
 
 .root {
   background: var(--bg-card);
@@ -14,6 +14,10 @@
   transition: box-shadow 150ms linear;
   border-radius: 3px;
 }
+
+/*
+ * Input
+ */
 
 input {
   font-family: var(--body-font);
@@ -42,6 +46,10 @@ input:focus {
   outline: 0;
 }
 
+/*
+ * Prefix
+ */
+
 .prefix {
   @apply --font-size-0;
   display: block;
@@ -66,6 +74,10 @@ input:focus {
   transform: translate3d(0, -1px, 0);
 }
 
+/*
+ * Separator
+ */
+
 .sep {
   @apply --font-size-2;
   color: color-mod(var(--text-mute) alpha(50%));
@@ -75,6 +87,10 @@ input:focus {
 .root:focus-within .sep {
   color: var(--brand-b3);
 }
+
+/*
+ * Icon
+ */
 
 .icon {
   display: inline-block;
@@ -99,8 +115,8 @@ input:focus {
 }
 
 /*
-   * Small
-   */
+ * Small
+ */
 
 .root.-small {
   height: 48px;
