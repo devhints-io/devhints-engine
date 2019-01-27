@@ -1,8 +1,11 @@
-/* @flow */
-
 import { graphql } from 'gatsby'
-import * as React from 'react'
+import React from 'react'
 
+import { CONTENT } from '../../../config'
+import SheetTemplateView from '../components/SheetTemplateView'
+import Layout from '../containers/Layout'
+import { Provider } from '../contexts/SiteContext'
+import { toSiteLinks } from '../lib/site_page'
 import {
   AllSitePage,
   MarkdownNode,
@@ -11,26 +14,21 @@ import {
   SiteLink,
   SiteSearchIndex
 } from '../types'
-import { CONTENT } from '../../../config'
-import { Provider } from '../contexts/SiteContext'
-import { toSiteLinks } from '../lib/site_page'
-import Layout from '../containers/Layout'
-import SheetTemplateView from '../components/SheetTemplateView'
 
 /**
  * Props
  */
 
-export type Data = {
-  relatedPages: AllSitePage,
-  topPages: AllSitePage,
-  allPages: { totalCount: number },
-  markdownRemark: MarkdownNode,
+export interface Data {
+  relatedPages: AllSitePage
+  topPages: AllSitePage
+  allPages: { totalCount: number }
+  markdownRemark: MarkdownNode
   siteSearchIndex: SiteSearchIndex
 }
 
-export type Props = {
-  pageContext: NodeContext,
+export interface Props {
+  pageContext: NodeContext
   data: Data
 }
 
@@ -42,8 +40,8 @@ export const SheetTemplate = (props: Props) => {
   const data = props.data
   const nodePath = props.pageContext.nodePath
 
-  const relatedPages: Array<SiteLink> = toSiteLinks(data.relatedPages)
-  const topPages: Array<SiteLink> = toSiteLinks(data.topPages)
+  const relatedPages: SiteLink[] = toSiteLinks(data.relatedPages)
+  const topPages: SiteLink[] = toSiteLinks(data.topPages)
 
   const frontmatter = data.markdownRemark.frontmatter
 
