@@ -1,6 +1,3 @@
-/* @flow */
-/* global HTMLElement */
-
 import loadjs from 'loadjs'
 import debugjs from 'debug'
 
