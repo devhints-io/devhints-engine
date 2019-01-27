@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import './CommonHead.module.css'
+import './CommonHead.css'
 
 /**
  * Things that should be in all pages
