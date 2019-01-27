@@ -6,6 +6,9 @@ import debugjs from 'debug'
 
 const debug = debugjs('app:Prism')
 
+// Type for window.Prism
+export type PrismType = {}
+
 /**
  * Version of Prism.js to load from CDN
  */
@@ -17,7 +20,7 @@ export const PRISM_VERSION = '1.14.0'
  * See: https://cdn.jsdelivr.net/npm/prismjs/components/
  */
 
-export const LANGUAGE_ALIASES = {
+export const LANGUAGE_ALIASES: { [id: string]: string } = {
   coffee: 'coffeescript',
   dockerfile: 'docker',
   dosini: 'ini',
@@ -37,7 +40,7 @@ export const LANGUAGE_ALIASES = {
  * These languages don't exist (or are built in), don't load them
  */
 
-export const LANGUAGE_IGNORE = {
+export const LANGUAGE_IGNORE: { [key: string]: boolean } = {
   nohighlight: true,
   html: true
 }
@@ -53,7 +56,7 @@ export const LANGUAGE_IGNORE = {
  *     const Prism = await loadPrism()
  */
 
-export function loadPrism(el?: HTMLElement): Promise<any> {
+export function loadPrism(el?: HTMLElement): Promise<PrismType> {
   return Promise.resolve()
     .then(() => {
       const urls = getPrismURLs(el)
@@ -61,7 +64,8 @@ export function loadPrism(el?: HTMLElement): Promise<any> {
       return loadScripts(urls)
     })
     .then(() => {
-      return global.Prism
+      // @ts-ignore global.Prism
+      return global.Prism as PrismType
     })
 }
 
@@ -76,6 +80,7 @@ export function getPrismURLs(el?: HTMLElement): Array<string> {
   const languageURLs = languages.map((lang: string) => getLanguageURL(lang))
 
   return [
+    // @ts-ignore global.Prism
     ...(global.Prism ? [] : [getPrismURL()]),
     getPrismURL('plugins/line-highlight/prism-line-highlight.min.js'),
     getPrismURL('plugins/line-highlight/prism-line-highlight.min.css'),
@@ -98,7 +103,8 @@ export function loadScripts(urls: Array<string>): Promise<void> {
 export function loadScript(url: string): Promise<void> {
   return new Promise(resolve => {
     loadjs(url, {
-      before: (path, el) => {
+      // @ts-ignore - because @types/loadjs is whack
+      before: (path: string, el: HTMLElement) => {
         // Prism wants this so that it doesn't automatically do magic.
         el.setAttribute('data-manual', '')
 
@@ -109,7 +115,7 @@ export function loadScript(url: string): Promise<void> {
       success: () => {
         resolve()
       },
-      error: err => {
+      error: (err: Error) => {
         // Probably a 404 or network error or something, no need to panic. It
         // won't cause any trouble, so fail silently.
         debug('loadScript() error:', err)
@@ -165,17 +171,18 @@ export function getLanguagesInElement(el?: HTMLElement): Array<string> {
 
   const pres = el.querySelectorAll('[class*="language-"]')
 
-  const classNames = Array.from(pres)
-    // Get classnames
-    .map((el: HTMLElement) =>
-      Array.from(el.className.split(' ')).find((cn: string) =>
-        cn.match(/^language-/)
-      )
+  // Get classnames
+  let classNames
+  classNames = Array.from(pres).map(el =>
+    Array.from(el.className.split(' ')).find(
+      (cn: string) => !!cn.match(/^language-/)
     )
+  )
 
-    // Ensure there aren't any null's
-    .filter(Boolean)
+  // Ensure there aren't any null's
+  classNames = classNames.filter(Boolean) as Array<string>
 
+  const result = classNames
     // Only work on the language-* classes
     .map((cn: string) => cn.replace(/^language-/, ''))
 
@@ -189,7 +196,7 @@ export function getLanguagesInElement(el?: HTMLElement): Array<string> {
     // Ignore certain ones
     .filter((cn: string) => !LANGUAGE_IGNORE[cn])
 
-  return classNames
+  return result
 }
 
 /**

@@ -846,6 +846,11 @@
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.6.2.tgz#12cfaba693ba20f114ed5765467ff25fdf67ddb0"
 
+"@types/loadjs@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@types/loadjs/-/loadjs-3.5.0.tgz#0a8957275de94001e7e47c63f05c4bf7a461cfe9"
+  integrity sha512-IG/WaQ6rKKUs9Ir2a0pP9RDm9Glu6VXVHMMV2eeW8REsI4ijnkMTQpMFL3HUTPpP4P1iT+CiM2el5mtAGi1wbA==
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"

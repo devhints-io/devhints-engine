@@ -1,8 +1,11 @@
-/* @flow */
-import * as React from 'react'
+import React from 'react'
+// @ts-ignore TODO
 import decorate from '../../../../packages/rehype-decorate'
+// @ts-ignore TODO
 import wrapify from '../../../../packages/rehype-wrapify'
+// @ts-ignore TODO
 import separatify from '../../../../packages/rehype-table-separators'
+// @ts-ignore TODO
 import RehypeReact from 'rehype-react'
 import { HastNode } from '../../types'
 
@@ -13,7 +16,7 @@ import { HastNode } from '../../types'
  * @returns a React Element.
  */
 
-export default function transform(htmlAst: HastNode): React.Node {
+export default function transform(htmlAst: HastNode): React.ReactNode {
   // Perform transformations
   htmlAst = separatify(wrapify(decorate(htmlAst)))
 

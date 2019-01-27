@@ -1,11 +1,8 @@
-/* @flow */
-/* global HTMLElement */
-
 /**
  * Lays out each h3-section using Isotope.
  */
 
-export default function isotopify(el: ?HTMLElement) {
+export default function isotopify(el: HTMLElement | null | void) {
   if (!el || !el.children) return
 
   // If we're running on the server, don't bother with this
@@ -16,7 +13,7 @@ export default function isotopify(el: ?HTMLElement) {
   if (!div) return
 
   // isotope()'ify all lists
-  const lists = div.querySelectorAll('.h3-section-list')
+  const lists = div.querySelectorAll<HTMLElement>('.h3-section-list')
   Array.from(lists).forEach(isotopifyItem)
 }
 

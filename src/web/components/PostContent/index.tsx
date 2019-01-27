@@ -1,7 +1,4 @@
-/* @flow */
-/* global HTMLElement */
-
-import * as React from 'react'
+import React from 'react'
 import transform from './transform'
 import isotopify from './isotopify'
 import { loadPrism } from './prism'
@@ -9,12 +6,12 @@ import debugjs from 'debug'
 
 const debug = debugjs('app:PostContent')
 
-// $FlowFixMe$ Shim for React 0.17
+// @ts-ignore
 const memo = React.memo
 
 export type Props = {
   // Markdown HAST syntax tree
-  htmlAst: any,
+  htmlAst: any
 
   // Class name of the <div>
   className: string
@@ -42,23 +39,24 @@ export default PostContent
  * @returns a Promise that resolves to nothing.
  */
 
-function doPostTransform(element: ?HTMLElement): Promise<void> {
+function doPostTransform(element: HTMLElement | null | void): Promise<void> {
   const log = debug.bind(null, 'doPostTransform()')
   log('working on', element)
 
   return Promise.resolve()
     .then(() => {
-      if (!element) return
+      // @ts-ignore
+      if (!element) return global.Prism
       log('invoking isotope')
       isotopify(element)
 
       return loadPrism(element)
     })
-    .then(() => {
+    .then(Prism => {
       log('highlighting')
-      window.Prism.highlightAllUnder(element)
+      Prism.highlightAllUnder(element)
     })
-    .catch(error => {
+    .catch((error: Error) => {
       log('Prism/isotope error:', error)
     })
 }
