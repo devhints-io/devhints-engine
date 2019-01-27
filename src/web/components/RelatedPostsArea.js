@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react'
 import RelatedPostsSection from './RelatedPostsSection'
-import type { SiteLink } from '../types'
+import { SiteLink } from '../types'
 
 /**
  * Related posts area

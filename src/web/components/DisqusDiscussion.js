@@ -2,8 +2,8 @@
 import React from 'react'
 import DisqusScript from '../providers/DisqusScript'
 
-import type { DisqusData } from '../types'
-import type { RenderProps } from '../providers/DisqusScript'
+import { DisqusData } from '../types'
+import { RenderProps } from '../providers/DisqusScript'
 
 export const DisqusDiscussion = () => {
   // Disqus configuration

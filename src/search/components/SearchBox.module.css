@@ -118,27 +118,27 @@ input:focus {
  * Small
  */
 
-.root.-small {
+.root.isSmall {
   height: 48px;
 }
 
-.root.-small:focus-within {
+.root.isSmall:focus-within {
   box-shadow: var(--shadow9);
 }
 
-.root.-small > input {
+.root.isSmall > input {
   padding: 8px;
   height: 48px;
   padding-left: 0;
 }
 
-.root.-small > .prefix,
-.root.-small > .sep,
-.root.-small > input {
+.root.isSmall > .prefix,
+.root.isSmall > .sep,
+.root.isSmall > input {
   @apply --font-size-1;
 }
 
-.root.-small::before {
+.root.isSmall::before {
   flex: 0 0 48px;
   width: 48px;
   line-height: 48px;

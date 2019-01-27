@@ -1,26 +1,22 @@
-/* @flow */
-/* global HTMLInputElement */
-import * as React from 'react'
-
+import React from 'react'
 import { Index } from 'elasticlunr'
-
-import type { SearchPageItem, SiteSearchIndex } from '../../web/types'
+import { SearchPageItem, SiteSearchIndex } from '../../web/types'
 
 // To be passed onto children
 export type RenderProps = {
-  query: string,
-  results: Array<SearchPageItem>,
-  onChange: any => void
+  query: string
+  results: Array<SearchPageItem>
+  onChange: (arg0: any) => void
 }
 
 export type Props = {
-  siteSearchIndex: SiteSearchIndex,
-  initialValue?: string,
-  children: RenderProps => React.Node
+  siteSearchIndex: SiteSearchIndex
+  initialValue?: string
+  children: (rprops: RenderProps) => React.ReactNode
 }
 
 export type State = {
-  query: string,
+  query: string
   results: Array<SearchPageItem>
 }
 
@@ -92,7 +88,7 @@ export class SearchProvider extends React.Component<Props, State> {
     // then map over each ID and return the full document
     const results = index
       .search(query, this.searchOpts)
-      .map(({ ref }) => this.index.documentStore.getDoc(ref))
+      .map(({ ref }: any) => this.index.documentStore.getDoc(ref))
 
     return { query, results }
   }

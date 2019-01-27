@@ -18,6 +18,7 @@
     "gatsby-plugin-postcss": "^2.0.0",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-styled-jsx": "^3.0.1",
+    "gatsby-plugin-typescript": "^2.0.3",
     "gatsby-react-router-scroll": "^2.0.0",
     "gatsby-remark-component": "^1.1.3",
     "gatsby-source-filesystem": "^2.0.5",
@@ -52,15 +53,13 @@
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",
+    "@types/classnames": "^2.2.7",
     "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.3",
-    "eslint": "^5.8.0",
-    "eslint-plugin-flowtype": "^3.1.4",
-    "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.84.0",
     "gh-pages": "^2.0.1",
     "hast-util-to-html": "^4.0.1",
@@ -72,7 +71,8 @@
     "postcss-browser-reporter": "^0.5.0",
     "postcss-reporter": "^6.0.0",
     "prettier": "^1.14.3",
-    "react-test-renderer": "^16.6.0"
+    "react-test-renderer": "^16.6.0",
+    "typescript": "^3.2.4"
   },
   "jest": {
     "setupFiles": [
@@ -106,9 +106,10 @@
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "flow": "flow",
+    "tsc": "tsc",
     "lint": "eslint 'packages/*/lib/**/*.js' src",
-    "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
-    "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
+    "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
+    "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "start": "yarn run develop",
     "test": "jest",
     "validate": "devhints-validator \"sheets/*.md\""

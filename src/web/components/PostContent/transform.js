@@ -4,7 +4,7 @@ import decorate from '../../../../packages/rehype-decorate'
 import wrapify from '../../../../packages/rehype-wrapify'
 import separatify from '../../../../packages/rehype-table-separators'
 import RehypeReact from 'rehype-react'
-import type { HastNode } from '../../types'
+import { HastNode } from '../../types'
 
 /**
  * Converts a HAST node (generated from Markdown) into a React element.

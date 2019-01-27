@@ -12,7 +12,7 @@ import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'
 import TopNav from './TopNav'
 import Helmet from 'react-helmet'
-import type { HtmlAst, Frontmatter, Context, SiteLink, Sheet } from '../types'
+import { HtmlAst, Frontmatter, Context, SiteLink, Sheet } from '../types'
 
 /**
  * Properties for the `<View />`

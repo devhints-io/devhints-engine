@@ -1,10 +1,8 @@
-// @flow
-
 import React from 'react'
 import Link from 'gatsby-link'
 import CSS from './SearchItem.module.css'
 
-import type { SearchPageItem } from '../../web/types'
+import { SearchPageItem } from '../../web/types'
 
 export type Props = {
   page: SearchPageItem

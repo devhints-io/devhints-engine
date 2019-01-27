@@ -1,6 +1,6 @@
 /* @flow */
 import groupBy from 'group-by'
-import type {
+import {
   AllSitePage,
   PageEdge,
   SiteLink,

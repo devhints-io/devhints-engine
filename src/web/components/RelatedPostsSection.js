@@ -2,7 +2,7 @@
 import * as React from 'react'
 import RelatedPostsGroup from './RelatedPostsGroup'
 import RelatedPostsCallout from './RelatedPostsCallout'
-import type { Props } from './RelatedPostsArea'
+import { Props } from './RelatedPostsArea'
 
 /**
  * Related posts section

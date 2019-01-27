@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 import AttributePeg from './AttributePeg'
 import { Consumer } from '../contexts/SiteContext'
 import { unpath } from '../../helpers'
-import type { SiteLink, Context } from '../types'
+import { SiteLink, Context } from '../types'
 
 /**
  * Types

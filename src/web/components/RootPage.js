@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import * as React from 'react'
 
 import { Consumer } from '../contexts/SiteContext'
-import type { Context, SiteLink, GroupedSiteLinks } from '../types'
+import { Context, SiteLink, GroupedSiteLinks } from '../types'
 import { LiveSearchInput } from '../../search'
 import CommonHead from './CommonHead'
 import PagesList from './PagesList'

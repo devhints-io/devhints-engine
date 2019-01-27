@@ -4,8 +4,8 @@ import CommentsAreaSummary from './CommentsAreaSummary'
 import css from 'styled-jsx/css'
 import DisqusScript from '../providers/DisqusScript'
 
-import type { DisqusData } from '../types'
-import type { RenderProps } from '../providers/DisqusScript'
+import { DisqusData } from '../types'
+import { RenderProps } from '../providers/DisqusScript'
 
 export type ViewProps = {
   thread: React.Node,

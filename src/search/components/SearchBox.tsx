@@ -1,22 +1,16 @@
-/* @flow */
-import * as React from 'react'
+import React from 'react'
 import cn from 'classnames'
 import CSS from './SearchBox.module.css'
 
 import { searchLine } from 'devhints-icons'
 
-import { Consumer } from '../../web/contexts/SiteContext'
-import type { Context, SiteSearchIndex } from '../../web/types'
+import { Consumer, ConsumerRenderProps } from '../../web/contexts/SiteContext'
 import LiveSearchInput from '../containers/LiveSearchInput'
 
 export type Props = {}
 
-export type ViewProps = {
-  siteSearchIndex: SiteSearchIndex
-}
-
-export const SearchBoxView = ({ siteSearchIndex }: ViewProps) => (
-  <label className={cn(CSS.root, CSS['-small'])}>
+export const SearchBoxView = ({ siteSearchIndex }: ConsumerRenderProps) => (
+  <label className={cn(CSS.root, CSS.isSmall)}>
     <span className={CSS.prefix}>devhints.io</span>
     <span className={CSS.sep}>/</span>
 
@@ -32,7 +26,7 @@ export const SearchBoxView = ({ siteSearchIndex }: ViewProps) => (
 export const SearchBox = (props: Props) => {
   return (
     <Consumer>
-      {({ siteSearchIndex }: Context) => (
+      {({ siteSearchIndex }: ConsumerRenderProps) => (
         <SearchBoxView {...props} siteSearchIndex={siteSearchIndex} />
       )}
     </Consumer>

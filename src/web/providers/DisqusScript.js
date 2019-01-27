@@ -3,7 +3,7 @@
 import * as React from 'react'
 import debugjs from 'debug'
 
-import type { DisqusData } from '../types'
+import { DisqusData } from '../types'
 
 export type RenderProps = {
   thread: React.Node,

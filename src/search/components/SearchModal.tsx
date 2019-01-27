@@ -3,13 +3,13 @@
 import * as React from 'react'
 
 import SearchItem from './SearchItem'
-import SearchProvider, { type RenderProps } from '../containers/SearchProvider'
-import type { SearchPageItem, SiteSearchIndex } from '../../web/types'
+import SearchProvider, { RenderProps } from '../containers/SearchProvider'
+import { SearchPageItem, SiteSearchIndex } from '../../web/types'
 import CSS from './SearchModal.module.css'
 
 export type Props = {
-  siteSearchIndex: SiteSearchIndex,
-  initialValue: string,
+  siteSearchIndex: SiteSearchIndex
+  initialValue: string
   onDismiss: () => any
 }
 
@@ -25,12 +25,8 @@ export type ViewProps = RenderProps & {
 export const SearchModal = (props: Props) => {
   return (
     <SearchProvider {...props}>
-      {rprops => (
-        <SearchModalView
-          {...rprops}
-          initialValue={props.initialValue}
-          onDismiss={props.onDismiss}
-        />
+      {(rprops: RenderProps) => (
+        <SearchModalView {...rprops} onDismiss={props.onDismiss} />
       )}
     </SearchProvider>
   )

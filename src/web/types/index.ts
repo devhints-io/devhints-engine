@@ -1,6 +1,3 @@
-/* @flow */
-/* eslint-disable no-use-before-define */
-
 /**
  * HAST syntax tree. (todo)
  */
@@ -12,10 +9,10 @@ export type HtmlAst = any
  */
 
 export type Frontmatter = {
-  path?: string, // TODO remove this
-  title?: string,
-  intro?: string,
-  category?: string,
+  path?: string // TODO remove this
+  title?: string
+  intro?: string
+  category?: string
   aliases?: Array<string>
 }
 
@@ -24,8 +21,8 @@ export type Frontmatter = {
  */
 
 export type MarkdownNode = {
-  id: string,
-  htmlAst: HtmlAst, // AST from Remark
+  id: string
+  htmlAst: HtmlAst // AST from Remark
   frontmatter: Frontmatter
 }
 
@@ -62,7 +59,7 @@ export type AllMarkdownRemark = {
  */
 
 export type SiteLink = {
-  path: string,
+  path: string
   title: string
 }
 
@@ -79,33 +76,33 @@ export type SiteLinkList = Array<SiteLink>
 
 export type Content = {
   home: {
-    title: string,
-    description: string,
-    recentlyUpdated: string,
+    title: string
+    description: string
+    recentlyUpdated: string
     updatedLabel: string
-  },
+  }
   siteHeader: {
-    title: string,
+    title: string
     tagline: string
-  },
+  }
   topNav: {
-    title: string,
-    edit: string,
+    title: string
+    edit: string
     editOnGithub: string
-  },
+  }
   sheet: {
     suffix: string
-  },
+  }
   relatedPostsCallout: {
-    description: string,
+    description: string
     link: string
   }
 }
 
 export type NodeContext = {
-  node_id: string, // Internal gatsby identifier of Markdown node
-  nodePath: string, // File path (eg, 'vim')
-  title: string,
+  node_id: string // Internal gatsby identifier of Markdown node
+  nodePath: string // File path (eg, 'vim')
+  title: string
   category: string
 }
 
@@ -114,19 +111,19 @@ export type NodeContext = {
  */
 
 export type HastComment = {
-  type: 'comment',
+  type: 'comment'
   value: string
 }
 
 export type HastElement = {
-  tagName: string,
-  type: 'element',
-  properties: Object,
+  tagName: string
+  type: 'element'
+  properties: Object
   children: Array<HastNode>
 }
 
 export type HastText = {
-  type: 'text',
+  type: 'text'
   value: string
 }
 
@@ -138,7 +135,7 @@ export type HastNode = HastComment | HastElement | HastText
 
 export type PageEdge = {
   node: {
-    id: string,
+    id: string
     context: NodeContext
   }
 }
@@ -156,7 +153,7 @@ export type AllSitePage = {
  */
 
 export type GroupedSiteLinks = {
-  [string]: Array<SiteLink>
+  [key: string]: Array<SiteLink>
 }
 
 /**
@@ -164,48 +161,30 @@ export type GroupedSiteLinks = {
  */
 
 export type Context = {
-  CONTENT: Content,
-  sheet?: Sheet,
+  CONTENT: Content
+  sheet?: Sheet
   siteSearchIndex?: SiteSearchIndex
 }
 
 export type SearchPageItem = {
-  id: string,
-  title: string,
-  category: string,
+  id: string
+  title: string
+  category: string
   nodePath: string
 }
 
 export type Sheet = {
-  path: string,
-  title: string | null | void,
+  path: string
+  title: string | null | void
   htmlAst: any
 }
 
 export type DisqusData = {
-  host: string,
-  url: string,
+  host: string
+  url: string
   identifier: string
 }
 
 export type SiteSearchIndex = {
   index: any /* index from elasticlunr */
-}
-
-/**
- * Actions from gatsby-node.js
- */
-
-export type GatsbyActions = {
-  createPage: ({
-    path: string,
-    component: string,
-    context: NodeContext
-  }) => void,
-  createRedirect: ({
-    fromPath: string,
-    toPath: string,
-    isPermanent?: boolean,
-    redirectInBrowser?: boolean
-  }) => void
 }

@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react'
 import RelatedPostItem from './RelatedPostItem'
-import type { SiteLink } from '../types'
+import { SiteLink } from '../types'
 
 export type Props = {
   pages: Array<SiteLink>,

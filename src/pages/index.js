@@ -7,7 +7,7 @@ import { Provider } from '../web/contexts/SiteContext'
 import RootPage from '../web/components/RootPage'
 import { CONTENT } from '../../config'
 import { toSiteLinks, groupByCategory } from '../web/lib/site_page'
-import type { AllSitePage, SiteSearchIndex } from '../web/types'
+import { AllSitePage, SiteSearchIndex } from '../web/types'
 
 /*
  * Types
