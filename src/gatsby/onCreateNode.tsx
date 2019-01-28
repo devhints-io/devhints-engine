@@ -26,4 +26,4 @@ const onCreateNode = (
   }
 }
 
-module.exports = onCreateNode
+export default onCreateNode

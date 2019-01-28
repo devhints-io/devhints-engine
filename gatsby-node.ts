@@ -7,8 +7,8 @@
  * - https://www.gatsbyjs.org/docs/adding-markdown-pages/#create-static-pages-using-gatsbys-node-api
  */
 
-module.exports = {
-  onCreateNode: require('./src/gatsby/onCreateNode'),
-  onCreateWebpackConfig: require('./src/gatsby/onCreateWebpackConfig'),
-  createPages: require('./src/gatsby/createPages')
-}
+import createPages from './src/gatsby/createPages'
+import onCreateNode from './src/gatsby/onCreateNode'
+import onCreateWebpackConfig from './src/gatsby/onCreateWebpackConfig'
+
+export { onCreateNode, onCreateWebpackConfig, createPages }

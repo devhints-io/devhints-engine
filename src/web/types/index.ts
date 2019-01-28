@@ -188,3 +188,7 @@ export interface DisqusData {
 export interface SiteSearchIndex {
   index: any /* index from elasticlunr */
 }
+
+export interface GatsbyActions {
+  todo: () => void
+}

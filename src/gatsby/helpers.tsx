@@ -1,10 +1,12 @@
-const { resolve } = require('path')
+import { resolve } from 'path'
+// @ts-ignore No types for gatsby-config.js
+import CONFIG from '../../gatsby-config'
 
 /**
  * Sheet path
  */
 
-const SHEET_PATH = require('../../gatsby-config').siteMetadata.sheetPath
+const SHEET_PATH = CONFIG.siteMetadata.sheetPath
 
 /**
  * Get an absolute path from the project root.
@@ -13,7 +15,7 @@ const SHEET_PATH = require('../../gatsby-config').siteMetadata.sheetPath
  *     // => '/path/to/src/index.js'
  */
 
-const root = (...args) => resolve(__dirname, '..', '..', ...args)
+const root = (...args: string[]) => resolve(__dirname, '..', '..', ...args)
 
 /**
  * Get a relative path.
@@ -25,7 +27,7 @@ const root = (...args) => resolve(__dirname, '..', '..', ...args)
  *     // => 'devhints/code'
  */
 
-function relativize(path /*: string */) {
+function relativize(path: string) {
   return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
 }
 
@@ -33,4 +35,4 @@ function relativize(path /*: string */) {
  * Export
  */
 
-module.exports = { root, relativize, SHEET_PATH }
+export { root, relativize, SHEET_PATH }

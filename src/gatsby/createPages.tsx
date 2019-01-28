@@ -1,24 +1,23 @@
 // @flow
 
-/*::
-   import { NodeContext, GatsbyActions, AllMarkdownRemark } from '../web/types'
+import debugjs from 'debug'
+import { AllMarkdownRemark, GatsbyActions, NodeContext } from '../web/types'
+import { relativize, root } from './helpers'
 
-   type Actions = GatsbyActions
+type Actions = GatsbyActions
 
-   type GraphqlResult<Result> = {
-     errors?: Error,
-     data: Result
-   }
+interface GraphqlResult<Result> {
+  errors?: Error
+  data: Result
+}
 
-   type Data = {
-     allMarkdownRemark: AllMarkdownRemark
-   }
+interface Data {
+  allMarkdownRemark: AllMarkdownRemark
+}
 
-   type Graphql = (string) => Promise<GraphqlResult<Data>>
- */
+type Graphql = (query: string) => Promise<GraphqlResult<Data>>
 
-const { root, relativize } = require('./helpers')
-const debug = require('debug')('app:gatsby:createPages')
+const debug = debugjs('app:gatsby:createPages')
 
 /**
  * Create pages.
@@ -108,4 +107,4 @@ const QUERY = `
   }
 `
 
-module.exports = createPages
+export default createPages

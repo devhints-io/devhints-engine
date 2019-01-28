@@ -1,6 +1,11 @@
-// @flow
+import { root } from './helpers'
 
-const { root } = require('./helpers')
+interface Props {
+  actions: {
+    setWebpackConfig: (config: any) => void
+  }
+  loaders: any
+}
 
 /**
  * Modify Webpack configuration.
@@ -9,9 +14,7 @@ const { root } = require('./helpers')
  * some space.
  */
 
-const onCreateWebpackConfig = (
-  { actions } /*: { loaders: any, actions: any } */
-) => {
+const onCreateWebpackConfig = ({ actions }: Props) => {
   const noop = root('src/web/lib/helpers/noop.js')
 
   actions.setWebpackConfig({
@@ -41,4 +44,4 @@ const onCreateWebpackConfig = (
   })
 }
 
-module.exports = onCreateWebpackConfig
+export default onCreateWebpackConfig
