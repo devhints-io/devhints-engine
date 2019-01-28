@@ -35,7 +35,7 @@ const onCreateWebpackConfig = ({ actions }: Props) => {
     //       use: [
     //         loaders.js({
     //           exclude: /node_modules/,
-    //           include: [/node_modules\/@devhints/, /node_modules\/styled-jsx/]
+    //           include: [/node_modules\/@devhints/]
     //         })
     //       ]
     //     }

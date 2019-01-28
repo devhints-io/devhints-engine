@@ -3,7 +3,7 @@ const IS_TEST = NODE_ENV === 'test'
 
 module.exports = {
   presets: [
-    '@babel/preset-flow',
+    '@babel/preset-typescript',
     [
       '@babel/preset-env',
       {
@@ -38,12 +38,6 @@ module.exports = {
       {
         helpers: true,
         regenerator: true
-      }
-    ],
-    [
-      'styled-jsx/babel',
-      {
-        plugins: ['styled-jsx-plugin-postcss']
       }
     ]
   ]

@@ -20,7 +20,6 @@
     "gatsby-link": "^2.0.5",
     "gatsby-plugin-postcss": "^2.0.0",
     "gatsby-plugin-react-helmet": "^3.0.0",
-    "gatsby-plugin-styled-jsx": "^3.0.1",
     "gatsby-plugin-typescript": "^2.0.3",
     "gatsby-react-router-scroll": "^2.0.0",
     "gatsby-remark-component": "^1.1.3",
@@ -50,9 +49,7 @@
     "remark-frontmatter": "^1.3.0",
     "remark-preset-lint-markdown-style-guide": "^2.1.2",
     "responsive-modular-scale.css": "^0.1.0",
-    "sanitize.css": "^8.0.0",
-    "styled-jsx": "^3.1.0",
-    "styled-jsx-plugin-postcss": "^2.0.0"
+    "sanitize.css": "^8.0.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
