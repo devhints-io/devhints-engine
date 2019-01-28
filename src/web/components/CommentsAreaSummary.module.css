@@ -62,7 +62,8 @@
 }
 
 /* Icon on hover */
-.root:hover {
+.root:hover,
+.root:focus {
   & .icon.isSolid {
     display: inline;
   }

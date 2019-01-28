@@ -19,7 +19,7 @@ export const CommentsAreaSummary = ({ count }: Props) => (
       dangerouslySetInnerHTML={{ __html: talkBubblesLine }}
     />
     <i
-      className={cn(CSS.icon, CSS.isLine)}
+      className={cn(CSS.icon, CSS.isSolid)}
       dangerouslySetInnerHTML={{ __html: talkBubblesSolid }}
     />
     <strong className={CSS.count}>{count}</strong>{' '}
