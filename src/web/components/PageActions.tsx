@@ -1,4 +1,3 @@
-// @flow
 import { github as githubIcon } from 'devhints-icons'
 import React from 'react'
 

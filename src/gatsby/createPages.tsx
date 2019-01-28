@@ -1,5 +1,3 @@
-// @flow
-
 import debugjs from 'debug'
 import { AllMarkdownRemark, GatsbyActions, NodeContext } from '../web/types'
 import { relativize, root } from './helpers'
@@ -23,9 +21,13 @@ const debug = debugjs('app:gatsby:createPages')
  * Create pages.
  */
 
-const createPages = (
-  { actions, graphql } /*: { actions: Actions, graphql: Graphql } */
-) => {
+const createPages = ({
+  actions,
+  graphql
+}: {
+  actions: Actions
+  graphql: Graphql
+}) => {
   return graphql(QUERY).then(result => {
     if (result.errors) {
       return Promise.reject(result.errors)
@@ -41,7 +43,7 @@ const createPages = (
  * Build a page from a node
  */
 
-function buildPage({ node, actions } /*: { node: any, actions: Actions } */) {
+function buildPage({ node, actions }: { node: any; actions: Actions }) {
   const { createPage, createRedirect } = actions
   const path = relativize(node.fileAbsolutePath)
   const SheetTemplate = root('src/web/templates/SheetTemplate.tsx')
@@ -65,7 +67,7 @@ function buildPage({ node, actions } /*: { node: any, actions: Actions } */) {
   })
 
   const aliases = node.frontmatter.aliases || []
-  aliases.forEach((alias /*: string */) => {
+  aliases.forEach((alias: string) => {
     const paths = {
       fromPath: `/${alias}`,
       toPath: path

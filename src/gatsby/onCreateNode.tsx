@@ -1,14 +1,16 @@
-// @flow
-
 /**
  * Add extra node fields.
  *
  * This allows us to use $node_id and $category in sheet template queries.
  */
 
-const onCreateNode = (
-  { node, actions } /*: { node: any, getNode: any, actions: any } */
-) => {
+interface Props {
+  node: any
+  getNode: any
+  actions: any
+}
+
+const onCreateNode = ({ node, actions }: Props) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {

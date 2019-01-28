@@ -1,18 +1,17 @@
-/* @flow */
-import * as React from 'react'
 import Link from 'gatsby-link'
+import React from 'react'
 
-import AttributePeg from './AttributePeg'
-import { Consumer } from '../contexts/SiteContext'
 import { unpath } from '../../helpers'
-import { SiteLink, Context } from '../types'
+import { Consumer } from '../contexts/SiteContext'
+import { Context, SiteLink } from '../types'
+import AttributePeg from './AttributePeg'
 
 /**
  * Types
  */
 
-export type Props = {
-  links: Array<SiteLink>,
+export interface Props {
+  links: SiteLink[]
   title?: string
 }
 
@@ -45,9 +44,14 @@ export const PagesListView = ({ title, links, updatedLabel }: ViewProps) => (
 
 export const PagesList = (props: Props) => (
   <Consumer>
-    {({ CONTENT }: Context) => (
-      <PagesListView {...props} updatedLabel={CONTENT.home.updatedLabel} />
-    )}
+    {({ CONTENT }) => {
+      if (!CONTENT) {
+        return <span />
+      }
+      return (
+        <PagesListView {...props} updatedLabel={CONTENT.home.updatedLabel} />
+      )
+    }}
   </Consumer>
 )
 
