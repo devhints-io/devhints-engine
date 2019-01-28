@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Consumer } from '../contexts/SiteContext'
+import { Consumer, ConsumerRenderProps } from '../contexts/SiteContext'
 import { Context, Frontmatter, HtmlAst, Sheet, SiteLink } from '../types'
 import CommentsArea from './CommentsArea'
 import CommonHead from './CommonHead'
@@ -48,8 +48,11 @@ export type ViewProps = Props & {
 
 export const SheetTemplateView = (props: Props) => (
   <Consumer>
-    {({ CONTENT, sheet }: Context) => {
+    {({ CONTENT, sheet }: ConsumerRenderProps) => {
       if (!sheet) {
+        return null
+      }
+      if (!CONTENT) {
         return null
       }
 

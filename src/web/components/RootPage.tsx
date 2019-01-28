@@ -1,24 +1,23 @@
-/* @flow */
+import React from 'react'
 import Helmet from 'react-helmet'
-import * as React from 'react'
 
-import { Consumer } from '../contexts/SiteContext'
-import { Context, SiteLink, GroupedSiteLinks } from '../types'
 import { LiveSearchInput } from '../../search'
+import { Consumer } from '../contexts/SiteContext'
+import { Context, GroupedSiteLinks, SiteLink } from '../types'
 import CommonHead from './CommonHead'
 import PagesList from './PagesList'
 import SiteHeader from './SiteHeader'
 import TopNav from './TopNav'
 
-export type Props = {
-  recentlyUpdated: Array<SiteLink>,
-  groups: GroupedSiteLinks,
+export interface Props {
+  recentlyUpdated: SiteLink[]
+  groups: GroupedSiteLinks
   siteSearchIndex: any
 }
 
-export type ViewProps = Props & {
-  metaTitle: string,
-  metaDescription: string,
+export interface ViewProps extends Props {
+  metaTitle: string
+  metaDescription: string
   recentlyUpdatedLabel: string
 }
 
@@ -69,14 +68,19 @@ export const View = ({
 
 export const RootPage = (props: Props) => (
   <Consumer>
-    {({ CONTENT }: Context) => (
-      <View
-        {...props}
-        metaTitle={CONTENT.home.title}
-        metaDescription={CONTENT.home.description}
-        recentlyUpdatedLabel={CONTENT.home.recentlyUpdated}
-      />
-    )}
+    {({ CONTENT }) => {
+      if (!CONTENT) {
+        return <span />
+      }
+      return (
+        <View
+          {...props}
+          metaTitle={CONTENT.home.title}
+          metaDescription={CONTENT.home.description}
+          recentlyUpdatedLabel={CONTENT.home.recentlyUpdated}
+        />
+      )
+    }}
   </Consumer>
 )
 

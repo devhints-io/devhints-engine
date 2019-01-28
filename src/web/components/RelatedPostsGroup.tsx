@@ -1,10 +1,10 @@
-/* @flow */
-import * as React from 'react'
-import RelatedPostItem from './RelatedPostItem'
+import React from 'react'
 import { SiteLink } from '../types'
+import RelatedPostItem from './RelatedPostItem'
+import CSS from './RelatedPostsGroup.module.css'
 
-export type Props = {
-  pages: Array<SiteLink>,
+export interface Props {
+  pages: SiteLink[]
   title: string
 }
 
@@ -16,10 +16,10 @@ export const RelatedPostsGroup = ({ pages, title }: Props) => {
   const list = pages.slice(0, 6)
 
   return (
-    <div className="related-posts-group">
-      <h3>{title}</h3>
+    <div className={CSS.root}>
+      <h3 className={CSS.heading}>{title}</h3>
       <div className="related-post-list">
-        {list.map(({ path, title }: SiteLink) => (
+        {list.map(({ path, title }) => (
           <RelatedPostItem
             key={path}
             className="item"
@@ -28,24 +28,6 @@ export const RelatedPostsGroup = ({ pages, title }: Props) => {
           />
         ))}
       </div>
-
-      <style jsx>{`
-        @import 'src/web/styles/common';
-
-        .related-posts-group {
-          & > h3 {
-            @apply --font-size-1;
-            color: var(--brand-a);
-            margin: 0;
-            padding: 0;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: solid 1px var(--dark-line-color);
-            line-height: 1.2;
-            font-weight: 400;
-          }
-        }
-      `}</style>
     </div>
   )
 }
