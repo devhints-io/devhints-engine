@@ -1,111 +1,31 @@
 /* @flow */
-import * as React from 'react'
+import cn from 'classnames'
 import { talkBubblesLine, talkBubblesSolid } from 'devhints-icons'
-import css from 'styled-jsx/css'
+import * as React from 'react'
+import CSS from './CommentsAreaSummary.module.css'
+
+interface Props {
+  count: React.ReactNode
+}
 
 /**
  * Summary in the comments area
  */
 
-export const CommentsAreaSummary = ({ count }: { count: React.Node }) => (
-  <summary className="comments-area-summary">
+export const CommentsAreaSummary = ({ count }: Props) => (
+  <summary className={CSS.root}>
     <i
-      className="icon -line"
+      className={cn(CSS.icon, CSS.isLine)}
       dangerouslySetInnerHTML={{ __html: talkBubblesLine }}
     />
     <i
-      className="icon -solid"
+      className={cn(CSS.icon, CSS.isLine)}
       dangerouslySetInnerHTML={{ __html: talkBubblesSolid }}
     />
-    <strong className="count">{count}</strong>{' '}
-    <span className="suffix">for this cheatsheet.</span>{' '}
-    <span className="fauxlink">Write yours!</span>
-    <style jsx>{STYLE}</style>
+    <strong className={CSS.count}>{count}</strong>{' '}
+    <span className={CSS.suffix}>for this cheatsheet.</span>{' '}
+    <span className={CSS.fauxlink}>Write yours!</span>
   </summary>
 )
-
-/*
- * CSS
- */
-
-export const STYLE = css`
-  @import 'src/web/styles/common';
-
-  /* Root component */
-  summary {
-    @apply --font-size-1;
-    color: var(--brand-a);
-    padding: 24px 0;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-
-  summary:hover,
-  summary:focus {
-    &,
-    & > .suffix {
-      color: var(--brand-a7);
-    }
-
-    & > .fauxlink {
-      border-bottom: solid 1px var(--brand-a7);
-    }
-  }
-
-  .count {
-    font-weight: bold;
-  }
-
-  .count::before {
-    content: '';
-    vertical-align: middle;
-    color: var(--brand-a);
-    margin: 0 8px 0 0;
-  }
-
-  .suffix {
-    color: var(--text-mute);
-  }
-
-  .fauxlink {
-    margin-left: 4px;
-    border-bottom: solid 1px color-mod(var(--brand-a) alpha(25%));
-  }
-
-  /* Icon */
-  .icon :global(svg) {
-    width: 24px;
-    height: 24px;
-  }
-
-  .icon :global(.clr-i-outline) {
-    fill: var(--brand-a);
-  }
-
-  /* Icon on non-hover */
-  .icon.-line {
-    display: inline;
-  }
-
-  .icon.-solid {
-    display: none;
-    margin-right: -4px;
-  }
-
-  /* Icon on hover */
-  summary:hover {
-    & .icon.-solid {
-      display: inline;
-    }
-
-    & .icon.-line {
-      display: none;
-    }
-  }
-`
-
-/*
- * Export
- */
 
 export default CommentsAreaSummary
