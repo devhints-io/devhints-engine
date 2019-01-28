@@ -55,7 +55,6 @@
     "styled-jsx-plugin-postcss": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/preset-flow": "^7.0.0",
     "@types/classnames": "^2.2.7",
     "@types/enzyme": "^3.1.15",
     "@types/jest": "^23.3.13",
@@ -65,7 +64,6 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.3",
-    "flow-bin": "^0.84.0",
     "gh-pages": "^2.0.1",
     "hast-util-to-html": "^4.0.1",
     "hastscript": "^4.1.0",
@@ -108,11 +106,10 @@
   "main": "n/a",
   "private": true,
   "scripts": {
-    "ci": "run-s -l flow lint prettier:check test",
+    "ci": "run-s -l tsc lint prettier:check test",
     "build": "gatsby build --prefix-paths && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
-    "flow": "flow",
     "tsc": "tsc",
     "lint:eslint": "eslint 'packages/*/lib/**/*.js' src",
     "lint": "tslint --project .",
