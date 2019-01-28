@@ -1,0 +1,19 @@
+@import '../styles/common';
+
+/*
+ * Section inside the search footer
+ */
+
+.root {
+  display: flex;
+}
+
+.search {
+  flex: 0 1 640px;
+}
+
+.links {
+  @apply --gutter-padding-left;
+  flex: 0 1 auto;
+  margin-left: auto;
+}

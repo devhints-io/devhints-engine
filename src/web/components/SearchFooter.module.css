@@ -1,8 +1,10 @@
+@import '../styles/common';
+
 /*
  * Search bar around the footer
  */
 
-.search-footer {
+.root {
   & {
     @apply --has-container;
     padding-top: 16px;
