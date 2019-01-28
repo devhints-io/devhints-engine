@@ -1,7 +1,6 @@
-/* @flow */
 import cn from 'classnames'
 import { talkBubblesLine, talkBubblesSolid } from 'devhints-icons'
-import * as React from 'react'
+import React from 'react'
 import CSS from './CommentsAreaSummary.module.css'
 
 interface Props {
