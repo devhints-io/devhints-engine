@@ -9923,12 +9923,24 @@ regjsparser@^0.3.0:
   dependencies:
     jsesc "~0.5.0"
 
+rehype-decorate@1.0.0-rc.5:
+  version "1.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/rehype-decorate/-/rehype-decorate-1.0.0-rc.5.tgz#26c1031359ea564d4806258b3dc5540c5d3d9e30"
+  integrity sha512-2WoU+B+ZOSeQcVWRXkni0jTU0vCKZAjtVzBDckuUmvw0Qx2/qetD1VfDI9zDXqDq+znIuaSbON0tUXGiuPO7iQ==
+
 rehype-react@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/rehype-react/-/rehype-react-3.0.3.tgz#868af1b6b454927af8052501910c3cdc531a2b37"
   dependencies:
     has "^1.0.1"
     hast-to-hyperscript "^5.0.0"
+
+rehype-table-separators@1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/rehype-table-separators/-/rehype-table-separators-1.0.0-rc.2.tgz#0156926f9e03a47f35c8b847c1f012ab38b01c24"
+  integrity sha512-qi6+XnS07TseNpzw8N1cTQV/LjvXXZbX3Be8NsFxOIMzhLY81unEXX/KFO0RSSdYW6Z8auJreyPDoTO4aNww0g==
+  dependencies:
+    unist-util-map "^1.0.3"
 
 relay-compiler@1.5.0:
   version "1.5.0"
@@ -12145,6 +12157,7 @@ unist-util-is@^2.0.0, unist-util-is@^2.1.2:
 unist-util-map@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unist-util-map/-/unist-util-map-1.0.4.tgz#f27bb03e14e8072171379d132c96c1dfcea44574"
+  integrity sha512-Qv68pQz05hQbjPI+TubZQI5XII5DScRVWaKNc6+qfmHaFGxaGUbkV8i++mM2nk7XgwXE+vei99d/Q2d1tMA3EQ==
   dependencies:
     object-assign "^4.0.1"
 

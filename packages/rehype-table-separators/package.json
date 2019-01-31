@@ -1,9 +1,0 @@
-{
-  "name": "rehype-table-separators",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "unist-util-map": "^1.0.3"
-  }
-}

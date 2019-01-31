@@ -1,10 +1,10 @@
 import React from 'react'
+// @ts-ignore TODO types for rehype-decorate
+import decorate from 'rehype-decorate'
 // @ts-ignore TODO types for rehype-react
 import RehypeReact from 'rehype-react'
-// @ts-ignore TODO types for rehype-decorate
-import decorate from '../../../../packages/rehype-decorate'
 // @ts-ignore TODO types for rehype-table-separators
-import separatify from '../../../../packages/rehype-table-separators'
+import separatify from 'rehype-table-separators'
 // @ts-ignore TODO types for rehype-wrapify
 import wrapify from '../../../../packages/rehype-wrapify'
 import { HastNode } from '../../types'
