@@ -1,11 +1,11 @@
 ---
 title: React.js
 category: React
+layout: 2017/sheet
+ads: true
 tags: [Featured]
-updated: 2017-10-10
+updated: 2018-10-04
 weight: -10
-aliases:
-  - react.js
 keywords:
   - React.Component
   - render()
@@ -34,22 +34,39 @@ import ReactDOM from 'react-dom'
 ```jsx
 class Hello extends React.Component {
   render() {
-    return <div className='message-box'>Hello {this.props.name}</div>
+    return <div className="message-box">Hello {this.props.name}</div>
   }
 }
 ```
 
 ```jsx
 const el = document.body
-ReactDOM.render(<Hello name='John' />, el)
+ReactDOM.render(<Hello name="John" />, el)
 ```
 
 Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output))
 
+### Import multiple exports
+
+<!-- {.-prime} -->
+
+```jsx
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+```
+
+<!-- {.-setup} -->
+
+```jsx
+class Hello extends Component {
+  /* ... */
+}
+```
+
 ### Properties
 
-```html
-<video fullscreen="{true}" />
+```jsx
+<Video fullscreen={true} autoplay={false} />
 ```
 
 <!-- {.-setup} -->
@@ -57,11 +74,12 @@ Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hack
 ```jsx
 render () {
   this.props.fullscreen
+  const { fullscreen, autoplay } = this.props
   ···
 }
 ```
 
-<!-- {data-line="2"} -->
+# <!-- {data-line="2,3"} -->
 
 Use `this.props` to access properties passed to the component.
 
@@ -72,7 +90,7 @@ See: [Properties](https://reactjs.org/docs/tutorial.html#using-props)
 ```jsx
 constructor(props) {
   super(props)
-  this.state = {}
+  this.state = { username: undefined }
 }
 ```
 
@@ -83,20 +101,30 @@ this.setState({ username: 'rstacruz' })
 ```jsx
 render () {
   this.state.username
-  ···
+  const { username } = this.state
+  /* ... */
 }
 ```
 
-<!-- {data-line="2"} -->
+# <!-- {data-line="2,3"} -->
 
 Use states (`this.state`) to manage dynamic data.
+
+With [Babel](https://babeljs.io/) you can use [proposal-class-fields](https://github.com/tc39/proposal-class-fields) and get rid of constructor
+
+```jsx
+class Hello extends Component {
+  state = { username: undefined }
+  /* ... */
+}
+```
 
 See: [States](https://reactjs.org/docs/tutorial.html#reactive-state)
 
 ### Nesting
 
 ```jsx
-class Info extends React.Component {
+class Info extends Component {
   render() {
     const { avatar, username } = this.props
 
@@ -119,15 +147,17 @@ See: [Composing Components](https://reactjs.org/docs/components-and-props.html#c
 ### Fragments
 
 ```jsx
-class Info extends React.Component {
+import React, { Component, Fragment } from 'react'
+
+class Info extends Component {
   render() {
     const { avatar, username } = this.props
 
     return (
-      <React.Fragment>
+      <Fragment>
         <UserAvatar src={avatar} />
         <UserProfile username={username} />
-      </React.Fragment>
+      </Fragment>
     )
   }
 }
@@ -148,9 +178,9 @@ As of React v16.2.0, fragments can be used to return multiple children without a
 <!-- {data-line="2"} -->
 
 ```jsx
-class AlertBox extends React.Component {
+class AlertBox extends Component {
   render() {
-    return <div className='alert-box'>{this.props.children}</div>
+    return <div className="alert-box">{this.props.children}</div>
   }
 }
 ```
@@ -176,7 +206,7 @@ See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
 ### Setting default state
 
 ```jsx
-class Hello extends React.Component {
+class Hello extends Component {
   constructor(props) {
     super(props)
     this.state = { visible: true }
@@ -188,17 +218,28 @@ class Hello extends React.Component {
 
 Set the default state in the `constructor()`.
 
+And without constructor using [Babel](https://babeljs.io/) with [proposal-class-fields](https://github.com/tc39/proposal-class-fields).
+
+```jsx
+class Hello extends Component {
+    state = { visible: true }
+  }
+}
+```
+
+{: data-line="2"}
+
 See: [Setting the default state](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)
 
 ## Other components
 
 <!-- {.-three-column} -->
 
-### Function components
+### Functional components
 
 ```jsx
 function MyComponent({ name }) {
-  return <div className='message-box'>Hello {name}</div>
+  return <div className="message-box">Hello {name}</div>
 }
 ```
 
@@ -211,12 +252,14 @@ See: [Function and Class Components](https://reactjs.org/docs/components-and-pro
 ### Pure components
 
 ```jsx
-class MessageBox extends React.PureComponent {
+import React, {PureComponent} from 'react'
+
+class MessageBox extends PureComponent {
   ···
 }
 ```
 
-<!-- {data-line="1"} -->
+<!-- {data-line="3"} -->
 
 Performance-optimized version of `React.Component`. Doesn't rerender if props/state hasn't changed.
 
@@ -229,7 +272,12 @@ this.forceUpdate()
 ```
 
 ```jsx
-this.setState({ ... })
+this.setState({
+  /* ... */
+})
+this.setState(state => {
+  /* ... */
+})
 ```
 
 ```jsx
@@ -263,13 +311,12 @@ Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them 
 
 ### Updating
 
-| Method                                         | Description                       |
-| ---------------------------------------------- | --------------------------------- |
-| `componentWillReceiveProps` _(newProps)_       | Use `setState()` here             |
-| `shouldComponentUpdate` _(newProps, newState)_ | Skips `render()` if returns false |
-| `componentWillUpdate` _(newProps, newState)_   | Can't use `setState()` here       |
-| `render()`                                     | Render                            |
-| `componentDidUpdate` _(prevProps, prevState)_  | Operate on the DOM here           |
+| Method                                                  | Description                                          |
+| ------------------------------------------------------- | ---------------------------------------------------- |
+| `componentDidUpdate` _(prevProps, prevState, snapshot)_ | Use `setState()` here, but remember to compare props |
+| `shouldComponentUpdate` _(newProps, newState)_          | Skips `render()` if returns false                    |
+| `render()`                                              | Render                                               |
+| `componentDidUpdate` _(prevProps, prevState)_           | Operate on the DOM here                              |
 
 Called when parents change properties and `.setState()`. These are not called for initial renders.
 
@@ -282,7 +329,7 @@ See: [Component specs](http://facebook.github.io/react/docs/component-specs.html
 ### References
 
 ```jsx
-class MyComponent extends React.Component {
+class MyComponent extends Component {
   render() {
     return (
       <div>
@@ -306,13 +353,15 @@ See: [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
 ### DOM Events
 
 ```jsx
-class MyComponent extends React.Component {
+class MyComponent extends Component {
   render() {
-    ;<input
-      type='text'
-      value={this.state.value}
-      onChange={event => this.onChange(event)}
-    />
+    return (
+      <input
+        type="text"
+        value={this.state.value}
+        onChange={event => this.onChange(event)}
+      />
+    )
   }
 
   onChange(event) {
@@ -321,7 +370,7 @@ class MyComponent extends React.Component {
 }
 ```
 
-<!-- {data-line="5,9"} -->
+<!-- {data-line="7,13"} -->
 
 Pass functions to attributes like `onChange`.
 
@@ -338,7 +387,7 @@ See: [Events](https://reactjs.org/docs/events.html)
 <!-- {.-setup} -->
 
 ```jsx
-class VideoPlayer extends React.Component {
+class VideoPlayer extends Component {
   render() {
     return <VideoEmbed {...this.props} />
   }
@@ -354,8 +403,8 @@ See [Transferring props](http://facebook.github.io/react/docs/transferring-props
 ### Top-level API
 
 ```jsx
-React.createClass({ ... })
-React.isValidElement(c)
+React.createClass({ ... }) // Deprecated!
+React.isValidElement(c) // Deprecated!
 ```
 
 ```jsx
@@ -379,7 +428,7 @@ See: [React top-level API](https://reactjs.org/docs/react-api.html)
 ### Style shorthand
 
 ```jsx
-var style = { height: 10 }
+const style = { height: 10 }
 return <div style={style} />
 ```
 
@@ -395,7 +444,10 @@ See: [Inline styles](https://reactjs.org/tips/inline-styles.html)
 function markdownify() {
   return '<p>...</p>'
 }
-;<div dangerouslySetInnerHTML={{ __html: markdownify() }} />
+```
+
+```jsx
+<div dangerouslySetInnerHTML={{ __html: markdownify() }} />
 ```
 
 See: [Dangerously set innerHTML](https://reactjs.org/tips/dangerously-set-inner-html.html)
@@ -403,7 +455,7 @@ See: [Dangerously set innerHTML](https://reactjs.org/tips/dangerously-set-inner-
 ### Lists
 
 ```jsx
-class TodoList extends React.Component {
+class TodoList extends Component {
   render() {
     const { items } = this.props
 
@@ -425,13 +477,16 @@ Always supply a `key` property.
 ### Conditionals
 
 ```jsx
-<div>{showMyComponent ? <MyComponent /> : <OtherComponent />}</div>
+<Fragment>{showMyComponent ? <MyComponent /> : <OtherComponent />}</Fragment>
 ```
 
 ### Short-circuit evaluation
 
 ```jsx
-<div>{showPopup && <Popup />}</div>
+<Fragment>
+  {showPopup && <Popup />}
+  ...
+</Fragment>
 ```
 
 ## New features
@@ -462,10 +517,10 @@ render () {
 render () {
   // Fragments don't require keys!
   return (
-    <React.Fragment>
+    <Fragment>
       <li>First item</li>
       <li>Second item</li>
-    </React.Fragment>
+    </Fragment>
   )
 }
 ```
@@ -477,8 +532,10 @@ See: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.htm
 ### Returning strings
 
 ```js
-render() {
-  return 'Look ma, no spans!';
+class MyComponent extends React.Component {
+  render() {
+    return 'Look ma, no spans!'
+  }
 }
 ```
 
@@ -491,9 +548,9 @@ See: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.htm
 ### Errors
 
 ```js
-class MyComponent extends React.Component {
-  ···
-  componentDidCatch (error, info) {
+class MyComponent extends Component {
+  /* ··· */
+  componentDidCatch(error, info) {
     this.setState({ error })
   }
 }
@@ -508,15 +565,17 @@ See: [Error handling in React 16](https://reactjs.org/blog/2017/07/26/error-hand
 ### Portals
 
 ```js
-render () {
-  return React.createPortal(
-    this.props.children,
-    document.getElementById('menu')
-  )
+class MyComponent extends React.Component {
+  render() {
+    return React.createPortal(
+      this.props.children,
+      document.getElementById('menu')
+    )
+  }
 }
 ```
 
-<!-- {data-line="2,3,4,5"} -->
+<!-- {data-line="3,4,5,6"} -->
 
 This renders `this.props.children` into any location in the DOM.
 
@@ -549,40 +608,54 @@ import PropTypes from 'prop-types'
 
 See: [Typechecking with PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
-| `any` | Anything |
+| Type  | Description |
+| ----- | ----------- |
+| `any` | Anything    |
 
 #### Basic
 
-| `string` | |
-| `number` | |
-| `func` | Function |
-| `bool` | True or false |
+| Type     | Description   |
+| -------- | ------------- |
+| `string` |               |
+| `number` |               |
+| `func`   | Function      |
+| `bool`   | True or false |
 
 #### Enum
 
-| `oneOf`_(any)_ | Enum types |
-| `oneOfType`_(type array)_ | Union |
+| Type                      | Description |
+| ------------------------- | ----------- |
+| `oneOf`_(any)_            | Enum types  |
+| `oneOfType`_(type array)_ | Union       |
 
 #### Array
 
-| `array` | |
-| `arrayOf`_(...)_ | |
+| Type             | Description |
+| ---------------- | ----------- |
+| `array`          |             |
+| `arrayOf`_(...)_ |             |
 
 #### Object
 
-| `object` | |
-| `objectOf`_(...)_ | Object with values of a certain type |
-| `instanceOf`_(...)_ | Instance of a class |
-| `shape`_(...)_ | |
+| Type                | Description                          |
+| ------------------- | ------------------------------------ |
+| `object`            |                                      |
+| `objectOf`_(...)_   | Object with values of a certain type |
+| `instanceOf`_(...)_ | Instance of a class                  |
+| `shape`_(...)_      |                                      |
 
 #### Elements
 
+| Type      | Description   |
+| --------- | ------------- |
 | `element` | React element |
-| `node` | DOM node |
+| `node`    | DOM node      |
 
 #### Required
 
-| `(···).isRequired` | Required |
+| Type               | Description |
+| ------------------ | ----------- |
+| `(···).isRequired` | Required    |
 
 ### Basic types
 

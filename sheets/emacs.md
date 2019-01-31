@@ -1,27 +1,35 @@
 ---
 title: Emacs
 category: Apps
+updated: 2019-01-04
+tags: [WIP]
 ---
+
+## Shortcuts
+
+<!-- {.-three-column} -->
 
 ### Movements
 
-    ^n ^p    # up/down
-    ^f ^b    # left/right
-
-    ^v Mv    # up/down page
-
-    ^a ^e    # begin/end of line
-    Ma Me    # begin/end of sentence
+| Key           | Description               |
+| ------------- | ------------------------- |
+| `C-n` / `C-p` | up/down                   |
+| `C-f` / `C-b` | left/right                |
+|               |                           |
+| `C-v` / `M-v` | Page up/page down         |
+|               |                           |
+| `C-a` / `C-e` | Beginning/end of line     |
+| `M-a` / `M-e` | Beginning/end of sentence |
 
 ### Basic
 
-    ^x ^f    # find file
-    ^x ^s    # save file
+| Key         | Description |
+| ----------- | ----------- |
+| `C-x` `C-f` | Find file   |
+| `C-x` `C-s` | Save file   |
 
 ### Command line
 
-     Mx
-
-### Packages
-
-     Mx package-install RET evil RET
+| Key   | Description       |
+| ----- | ----------------- |
+| `M-x` | Open command line |

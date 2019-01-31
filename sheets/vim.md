@@ -1,10 +1,13 @@
 ---
 title: Vim
-category: Apps
-weight: -1
-updated: 2018-05-14
+category: Vim
+layout: 2017/sheet
+tags: [Featured]
+updated: 2018-09-11
+weight: -10
 intro: |
-  [Vim](http://vim.org) is a text editor.
+ [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
+ For shortcut notation, see `:help key-notation`.
 ---
 
 ## Getting started
@@ -59,6 +62,15 @@ intro: |
 
 <!-- {.-shortcuts} -->
 
+#### Character
+
+| Shortcut | Description                  |
+| -------- | ---------------------------- |
+| `fc`     | Go forward to character `c`  |
+| `Fc`     | Go backward to character `c` |
+
+<!-- {.-shortcuts} -->
+
 #### Document
 
 | Shortcut | Description    |
@@ -69,6 +81,30 @@ intro: |
 | `nG`     | Go to line `n` |
 
 <!-- {.-shortcuts} -->
+
+#### Window
+
+| Shortcut | Description              |
+| -------- | ------------------------ |
+| `zz`     | Center this line         |
+| `H`      | Move to top of screen    |
+| `M`      | Move to middle of screen |
+| `L`      | Move to bottom of screen |
+
+<!-- {.-shortcuts} -->
+
+#### Tab pages
+
+| Shortcut          | Description                    |
+| ----------------- | ------------------------------ |
+| `:tabedit [file]` | Edit file in a new tab         |
+| `:tabfind [file]` | Open file if exists in new tab |
+| `:tabclose`       | Close current tab              |
+| `:tabs`           | List all tabs                  |
+| `:tabfirst`       | Go to first tab                |
+| `:tablast`        | Go to last tab                 |
+| `:tabn`           | Go to next tab                 |
+| `:tabp`           | Go to previous tab             |
 
 ### Editing
 
@@ -95,7 +131,23 @@ intro: |
 | `Esc` _/_ `<C-[>` | Exit insert mode                            |
 | `<C-C>`           | Exit insert mode, and abort current command |
 
-<!-- {.-shortcuts} -->
+# <!-- {.-shortcuts} -->
+
+| --- | --- |
+| `u` | Undo changes |
+| `<C-R>` | Redo changes |
+{: .-shortcuts}
+
+### Exiting insert mode
+
+| Shortcut          | Description                                 |
+| ----------------- | ------------------------------------------- |
+| `Esc` _/_ `<C-[>` | Exit insert mode                            |
+| `<C-C>`           | Exit insert mode, and abort current command |
+
+{: .-shortcuts}
+
+> > > > > > > upstream/master:vim.md
 
 ### Clipboard
 
@@ -145,10 +197,10 @@ Operators let you operate in a range of text (defined by _motion_). These are pr
 
 <!-- {.-setup} -->
 
-| Operator | Motion |
-| -------- | ------ |
-| `d`      | `w`    |
-| Operator | Motion |
+| Shortcut | Description |
+| -------- | ----------- |
+| `d`      | `w`         |
+| Operator | Motion      |
 
 <!-- {.-css-breakdown} -->
 
@@ -202,10 +254,10 @@ Text objects let you operate (with an _operator_) in or around text blocks (_obj
 
 <!-- {.-setup} -->
 
-| Operator | Around               | What        |
+| Operator | Inside               | Object      |
 | -------- | -------------------- | ----------- |
 | `v`      | `i`                  | `p`         |
-| Operator | (i)nside or (a)round | Text object |
+| Operator | [i]nside or [a]round | Text object |
 
 <!-- {.-css-breakdown} -->
 
@@ -243,6 +295,12 @@ Text objects let you operate (with an _operator_) in or around text blocks (_obj
 
 See [Operators](#operators) for other things you can do.
 
+### Diff
+
+| Shortcut                       | Description                            |
+| ------------------------------ | -------------------------------------- |
+| `gvimdiff file1 file2 [file3]` | See differencies between files, in HMI |
+
 ## Misc
 
 ### Folds
@@ -271,11 +329,11 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut       | Description                |
 | -------------- | -------------------------- |
-| `[(` `[{` `[<` | previous `(` or `{` or `<` |
-| `])`           | next                       |
+| `[(` `[{` `[<` | Nrevious `(` or `{` or `<` |
+| `])`           | Next                       |
 | ---            | ---                        |
-| `[m`           | previous method start      |
-| `[M`           | previous method end        |
+| `[m`           | Previous method start      |
+| `[M`           | Previous method end        |
 
 <!-- {.-shortcuts} -->
 
@@ -286,7 +344,7 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 | `<C-O>`  | Go back to previous location |
 | `<C-I>`  | Go forward                   |
 | ---      | ---                          |
-| `gf`     | go to file in cursor         |
+| `gf`     | Go to file in cursor         |
 
 <!-- {.-shortcuts} -->
 
@@ -294,8 +352,8 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut | Description      |
 | -------- | ---------------- |
-| `<C-A>`  | increment number |
-| `<C-X>`  | decrement        |
+| `<C-A>`  | Increment number |
+| `<C-X>`  | Decrement        |
 
 <!-- {.-shortcuts} -->
 
@@ -325,12 +383,12 @@ Uppercase ones are recursive (eg, `zO` is open recursively).
 
 | Shortcut | Description                          |
 | -------- | ------------------------------------ |
-| `~`      | toggle case (Case => cASE)           |
-| `gU`     | uppercase                            |
-| `gu`     | lowercase                            |
+| `~`      | Toggle case (Case => cASE)           |
+| `gU`     | Uppercase                            |
+| `gu`     | Lowercase                            |
 | ---      | ---                                  |
-| `gUU`    | uppercase current line (also `gUgU`) |
-| `guu`    | lowercase current line (also `gugu`) |
+| `gUU`    | Uppercase current line (also `gUgU`) |
+| `guu`    | Lowercase current line (also `gugu`) |
 
 <!-- {.-shortcuts} -->
 
@@ -338,16 +396,15 @@ Do these in visual or normal mode.
 
 ### Marks
 
-<!-- prettier-ignore -->
-| Shortcut   | Description                                         |
-| ---------- | --------------------------------------------------- |
-| `ma`       | Mark this cursor position as `a`                    |
-| `` `a ``   | Jump to the cursor position `a`                     |
-| `'a`       | Jump to the beginning of the line with position `a` |
-| ---        | ---                                                 |
-| `` `^ ``   | Last position of cursor in insert mode              |
-| `` `. ``   | Last change                                         |
-| ``` `` ``` | Last jump                                           |
+| Shortcut           | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| `` `^ ``           | Last position of cursor in insert mode              |
+| `` `. ``           | Last change                                         |
+| ` `` ` | Last jump |
+| ---                | ---                                                 |
+| `ma`               | Mark this cursor position as `a`                    |
+| `` `a ``           | Jump to the cursor position `a`                     |
+| `'a`               | Jump to the beginning of the line with position `a` |
 
 <!-- {.-shortcuts} -->
 
@@ -355,10 +412,8 @@ Do these in visual or normal mode.
 
 | Shortcut | Description                               |
 | -------- | ----------------------------------------- |
-| `.`      | repeat last command                       |
+| `.`      | Repeat last command                       |
 | `]p`     | paste under the current indentation level |
-| ---      | ---                                       |
-| `zz`     | Center this line                          |
 
 <!-- {.-shortcuts} -->
 
@@ -366,14 +421,15 @@ Do these in visual or normal mode.
 
 | Shortcut     | Description                               |
 | ------------ | ----------------------------------------- |
-| `<C-R><C-W>` | insert current word into the command line |
-| `<C-R>"`     | paste from " register                     |
+| `<C-R><C-W>` | Insert current word into the command line |
+| `<C-R>"`     | Paste from " register                     |
+| `<C-X><C-F>` | Auto-completion of path in insert mode    |
 
 <!-- {.-shortcuts} -->
 
 ### Text alignment
 
-```vim
+```
 :center [width]
 :right [width]
 :left
@@ -383,23 +439,39 @@ See `:help formatting`
 
 ### Calculator
 
-```vim
-<C-R>=128/2
-```
+| Shortcut      | Description                            |
+| ------------- | -------------------------------------- |
+| `<C-R>=128/2` | Shows the result of the division: '64' |
 
 Do this in insert mode.
 
 ### Exiting with an error
 
-```vim
+```
 :cq
 :cquit
 ```
 
 Works like `:qa`, but throws an error. Great for aborting Git commands.
 
+### Spell checking
+
+| Shortcut                     | Description                                            |
+| ---------------------------- | ------------------------------------------------------ |
+| `:set spell spelllang=en_us` | Turn on US English spell checking                      |
+| `]s`                         | Move to next misspelled word after the cursor          |
+| `[s`                         | Move to previous misspelled word before the cursor     |
+| `z=`                         | Suggest spellings for the word under/after the cursor  |
+| `zg`                         | Add word to spell list                                 |
+| `zw`                         | Mark word as bad/mispelling                            |
+| `zu` / `C-X (Insert Mode)`   | Suggest words for bad word under cursor from spellfile |
+
+<!-- {.-shortcuts} -->
+
+See `:help spell`
+
 ## Also see
 
-- [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
-- [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
-- [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_
+* [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
+* [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
+* [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_
