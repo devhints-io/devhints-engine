@@ -36,6 +36,9 @@ const createPages = ({
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       buildPage({ node, actions })
     })
+
+    // Because TypeScript expects the result to be a Promise
+    return Promise.resolve()
   })
 }
 
