@@ -1,21 +1,19 @@
-/* @flow */
-
-import * as React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
+import * as React from 'react'
+import { CONTENT } from '../../config'
+import RootPage from '../web/components/RootPage'
 import Layout from '../web/containers/Layout'
 import { Provider } from '../web/contexts/SiteContext'
-import RootPage from '../web/components/RootPage'
-import { CONTENT } from '../../config'
-import { toSiteLinks, groupByCategory } from '../web/lib/site_page'
+import { groupByCategory, toSiteLinks } from '../web/lib/site_page'
 import { AllSitePage, SiteSearchIndex } from '../web/types'
 
 /*
  * Types
  */
 
-export type Data = {
-  allPages: AllSitePage,
-  recentlyUpdated: AllSitePage,
+export interface Data {
+  allPages: AllSitePage
+  recentlyUpdated: AllSitePage
   siteSearchIndex: SiteSearchIndex
 }
 
@@ -52,7 +50,7 @@ export default Root
  * GraphQL query
  */
 
-export const query = graphql`
+const query = graphql`
   query IndexPageQuery {
     siteSearchIndex {
       index
