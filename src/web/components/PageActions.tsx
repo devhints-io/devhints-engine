@@ -34,7 +34,7 @@ export const PageActions = (props: Props) => {
 
   return (
     <Consumer>
-      {({ CONTENT }: Context) => (
+      {({ CONTENT }) => (
         <PageActionsView
           labels={{
             edit: CONTENT.topNav.edit,

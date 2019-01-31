@@ -31,7 +31,6 @@ export const Root = () => {
           <Layout>
             <Provider value={{ CONTENT }}>
               <RootPage
-                allPages={toSiteLinks(data.allPages)}
                 groups={groups}
                 recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
                 siteSearchIndex={data && data.siteSearchIndex}

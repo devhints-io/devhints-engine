@@ -36,7 +36,7 @@ export const NotFoundPage = () => (
         <Layout>
           <NotFoundPageView
             keyword={keyword}
-            title={CONTENT.notFound.notFound}
+            title={CONTENT.notFound.title}
             description={CONTENT.notFound.description}
             home={CONTENT.notFound.home}
             siteSearchIndex={data && data.siteSearchIndex}
