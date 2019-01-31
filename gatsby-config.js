@@ -26,6 +26,7 @@ module.exports = {
     sheetPath: SHEET_PATH
   },
   plugins: [
+    'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {

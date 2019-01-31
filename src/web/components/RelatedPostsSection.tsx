@@ -1,0 +1,35 @@
+/* @flow */
+import * as React from 'react'
+import RelatedPostsGroup from './RelatedPostsGroup'
+import RelatedPostsCallout from './RelatedPostsCallout'
+import { Props } from './RelatedPostsArea'
+
+/**
+ * Related posts section
+ */
+
+export const RelatedPostsSection = ({
+  category,
+  pageCount,
+  relatedPages,
+  topPages
+}: Props) => (
+  <div className="related-posts-section">
+    <div className="callout">
+      <RelatedPostsCallout pageCount={pageCount} />
+    </div>
+    <div className="group">
+      <RelatedPostsGroup
+        pages={relatedPages}
+        title={
+          category ? `Other ${category} cheatsheets` : 'Related cheatsheets'
+        }
+      />
+    </div>
+    <div className="group">
+      <RelatedPostsGroup pages={topPages} title="Top cheatsheets" />
+    </div>
+  </div>
+)
+
+export default RelatedPostsSection

@@ -3,7 +3,7 @@ image: node:slim
 test_all:
   script:
    - yarn
-   - yarn run flow
+   - yarn run tsc
    - yarn run lint
    - yarn run prettier:check
    - yarn run test

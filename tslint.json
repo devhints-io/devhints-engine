@@ -1,0 +1,22 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+        // Don't enforce interfaces beginning in I
+        "interface-name": false,
+
+        // Don't enforce object key sorting
+        "object-literal-sort-keys": false,
+
+        // Default to public access
+        "member-access": [true, "no-public"],
+
+        // Allow reusing variable names in sub-contexts
+        "no-shadowed-variable": false
+    },
+    "rulesDirectory": []
+}
