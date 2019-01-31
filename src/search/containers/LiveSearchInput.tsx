@@ -3,9 +3,9 @@
  */
 
 import React from 'react'
-
 import { SiteSearchIndex } from '../../web/types'
 import SearchModal from '../components/SearchModal'
+import CSS from './LiveSearchInput.module.css'
 
 export interface Props {
   siteSearchIndex: SiteSearchIndex
@@ -19,10 +19,6 @@ export interface State {
   // The initial value to be passed onto the modal dialog.
   initialValue: string
 }
-
-/**
- * Search box of sorts
- */
 
 class LiveSearchInput extends React.Component<Props, State> {
   state = {
@@ -40,6 +36,7 @@ class LiveSearchInput extends React.Component<Props, State> {
         <input
           type="text"
           placeholder={placeholder || 'Search...'}
+          className={CSS.input}
           onChange={this.handleInput}
           value=""
         />
@@ -63,8 +60,8 @@ class LiveSearchInput extends React.Component<Props, State> {
    * Activate the modal upon typing.
    */
 
-  handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
+  handleInput = (event: { target: HTMLInputElement }) => {
+    const value = event.target.value
 
     if (value.trim().length) {
       this.setState({ isActivated: true, initialValue: value })

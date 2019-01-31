@@ -19,7 +19,7 @@
  * Input
  */
 
-input {
+.input {
   font-family: var(--body-font);
   @apply --font-size-2;
   padding: 16px;
@@ -42,7 +42,7 @@ input {
   }
 }
 
-input:focus {
+.input:focus {
   outline: 0;
 }
 
