@@ -44,8 +44,8 @@ module.exports = {
     },
 
     {
-      // https://github.com/andrew-codes/gatsby-plugin-elasticlunr-search
-      resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
+      // https://www.npmjs.com/package/@gatsby-contrib/gatsby-plugin-elasticlunr-search
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         fields: ['title', 'category', 'fileAbsolutePath'],
 

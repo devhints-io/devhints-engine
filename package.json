@@ -7,8 +7,8 @@
     "devhints-validator": "packages/devhints-validator/bin/devhints-validator"
   },
   "dependencies": {
-    "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "@babel/register": "^7.0.0",
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "@types/loadjs": "^3.5.0",
     "@types/react-helmet": "^5.0.8",
     "array-flatten": "^2.1.1",

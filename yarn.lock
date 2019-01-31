@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-"@andrew-codes/gatsby-plugin-elasticlunr-search@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@andrew-codes/gatsby-plugin-elasticlunr-search/-/gatsby-plugin-elasticlunr-search-1.0.4.tgz#2b2ace31903177961198b1e218f882667a31f228"
-  dependencies:
-    elasticlunr "^0.9.5"
-    graphql "^0.11.7"
-
 "@babel/code-frame@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "http://registry.npmjs.org/@babel/code-frame/-/code-frame-7.0.0-beta.44.tgz#2a02643368de80916162be70865c97774f3adbd9"
@@ -784,6 +777,13 @@
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
+
+"@gatsby-contrib/gatsby-plugin-elasticlunr-search@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@gatsby-contrib/gatsby-plugin-elasticlunr-search/-/gatsby-plugin-elasticlunr-search-2.2.1.tgz#3067ed316c28ea933810b46ff0cccb43ed4ac9c6"
+  integrity sha512-fWIjc54pV3DRzpMmmb0t89VxP8eZ1YRrgzkd2d2arM6qYDew7aoHv6muSOGJeJtoWmOJZ72u9cUfB4Ssoz+dsQ==
+  dependencies:
+    elasticlunr "^0.9.5"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -3669,6 +3669,7 @@ ee-first@1.1.1:
 elasticlunr@^0.9.5:
   version "0.9.5"
   resolved "https://registry.yarnpkg.com/elasticlunr/-/elasticlunr-0.9.5.tgz#65541bb309dddd0cf94f2d1c8861b2be651bb0d5"
+  integrity sha1-ZVQbswnd3Qz5Ty0ciGGyvmUbsNU=
 
 electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.62:
   version "1.3.69"
@@ -5227,7 +5228,7 @@ graphql-type-json@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.2.1.tgz#d2c177e2f1b17d87f81072cd05311c0754baa420"
 
-graphql@0.13.2, graphql@^0.11.7, graphql@^0.13.0, graphql@^0.13.2:
+graphql@0.13.2, graphql@^0.13.0, graphql@^0.13.2:
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
   dependencies:
