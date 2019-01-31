@@ -7,19 +7,6 @@ import { SiteSearchIndex } from '../../web/types'
 import SearchModal from '../components/SearchModal'
 import CSS from './LiveSearchInput.module.css'
 
-export interface Props {
-  siteSearchIndex: SiteSearchIndex
-  placeholder?: string
-}
-
-export interface State {
-  // This will be set to `true` when it's activated.
-  isActivated: boolean
-
-  // The initial value to be passed onto the modal dialog.
-  initialValue: string
-}
-
 class LiveSearchInput extends React.Component<Props, State> {
   state = {
     isActivated: false,
@@ -67,6 +54,19 @@ class LiveSearchInput extends React.Component<Props, State> {
       this.setState({ isActivated: true, initialValue: value })
     }
   }
+}
+
+export interface Props {
+  siteSearchIndex: SiteSearchIndex
+  placeholder?: string
+}
+
+export interface State {
+  // This will be set to `true` when it's activated.
+  isActivated: boolean
+
+  // The initial value to be passed onto the modal dialog.
+  initialValue: string
 }
 
 export default LiveSearchInput
