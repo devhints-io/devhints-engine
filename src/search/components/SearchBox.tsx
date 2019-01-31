@@ -17,7 +17,7 @@ export const SearchBoxView = ({ siteSearchIndex }: ConsumerRenderProps) => {
 
       <LiveSearchInput
         siteSearchIndex={siteSearchIndex}
-        placeholder="Search 360+ cheatsheets"
+        placeholder='Search 360+ cheatsheets'
       />
 
       <i

@@ -51,11 +51,11 @@ export const TopNavView = ({
   const isSheetPage = !!title
 
   return (
-    <nav className={CSS.root} data-js-no-preview role="navigation">
+    <nav className={CSS.root} data-js-no-preview role='navigation'>
       <div className={CSS.container}>
         <div className={CSS.left}>{back ? <BackButton /> : null}</div>
 
-        <Link className={CSS.brand} to="/">
+        <Link className={CSS.brand} to='/'>
           {brand}
         </Link>
 

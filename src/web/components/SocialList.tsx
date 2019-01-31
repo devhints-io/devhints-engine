@@ -48,9 +48,9 @@ export const SocialList = ({ className, description, permalink }: Props) => {
     <ul className={cn(CSS.root, className || '')}>
       <li
         className={cn(CSS.item, 'Facebook', 'hint--bottom')}
-        data-hint="Share on Facebook"
+        data-hint='Share on Facebook'
       >
-        <a href={facebookURL} className={CSS.link} target="share">
+        <a href={facebookURL} className={CSS.link} target='share'>
           <i
             className={CSS.icon}
             dangerouslySetInnerHTML={{ __html: facebook }}
@@ -61,9 +61,9 @@ export const SocialList = ({ className, description, permalink }: Props) => {
 
       <li
         className={cn(CSS.item, 'twitter', 'hint--bottom')}
-        data-hint="Share on Twitter"
+        data-hint='Share on Twitter'
       >
-        <a href={twitterURL} className={CSS.link} target="share">
+        <a href={twitterURL} className={CSS.link} target='share'>
           <i
             className={CSS.icon}
             dangerouslySetInnerHTML={{ __html: twitter }}

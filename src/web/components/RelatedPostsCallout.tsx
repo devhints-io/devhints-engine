@@ -9,13 +9,13 @@ export interface Props {
 
 export const RelatedPostsCallout = ({ pageCount }: Props) => (
   <span>
-    <Link className={CSS.root} to="/">
+    <Link className={CSS.root} to='/'>
       <div className={CSS.text}>
         <i className={CSS.icon} />
         <span className={CSS.description}>
           Over {pageCount} curated cheatsheets, by developers for developers.
         </span>
-        <SpanPushButton className="isDark">Devhints home</SpanPushButton>
+        <SpanPushButton className='isDark'>Devhints home</SpanPushButton>
       </div>
     </Link>
   </span>

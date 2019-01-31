@@ -21,11 +21,11 @@ class LiveSearchInput extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <input
-          type="text"
+          type='text'
           placeholder={placeholder || 'Search...'}
           className={CSS.input}
           onChange={this.handleInput}
-          value=""
+          value=''
         />
 
         {isActivated ? (

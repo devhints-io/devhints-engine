@@ -34,14 +34,14 @@ import ReactDOM from 'react-dom'
 ```jsx
 class Hello extends React.Component {
   render() {
-    return <div className="message-box">Hello {this.props.name}</div>
+    return <div className='message-box'>Hello {this.props.name}</div>
   }
 }
 ```
 
 ```jsx
 const el = document.body
-ReactDOM.render(<Hello name="John" />, el)
+ReactDOM.render(<Hello name='John' />, el)
 ```
 
 Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output))
@@ -49,7 +49,7 @@ Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hack
 ### Properties
 
 ```html
-<Video fullscreen={true} />
+<video fullscreen="{true}" />
 ```
 
 <!-- {.-setup} -->
@@ -150,7 +150,7 @@ As of React v16.2.0, fragments can be used to return multiple children without a
 ```jsx
 class AlertBox extends React.Component {
   render() {
-    return <div className="alert-box">{this.props.children}</div>
+    return <div className='alert-box'>{this.props.children}</div>
   }
 }
 ```
@@ -198,7 +198,7 @@ See: [Setting the default state](https://reactjs.org/docs/react-without-es6.html
 
 ```jsx
 function MyComponent({ name }) {
-  return <div className="message-box">Hello {name}</div>
+  return <div className='message-box'>Hello {name}</div>
 }
 ```
 
@@ -309,7 +309,7 @@ See: [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
 class MyComponent extends React.Component {
   render() {
     ;<input
-      type="text"
+      type='text'
       value={this.state.value}
       onChange={event => this.onChange(event)}
     />

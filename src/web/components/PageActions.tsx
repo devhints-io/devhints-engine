@@ -66,7 +66,7 @@ export const PageActionsView = ({ path, labels, editURL }: ViewProps) => {
         className={cn(CSS.item, 'hint--bottom')}
         data-hint={labels.editOnGithub}
       >
-        <a href={editURL} className={CSS.link} target="edit">
+        <a href={editURL} className={CSS.link} target='edit'>
           <i
             className={CSS.icon}
             dangerouslySetInnerHTML={{ __html: githubIcon }}

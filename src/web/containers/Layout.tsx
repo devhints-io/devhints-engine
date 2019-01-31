@@ -17,7 +17,7 @@ function Layout({ children }: Props) {
   return (
     <React.Fragment>
       <Helmet
-        title="Devhints.io"
+        title='Devhints.io'
         meta={[
           { name: 'description', content: 'Sample' },
           { name: 'keywords', content: 'sample, something' }

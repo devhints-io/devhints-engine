@@ -49,10 +49,10 @@ export class DisqusScript extends React.Component<Props> {
 
     // Render props to be passed on
     const rprops: RenderProps = {
-      thread: <div id="disqus_thread" />,
+      thread: <div id='disqus_thread' />,
       count: (
         <span
-          className="disqus-comment-count"
+          className='disqus-comment-count'
           data-disqus-identifier={identifier}
           data-disqus-url={url}
         >

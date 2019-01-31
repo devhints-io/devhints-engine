@@ -1,18 +1,18 @@
 /* @flow */
-import * as React from 'react'
 import Link from 'gatsby-link'
+import * as React from 'react'
 import { Consumer } from '../contexts/SiteContext'
 
 /*
  * Types
  */
 
-export type Props = {
+export interface Props {
   /** Extra classnames to be appended to the root element */
-  className?: string,
+  className?: string
 
   /** Path to be linked to */
-  path: string,
+  path: string
 
   /** Title to be shown */
   title: string

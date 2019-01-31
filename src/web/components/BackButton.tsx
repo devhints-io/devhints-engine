@@ -7,7 +7,7 @@ import CSS from './BackButton.module.css'
 export const BackButton = () => {
   return (
     <span>
-      <Link className={cn(CSS.link, CSS.home)} to="/">
+      <Link className={cn(CSS.link, CSS.home)} to='/'>
         <i
           className={cn(CSS.icon)}
           dangerouslySetInnerHTML={{ __html: arrowLeft }}

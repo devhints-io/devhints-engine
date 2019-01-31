@@ -61,7 +61,9 @@ export class SearchProvider extends React.Component<Props, State> {
    */
 
   getOrCreateIndex = () => {
-    if (this.index) { return this.index }
+    if (this.index) {
+      return this.index
+    }
 
     const index = Index.load(this.props.siteSearchIndex.index)
     this.index = index

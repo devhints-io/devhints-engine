@@ -8,7 +8,7 @@ import CSS from './HomeButton.module.css'
  */
 
 export const HomeButton = () => (
-  <Link className={CSS.root} to="/">
+  <Link className={CSS.root} to='/'>
     <i className={CSS.icon} dangerouslySetInnerHTML={{ __html: homeLine }} />
   </Link>
 )

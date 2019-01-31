@@ -44,7 +44,7 @@ export const SearchModalView = ({
     <div className={CSS.root}>
       <button onClick={onDismiss}>&times;</button>
 
-      <input type="text" value={query} onChange={onChange} autoFocus />
+      <input type='text' value={query} onChange={onChange} autoFocus />
       {results && results.length ? (
         <ul className={CSS.list}>
           {results.map((page: SearchPageItem) => (

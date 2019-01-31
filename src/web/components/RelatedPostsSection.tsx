@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react'
-import RelatedPostsGroup from './RelatedPostsGroup'
-import RelatedPostsCallout from './RelatedPostsCallout'
 import { Props } from './RelatedPostsArea'
+import RelatedPostsCallout from './RelatedPostsCallout'
+import RelatedPostsGroup from './RelatedPostsGroup'
 
 /**
  * Related posts section
@@ -14,11 +14,11 @@ export const RelatedPostsSection = ({
   relatedPages,
   topPages
 }: Props) => (
-  <div className="related-posts-section">
-    <div className="callout">
+  <div className='related-posts-section'>
+    <div className='callout'>
       <RelatedPostsCallout pageCount={pageCount} />
     </div>
-    <div className="group">
+    <div className='group'>
       <RelatedPostsGroup
         pages={relatedPages}
         title={
@@ -26,8 +26,8 @@ export const RelatedPostsSection = ({
         }
       />
     </div>
-    <div className="group">
-      <RelatedPostsGroup pages={topPages} title="Top cheatsheets" />
+    <div className='group'>
+      <RelatedPostsGroup pages={topPages} title='Top cheatsheets' />
     </div>
   </div>
 )

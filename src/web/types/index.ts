@@ -190,20 +190,16 @@ export interface SiteSearchIndex {
 }
 
 export interface GatsbyActions {
-  createPage: (
-    options: {
-      path: string
-      component: string
-      context?: {}
-    }
-  ) => void
+  createPage: (options: {
+    path: string
+    component: string
+    context?: {}
+  }) => void
 
-  createRedirect: (
-    options: {
-      fromPath: string
-      toPath: string
-      isPermanent?: boolean
-      redirectInBrowser?: boolean
-    }
-  ) => void
+  createRedirect: (options: {
+    fromPath: string
+    toPath: string
+    isPermanent?: boolean
+    redirectInBrowser?: boolean
+  }) => void
 }

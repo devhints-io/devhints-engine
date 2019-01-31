@@ -6,9 +6,9 @@ export interface Props {
 
 const CommentsSection = ({ thread }: Props) => {
   return (
-    <div className="comments-section">
+    <div className='comments-section'>
       {/* TODO comments-section CSS module */}
-      <div className="comments">{thread}</div>
+      <div className='comments'>{thread}</div>
     </div>
   )
 }

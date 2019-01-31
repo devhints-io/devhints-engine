@@ -6,7 +6,7 @@ import CSS from './SearchFooterSection.module.css'
 const SearchFooterSection = () => (
   <section className={CSS.root}>
     <div className={CSS.search}>
-      <form action="/" method="get">
+      <form action='/' method='get'>
         <SearchBox />
       </form>
     </div>

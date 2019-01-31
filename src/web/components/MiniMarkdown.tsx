@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 
-export type Props = {
+export interface Props {
   // The markdown source
   source: string
 }
@@ -15,7 +15,7 @@ export type Props = {
 
 export const MiniMarkdown = ({ source }: Props) => (
   <span
-    className="mini-markdown"
+    className='mini-markdown'
     dangerouslySetInnerHTML={{ __html: paragraphify(markdownish(source)) }}
   />
 )

@@ -10,8 +10,8 @@ export const CommonHead = () => (
   <React.Fragment>
     <Helmet>
       <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Cousine"
+        rel='stylesheet'
+        href='https://fonts.googleapis.com/css?family=Cousine'
       />
     </Helmet>
   </React.Fragment>

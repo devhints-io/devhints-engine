@@ -18,11 +18,11 @@ export const RelatedPostsGroup = ({ pages, title }: Props) => {
   return (
     <div className={CSS.root}>
       <h3 className={CSS.heading}>{title}</h3>
-      <div className="related-post-list">
+      <div className='related-post-list'>
         {list.map(({ path, title }) => (
           <RelatedPostItem
             key={path}
-            className="item"
+            className='item'
             path={path}
             title={title}
           />

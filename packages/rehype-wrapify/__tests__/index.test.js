@@ -25,9 +25,9 @@ describe('wrapH2', () => {
 
     const expected = (
       <div>
-        <div className="h2-section">
+        <div className='h2-section'>
           <h2>Introduction</h2>
-          <div className="body h3-section-list">
+          <div className='body h3-section-list'>
             <p>Hello there</p>
           </div>
         </div>
@@ -50,15 +50,15 @@ describe('wrapH2', () => {
 
     const expected = (
       <div>
-        <div className="h2-section">
+        <div className='h2-section'>
           <h2>Introduction</h2>
-          <div className="body h3-section-list">
+          <div className='body h3-section-list'>
             <p>hello there</p>
           </div>
         </div>
-        <div className="h2-section">
+        <div className='h2-section'>
           <h2>Usage</h2>
-          <div className="body h3-section-list">
+          <div className='body h3-section-list'>
             <p>how are you</p>
           </div>
         </div>
@@ -179,9 +179,9 @@ describe('wrapAll', () => {
     const input = (
       <div>
         <h2>Intro</h2>
-        <h3 className="one">Installation</h3>
+        <h3 className='one'>Installation</h3>
         <p>(hello)</p>
-        <h3 className="two">Usage</h3>
+        <h3 className='two'>Usage</h3>
         <p>(world)</p>
       </div>
     )

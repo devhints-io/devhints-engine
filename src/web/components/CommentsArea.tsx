@@ -19,7 +19,7 @@ export const CommentsAreaView = (props: ViewProps) => {
   const { thread, count } = props
 
   return (
-    <section className={CSS.root} id="comments" data-js-no-preview>
+    <section className={CSS.root} id='comments' data-js-no-preview>
       <div className={CSS.container}>
         <details className={CSS.details}>
           <CommentsAreaSummary count={count} />

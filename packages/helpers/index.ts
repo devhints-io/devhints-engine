@@ -7,7 +7,9 @@
  */
 
 export function keywordify(str: string | null | void) {
-  if (!str) { return null }
+  if (!str) {
+    return null
+  }
 
   return str
     .slice(1)

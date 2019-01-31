@@ -6,9 +6,9 @@ import { CONTENT } from '../../../config'
  * Properties
  */
 
-export type Props = {
+export interface Props {
   content: {
-    title: string,
+    title: string
     tagline: string
   }
 }
@@ -18,7 +18,7 @@ export type Props = {
  */
 
 export const SiteHeaderView = ({ content: { title, tagline } }: Props) => (
-  <div className="site-header">
+  <div className='site-header'>
     <h1>{title}</h1>
     <p dangerouslySetInnerHTML={{ __html: tagline }} />
 

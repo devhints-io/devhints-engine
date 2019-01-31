@@ -37,11 +37,11 @@ export const View = ({
     <div>
       <Helmet>
         <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
+        <meta name='description' content={metaDescription} />
       </Helmet>
       <CommonHead />
       <TopNav />
-      <div className="body-area -slim">
+      <div className='body-area -slim'>
         <SiteHeader />
 
         <LiveSearchInput siteSearchIndex={siteSearchIndex} />

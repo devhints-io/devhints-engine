@@ -26,7 +26,7 @@ const PostContent = memo((props: Props) => {
   const content = transform(htmlAst)
 
   return (
-    <div className={className} role="main" ref={doPostTransform}>
+    <div className={className} role='main' ref={doPostTransform}>
       {content}
     </div>
   )

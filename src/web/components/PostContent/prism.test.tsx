@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import { getPrismURL, getLanguageURL, getLanguagesInElement } from './prism'
+import { getLanguagesInElement, getLanguageURL, getPrismURL } from './prism'
 
 describe('getPrismURL()', () => {
   it('works', () => {

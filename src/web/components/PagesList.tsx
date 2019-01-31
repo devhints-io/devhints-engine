@@ -24,18 +24,18 @@ export type ViewProps = Props & {
  */
 
 export const PagesListView = ({ title, links, updatedLabel }: ViewProps) => (
-  <div className="pages-list" role="main">
-    <h2 className="category item">
+  <div className='pages-list' role='main'>
+    <h2 className='category item'>
       <span>{title}</span>
     </h2>
     {links.map((link: SiteLink) => (
-      <Link to={link.path} key={link.path} className="article item">
-        <span className="info">
-          <code className="slug">{unpath(link.path)}</code>
+      <Link to={link.path} key={link.path} className='article item'>
+        <span className='info'>
+          <code className='slug'>{unpath(link.path)}</code>
 
           <AttributePeg hint={updatedLabel} />
 
-          <span className="title">{link.title}</span>
+          <span className='title'>{link.title}</span>
         </span>
       </Link>
     ))}

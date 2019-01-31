@@ -1,16 +1,16 @@
 /* @flow */
 import * as React from 'react'
-import RelatedPostsSection from './RelatedPostsSection'
 import { SiteLink } from '../types'
+import RelatedPostsSection from './RelatedPostsSection'
 
 /**
  * Related posts area
  */
 
-export type Props = {
-  relatedPages: Array<SiteLink>,
-  topPages: Array<SiteLink>,
-  pageCount: number,
+export interface Props {
+  relatedPages: SiteLink[]
+  topPages: SiteLink[]
+  pageCount: number
   category?: string
 }
 
@@ -19,8 +19,8 @@ export type Props = {
  */
 
 export const RelatedPostsArea = (props: Props) => (
-  <footer className="related-posts-area" id="related" data-js-no-preview>
-    <div className="container">
+  <footer className='related-posts-area' id='related' data-js-no-preview>
+    <div className='container'>
       <RelatedPostsSection {...props} />
     </div>
   </footer>
