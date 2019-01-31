@@ -63,11 +63,27 @@ category: CLI
 
 ### Sort `o`
 
-| Description     | Key           |
-| --------------- | ------------- |
-| _Sort by_ name  | `on` _/_ `oN` |
-| _Sort by_ size  | `os` _/_ `oS` |
-| _Sort by_ mtime | `om` _/_ `oM` |
+| Description   | Key           |
+| ------------- | ------------- |
+| Sort by name  | `on` _/_ `oN` |
+| Sort by size  | `os` _/_ `oS` |
+| Sort by mtime | `om` _/_ `oM` |
+
+<!-- {.-shortcuts-right} -->
+
+### View `.`
+
+| Description            | Key  |
+| ---------------------- | ---- |
+| Show filters           | `..` |
+| Clear filters          | `.c` |
+| Undo last filter (pop) | `.p` |
+|                        |      |
+| Filter by name         | `.n` |
+| Filter by MIME type    | `.m` |
+|                        |      |
+| Files only             | `.f` |
+| Directories only       | `.d` |
 
 <!-- {.-shortcuts-right} -->
 

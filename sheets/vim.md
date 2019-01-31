@@ -6,8 +6,8 @@ tags: [Featured]
 updated: 2018-09-11
 weight: -10
 intro: |
- [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
- For shortcut notation, see `:help key-notation`.
+  [Vim](http://www.vim.org/) is a very efficient text editor. This reference was made for Vim 8.0.   
+  For shortcut notation, see `:help key-notation`.
 ---
 
 ## Getting started
@@ -114,13 +114,16 @@ intro: |
 | `i`      | Insert                              |
 | `o`      | Next line                           |
 | `O`      | Previous line                       |
-| ---      | ---                                 |
+|          |                                     |
 | `s`      | Delete char and insert              |
 | `S`      | Delete line and insert              |
 | `C`      | Delete until end of line and insert |
-| ---      | ---                                 |
+|          |                                     |
 | `r`      | Replace one character               |
 | `R`      | Enter Replace mode                  |
+|          |                                     |
+| `u`      | Undo changes                        |
+| `<C-R>`  | Redo changes                        |
 
 <!-- {.-shortcuts} -->
 
@@ -131,12 +134,7 @@ intro: |
 | `Esc` _/_ `<C-[>` | Exit insert mode                            |
 | `<C-C>`           | Exit insert mode, and abort current command |
 
-# <!-- {.-shortcuts} -->
-
-| --- | --- |
-| `u` | Undo changes |
-| `<C-R>` | Redo changes |
-{: .-shortcuts}
+<!-- {.-shortcuts} -->
 
 ### Exiting insert mode
 
@@ -145,9 +143,7 @@ intro: |
 | `Esc` _/_ `<C-[>` | Exit insert mode                            |
 | `<C-C>`           | Exit insert mode, and abort current command |
 
-{: .-shortcuts}
-
-> > > > > > > upstream/master:vim.md
+<!-- {.-shortcuts} -->
 
 ### Clipboard
 
@@ -472,6 +468,6 @@ See `:help spell`
 
 ## Also see
 
-* [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
-* [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
-* [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_
+- [Vim cheatsheet](https://vim.rtorr.com/) _(vim.rotrr.com)_
+- [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/) _(vimdoc.sourceforge.net)_
+- [Interactive Vim tutorial](http://openvim.com/) _(openvim.com)_
