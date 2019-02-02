@@ -1,4 +1,4 @@
-@import '../styles/common';
+@import '../styles/_common.scss';
 
 .root,
 .root > li {
@@ -31,19 +31,19 @@
   text-decoration: none;
   white-space: nowrap;
   padding: 0 16px;
-  border: solid 1px var(--dark-line-color);
+  border: solid 1px $dark-line-color;
   border-radius: 24px;
-  @apply --font-size--1;
+  @include font-size(-1);
 }
 
 .link,
 .link:visited {
-  color: var(--text-mute);
+  color: $text-mute;
 }
 
 .link:hover,
 .link:focus {
-  background: var(--brand-a-gradient), var(--brand-a);
-  box-shadow: var(--shadow3);
+  background: $brand-a-gradient, $brand-a;
+  box-shadow: $shadow3;
   color: white;
 }

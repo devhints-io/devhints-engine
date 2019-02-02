@@ -1,6 +1,6 @@
 import Link from 'gatsby-link'
 import React from 'react'
-import CSS from './RelatedPostsCallout.module.css'
+import CSS from './RelatedPostsCallout.module.scss'
 import SpanPushButton from './SpanPushButton'
 
 export interface Props {

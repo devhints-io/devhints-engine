@@ -1,7 +1,7 @@
 import React from 'react'
 import { SiteLink } from '../types'
 import RelatedPostItem from './RelatedPostItem'
-import CSS from './RelatedPostsGroup.module.css'
+import CSS from './RelatedPostsGroup.module.scss'
 
 export interface Props {
   pages: SiteLink[]

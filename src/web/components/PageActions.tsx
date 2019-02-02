@@ -4,7 +4,7 @@ import React from 'react'
 import cn from 'classnames'
 import { Consumer } from '../contexts/SiteContext'
 import { Context } from '../types'
-import CSS from './PageActions.module.css'
+import CSS from './PageActions.module.scss'
 
 /*
  * Types

@@ -1,17 +1,17 @@
-@import '../styles/common';
+@import '../styles/_common.scss';
 
 .root {
   & {
     display: flex;
     text-decoration: none;
-    background: var(--brand-a-gradient);
+    background: $brand-a-gradient;
     padding: 32px;
     align-items: center;
     justify-content: center;
     color: white;
     border-radius: 2px;
-    box-shadow: var(--shadow2);
-    text-shadow: 0 1px 1px color-mod(black alpha(20%));
+    box-shadow: $shadow2;
+    text-shadow: 0 1px 1px change-color(black, $alpha: 0.2);
   }
 
   &,
@@ -21,7 +21,7 @@
 
   &:hover,
   &:focus {
-    background: color-mod(var(--brand-a) lightness(-8%));
+    background: darken($brand-a, 0.8);
   }
 }
 
@@ -38,17 +38,17 @@
 .icon::before {
   content: '';
   display: inline-block;
-  /* TODO @include ion-ios-arrow-back(48px, adjust-color-mod($base-a, $lightness: 16%, $hue: 20deg)); */
+  /* TODO @include ion-ios-arrow-back(48px, adjust-color($base-a, $lightness: 16%, $hue: 20deg)); */
   height: 64px;
   width: 64px;
-  border: solid 2px color-mod(var(--brand-a) lightness(+16%) hue(+20deg));
+  border: solid 2px adjust-color($brand-a, $lightness: +16%, $hue: +20deg);
   border-radius: 50%;
   text-indent: -2px;
   text-shadow: none;
 }
 
 .description {
-  @apply --font-size-1;
+  @include font-size(1);
   line-height: 1.4;
   font-weight: 300;
   display: block;
