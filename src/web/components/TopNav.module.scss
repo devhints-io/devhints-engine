@@ -1,4 +1,4 @@
-@import '../styles/common';
+@import '../styles/_common.scss';
 
 .root,
 .container {
@@ -19,15 +19,15 @@
   .root {
     height: calc(32px + 8px + 8px);
     padding: 8px 0;
-    border-bottom: solid 1px var(--dark-line-color);
+    border-bottom: solid 1px $dark-line-color;
     margin-bottom: 8px;
   }
 }
 
 .container {
-  @apply --gutter-padding-left;
-  @apply --gutter-padding-right;
-  max-width: var(--area-width);
+  @include gutter-padding-left;
+  @include gutter-padding-right;
+  max-width: $area-width;
   margin: 0 auto;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .brand {
-  @apply --font-size--1;
+  @include font-size--1;
   display: inline-block;
   font-weight: bold;
   text-transform: uppercase;
@@ -61,11 +61,11 @@
 
   &,
   &:visited {
-    color: var(--text-body);
+    color: $text-body;
   }
 
   &:hover {
-    color: var(--brand-a);
+    color: $brand-a;
   }
 }
 
@@ -84,20 +84,20 @@
 @media (min-width: 481px) {
   .actions {
     position: absolute;
-    @apply --gutter-right;
+    @include gutter-right;
     top: calc((64px - 32px) / 2);
     line-height: 1em;
   }
 
   .left {
     position: absolute;
-    @apply --gutter-left;
+    @include gutter-left;
     top: calc((64px - 32px) / 2);
   }
 }
 
 /* offset so it doesn't look misasligned */
-/* (min-width: var(--area-width)) */
+/* (min-width: $area-width) */
 @media (min-width: 1232px) {
   .home {
     position: relative;

@@ -1,4 +1,4 @@
-@import '../styles/common';
+@import '../styles/_common.scss';
 
 .root ul,
 .root li {
@@ -26,12 +26,12 @@ a.link {
 
 .link,
 .link:visited {
-  color: var(--text-mute);
+  color: $text-mute;
 }
 
 .link:hover,
 .link:focus {
-  color: var(--brand-a);
+  color: $brand-a;
 }
 
 .text {

@@ -1,4 +1,4 @@
-@import '../styles/common';
+@import '../styles/_common.scss';
 
 /*
  * Section inside the search footer
@@ -13,7 +13,7 @@
 }
 
 .links {
-  @apply --gutter-padding-left;
+  @include gutter-padding-left;
   flex: 0 1 auto;
   margin-left: auto;
 }
