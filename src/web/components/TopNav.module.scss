@@ -52,7 +52,7 @@
 }
 
 .brand {
-  @include font-size--1;
+  @include font-size(-1);
   display: inline-block;
   font-weight: bold;
   text-transform: uppercase;

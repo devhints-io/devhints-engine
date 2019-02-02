@@ -1,6 +1,6 @@
 @import '../styles/_common.scss';
 
-.root ul,
+.root,
 .root li {
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@
   height: 16px;
 }
 
-a.link {
+.link {
   display: inline-block;
   width: 32px;
   height: 32px;

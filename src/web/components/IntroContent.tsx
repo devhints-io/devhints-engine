@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
-import CSS from './IntroContent.module.css'
+import CSS from './IntroContent.module.scss'
 
 export interface Props {
   children: React.ReactNode
