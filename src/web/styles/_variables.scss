@@ -34,17 +34,17 @@ $brand-b: #26648e; /* Blue */
 $brand-c: #14af83; /* Teal */
 
 /* Accent variations */
-$brand-a3: color-mod($brand-a hue(-20) lightness(+16%));
-$brand-a4: color-mod($brand-a hue(-10) lightness(+8%));
-$brand-a5: color-mod($brand-a);
-$brand-a6: color-mod($brand-a hue(+15) lightness(-8%));
-$brand-a7: color-mod($brand-a hue(+20) lightness(-16%));
+$brand-a3: adjust-color($brand-a, $hue: -20deg, $lightness: +16%);
+$brand-a4: adjust-color($brand-a, $hue: -10deg, $lightness: +8%);
+$brand-a5: adjust-color($brand-a);
+$brand-a6: adjust-color($brand-a, $hue: +15deg, $lightness: -8%);
+$brand-a7: adjust-color($brand-a, $hue: +20deg, $lightness: -16%);
 
-$brand-b3: color-mod($brand-b hue(-20) lightness(+16%));
-$brand-b4: color-mod($brand-b hue(-10) lightness(+8%));
-$brand-b5: color-mod($brand-b);
-$brand-b6: color-mod($brand-b hue(+10) lightness(-8%));
-$brand-b7: color-mod($brand-b hue(+20) lightness(-16%));
+$brand-b3: adjust-color($brand-b, $hue: -20deg, $lightness: +16%);
+$brand-b4: adjust-color($brand-b, $hue: -10deg, $lightness: +8%);
+$brand-b5: adjust-color($brand-b);
+$brand-b6: adjust-color($brand-b, $hue: +10deg, $lightness: -8%);
+$brand-b7: adjust-color($brand-b, $hue: +20deg, $lightness: -16%);
 
 /* Mute variations */
 $text-mute3: lighten($text-mute, 0.16);
@@ -60,7 +60,7 @@ $dark-line-color: change-color($text-mute, $alpha: 0.2);
 $brand-a-gradient: linear-gradient(
   5deg,
   $brand-a,
-  color-mod($brand-a lightness(+2%) hue(+32))
+  adjust-color($brand-a, $lightness: +2%, $hue: +32deg)
 );
 
 /* Shadows */

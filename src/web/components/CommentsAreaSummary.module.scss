@@ -1,9 +1,9 @@
-@import '../styles/common';
+@import '../styles/_common.scss';
 
 /* Root component */
 .root {
-  @apply --font-size-1;
-  color: var(--brand-a);
+  @include font-size(1);
+  color: $brand-a;
   padding: 24px 0;
   white-space: nowrap;
   cursor: pointer;
@@ -13,11 +13,11 @@
 .root:focus {
   &,
   & > .suffix {
-    color: var(--brand-a7);
+    color: $brand-a7;
   }
 
   & > .fauxlink {
-    border-bottom: solid 1px var(--brand-a7);
+    border-bottom: solid 1px $brand-a7;
   }
 }
 
@@ -28,17 +28,17 @@
 .count::before {
   content: '';
   vertical-align: middle;
-  color: var(--brand-a);
+  color: $brand-a;
   margin: 0 8px 0 0;
 }
 
 .suffix {
-  color: var(--text-mute);
+  color: $text-mute;
 }
 
 .fauxlink {
   margin-left: 4px;
-  border-bottom: solid 1px color-mod(var(--brand-a) alpha(25%));
+  border-bottom: solid 1px change-color($brand-a, $alpha: 0.25);
 }
 
 /* Icon */
@@ -48,7 +48,7 @@
 }
 
 .icon :global(.clr-i-outline) {
-  fill: var(--brand-a);
+  fill: $brand-a;
 }
 
 /* Icon on non-hover */

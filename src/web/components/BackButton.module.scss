@@ -1,4 +1,4 @@
-@import '../../web/styles/common';
+@import '../../web/styles/_common.scss';
 
 .link {
   text-decoration: none;
@@ -20,20 +20,20 @@
   /* Colors */
   &,
   &:visited {
-    color: var(--text-mute);
+    color: $text-mute;
   }
 
   /* Active */
   &:hover,
   &:focus {
     color: white;
-    background: color-mod(var(--brand-b) alpha(4%));
+    background: change-color($brand-b, $alpha: 0.4);
     opacity: 1;
   }
 
   &:hover .icon,
   &:focus .icon {
-    color: var(--brand-a);
+    color: $brand-a;
   }
 
   /* Icon: smaller on mobile */
