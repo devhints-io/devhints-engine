@@ -34,14 +34,14 @@ import ReactDOM from 'react-dom'
 ```jsx
 class Hello extends React.Component {
   render() {
-    return <div className="message-box">Hello {this.props.name}</div>
+    return <div className='message-box'>Hello {this.props.name}</div>
   }
 }
 ```
 
 ```jsx
 const el = document.body
-ReactDOM.render(<Hello name="John" />, el)
+ReactDOM.render(<Hello name='John' />, el)
 ```
 
 Use the [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) to start hacking. (or the unofficial [jsbin](http://jsbin.com/yafixat/edit?js,output))
@@ -180,7 +180,7 @@ As of React v16.2.0, fragments can be used to return multiple children without a
 ```jsx
 class AlertBox extends Component {
   render() {
-    return <div className="alert-box">{this.props.children}</div>
+    return <div className='alert-box'>{this.props.children}</div>
   }
 }
 ```
@@ -239,7 +239,7 @@ See: [Setting the default state](https://reactjs.org/docs/react-without-es6.html
 
 ```jsx
 function MyComponent({ name }) {
-  return <div className="message-box">Hello {name}</div>
+  return <div className='message-box'>Hello {name}</div>
 }
 ```
 
@@ -357,7 +357,7 @@ class MyComponent extends Component {
   render() {
     return (
       <input
-        type="text"
+        type='text'
         value={this.state.value}
         onChange={event => this.onChange(event)}
       />
