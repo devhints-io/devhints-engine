@@ -16,6 +16,9 @@ See: **[devhints-engine TODO list](https://github.com/rstacruz/devhints-engine/i
 
 ## Dev setup (traditional)
 
+<details>
+<summary>Traditional dev setup</summary>
+
 This sets up a dev environment of `devhints-engine`. Note that you need Node 8+ and Yarn 1.5+.
 
 ```bash
@@ -33,12 +36,14 @@ yarn develop
 open http://localhost:19336/
 ```
 
+</details>
+
 ## Dev setup (via Docker)
 
 You can also run it via Docker. You only need to [install Docker](https://gist.github.com/rstacruz/297fc799f094f55d062b982f7dac9e41) (with docker-compose).
 
 ```bash
-alias dr='docker-compose run --rm --service-ports web'
+alias dr='docker-compose run --rm web'
 
 # Clone the repo
 git clone https://github.com/rstacruz/devhints-engine.git
