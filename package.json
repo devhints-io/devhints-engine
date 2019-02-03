@@ -20,6 +20,7 @@
     "gatsby-link": "^2.0.9",
     "gatsby-plugin-postcss": "^2.0.3",
     "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-typescript": "^2.0.4",
     "gatsby-react-router-scroll": "^2.0.3",
     "gatsby-remark-component": "^1.1.3",
@@ -32,6 +33,7 @@
     "js-yaml": "^3.12.1",
     "loadjs": "^3.5.5",
     "meow": "^5.0.0",
+    "modularscale-sass": "^3.0.8",
     "postcss-apply": "^0.11.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-discard-comments": "^4.0.1",
@@ -51,7 +53,8 @@
     "remark-frontmatter": "^1.3.1",
     "remark-preset-lint-markdown-style-guide": "^2.1.2",
     "responsive-modular-scale.css": "^0.2.0",
-    "sanitize.css": "^8.0.0"
+    "sanitize.css": "^8.0.0",
+    "sass": "^1.16.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
@@ -59,15 +62,15 @@
     "@types/jest": "^23.3.13",
     "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.6.0",
-    "enzyme-to-json": "^3.3.3",
+    "babel-jest": "^24.0.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "enzyme-to-json": "^3.3.5",
     "gh-pages": "^2.0.1",
     "hast-util-to-html": "^4.0.1",
     "hastscript": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "npm-run-all": "^4.1.5",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-reporter": "^6.0.1",
@@ -77,26 +80,6 @@
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.4"
-  },
-  "jest": {
-    "setupFiles": [
-      "./tests/jest.setup.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/.cache/"
-    ],
-    "testURL": "http://localhost",
-    "transformIgnorePatterns": [
-      "/node_modules/(?!(devhints|@devhints|rehype-decorate/|gatsby/)).+$"
-    ],
-    "moduleNameMapper": {
-      ".*raw-loader.*": "<rootDir>/__mocks__/filemock.js",
-      ".*\\.css$": "<rootDir>/__mocks__/filemock.js"
-    }
   },
   "keywords": [
     "devhints"

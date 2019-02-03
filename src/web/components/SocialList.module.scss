@@ -1,6 +1,6 @@
-@import '../styles/common';
+@import '../styles/_common.scss';
 
-.root ul,
+.root,
 .root li {
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@
   height: 16px;
 }
 
-a.link {
+.link {
   display: inline-block;
   width: 32px;
   height: 32px;
@@ -26,12 +26,12 @@ a.link {
 
 .link,
 .link:visited {
-  color: var(--text-mute);
+  color: $text-mute;
 }
 
 .link:hover,
 .link:focus {
-  color: var(--brand-a);
+  color: $brand-a;
 }
 
 .text {

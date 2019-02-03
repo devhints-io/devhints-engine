@@ -1,4 +1,6 @@
-.pages-list {
+@import '../styles/_common.scss';
+
+.root {
   & {
     display: flex;
     flex-wrap: wrap;
@@ -13,7 +15,7 @@
   }
 
   @media (min-width: 581px) {
-    & > .item.top-sheet {
+    & > .item.isTopSheet {
       flex: 0 0 25%;
     }
   }
@@ -21,7 +23,7 @@
 
 /* Article */
 
-.pages-list > .article {
+.root > .article {
   text-decoration: none;
   display: block;
   white-space: nowrap;
@@ -29,15 +31,15 @@
 
   &,
   &:visited {
-    color: var(--text-mute3);
+    color: $text-mute3;
   }
 
   & > .info > .slug {
-    color: var(--text-bold);
+    color: $text-bold;
   }
 
   &:visited > .info > .slug {
-    color: var(--text-body);
+    color: $text-body;
   }
 
   & > .info > .title::before {
@@ -58,21 +60,21 @@
   &:hover,
   &:focus {
     & {
-      color: var(--text-mute);
+      color: $text-mute;
     }
 
     & > .info > .title {
       opacity: 1;
-      color: var(--brand-a);
+      color: $brand-a;
     }
   }
 }
 
-.pages-list > .category {
-  @apply --font-size-1;
-  border-bottom: solid 1px var(--dark-line-color);
+.root > .category {
+  @include font-size(1);
+  border-bottom: solid 1px $dark-line-color;
   margin: 16px 0;
   padding: 0 0 16px 0;
   font-weight: normal;
-  color: var(--brand-a);
+  color: $brand-a;
 }

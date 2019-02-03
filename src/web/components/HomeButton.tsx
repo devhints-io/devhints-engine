@@ -1,7 +1,7 @@
 import { homeLine } from 'devhints-icons'
 import Link from 'gatsby-link'
 import React from 'react'
-import CSS from './HomeButton.module.css'
+import CSS from './HomeButton.module.scss'
 
 /**
  * Home button

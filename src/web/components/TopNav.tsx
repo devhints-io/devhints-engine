@@ -5,7 +5,7 @@ import { Consumer } from '../contexts/SiteContext'
 import BackButton from './BackButton'
 import PageActions from './PageActions'
 import SocialList from './SocialList'
-import CSS from './TopNav.module.css'
+import CSS from './TopNav.module.scss'
 
 /**
  * Props

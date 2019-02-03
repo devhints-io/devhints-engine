@@ -26,6 +26,12 @@ module.exports = {
     sheetPath: SHEET_PATH
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        implementation: require('sass')
+      }
+    },
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',

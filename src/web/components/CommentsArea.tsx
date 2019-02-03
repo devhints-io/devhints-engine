@@ -2,7 +2,7 @@ import React from 'react'
 import DisqusScript from '../providers/DisqusScript'
 import { RenderProps } from '../providers/DisqusScript'
 import { DisqusData } from '../types'
-import CSS from './CommentsArea.module.css'
+import CSS from './CommentsArea.module.scss'
 import CommentsAreaSummary from './CommentsAreaSummary'
 import CommentsSection from './CommentsSection'
 
