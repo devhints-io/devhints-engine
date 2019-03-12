@@ -1,4 +1,4 @@
-image: node:slim
+image: node:lts-slim
 
 test_all:
   script:
