@@ -6,6 +6,7 @@ services:
     volumes:
       - .:/app
       - node_modules:/app/node_modules
+      - devhints_validator_node_modules:/app/packages/devhints-validator/node_modules
       - cache:/app/.cache
     ports:
       - '19336:19336'
@@ -13,4 +14,5 @@ services:
 
 volumes:
   node_modules:
+  devhints_validator_node_modules:
   cache:
