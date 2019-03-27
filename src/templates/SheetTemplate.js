@@ -2,6 +2,7 @@
 /* global graphql */
 
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import { Provider } from '../lib/context'
 import SheetTemplateView from '../components/SheetTemplateView'
 import { CONTENT } from '../../config'

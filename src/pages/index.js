@@ -1,7 +1,7 @@
 /* @flow */
-/* global graphql */
 
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import { Provider } from '../lib/context'
 import RootPage from '../components/RootPage'
 import { CONTENT } from '../../config'
