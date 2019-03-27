@@ -2,7 +2,7 @@
 # Docker-compose entry file
 
 # Install packages if necessary
-if [ ! -d node_modules ]; then
+if [ ! -d node_modules ] || [ ! -x node_modules/.bin/gatsby ]; then
   yarn
 fi
 
