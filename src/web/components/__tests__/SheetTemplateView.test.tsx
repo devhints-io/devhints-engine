@@ -1,4 +1,6 @@
 /* eslint-env jest */
+
+// @ts-ignore adding @types/enzyme causes havoc with other types
 import { mount } from 'enzyme'
 import React from 'react'
 import { CONTENT } from '../../../../config'
