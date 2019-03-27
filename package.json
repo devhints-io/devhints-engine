@@ -90,7 +90,7 @@
   "scripts": {
     "ci": "run-s -l tsc lint prettier:check test",
     "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
-    "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
+    "develop": "env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "tsc": "tsc",
     "lint:eslint": "eslint 'packages/*/lib/**/*.js' src",
