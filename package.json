@@ -82,7 +82,7 @@
   "private": true,
   "scripts": {
     "build": "gatsby build --prefix-paths && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
-    "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop",
+    "develop": "env DEBUG='app:*' gatsby develop",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "prettier:fix": "prettier-eslint --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",
     "prettier:check": "prettier-eslint --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,css}\" \"./*.js\"",

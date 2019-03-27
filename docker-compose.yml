@@ -5,6 +5,12 @@ services:
     build: .
     volumes:
       - .:/app
+      - node_modules:/app/node_modules
+      - cache:/app/.cache
     ports:
       - '19336:19336'
     command: "./docker-compose.web.sh"
+
+volumes:
+  node_modules:
+  cache:
