@@ -6,7 +6,7 @@ import RehypeReact from 'rehype-react'
 // @ts-ignore TODO types for rehype-table-separators
 import separatify from 'rehype-table-separators'
 // @ts-ignore TODO types for rehype-wrapify
-import wrapify from '../../../../packages/rehype-wrapify'
+import wrapify from 'rehype-wrapify'
 import { HastNode } from '../../types'
 
 /**
