@@ -1368,6 +1368,11 @@
   version "7.0.67"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.67.tgz#3aeacf429e24e08e14d7621039d37b7f53542ecf"
 
+"@types/prop-types@*":
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.0.tgz#4c48fed958d6dcf9487195a0ef6456d5f6e0163a"
+  integrity sha512-eItQyV43bj4rR3JPV0Skpl1SncRCdziTEK9/v8VwXmV6d/qOUO8/EuWeHBbCZcsfSHfzI5UyMJLCSXtxxznyZg==
+
 "@types/reach__router@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/reach__router/-/reach__router-1.0.1.tgz#f927a0c6ae198e032b5990196c2b7606a9fb14a1"
@@ -1386,6 +1391,14 @@
   version "16.4.7"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.7.tgz#f33f6d759a7e1833befa15224d68942d178a5a3f"
   dependencies:
+    csstype "^2.2.0"
+
+"@types/react@^16.8.9":
+  version "16.8.9"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.9.tgz#79af4e48ea78c0534ffbaf18d0b1f9cacd3625dc"
+  integrity sha512-gckHt6IMscIMbmLOcpzyJhNw7vJe/QdZ9gmuaO02xRqlgmMeSz3m+C/SgR8iA9FyJUoYAWq2kBE/HDDpb2FzoA==
+  dependencies:
+    "@types/prop-types" "*"
     csstype "^2.2.0"
 
 "@types/stack-utils@^1.0.1":
