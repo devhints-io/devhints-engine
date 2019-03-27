@@ -12,4 +12,4 @@ if [ -d .cache ]; then
 fi
 
 # Start server
-yarn develop --host ${HOST:-0.0.0.0} --port ${PORT:-19336}
+yarn run gatsby develop --host ${HOST:-0.0.0.0} --port ${PORT:-19336}
