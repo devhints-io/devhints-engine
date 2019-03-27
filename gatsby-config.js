@@ -32,5 +32,11 @@ module.exports = {
         plugins: ['gatsby-remark-component']
       }
     }
+    // {
+    //   resolve: `gatsby-plugin-sass`,
+    //   options: {
+    //     implementation: require('sass')
+    //   }
+    // }
   ]
 }
