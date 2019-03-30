@@ -56,7 +56,7 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
   createPage({
     path,
     component: SheetTemplate,
-    context: buildContext(node, path)
+    context: buildPageContext(node, path)
   })
 
   // Create redirects from their aliases
@@ -79,8 +79,9 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
   debug('Finished')
 }
 
-function buildContext(node: any, path: string) {
+function buildPageContext(node: any, path: string) {
   const tags = node.frontmatter.tags || []
+  console.log('tags', node.id, tags)
 
   const context: NodeContext = {
     node_id: node.id,
@@ -90,9 +91,11 @@ function buildContext(node: any, path: string) {
     category: node.frontmatter.category || '',
     weight: node.frontmatter.weight || 0,
     updated: node.frontmatter.updated,
-    isFeatured: tags.indexOf('Featured') != -1,
-    isWIP: tags.indexOf('WIP') != -1
+    isFeatured: tags.includes('Featured'),
+    isWIP: tags.includes('WIP')
   }
+
+  console.log(context)
   return context
 }
 

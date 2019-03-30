@@ -1,6 +1,7 @@
+import { graphql, Link, StaticQuery } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import { graphql, StaticQuery } from 'gatsby'
+import FeaturedPageLink from './FeaturedPageLink'
 
 interface Context {
   nodePath: string
@@ -8,12 +9,14 @@ interface Context {
   title: string
 }
 
+interface Node {
+  id: string
+  context: Context
+}
+
 interface Data {
-  edges: {
-    node: {
-      id: string
-      context: Context
-    }
+  pages: {
+    nodes: Node[]
   }
 }
 
@@ -31,8 +34,20 @@ const FeaturedPages = () => {
 }
 
 const FeaturedPagesView = (props: ViewProps) => {
-  // const { pages } = dataProps
-  return <pre>{JSON.stringify(props, null, 2)}</pre>
+  const { nodes } = props.data.pages
+  return (
+    <div>
+      {nodes.map(node => {
+        return (
+          <FeaturedPageLink
+            key={node.id}
+            path={node.context.nodePath}
+            title={node.context.title}
+          />
+        )
+      })}
+    </div>
+  )
 }
 
 const query = graphql`
@@ -44,14 +59,12 @@ const query = graphql`
       sort: { fields: [context___updated], order: DESC }
       limit: 8
     ) {
-      edges {
-        node {
-          id
-          context {
-            nodePath
-            category
-            title
-          }
+      nodes {
+        id
+        context {
+          nodePath
+          category
+          title
         }
       }
     }
