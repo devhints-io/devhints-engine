@@ -101,9 +101,14 @@ export interface Content {
 
 export interface NodeContext {
   node_id: string // Internal gatsby identifier of Markdown node
+  nodeType: string // 'sheet'
   nodePath: string // File path (eg, 'vim')
   title: string
   category: string
+  weight: number
+  updated: string
+  isFeatured: boolean
+  isWIP: boolean
 }
 
 /**
@@ -190,16 +195,20 @@ export interface SiteSearchIndex {
 }
 
 export interface GatsbyActions {
-  createPage: (options: {
-    path: string
-    component: string
-    context?: {}
-  }) => void
+  createPage: (
+    options: {
+      path: string
+      component: string
+      context?: {}
+    }
+  ) => void
 
-  createRedirect: (options: {
-    fromPath: string
-    toPath: string
-    isPermanent?: boolean
-    redirectInBrowser?: boolean
-  }) => void
+  createRedirect: (
+    options: {
+      fromPath: string
+      toPath: string
+      isPermanent?: boolean
+      redirectInBrowser?: boolean
+    }
+  ) => void
 }

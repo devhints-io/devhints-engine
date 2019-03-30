@@ -51,24 +51,15 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
   const path = relativize(node.fileAbsolutePath)
   const SheetTemplate = root('src/web/templates/SheetTemplate.tsx')
 
-  const context /*: NodeContext */ = {
-    node_id: node.id,
-    nodePath: path,
-    nodeType: 'sheet',
-    title: node.frontmatter.title,
-    category: node.frontmatter.category || '',
-    weight: node.frontmatter.weight || 0,
-    updated: node.frontmatter.updated
-  }
-
+  // Create pages
   debug('Creating page:', { path })
-
   createPage({
     path,
     component: SheetTemplate,
-    context
+    context: buildContext(node, path)
   })
 
+  // Create redirects from their aliases
   const aliases = node.frontmatter.aliases || []
   aliases.forEach((alias: string) => {
     const paths = {
@@ -88,6 +79,23 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
   debug('Finished')
 }
 
+function buildContext(node: any, path: string) {
+  const tags = node.frontmatter.tags || []
+
+  const context: NodeContext = {
+    node_id: node.id,
+    nodePath: path,
+    nodeType: 'sheet',
+    title: node.frontmatter.title,
+    category: node.frontmatter.category || '',
+    weight: node.frontmatter.weight || 0,
+    updated: node.frontmatter.updated,
+    isFeatured: tags.indexOf('Featured') != -1,
+    isWIP: tags.indexOf('WIP') != -1
+  }
+  return context
+}
+
 /**
  * The graphql query
  */
@@ -105,6 +113,7 @@ const QUERY = `
             weight
             updated
             aliases
+            tags
           }
         }
       }

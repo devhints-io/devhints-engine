@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql, StaticQuery } from 'gatsby'
 
 import { LiveSearchInput } from '../../search'
 import { Consumer } from '../contexts/SiteContext'
@@ -8,6 +9,7 @@ import CommonHead from './CommonHead'
 import PagesList from './PagesList'
 import SiteHeader from './SiteHeader'
 import TopNav from './TopNav'
+import FeaturedPages from './FeaturedPages'
 
 export interface Props {
   recentlyUpdated: SiteLink[]
@@ -43,6 +45,7 @@ export const View = ({
       <TopNav />
       <div className='body-area -slim'>
         <SiteHeader />
+        <FeaturedPages />
 
         <LiveSearchInput siteSearchIndex={siteSearchIndex} />
 
