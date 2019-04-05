@@ -28,5 +28,19 @@ module.exports = ({ config }) => {
   config.resolve.extensions.push('.ts')
   config.resolve.extensions.push('.tsx')
 
+  // https://www.npmjs.com/package/@storybook/addon-storysource
+  config.module.rules.push({
+    test: /\.stories\.(jsx?|tsx?)$/,
+    loaders: [
+      {
+        loader: require.resolve('@storybook/addon-storysource/loader'),
+        options: {
+          parser: 'typescript'
+        }
+      }
+    ],
+    enforce: 'pre'
+  })
+
   return config
 }

@@ -57,6 +57,11 @@
     "sass": "^1.16.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-centered": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/addon-notes": "^5.0.6",
+    "@storybook/addon-storysource": "^5.0.6",
     "@storybook/react": "^5.0.6",
     "@types/classnames": "^2.2.7",
     "@types/enzyme": "^3.1.16",
