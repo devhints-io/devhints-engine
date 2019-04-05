@@ -1,18 +1,29 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import DisqusScript from '../providers/DisqusScript'
 import { RenderProps } from '../providers/DisqusScript'
 import { DisqusData } from '../types'
 
 export const DisqusDiscussion = () => {
+  const {
+    site: {
+      siteMetadata: { disqus }
+    }
+  } = useStaticQuery(QUERY)
+
+  // TODO: get this somehow, maybe through a context?
+  const prefix = 'https://devhints.io/'
+  const identifier = 'react'
+
   // Disqus configuration
-  const disqus: DisqusData = {
-    host: 'devhints.disqus.com',
-    url: 'https://devhints.io/react',
-    identifier: 'react'
+  const disqusProps: DisqusData = {
+    host: disqus.host, // 'devhints.disqus.com',
+    url: prefix + identifier,
+    identifier
   }
 
   return (
-    <DisqusScript {...disqus}>
+    <DisqusScript {...disqusProps}>
       {({ thread, count }: RenderProps) => {
         return (
           <React.Fragment>
@@ -25,4 +36,16 @@ export const DisqusDiscussion = () => {
   )
 }
 
+const QUERY = graphql`
+  {
+    site {
+      siteMetadata {
+        disqus {
+          enabled
+          host
+        }
+      }
+    }
+  }
+`
 export default DisqusDiscussion

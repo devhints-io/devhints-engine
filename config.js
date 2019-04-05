@@ -81,6 +81,10 @@ const siteMetadata = {
   googleAnalytics: {
     hostname: 'devhints.io',
     id: 'UA-106902774-1'
+  },
+  disqus: {
+    enabled: true,
+    host: 'devhints.disqus.com'
   }
 }
 
