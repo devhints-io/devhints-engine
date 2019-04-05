@@ -96,6 +96,7 @@
   "scripts": {
     "ci": "run-s -l tsc lint prettier:check test",
     "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
+    "postbuild": "run-s storybook:build",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "tsc": "tsc",
@@ -104,6 +105,7 @@
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "start": "yarn run develop",
+    "storybook:build": "build-storybook --config-dir src/storybook --output-dir public/devhints-storybook",
     "test": "jest",
     "validate": "devhints-validator \"sheets/*.md\""
   },
