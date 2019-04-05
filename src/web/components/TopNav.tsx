@@ -31,14 +31,8 @@ const TopNav = ({ back, title, path }: Props) => {
   const isSheetPage = !!title
 
   const {
-    site: {
-      siteMetadata: {
-        content: {
-          topNav: { title: brand }
-        }
-      }
-    }
-  } = useStaticQuery(QUERY)
+    topNav: { title: brand }
+  } = useStaticQuery(QUERY).site.siteMetadata.content
 
   // Permalink for Social list
   const permalink =
