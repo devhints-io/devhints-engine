@@ -1,5 +1,17 @@
-//https://www.gatsbyjs.org/docs/visual-testing-with-storybook/
 module.exports = ({ config }) => {
+  setupGatsby(config)
+  setupTypeScript(config)
+  setupStorysource(config)
+  setupSass(config)
+
+  return config
+}
+
+/**
+ * Taken from: https://www.gatsbyjs.org/docs/visual-testing-with-storybook/
+ */
+
+function setupGatsby(config) {
   // Include .ts/.tsx here
   config.module.rules[0].test = /\.(mjs|jsx?|tsx?)$/
 
@@ -12,8 +24,7 @@ module.exports = ({ config }) => {
   // use @babel/preset-react for JSX and env (instead of staged presets)
   config.module.rules[0].use[0].options.presets = [
     require.resolve('@babel/preset-react'),
-    require.resolve('@babel/preset-env'),
-    require.resolve('@babel/preset-typescript')
+    require.resolve('@babel/preset-env')
   ]
 
   // use @babel/plugin-proposal-class-properties for class arrow functions
@@ -23,12 +34,13 @@ module.exports = ({ config }) => {
 
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
   config.resolve.mainFields = ['browser', 'module', 'main']
+}
 
-  // Add .ts/.tsx support
-  config.resolve.extensions.push('.ts')
-  config.resolve.extensions.push('.tsx')
+/**
+ * Taken from: https://www.npmjs.com/package/@storybook/addon-storysource
+ */
 
-  // https://www.npmjs.com/package/@storybook/addon-storysource
+function setupStorysource(config) {
   config.module.rules.push({
     test: /\.stories\.(jsx?|tsx?)$/,
     loaders: [
@@ -41,6 +53,26 @@ module.exports = ({ config }) => {
     ],
     enforce: 'pre'
   })
+}
 
-  return config
+/**
+ * Sets up TypeScript compatibility
+ */
+
+function setupTypeScript(config) {
+  // Include .ts/.tsx here
+  config.module.rules[0].test = /\.(mjs|jsx?|tsx?)$/
+
+  // Add .ts/.tsx support
+  config.resolve.extensions.push('.ts')
+  config.resolve.extensions.push('.tsx')
+
+  // Add TypeScript
+  config.module.rules[0].use[0].options.presets.push(
+    require.resolve('@babel/preset-typescript')
+  )
+}
+
+function setupSass(config) {
+  // config.module.rules.push({ ... })
 }
