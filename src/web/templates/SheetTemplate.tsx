@@ -11,8 +11,7 @@ import {
   MarkdownNode,
   NodeContext,
   Sheet,
-  SiteLink,
-  SiteSearchIndex
+  SiteLink
 } from '../types'
 
 /**
@@ -24,7 +23,6 @@ export interface Data {
   topPages: AllSitePage
   allPages: { totalCount: number }
   markdownRemark: MarkdownNode
-  siteSearchIndex: SiteSearchIndex
 }
 
 export interface Props {
@@ -51,11 +49,9 @@ export const SheetTemplate = (props: Props) => {
     htmlAst: data.markdownRemark.htmlAst
   }
 
-  const { siteSearchIndex } = data
-
   return (
     <Layout>
-      <Provider value={{ CONTENT, sheet, siteSearchIndex }}>
+      <Provider value={{ CONTENT, sheet }}>
         <SheetTemplateView
           frontmatter={data.markdownRemark.frontmatter}
           htmlAst={data.markdownRemark.htmlAst}
@@ -134,11 +130,6 @@ export const query = graphql`
     # Number of total cheatsheets
     allPages: allSitePage {
       totalCount
-    }
-
-    # Search
-    siteSearchIndex {
-      index
     }
   }
 `

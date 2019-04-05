@@ -2,6 +2,7 @@
  * Put me anywhere for a cool search box.
  */
 
+import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState } from 'react'
 import { SiteSearchIndex } from '../../web/types'
 import SearchModal from '../components/SearchModal'
@@ -17,6 +18,7 @@ const DEFAULT_STATE = {
  */
 
 const LiveSearchInput = (props: Props) => {
+  const { siteSearchIndex } = useStaticQuery(QUERY)
   const [state, setState] = useState(DEFAULT_STATE)
   const { placeholder } = props
 
@@ -26,22 +28,24 @@ const LiveSearchInput = (props: Props) => {
         type='text'
         placeholder={placeholder || 'Search...'}
         className={CSS.input}
-        onChange={handleInput.bind(null, { setState })}
+        onChange={doHandleInput({ setState })}
         value=''
       />
 
       {state.isActivated ? (
         <SearchModal
-          siteSearchIndex={props.siteSearchIndex}
+          siteSearchIndex={siteSearchIndex}
           initialValue={state.initialValue}
-          onDismiss={dismissModal.bind(null, { setState })}
+          onDismiss={doDismissModal({ setState })}
         />
       ) : null}
     </React.Fragment>
   )
 }
 
-const handleInput = ({ setState }, event: { target: HTMLInputElement }) => {
+const doHandleInput = ({ setState }) => (event: {
+  target: HTMLInputElement
+}) => {
   const value = event.target.value
 
   if (value.trim().length) {
@@ -49,7 +53,7 @@ const handleInput = ({ setState }, event: { target: HTMLInputElement }) => {
   }
 }
 
-const dismissModal = ({ setState }) => {
+const doDismissModal = ({ setState }) => () => {
   setState({ isActivated: false })
 }
 
@@ -58,8 +62,7 @@ const dismissModal = ({ setState }) => {
  */
 
 export interface Props {
-  siteSearchIndex: SiteSearchIndex
-  placeholder?: string
+  placeholder: string
 }
 
 /**
@@ -73,6 +76,18 @@ export interface State {
   // The initial value to be passed onto the modal dialog.
   initialValue: string
 }
+
+/**
+ * GraphQL query
+ */
+
+const QUERY = graphql`
+  query GetSiteSearchIndex {
+    siteSearchIndex {
+      index
+    }
+  }
+`
 
 /**
  * Export

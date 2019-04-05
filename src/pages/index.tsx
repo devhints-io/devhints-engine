@@ -5,7 +5,7 @@ import RootPage from '../web/components/RootPage'
 import Layout from '../web/containers/Layout'
 import { Provider } from '../web/contexts/SiteContext'
 import { groupByCategory, toSiteLinks } from '../web/lib/site_page'
-import { AllSitePage, SiteSearchIndex } from '../web/types'
+import { AllSitePage } from '../web/types'
 
 /*
  * Types
@@ -14,7 +14,6 @@ import { AllSitePage, SiteSearchIndex } from '../web/types'
 export interface Data {
   allPages: AllSitePage
   recentlyUpdated: AllSitePage
-  siteSearchIndex: SiteSearchIndex
 }
 
 /**
@@ -33,7 +32,6 @@ export const Root = () => {
               <RootPage
                 groups={groups}
                 recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
-                siteSearchIndex={data && data.siteSearchIndex}
               />
             </Provider>
           </Layout>
@@ -51,10 +49,6 @@ export default Root
 
 const query = graphql`
   query IndexPageQuery {
-    siteSearchIndex {
-      index
-    }
-
     allPages: allSitePage(filter: { context: { nodeType: { eq: "sheet" } } }) {
       edges {
         node {
