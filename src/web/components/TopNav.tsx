@@ -1,5 +1,5 @@
-import Link from 'gatsby-link'
 import React from 'react'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import { Consumer } from '../contexts/SiteContext'
 import BackButton from './BackButton'
@@ -11,44 +11,41 @@ import CSS from './TopNav.module.scss'
  * Props
  */
 
-export interface Props {
+interface Props {
   // If true, shows the back button
   back?: boolean
 
-  // Title of the page. (Home page doesn't have one)
+  // Title of the page. (Home page doesn't have one.)
+  // This is not the site title
   title?: string
-
-  // URL of this current page
-  permalink?: string | null
 
   // Path of the current page
   path?: string
 }
 
-export type ViewProps = Props & {
-  // "devhints.io"
-  brand: string
-}
-
 /**
  * Top navigation in most pages.
- *
- * @param {Object} props Properties
- * @param {boolean} props.back Shows back button if true
- * @param {string} props.title Title of the page
- *
- * @example
- *     <TopNav />
  */
 
-export const TopNavView = ({
-  back,
-  title,
-  brand,
-  path,
-  permalink
-}: ViewProps) => {
+const TopNav = ({ back, title, path }: Props) => {
   const isSheetPage = !!title
+
+  const {
+    site: {
+      siteMetadata: {
+        content: {
+          topNav: { title: brand }
+        }
+      }
+    }
+  } = useStaticQuery(QUERY)
+
+  // Permalink for Social list
+  const permalink =
+    (typeof window !== 'undefined' &&
+      window.location &&
+      window.location.href) ||
+    null
 
   return (
     <nav className={CSS.root} data-js-no-preview role='navigation'>
@@ -70,26 +67,18 @@ export const TopNavView = ({
   )
 }
 
-/**
- * Connected view.
- * TODO: Move NopNav connector to containers?
- */
-
-export const TopNav = (props: Props) => (
-  <Consumer>
-    {({ CONTENT }) => (
-      <TopNavView
-        {...props}
-        brand={(CONTENT && CONTENT.topNav && CONTENT.topNav.title) || ''}
-        permalink={
-          (typeof window !== 'undefined' &&
-            window.location &&
-            window.location.href) ||
-          null
+const QUERY = graphql`
+  {
+    site {
+      siteMetadata {
+        content {
+          topNav {
+            title
+          }
         }
-      />
-    )}
-  </Consumer>
-)
+      }
+    }
+  }
+`
 
 export default TopNav
