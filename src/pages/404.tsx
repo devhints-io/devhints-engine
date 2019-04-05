@@ -63,7 +63,7 @@ export const NotFoundPageView = ({
       <h1>{title}</h1>
       <p>{description}</p>
       {keyword && <ExternalSearchLinks keyword={keyword} />}
-      <LiveSearchInput siteSearchIndex={siteSearchIndex} />
+      <LiveSearchInput />
       <Link to='/'>{home}</Link>
     </div>
   )
