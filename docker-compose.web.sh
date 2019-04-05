@@ -16,4 +16,4 @@ if [ -d .cache ]; then
 fi
 
 # Yarn run
-yarn run gatsby develop -- --host 0.0.0.0 --port "${PORT:-19336}"
+yarn run gatsby develop --host 0.0.0.0 --port "${PORT:-19336}"
