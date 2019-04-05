@@ -5,7 +5,7 @@
     // Search under node_modules for non-relative imports.
     "moduleResolution": "node",
     // Process & infer types from .js files.
-    "allowJs": false,
+    "allowJs": true,
     // Don't emit; allow Babel to transform files.
     "noEmit": true,
     // Enable strictest settings like strictNullChecks & noImplicitAny.

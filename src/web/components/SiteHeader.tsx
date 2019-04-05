@@ -1,35 +1,43 @@
-// @flow
-import * as React from 'react'
-import { CONTENT } from '../../../config'
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
-/**
- * Properties
- */
+/** Site header view component */
+export const SiteHeader = (props: Props) => {
+  const {
+    site: {
+      siteMetadata: {
+        content: {
+          siteHeader: { title, tagline }
+        }
+      }
+    }
+  } = useStaticQuery(QUERY)
 
-export interface Props {
-  content: {
-    title: string
-    tagline: string
-  }
+  return (
+    <div className='site-header'>
+      <h1>{title}</h1>
+      <p dangerouslySetInnerHTML={{ __html: tagline }} />
+
+      {/* Search form goes here */}
+    </div>
+  )
 }
 
-/**
- * Site header view
- */
+/** GraphQL query */
+const QUERY = graphql`
+  query MetaData {
+    site {
+      siteMetadata {
+        content {
+          siteHeader {
+            title
+            tagline
+          }
+        }
+      }
+    }
+  }
+`
 
-export const SiteHeaderView = ({ content: { title, tagline } }: Props) => (
-  <div className='site-header'>
-    <h1>{title}</h1>
-    <p dangerouslySetInnerHTML={{ __html: tagline }} />
-
-    {/* Search form goes here */}
-  </div>
-)
-
-/**
- * Connected site header
- */
-
-export const SiteHeader = () => <SiteHeaderView content={CONTENT.siteHeader} />
-
+/* Export */
 export default SiteHeader

@@ -56,15 +56,6 @@ export const CONTENT = {
 }
 
 /**
- * Google Analytics integration (TODO)
- */
-
-export const GOOGLE_ANALYTICS = {
-  hostname: 'devhints.io',
-  id: 'UA-106902774-1'
-}
-
-/**
  * Disqus integration (TODO)
  * @name DISQUS
  */
@@ -74,31 +65,23 @@ export const DISQUS = {
   host: 'devhints.disqus.com'
 }
 
-/**
- * Codefund.io integration (TODO)
- * @name CODEFUND
- */
-
-export const CODEFUND = {
-  enabled: true,
-  token: 'c2c8bc62-c275-4c7a-a304-74335c5a1cd0'
+const siteMetadata = {
+  content: CONTENT,
+  github: {
+    repo: 'https://github.com/rstacruz/cheatsheets',
+    branch: 'master'
+  },
+  assets: {
+    preview_host: 'https://assets.devhints.io/previews'
+  },
+  codefund: {
+    enabled: true,
+    token: 'c2c8bc62-c275-4c7a-a304-74335c5a1cd0'
+  },
+  googleAnalytics: {
+    hostname: 'devhints.io',
+    id: 'UA-106902774-1'
+  }
 }
 
-/**
- * Assets. No trailing slash please!
- * @name ASSETS
- */
-
-export const ASSETS = {
-  preview_host: 'https://assets.devhints.io/previews'
-}
-
-/**
- * GitHub (TODO)
- * @name GITHUB
- */
-
-export const GITHUB = {
-  repo: 'https://github.com/rstacruz/cheatsheets',
-  branch: 'master'
-}
+export default siteMetadata

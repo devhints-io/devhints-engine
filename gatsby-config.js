@@ -1,4 +1,7 @@
+require('./register')()
+
 const root = require('path').resolve.bind(null, __dirname)
+const siteMetadata = require('./config.js').default
 
 /*
  * Where cheatsheets are
@@ -23,7 +26,8 @@ module.exports = {
   ...(PATH_PREFIX ? { pathPrefix: PATH_PREFIX } : {}),
   siteMetadata: {
     title: 'Devhints',
-    sheetPath: SHEET_PATH
+    sheetPath: SHEET_PATH,
+    ...siteMetadata
   },
   plugins: [
     {
