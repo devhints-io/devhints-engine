@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 if [ ! -x ./node_modules/.bin/start-storybook ]; then
-  echo "npm modules aren't installed yet."
-  echo "try bringing up the web service first"
+  echo "---"
+  echo "Looks like this is the first time you're starting Storybook, since"
+  echo "'node_modules' aren't found yet. Bring the 'web' service up first"
+  echo "('docker-compose up [web]'), then try again after that succeeds."
+  echo "---"
   exit 1
 fi
 
