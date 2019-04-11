@@ -1,2 +1,5 @@
-export const root: string
-export const heading: string
+declare const styles: {
+  readonly root: string
+  readonly heading: string
+}
+export = styles

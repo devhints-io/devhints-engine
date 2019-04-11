@@ -1,7 +1,10 @@
-export const root: string
-export const suffix: string
-export const fauxlink: string
-export const count: string
-export const icon: string
-export const isLine: string
-export const isSolid: string
+declare const styles: {
+  readonly root: string
+  readonly suffix: string
+  readonly fauxlink: string
+  readonly count: string
+  readonly icon: string
+  readonly isLine: string
+  readonly isSolid: string
+}
+export = styles

@@ -1,3 +1,6 @@
-export const root: string
-export const search: string
-export const links: string
+declare const styles: {
+  readonly root: string
+  readonly search: string
+  readonly links: string
+}
+export = styles

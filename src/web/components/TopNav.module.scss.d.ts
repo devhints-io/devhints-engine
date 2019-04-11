@@ -1,6 +1,9 @@
-export const root: string
-export const container: string
-export const left: string
-export const brand: string
-export const actions: string
-export const home: string
+declare const styles: {
+  readonly root: string
+  readonly container: string
+  readonly left: string
+  readonly brand: string
+  readonly actions: string
+  readonly home: string
+}
+export = styles
