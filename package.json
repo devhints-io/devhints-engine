@@ -80,7 +80,9 @@
     "ts-jest": "^24.0.0",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.3.4000"
+    "typed-css-modules": "^0.4.2",
+    "typescript": "^3.3.4000",
+    "typescript-tslint-plugin": "^0.3.1"
   },
   "keywords": [
     "devhints"
@@ -90,6 +92,7 @@
   "private": true,
   "scripts": {
     "ci": "run-s -l tsc lint prettier:check test",
+    "css_modules:update": "tcm src/; prettier --write 'src/**/*.module.*.d.ts'",
     "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
     "develop": "env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
