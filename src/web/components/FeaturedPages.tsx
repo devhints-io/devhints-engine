@@ -21,20 +21,21 @@ interface Data {
 }
 
 interface ViewProps {
-  data: Data
+  nodes: Node[]
 }
 
 const FeaturedPages = () => {
   return (
     <StaticQuery
       query={query}
-      render={(data: Data) => <FeaturedPagesView data={data} />}
+      render={(data: Data) => <FeaturedPagesView nodes={data.pages.nodes} />}
     />
   )
 }
 
 const FeaturedPagesView = (props: ViewProps) => {
-  const { nodes } = props.data.pages
+  const { nodes } = props
+
   return (
     <div>
       {nodes.map(node => {
@@ -76,4 +77,4 @@ const query = graphql`
  */
 
 export default FeaturedPages
-export { FeaturedPagesView as View }
+export { FeaturedPagesView }

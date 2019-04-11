@@ -30,9 +30,7 @@ interface Props {
 const TopNav = ({ back, title, path }: Props) => {
   const isSheetPage = !!title
 
-  const {
-    topNav: { title: brand }
-  } = useStaticQuery(QUERY).site.siteMetadata.content
+  const { content } = useStaticQuery(QUERY).site.siteMetadata
 
   // Permalink for Social list
   const permalink =
@@ -47,7 +45,7 @@ const TopNav = ({ back, title, path }: Props) => {
         <div className={CSS.left}>{back ? <BackButton /> : null}</div>
 
         <Link className={CSS.brand} to='/'>
-          {brand}
+          {content.topNav.title}
         </Link>
 
         <div className={CSS.actions}>

@@ -1,9 +1,9 @@
 import { github as githubIcon } from 'devhints-icons'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 
 import cn from 'classnames'
 import { Consumer } from '../contexts/SiteContext'
-import { Context } from '../types'
 import CSS from './PageActions.module.scss'
 
 /*
@@ -31,20 +31,17 @@ export const PageActions = (props: Props) => {
   const repo = 'https://github.com/rstacruz/cheatsheets'
   const branch = 'master'
   const url = `${repo}/blob/${branch}${props.path || ''}.md`
+  const { content } = useStaticQuery(QUERY).site.siteMetadata
 
   return (
-    <Consumer>
-      {({ CONTENT }) => (
-        <PageActionsView
-          labels={{
-            edit: CONTENT.topNav.edit,
-            editOnGithub: CONTENT.topNav.editOnGithub
-          }}
-          editURL={url}
-          {...props}
-        />
-      )}
-    </Consumer>
+    <PageActionsView
+      labels={{
+        edit: content.topNav.edit,
+        editOnGithub: content.topNav.editOnGithub
+      }}
+      editURL={url}
+      {...props}
+    />
   )
 }
 
@@ -77,5 +74,19 @@ export const PageActionsView = ({ path, labels, editURL }: ViewProps) => {
     </ul>
   )
 }
+const QUERY = graphql`
+  {
+    site {
+      siteMetadata {
+        content {
+          topNav {
+            editOnGithub
+            edit
+          }
+        }
+      }
+    }
+  }
+`
 
 export default PageActions
