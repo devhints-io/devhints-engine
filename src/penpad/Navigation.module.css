@@ -1,0 +1,29 @@
+@import './variables.css';
+
+.root {
+  font-size: var(--nav-font-size);
+}
+
+.list,
+.item {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entry {
+  display: block;
+  margin: 0;
+  padding: 8px 0;
+  border: 0;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1em;
+}
+
+.entry.isActive {
+  background: rgba(0, 0, 0, 0.1);
+}
