@@ -92,7 +92,7 @@
   "private": true,
   "scripts": {
     "ci": "run-s -l tsc lint prettier:check test",
-    "css_modules:update": "tcm src/; prettier --write 'src/**/*.module.*.d.ts'",
+    "css_modules:update": "tcm -p 'src/**/*.module.{scss,css}'; prettier --write 'src/**/*.d.ts'",
     "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
     "develop": "env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",

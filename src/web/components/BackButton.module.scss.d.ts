@@ -1,2 +1,5 @@
-export const link: string
-export const icon: string
+declare const styles: {
+  readonly link: string
+  readonly icon: string
+}
+export = styles
