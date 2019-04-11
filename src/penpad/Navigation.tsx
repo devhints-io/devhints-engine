@@ -1,26 +1,26 @@
 import React from 'react'
 import CSS from './Navigation.module.css'
-import { Pages } from './types'
+import { Specimens } from './types'
 import { Actions } from './useAppState'
 
 interface Props {
-  pages: Pages
+  specimens: Specimens
   actions: Actions
 }
 
 const Navigation = (props: Props) => {
-  const { pages, actions } = props
+  const { specimens, actions } = props
 
   return (
     <div className={CSS.root}>
       <ul className={CSS.list}>
-        {Object.entries(pages).map(([name, component]) => {
+        {Object.entries(specimens).map(([name, component]) => {
           return (
             <li className={CSS.item}>
               <button
                 className={CSS.entry}
                 onClick={() => {
-                  actions.setActivePage(name)
+                  actions.setActiveSpecimen(name)
                 }}
               >
                 {name}
