@@ -28,6 +28,9 @@ export interface Specimen {
   /** The description to be shown */
   description?: React.ReactNode
 
+  /** Set to 'false' to force no-frames in this specimen */
+  useFrame?: boolean
+
   width?: string | number
   background?: string
   padding?: string | number

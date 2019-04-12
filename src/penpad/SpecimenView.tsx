@@ -4,42 +4,57 @@ import { Specimen } from './types'
 import FrameWrapper from './FrameWrapper'
 import { useAppContext } from './state'
 
-interface Props {
-  specimen: Specimen
-}
+/**
+ * Displays the specimen in an iframe.
+ */
 
 const SpecimenView = ({ specimen }: Props) => {
   const { state } = useAppContext()
-  const useFrame = (state && state.useFrame) || false
+  const useFrame =
+    typeof specimen.useFrame === 'boolean'
+      ? specimen.useFrame
+      : state && typeof state.useFrame === 'boolean'
+      ? state.useFrame
+      : false
 
   const { view: Component } = specimen
 
   // @ts-ignore I don't know how to type this (TS2605)
   const componentNode = <Component />
 
-  return (
-    <FrameWrapper
-      enabled={useFrame}
-      className={CSS.iframe}
-      bodyClassName={CSS.iframeBody}
+  const body = (
+    <div
+      className={CSS.frame}
       style={{
-        minWidth: specimen.width || '1200px'
+        width: specimen.width || '1200px',
+        margin: 'auto',
+        flex: '0 0 auto',
+        background: specimen.background || 'white',
+        padding: specimen.padding || 0
       }}
     >
-      <div
-        className={CSS.frame}
+      {componentNode}
+    </div>
+  )
+
+  if (useFrame) {
+    return (
+      <FrameWrapper
+        className={CSS.iframe}
         style={{
-          width: specimen.width || '1200px',
-          margin: 'auto',
-          flex: '0 0 auto',
-          background: specimen.background || 'white',
-          padding: specimen.padding || 0
+          minWidth: specimen.width || '1200px'
         }}
       >
-        {componentNode}
-      </div>
-    </FrameWrapper>
-  )
+        <div className={CSS.iframeBody}>{body}</div>
+      </FrameWrapper>
+    )
+  } else {
+    return body
+  }
+}
+
+interface Props {
+  specimen: Specimen
 }
 
 export default SpecimenView

@@ -1,14 +1,13 @@
 import React from 'react'
 import DocsNavigation from './DocsNavigation'
 import CSS from './Penpad.module.css'
+import Markdown from './styles/github-markdown.module.css'
 import { useAppContext } from './state'
 import { getActivePage } from './state/selectors'
 
 const DocsBody = () => {
   const { state, actions } = useAppContext()
-  if (!state || !actions) {
-    return <span />
-  }
+  if (!state || !actions) return <span />
 
   const [pageId, page] = getActivePage(state) || [null, null]
 
@@ -16,7 +15,7 @@ const DocsBody = () => {
     <>
       <main className={CSS.main} style={{ background: 'white' }}>
         <div
-          className='markdown-body'
+          className={Markdown.body}
           style={{ width: '700px', margin: '1em auto' }}
         >
           {typeof page === 'function' ? page() : null}
