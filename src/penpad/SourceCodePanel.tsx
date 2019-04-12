@@ -23,6 +23,7 @@ const SourceCodePanel = (props: Props) => {
           className={cn(Util.textarea)}
           rows={10}
           value={code}
+          readOnly
         />
       </div>
     </div>

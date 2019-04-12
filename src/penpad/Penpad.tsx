@@ -11,12 +11,12 @@ import useAppState from './useAppState'
 
 const Penpad = (props: Config) => {
   const { state, actions } = useAppState(props)
-  const { title, specimens } = props
-  const { activeView } = state
+  const { title } = props
+  const { activeView, specimens } = state
 
   // The active specimen
   const viewId = activeView && activeView.id
-  const specimen = viewId && specimens[viewId]
+  const specimen = viewId && specimens && specimens[viewId]
 
   return (
     <div className={CSS.root}>
@@ -26,11 +26,7 @@ const Penpad = (props: Config) => {
       <div className={CSS.topnav}>
         <div className={CSS.title}>
           <TitleBar
-            titleText={
-              <TitleText
-                parts={[<span>{title}</span>, activeView && activeView.id]}
-              />
-            }
+            titleText={<TitleText parts={[<span>{title}</span>, viewId]} />}
           />
         </div>
       </div>
@@ -39,7 +35,7 @@ const Penpad = (props: Config) => {
           {specimen ? <SpecimenView {...{ specimen }} /> : null}
         </main>
         <aside className={CSS.sidebar}>
-          <Navigation {...{ specimens, state, actions }} />
+          {specimens ? <Navigation {...{ specimens, state, actions }} /> : null}
         </aside>
         <aside className={CSS.panels}>
           {specimen && viewId ? (

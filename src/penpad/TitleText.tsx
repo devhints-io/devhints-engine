@@ -13,14 +13,15 @@ const TitleText = (props: Props) => {
   return (
     <div className={CSS.root}>
       {parts.map((part, idx) => {
-        if (!part) {
-          return <></>
-        }
         return (
-          <>
-            {idx === 0 ? null : <Chevron className={CSS.separator} />}
-            <span className={CSS.part}>{part}</span>
-          </>
+          <React.Fragment key={idx}>
+            {part ? (
+              <>
+                {idx === 0 ? null : <Chevron className={CSS.separator} />}
+                <span className={CSS.part}>{part}</span>
+              </>
+            ) : null}
+          </React.Fragment>
         )
       })}
     </div>

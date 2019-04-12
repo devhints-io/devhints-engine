@@ -7,7 +7,7 @@ export interface State {
     type: 'specimen' | 'page'
     id: string
   } | null
-  specimens: Specimens
+  specimens: Specimens | null
 }
 
 const useAppState = (props: Config) => {
@@ -15,6 +15,15 @@ const useAppState = (props: Config) => {
     activeView: null,
     specimens: props.specimens
   }
+
+  // On first load
+  // useEffect(() => {
+  //   console.log('effect')
+  // Promise.resolve(props.specimens).then(specimens =>
+  // console.log('useeffect')
+  // actions.setSpecimens(props.specimens)
+  // )
+  // }, [])
 
   const [state, setState] = useState<State>(initialState)
 
@@ -26,6 +35,12 @@ const useAppState = (props: Config) => {
           type: 'specimen',
           id: specimenId
         }
+      })
+    },
+    setSpecimens(specimens: Specimens) {
+      setState({
+        ...state,
+        specimens
       })
     }
   }
