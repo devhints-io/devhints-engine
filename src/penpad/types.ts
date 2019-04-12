@@ -18,6 +18,8 @@ export interface Config {
   title?: string
   specimens: Specimens
   pages: Pages
+  /** Experimental: use iframe */
+  useFrame: boolean
 }
 
 export interface Specimen {
@@ -61,4 +63,7 @@ export interface State {
    * Taken from Config props.
    */
   pages: Pages | null
+
+  /** Experimental: use iframe */
+  useFrame: boolean
 }

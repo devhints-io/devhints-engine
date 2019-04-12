@@ -61,7 +61,8 @@ const getInitialState = (props: Config): State => {
     title: props.title || 'Penpad',
     activeView: { type: 'specimen' },
     specimens: props.specimens || {},
-    pages: props.pages || {}
+    pages: props.pages || {},
+    useFrame: props.useFrame || false
   }
 }
 

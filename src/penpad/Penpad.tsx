@@ -47,7 +47,8 @@ const Penpad = (props: Config) => {
 
 Penpad.defaultProps = {
   title: 'Penpad',
-  pages: {}
+  pages: {},
+  useFrame: true
 }
 
 /*
