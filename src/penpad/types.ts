@@ -3,11 +3,11 @@ import React from 'react'
 export type Component = React.Component | React.FunctionComponent
 
 export interface Specimens {
-  [id: string]: SpecimenDefinition
+  [id: string]: Specimen
 }
 
 export interface Pages {
-  [id: string]: SpecimenDefinition
+  [id: string]: Specimen
 }
 
 /**
@@ -20,4 +20,9 @@ export interface Config {
   pages: Pages
 }
 
-export type SpecimenDefinition = [Component, {}] | Component
+export interface Specimen {
+  view: Component
+
+  /* The description to be shown */
+  description?: React.ReactNode
+}

@@ -12,7 +12,6 @@ import TopNav from './TopNav'
 export interface Props {
   recentlyUpdated: SiteLink[]
   groups: GroupedSiteLinks
-  siteSearchIndex: any
 }
 
 export interface ViewProps extends Props {
@@ -30,8 +29,7 @@ export const View = ({
   groups,
   metaTitle,
   metaDescription,
-  recentlyUpdatedLabel,
-  siteSearchIndex
+  recentlyUpdatedLabel
 }: ViewProps) => {
   return (
     <div>
@@ -44,7 +42,7 @@ export const View = ({
       <div className='body-area -slim'>
         <SiteHeader />
 
-        <LiveSearchInput siteSearchIndex={siteSearchIndex} />
+        <LiveSearchInput />
 
         <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
 

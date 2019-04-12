@@ -4,7 +4,7 @@ import CSS from './TitleText.module.css'
 import Chevron from '-!react-svg-loader!clarity-icons-svg/core/angle-outline.svg'
 
 interface Props {
-  parts: React.Node[]
+  parts: React.ReactNode[]
 }
 
 const TitleText = (props: Props) => {
@@ -13,6 +13,7 @@ const TitleText = (props: Props) => {
   return (
     <div className={CSS.root}>
       {parts.map((part, idx) => {
+        if (!part) return <></>
         return (
           <>
             {idx === 0 ? null : <Chevron className={CSS.separator} />}

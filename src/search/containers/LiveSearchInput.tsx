@@ -4,7 +4,6 @@
 
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState } from 'react'
-import { SiteSearchIndex } from '../../web/types'
 import SearchModal from '../components/SearchModal'
 import CSS from './LiveSearchInput.module.css'
 
@@ -19,7 +18,7 @@ const DEFAULT_STATE = {
 
 const LiveSearchInput = (props: Props) => {
   const { siteSearchIndex } = useStaticQuery(QUERY)
-  const [state, setState] = useState(DEFAULT_STATE)
+  const { state, actions } = useAppState()
   const { placeholder } = props
 
   return (
@@ -28,7 +27,7 @@ const LiveSearchInput = (props: Props) => {
         type='text'
         placeholder={placeholder || 'Search...'}
         className={CSS.input}
-        onChange={doHandleInput({ setState })}
+        onChange={actions.handleInput}
         value=''
       />
 
@@ -36,25 +35,32 @@ const LiveSearchInput = (props: Props) => {
         <SearchModal
           siteSearchIndex={siteSearchIndex}
           initialValue={state.initialValue}
-          onDismiss={doDismissModal({ setState })}
+          onDismiss={actions.dismissModal}
         />
       ) : null}
     </React.Fragment>
   )
 }
 
-const doHandleInput = ({ setState }) => (event: {
-  target: HTMLInputElement
-}) => {
-  const value = event.target.value
+const useAppState = () => {
+  const [state, setState] = useState<State>(DEFAULT_STATE)
+  const actions = {
+    handleInput(event: { target: HTMLInputElement }) {
+      const value = event.target.value
 
-  if (value.trim().length) {
-    setState({ isActivated: true, initialValue: value })
+      if (value.trim().length) {
+        setState({ ...state, isActivated: true, initialValue: value })
+      }
+    },
+    dismissModal() {
+      setState({ ...state, isActivated: false })
+    }
   }
+  return { state, actions }
 }
 
-const doDismissModal = ({ setState }) => () => {
-  setState({ isActivated: false })
+LiveSearchInput.defaultProps = {
+  placeholder: 'Search...'
 }
 
 /**
@@ -70,10 +76,10 @@ export interface Props {
  */
 
 export interface State {
-  // This will be set to `true` when it's activated.
+  /** This will be set to `true` when it's activated. */
   isActivated: boolean
 
-  // The initial value to be passed onto the modal dialog.
+  /** The initial value to be passed onto the modal dialog. */
   initialValue: string
 }
 

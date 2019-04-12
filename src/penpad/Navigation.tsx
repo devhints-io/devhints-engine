@@ -2,6 +2,7 @@ import React from 'react'
 import CSS from './Navigation.module.css'
 import { Specimens } from './types'
 import { Actions } from './useAppState'
+// @ts-ignore
 import Icon from '-!react-svg-loader!clarity-icons-svg/technology/container-outline.svg'
 
 interface Props {

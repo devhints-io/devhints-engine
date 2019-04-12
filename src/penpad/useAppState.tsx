@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Props } from './Styleguide'
+import { Config } from './types'
 import { Specimens } from './types'
 
 export interface State {
@@ -10,7 +10,7 @@ export interface State {
   specimens: Specimens
 }
 
-const useAppState = (props: Props) => {
+const useAppState = (props: Config) => {
   const initialState = {
     activeView: null,
     specimens: props.specimens

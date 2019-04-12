@@ -11,6 +11,7 @@
     "@clr/icons": "^1.1.2",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "@types/loadjs": "^3.5.0",
+    "@types/react": "^16.8.13",
     "@types/react-helmet": "^5.0.8",
     "array-flatten": "^2.1.2",
     "clarity-icons-svg": "^0.2.0",
@@ -34,6 +35,7 @@
     "hint.css": "^2.5.1",
     "isotope-layout": "^3.0.5",
     "js-yaml": "^3.12.1",
+    "jsx-to-string": "^1.4.0",
     "loadjs": "^3.5.5",
     "meow": "^5.0.0",
     "modularscale-sass": "^3.0.8",
@@ -112,5 +114,8 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "resolutions": {
+    "**/@types/react": ">=16.8.0"
+  }
 }

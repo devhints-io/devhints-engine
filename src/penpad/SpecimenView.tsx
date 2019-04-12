@@ -1,15 +1,12 @@
 import React from 'react'
-import { SpecimenDefinition } from './types'
+import { Specimen } from './types'
 
 interface Props {
-  specimen: SpecimenDefinition
+  specimen: Specimen
 }
 
 const SpecimenView = ({ specimen }: Props) => {
-  // Extract the first element if it was defined as a tuple
-  const Component = Array.isArray(specimen) ? specimen[0] : specimen
-
-  // @ts-ignore
+  const { view: Component } = specimen
   return <Component />
 }
 
