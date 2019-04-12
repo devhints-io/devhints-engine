@@ -1,7 +1,7 @@
 // @ts-ignore
 import Icon from '-!react-svg-loader!clarity-icons-svg/technology/container-outline.svg'
 import React from 'react'
-import CSS from './Navigation.module.css'
+import CSS from './SpecimenNavigation.module.css'
 import { Specimens } from './types'
 import { Actions } from './useAppState'
 
@@ -19,8 +19,6 @@ const Navigation = (props: Props) => {
     <div className={CSS.root}>
       <ul className={CSS.list}>
         {names.map(name => {
-          const component = specimens[name]
-
           return (
             <li className={CSS.item} key={name}>
               <button

@@ -1,8 +1,33 @@
 import React from 'react'
+import RelatedPostsArea from '../web/components/RelatedPostsArea'
 import RelatedPostsCallout from '../web/components/RelatedPostsCallout'
 import RelatedPostsGroup from '../web/components/RelatedPostsGroup'
 
 export default {
+  RelatedPostsArea: {
+    view: () => (
+      <RelatedPostsArea
+        topPages={[
+          { path: '/vim', title: 'Vim' },
+          { path: '/node', title: 'Node.js' },
+          { path: '/sass', title: 'Sass' },
+          { path: '/bash', title: 'Bash' },
+          { path: '/vim', title: 'Vim' },
+          { path: '/node', title: 'Node.js' }
+        ]}
+        relatedPages={[
+          { path: '/vim', title: 'Vim' },
+          { path: '/node', title: 'Node.js' },
+          { path: '/sass', title: 'Sass' },
+          { path: '/bash', title: 'Bash' },
+          { path: '/vim', title: 'Vim' },
+          { path: '/node', title: 'Node.js' }
+        ]}
+        pageCount={123}
+      />
+    ),
+    width: 1200
+  },
   RelatedPostsCallout: {
     view: () => <RelatedPostsCallout pageCount={200} />,
     description: `Related posts callout. Shown at the end of a page, around the colophon area. Provides a link to the home page.`,
