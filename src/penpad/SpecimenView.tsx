@@ -27,7 +27,13 @@ const SpecimenView = ({ specimen }: Props) => {
   // @ts-ignore I don't know how to type this (TS2605)
   const componentNode = <Component />
 
-  const bodyWidth = frameWidth ? '100%' : specimen.width
+  // If it's in responsive mode, don't allow fixed sizes (ie, numbers),
+  // but allow fluid sizes (eg, '100%')
+  const bodyWidth = !frameWidth
+    ? specimen.width
+    : typeof specimen.width === 'string'
+    ? specimen.width
+    : null
 
   const body = (
     <div

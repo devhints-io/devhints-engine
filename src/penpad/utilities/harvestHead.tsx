@@ -5,14 +5,15 @@ import React from 'react'
  */
 
 export const harvestHead = () => {
-  const styleEls = document.querySelectorAll < HTMLStyleElement > 'style'
+  const styleEls = document.querySelectorAll<HTMLStyleElement>('style')
 
   const styles = Array.from(styleEls).map(element => {
     return <style {...toProps(element.attributes)}>{element.innerText}</style>
   })
 
-  const linkEls =
-    document.querySelectorAll < HTMLLinkElement > 'link[rel="stylesheet"]'
+  const linkEls = document.querySelectorAll<HTMLLinkElement>(
+    'link[rel="stylesheet"]'
+  )
 
   const links = Array.from(linkEls).map(element => {
     return <link {...toProps(element.attributes)} />

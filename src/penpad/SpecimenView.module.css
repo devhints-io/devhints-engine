@@ -6,6 +6,8 @@
 
 /* This frame is inside the iframe */
 .frame {
+  /* This will help shrink-wrap it */
+  display: inline-block;
   margin: auto;
   flex: 0 0 auto;
   background: white;
