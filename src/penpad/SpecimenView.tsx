@@ -14,7 +14,9 @@ const SpecimenView = ({ specimen }: Props) => {
       style={{
         width: specimen.width || '1200px',
         margin: 'auto',
-        flex: '0 0 auto'
+        flex: '0 0 auto',
+        background: specimen.background || 'white',
+        padding: specimen.padding || 0
       }}
     >
       <Component />

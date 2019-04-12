@@ -2,6 +2,7 @@ import React from 'react'
 import TitleText from './TitleText'
 import Navigation from './Navigation'
 import SpecimenView from './SpecimenView'
+import Helmet from 'react-helmet'
 import CSS from './Penpad.module.css'
 import { Config } from './types'
 import useAppState from './useAppState'
@@ -18,6 +19,9 @@ const Penpad = (props: Config) => {
 
   return (
     <div className={CSS.root}>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
       <div className={CSS.topnav}>
         <h1 className={CSS.title}>
           <TitleText

@@ -11,8 +11,8 @@
   color: var(--text-body);
 
   /* Figma mode */
-  background: #2c2c2c;
-  color: #fff;
+  /* background: #2c2c2c; */
+  /* color: #fff; */
 }
 
 .root {

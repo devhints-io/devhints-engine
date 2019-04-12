@@ -30,6 +30,7 @@ export default {
         ]}
       />
     ),
+    padding: 16,
     width: 340
   },
   'RelatedPostsGroup/2': {
@@ -42,6 +43,7 @@ export default {
         ]}
       />
     ),
+    padding: 16,
     width: 340
   },
   FeaturedPages: { view: () => <FeaturedPages /> },
