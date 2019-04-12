@@ -1,6 +1,6 @@
 import React from 'react'
-import { Specimen } from './types'
 import CSS from './SpecimenView.module.css'
+import { Specimen } from './types'
 
 interface Props {
   specimen: Specimen
@@ -8,6 +8,10 @@ interface Props {
 
 const SpecimenView = ({ specimen }: Props) => {
   const { view: Component } = specimen
+
+  // @ts-ignore I don't know how to type this (TS2605)
+  const componentNode = <Component />
+
   return (
     <div
       className={CSS.frame}
@@ -19,7 +23,7 @@ const SpecimenView = ({ specimen }: Props) => {
         padding: specimen.padding || 0
       }}
     >
-      <Component />
+      {componentNode}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 /* @flow */
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 
 /*

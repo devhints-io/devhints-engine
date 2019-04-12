@@ -21,6 +21,9 @@ down: ## Stops the server
 bash: ## Runs a shell inside a Docker container [alias: sh]
 	$(run) bash
 
+test: ## Jest tests
+	$(run) yarn test
+
 tsc: ## Runs the TypeScript compiler
 	$(run) yarn tsc
 
@@ -30,9 +33,19 @@ tsc\:watch: ## Runs the TypeScript compiler (watch mode) [alias: t]
 css_modules\:update: ## Update CSS modules [alias: c]
 	$(run) yarn css_modules:update
 
+lint: ## Run tslint
+	$(run) yarn lint
+
+tslint\:fix:
+	$(run) yarn run tslint --project . --fix
+
+prettier\:check: ## Run prettier
+	$(run) yarn prettier\:check
+
 # Aliases
 i: yarn
 s: start
 sh: bash
 c: css_modules\:update
+ci: test tsc prettier\:check lint
 t: tsc\:watch

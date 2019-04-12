@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import React from 'react'
 import CSS from './RelatedPostsCallout.module.scss'
 import SpanPushButton from './SpanPushButton'

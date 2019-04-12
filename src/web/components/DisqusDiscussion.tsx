@@ -1,5 +1,5 @@
-import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
 import DisqusScript from '../providers/DisqusScript'
 import { RenderProps } from '../providers/DisqusScript'
 import { DisqusData } from '../types'

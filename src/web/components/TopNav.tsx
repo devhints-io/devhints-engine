@@ -1,5 +1,5 @@
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import { Consumer } from '../contexts/SiteContext'
 import BackButton from './BackButton'

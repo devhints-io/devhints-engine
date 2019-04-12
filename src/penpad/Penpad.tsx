@@ -1,13 +1,13 @@
 import React from 'react'
+import Helmet from 'react-helmet'
+import Navigation from './Navigation'
+import CSS from './Penpad.module.css'
+import SpecimenPanels from './SpecimenPanels'
+import SpecimenView from './SpecimenView'
 import TitleBar from './TitleBar'
 import TitleText from './TitleText'
-import Navigation from './Navigation'
-import SpecimenView from './SpecimenView'
-import Helmet from 'react-helmet'
-import CSS from './Penpad.module.css'
 import { Config } from './types'
 import useAppState from './useAppState'
-import SpecimenPanels from './SpecimenPanels'
 
 const Penpad = (props: Config) => {
   const { state, actions } = useAppState(props)
@@ -16,7 +16,7 @@ const Penpad = (props: Config) => {
 
   // The active specimen
   const viewId = activeView && activeView.id
-  const specimen = viewId && specimens[activeView.id]
+  const specimen = viewId && specimens[viewId]
 
   return (
     <div className={CSS.root}>
@@ -42,7 +42,7 @@ const Penpad = (props: Config) => {
           <Navigation {...{ specimens, state, actions }} />
         </aside>
         <aside className={CSS.panels}>
-          {specimen ? (
+          {specimen && viewId ? (
             <SpecimenPanels {...{ specimen, id: viewId }} key={viewId} />
           ) : null}
         </aside>

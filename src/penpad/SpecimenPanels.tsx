@@ -1,6 +1,6 @@
 import React from 'react'
-import SpecimenDescriptionPanel from './SpecimenDescriptionPanel'
 import SourceCodePanel from './SourceCodePanel'
+import SpecimenDescriptionPanel from './SpecimenDescriptionPanel'
 import { Specimen } from './types'
 
 interface Props {

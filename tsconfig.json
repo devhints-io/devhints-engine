@@ -14,7 +14,8 @@
     // "isolatedModules": true,
     // Import non-ES modules as default imports.
     "esModuleInterop": true,
-    "jsx": "react"
+    "jsx": "react",
+    "typeRoots": ["./src/types", "./node_modules/@types"]
   },
   "include": [
     "src"

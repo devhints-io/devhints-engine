@@ -4,19 +4,17 @@
         "tslint:recommended",
         "tslint-config-prettier"
     ],
-    "jsRules": {},
+    "jsRules": {
+        // Don't be so strict about how object literal keys are sorted.
+        "object-literal-sort-keys": false
+    },
     "rules": {
-        // Don't enforce interfaces beginning in I
+        // Allow interfaces even if they're not prefixed with 'I' (eg, 'IUser').
         "interface-name": false,
-
-        // Don't enforce object key sorting
+        // Don't be so strict about how object literal keys are sorted.
         "object-literal-sort-keys": false,
-
-        // Default to public access
-        "member-access": [true, "no-public"],
-
-        // Allow reusing variable names in sub-contexts
-        "no-shadowed-variable": false
+        // Don't require the 'public' keyword.
+        "member-access": [true, "no-public"]
     },
     "rulesDirectory": []
 }

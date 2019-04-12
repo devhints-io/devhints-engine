@@ -1,10 +1,10 @@
 import React from 'react'
 import BackButton from '../web/components/BackButton'
-import RelatedPostsCallout from '../web/components/RelatedPostsCallout'
-import RelatedPostsGroup from '../web/components/RelatedPostsGroup'
 import FeaturedPages, {
   FeaturedPagesView
 } from '../web/components/FeaturedPages'
+import RelatedPostsCallout from '../web/components/RelatedPostsCallout'
+import RelatedPostsGroup from '../web/components/RelatedPostsGroup'
 import TopNav from '../web/components/TopNav'
 
 export default {

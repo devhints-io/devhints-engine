@@ -21,8 +21,12 @@ export interface Config {
 }
 
 export interface Specimen {
-  view: () => Component
+  view: () => React.ReactNode
 
-  /* The description to be shown */
+  /** The description to be shown */
   description?: React.ReactNode
+
+  width?: string | number
+  background?: string
+  padding?: string | number
 }

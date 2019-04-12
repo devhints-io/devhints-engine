@@ -1,8 +1,10 @@
+// @ts-ignore
+import DocsIcon from '-!react-svg-loader!clarity-icons-svg/essential/file-outline.svg'
+// @ts-ignore
+import SpecimenIcon from '-!react-svg-loader!clarity-icons-svg/essential/library-outline.svg'
+import cn from 'classnames'
 import React from 'react'
 import CSS from './TitleBar.module.css'
-import cn from 'classnames'
-import DocsIcon from '-!react-svg-loader!clarity-icons-svg/essential/file-outline.svg'
-import SpecimenIcon from '-!react-svg-loader!clarity-icons-svg/essential/library-outline.svg'
 
 interface TProps {
   titleText: React.ReactNode

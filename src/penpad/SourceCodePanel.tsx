@@ -1,11 +1,11 @@
+import cn from 'classnames'
+import toString from 'jsx-to-string'
 import React from 'react'
 import CSS from './SourceCodePanel.module.css'
 import Util from './utils.module.css'
-import cn from 'classnames'
-import toString from 'jsx-to-string'
 
 interface Props {
-  view: React.ReactNode
+  view: () => React.ReactNode
 }
 
 const SourceCodePanel = (props: Props) => {
@@ -19,7 +19,7 @@ const SourceCodePanel = (props: Props) => {
       </div>
       <div className={CSS.body}>
         <textarea
-          spellCheck='false'
+          spellCheck={false}
           className={cn(Util.textarea)}
           rows={10}
           value={code}
