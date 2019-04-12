@@ -108,6 +108,7 @@ const QUERY = `
             weight
             updated
             aliases
+            tags
           }
         }
       }
