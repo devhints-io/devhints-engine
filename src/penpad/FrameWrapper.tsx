@@ -1,6 +1,6 @@
 import React from 'react'
 import Frame from 'react-frame-component'
-import harvestHead from '../utilities/harvestHead'
+import harvestHead from './utilities/harvestHead'
 
 /**
  * Wraps the `children` in an iframe.
