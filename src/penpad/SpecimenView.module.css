@@ -32,5 +32,5 @@
 }
 
 .isResponsive {
-  box-shadow: -2px 0 0 var(--barrier-color), 2px 0 0 var(--barrier-color);
+  box-shadow: 0 0 0 2px var(--barrier-color), 0 2px 4px var(--barrier-color);
 }
