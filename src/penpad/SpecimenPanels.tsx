@@ -21,5 +21,4 @@ const SpecimenPanels = (props: Props) => {
   )
 }
 
-
 export default SpecimenPanels

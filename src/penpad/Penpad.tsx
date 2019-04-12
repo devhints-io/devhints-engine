@@ -56,5 +56,4 @@ Penpad.defaultProps = {
   pages: {}
 }
 
-
 export default Penpad

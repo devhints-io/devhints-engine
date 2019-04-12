@@ -51,7 +51,9 @@ export function updateLast(
   list /*: HastNodeList */,
   fn /*: HastNode => HastNode */
 ) {
-  if (list.length === 0) { return [] }
+  if (list.length === 0) {
+    return []
+  }
   const head /*: HastNodeList */ = list.slice(0, list.length - 1)
   const item /*: HastNode */ = list[list.length - 1]
   return [...head, fn(item)]

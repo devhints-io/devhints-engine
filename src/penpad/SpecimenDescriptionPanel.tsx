@@ -8,7 +8,9 @@ interface Props {
 
 const SpecimenDescriptionPanel = (props: Props) => {
   const { specimen } = props
-  if (!specimen.description) { return <></> }
+  if (!specimen.description) {
+    return <></>
+  }
 
   return (
     <div className={Panel.root}>
