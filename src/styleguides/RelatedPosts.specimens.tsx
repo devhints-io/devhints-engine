@@ -12,21 +12,20 @@ export default {
           { path: '/node', title: 'Node.js' },
           { path: '/sass', title: 'Sass' },
           { path: '/bash', title: 'Bash' },
-          { path: '/vim', title: 'Vim' },
-          { path: '/node', title: 'Node.js' }
+          { path: '/emacs', title: 'Emacs' },
+          { path: '/stylus', title: 'Stylus' }
         ]}
         relatedPages={[
           { path: '/vim', title: 'Vim' },
           { path: '/node', title: 'Node.js' },
           { path: '/sass', title: 'Sass' },
           { path: '/bash', title: 'Bash' },
-          { path: '/vim', title: 'Vim' },
-          { path: '/node', title: 'Node.js' }
+          { path: '/emacs', title: 'Emacs' },
+          { path: '/stylus', title: 'Stylus' }
         ]}
         pageCount={123}
       />
-    ),
-    width: 1200
+    )
   },
   RelatedPostsCallout: {
     view: () => <RelatedPostsCallout pageCount={200} />,

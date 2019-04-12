@@ -17,6 +17,21 @@ const StyleguidePage = () => {
             design and document your web UI components. It supports React, and
             can be used anywhere React can be used.
           </p>
+          <h2>Penpad features</h2>
+          <ul>
+            <li>
+              <strong>Live editing</strong> &mdash; You can edit live.
+            </li>
+            <li>
+              <strong>Integrates anywhere</strong> &mdash; Penpad supports
+              React, and work wherever React can be used.
+            </li>
+          </ul>
+          <h2>Learn more</h2>
+          <p>
+            Check it out on GitHub!{' '}
+            <a href='https://github.com/rstacruz/penpad'>rstacruz/penpad</a>
+          </p>
         </div>
       )
     },

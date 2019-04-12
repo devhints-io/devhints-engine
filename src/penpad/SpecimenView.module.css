@@ -4,10 +4,12 @@
   --barrier-color: #8883;
 }
 
+/* This frame is inside the iframe */
 .frame {
   margin: auto;
   flex: 0 0 auto;
   background: white;
+  max-width: 100vw;
 }
 
 .iframe {

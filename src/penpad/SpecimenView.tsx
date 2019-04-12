@@ -31,7 +31,7 @@ const SpecimenView = ({ specimen }: Props) => {
     <div
       className={CSS.frame}
       style={{
-        width: specimen.width || 1200,
+        __width: (!frameWidth ? specimen.width : null) || 'auto',
         margin: 'auto',
         flex: '0 0 auto',
         background: specimen.background || 'white',
@@ -48,11 +48,7 @@ const SpecimenView = ({ specimen }: Props) => {
         className={cn(CSS.iframe, {
           [CSS.isResponsive]: !!frameWidth
         })}
-        style={
-          frameWidth
-            ? { width: frameWidth }
-            : { minWidth: specimen.width || 1200 }
-        }
+        style={frameWidth ? { width: frameWidth, minWidth: frameWidth } : {}}
       >
         <div className={CSS.iframeBody}>{body}</div>
       </FrameWrapper>

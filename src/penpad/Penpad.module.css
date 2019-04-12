@@ -41,6 +41,7 @@
   flex: 0 0 var(--nav-width);
   order: 1;
   border-right: solid 1px var(--line-color);
+  overflow-y: auto;
 }
 
 .panels {
@@ -48,6 +49,7 @@
   order: 3;
   background: var(--bg-panel);
   border-left: solid 1px var(--line-color);
+  overflow-y: auto;
 }
 
 .main {
