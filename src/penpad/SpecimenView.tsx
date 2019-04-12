@@ -27,11 +27,13 @@ const SpecimenView = ({ specimen }: Props) => {
   // @ts-ignore I don't know how to type this (TS2605)
   const componentNode = <Component />
 
+  const bodyWidth = frameWidth ? '100%' : specimen.width
+
   const body = (
     <div
       className={CSS.frame}
       style={{
-        __width: (!frameWidth ? specimen.width : null) || 'auto',
+        width: bodyWidth || 'auto',
         margin: 'auto',
         flex: '0 0 auto',
         background: specimen.background || 'white',
