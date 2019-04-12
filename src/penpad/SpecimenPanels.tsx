@@ -1,6 +1,6 @@
 import React from 'react'
-import SourceCodePanel from './SourceCodePanel'
 import ResponsiveResizePanel from './ResponsiveResizePanel'
+import SourceCodePanel from './SourceCodePanel'
 import SpecimenDescriptionPanel from './SpecimenDescriptionPanel'
 import { Specimen } from './types'
 

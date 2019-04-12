@@ -61,7 +61,6 @@ const useAppState = (props: Config) => {
   return { state, actions }
 }
 
-
 /** Pick up what's given in AppProvider */
 const useAppContext = () => {
   return useContext(Context)
