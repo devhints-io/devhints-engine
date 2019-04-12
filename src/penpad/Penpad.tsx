@@ -22,6 +22,7 @@ const Penpad = (props: Config) => {
     <div className={CSS.root}>
       <Helmet>
         <title>{title}</title>
+        <meta name='viewport' content='width=1200px' />
       </Helmet>
       <div className={CSS.topnav}>
         <div className={CSS.title}>
