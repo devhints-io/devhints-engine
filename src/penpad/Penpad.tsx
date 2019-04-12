@@ -1,4 +1,5 @@
 import React from 'react'
+import TitleBar from './TitleBar'
 import TitleText from './TitleText'
 import Navigation from './Navigation'
 import SpecimenView from './SpecimenView'
@@ -23,11 +24,15 @@ const Penpad = (props: Config) => {
         <title>{title}</title>
       </Helmet>
       <div className={CSS.topnav}>
-        <h1 className={CSS.title}>
-          <TitleText
-            parts={[<span>{title}</span>, activeView && activeView.id]}
+        <div className={CSS.title}>
+          <TitleBar
+            titleText={
+              <TitleText
+                parts={[<span>{title}</span>, activeView && activeView.id]}
+              />
+            }
           />
-        </h1>
+        </div>
       </div>
       <div className={CSS.body}>
         <main className={CSS.main}>

@@ -22,11 +22,11 @@
   border: 0;
   background: var(--bg-panel);
   border-radius: 3px;
-  box-shadow: inset 0 0 0 1px var(--line-color-lite);
+  box-shadow: inset 0 0 0 1px var(--line-color);
 
   &:hover,
   &:focus {
-    box-shadow: inset 0 0 0 1px var(--line-color);
+    box-shadow: inset 0 0 0 1px var(--line-color-plus);
     background: var(--bg-main);
     outline: 0;
   }

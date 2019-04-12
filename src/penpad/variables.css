@@ -3,8 +3,10 @@
   --bg-panel: #fafafa;
   --bg-main: #fff;
   --text-body: #333;
+  --text-bold: #111;
+  --text-mute: #888;
   --line-color: #8883;
-  --line-color-lite: #8881;
+  --line-color-plus: #8885;
   --accent-color: dodgerblue;
   --highlight-color: color-mod(var(--accent-color) alpha(10%));
   --nav-font-size: '11px';

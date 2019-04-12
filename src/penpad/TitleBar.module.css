@@ -1,0 +1,46 @@
+@import './variables.css';
+
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: left;
+}
+
+.mid {
+  text-align: center;
+}
+
+.navButton {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  padding: 0 12px;
+  cursor: pointer;
+  border-radius: 0;
+  color: var(--text-mute);
+  composes: fontSizeMinus1 from './utils.module.css';
+}
+
+.navButton.isActive {
+  font-weight: bold;
+  color: var(--text-bold);
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.navLabel {
+  display: none;
+  margin-left: 8px;
+}
