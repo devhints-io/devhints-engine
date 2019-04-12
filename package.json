@@ -63,12 +63,6 @@
     "sass": "^1.16.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.0.6",
-    "@storybook/addon-centered": "^5.0.6",
-    "@storybook/addon-links": "^5.0.6",
-    "@storybook/addon-notes": "^5.0.6",
-    "@storybook/addon-storysource": "^5.0.6",
-    "@storybook/react": "^5.0.6",
     "@types/classnames": "^2.2.7",
     "@types/enzyme": "^3.1.16",
     "@types/jest": "^23.3.13",
@@ -105,7 +99,6 @@
     "ci": "run-s -l tsc lint prettier:check test",
     "css_modules:update": "tcm -p 'src/**/*.module.{scss,css}'; prettier --write 'src/**/*.d.ts'",
     "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
-    "postbuild": "run-s storybook:build",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "fix": "devhints-validator \"sheets/*.md\" --fix",
     "tsc": "tsc",
@@ -114,7 +107,6 @@
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "start": "yarn run develop",
-    "storybook:build": "build-storybook --config-dir src/storybook --output-dir public/devhints-storybook",
     "test": "jest",
     "validate": "devhints-validator \"sheets/*.md\""
   },

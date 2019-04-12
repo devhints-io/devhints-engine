@@ -11,7 +11,6 @@ const Penpad = (props: Config) => {
   const { state, actions } = useAppState(props)
   const { title, specimens } = props
   const { activeView } = state
-  const activeSpecimen = specimens[activeView.id]
 
   return (
     <div className={CSS.root}>
