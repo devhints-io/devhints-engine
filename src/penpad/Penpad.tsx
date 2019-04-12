@@ -1,13 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import DocsBody from './DocsBody'
 import CSS from './Penpad.module.css'
-import SpecimenNavigation from './SpecimenNavigation'
-import SpecimenPanels from './SpecimenPanels'
-import SpecimenView from './SpecimenView'
+import SpecimensBody from './SpecimensBody'
+import { AppProvider, useAppState } from './state'
 import TitleBar from './TitleBar'
-import TitleText from './TitleText'
-import { Config, Specimen } from './types'
-import { Actions, AppProvider, State, useAppState } from './useAppState'
+import { Config } from './types'
 
 const Penpad = (props: Config) => {
   const { state, actions } = useAppState(props)
@@ -15,13 +13,14 @@ const Penpad = (props: Config) => {
   const { activeView, specimens } = state
 
   // 'specimen' or 'page', depending on what's selected on top.
-  const viewType = activeView && activeView.type
+  const viewType = activeView.type
 
   // The active specimen
-  const viewId = (activeView && activeView.id) || null
+  const specimenId =
+    (activeView.type === 'specimen' && activeView.specimenId) || null
 
   // The specimen object
-  const specimen = (viewId && specimens && specimens[viewId]) || null
+  const specimen = (specimenId && specimens && specimens[specimenId]) || null
 
   return (
     <AppProvider value={{ state, actions }}>
@@ -32,56 +31,17 @@ const Penpad = (props: Config) => {
         </Helmet>
         <div className={CSS.topnav}>
           <div className={CSS.title}>
-            <TitleBar
-              titleText={<TitleText parts={[<span>{title}</span>, viewId]} />}
-            />
+            <TitleBar />
           </div>
         </div>
         <div className={CSS.body}>
           {viewType === 'specimen' ? (
-            <BodyForSpecimens {...{ specimen, state, actions, viewId }} />
+            <SpecimensBody {...{ specimen, specimenId }} />
           ) : null}
-          {viewType === 'page' ? <div>Welcome</div> : null}
+          {viewType === 'page' ? <DocsBody /> : null}
         </div>
       </div>
     </AppProvider>
-  )
-}
-
-const BodyForSpecimens = ({
-  specimen,
-  state,
-  actions,
-  viewId
-}: {
-  specimen: Specimen | null
-  state: State
-  actions: Actions
-  viewId: string | null
-}) => {
-  const { specimens } = state
-
-  return (
-    <>
-      {/* Main area */}
-      <main className={CSS.main}>
-        {specimen ? <SpecimenView {...{ specimen }} /> : null}
-      </main>
-
-      {/* Left */}
-      <aside className={CSS.sidebar}>
-        {specimens ? (
-          <SpecimenNavigation {...{ specimens, state, actions }} />
-        ) : null}
-      </aside>
-
-      {/* Right */}
-      <aside className={CSS.panels}>
-        {specimen && viewId ? (
-          <SpecimenPanels {...{ specimen, id: viewId }} key={viewId} />
-        ) : null}
-      </aside>
-    </>
   )
 }
 
@@ -89,5 +49,9 @@ Penpad.defaultProps = {
   title: 'Penpad',
   pages: {}
 }
+
+/*
+ * Export
+ */
 
 export default Penpad

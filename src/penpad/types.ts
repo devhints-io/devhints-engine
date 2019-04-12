@@ -7,7 +7,7 @@ export interface Specimens {
 }
 
 export interface Pages {
-  [id: string]: Specimen
+  [id: string]: () => React.ReactNode
 }
 
 /**
@@ -29,4 +29,36 @@ export interface Specimen {
   width?: string | number
   background?: string
   padding?: string | number
+}
+
+/**
+ * Global app state
+ */
+
+export interface State {
+  /** The title. */
+  title: string
+
+  /** Current view that is to be shown. */
+  activeView:
+    | {
+        type: 'specimen'
+        specimenId?: string
+      }
+    | {
+        type: 'page'
+        pageId?: string
+      }
+
+  /**
+   * Specimens to display (may be 'null' if loading asynchronously).
+   * Taken from Config props.
+   */
+  specimens: Specimens | null
+
+  /**
+   * Pages to display (may be 'null' if loading asynchronously).
+   * Taken from Config props.
+   */
+  pages: Pages | null
 }

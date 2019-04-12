@@ -1,9 +1,10 @@
 // @ts-ignore
 import Icon from '-!react-svg-loader!clarity-icons-svg/technology/container-outline.svg'
+import cn from 'classnames'
 import React from 'react'
 import CSS from './SpecimenNavigation.module.css'
+import { Actions } from './state'
 import { Specimens } from './types'
-import { Actions } from './useAppState'
 
 interface Props {
   specimens: Specimens

@@ -4,15 +4,14 @@ import DocsIcon from '-!react-svg-loader!clarity-icons-svg/essential/file-outlin
 import SpecimenIcon from '-!react-svg-loader!clarity-icons-svg/essential/library-outline.svg'
 import cn from 'classnames'
 import React from 'react'
+import { useAppContext } from './state'
 import CSS from './TitleBar.module.css'
-import { useAppContext } from './useAppState'
+import TitleText from './TitleText'
+import { State } from './types'
 
-interface TProps {
-  titleText: React.ReactNode
-}
-
-const TitleBar = ({ titleText }: TProps) => {
+const TitleBar = () => {
   const { state, actions } = useAppContext()
+
   if (!state || !actions) {
     return <span />
   }
@@ -44,9 +43,22 @@ const TitleBar = ({ titleText }: TProps) => {
       </div>
 
       {/* Middle */}
-      <div className={CSS.mid}>{titleText}</div>
+      <div className={CSS.mid}>
+        <DynamicTitleText {...{ state, actions }} />
+      </div>
     </div>
   )
+}
+
+const DynamicTitleText = ({ state }: { state: State }) => {
+  const { activeView } = state
+
+  if (activeView.type === 'specimen') {
+    if (activeView.specimenId) {
+      return <TitleText parts={[activeView.specimenId]} />
+    }
+  }
+  return <TitleText parts={['penpad']} />
 }
 
 export default TitleBar
