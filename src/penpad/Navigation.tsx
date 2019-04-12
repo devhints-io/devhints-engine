@@ -13,10 +13,14 @@ interface Props {
 const Navigation = (props: Props) => {
   const { specimens, actions } = props
 
+  const names = Object.keys(specimens).sort()
+
   return (
     <div className={CSS.root}>
       <ul className={CSS.list}>
-        {Object.entries(specimens).map(([name, component]) => {
+        {names.map(name => {
+          const component = specimens[name]
+
           return (
             <li className={CSS.item} key={name}>
               <button
