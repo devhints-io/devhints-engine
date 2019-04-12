@@ -1,5 +1,8 @@
 require('./register')()
 
+// Ugh, needed by plugin-meta-redirect
+require('regenerator-runtime/runtime')
+
 const root = require('path').resolve.bind(null, __dirname)
 const siteMetadata = require('./config.js').default
 
