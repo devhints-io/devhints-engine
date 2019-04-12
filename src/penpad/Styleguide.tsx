@@ -2,15 +2,10 @@ import React from 'react'
 import Navigation from './Navigation'
 import SpecimenView from './SpecimenView'
 import CSS from './Styleguide.module.css'
-import { Specimens } from './types'
+import { Config } from './types'
 import useAppState from './useAppState'
 
-export interface Props {
-  title?: string
-  specimens: Specimens
-}
-
-const Styleguide = (props: Props) => {
+const Styleguide = (props: Config) => {
   const { state, actions } = useAppState(props)
   const { title, specimens } = props
   const { activeView } = state

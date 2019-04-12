@@ -36,6 +36,7 @@ module.exports = {
         implementation: require('sass')
       }
     },
+    'gatsby-mdx',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',

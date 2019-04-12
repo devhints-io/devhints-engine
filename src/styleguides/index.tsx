@@ -9,6 +9,11 @@ import FeaturedPages, {
 const StyleguidePage = () => {
   return (
     <Styleguide
+      pages={
+        {
+          // home: import('./home.mdx')
+        }
+      }
       specimens={{
         index: () => <div>Hello there</div>,
         BackButton: () => <BackButton />,
