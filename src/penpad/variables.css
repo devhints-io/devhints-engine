@@ -1,7 +1,8 @@
 :root {
   --bg-view: #f2f2f2;
-  --bg-panels: #fafafa;
+  --bg-panel: #fafafa;
   --bg-main: #fff;
+  --text-body: #333;
   --line-color: #8883;
   --line-color-lite: #8881;
   --accent-color: dodgerblue;

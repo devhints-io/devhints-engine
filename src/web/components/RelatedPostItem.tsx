@@ -1,7 +1,6 @@
 /* @flow */
-import Link from 'gatsby-link'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
-import { Consumer } from '../contexts/SiteContext'
 
 /*
  * Types
@@ -44,12 +43,23 @@ export const RelatedPostItemView = ({
  * Connected view
  */
 
-export const RelatedPostItem = (props: Props) => (
-  <Consumer>
-    {({ CONTENT }) => (
-      <RelatedPostItemView {...props} suffix={CONTENT.sheet.suffix} />
-    )}
-  </Consumer>
-)
+export const RelatedPostItem = (props: Props) => {
+  const QUERY = graphql`
+    {
+      site {
+        siteMetadata {
+          content {
+            sheet {
+              suffix
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const { content } = useStaticQuery(QUERY).site.siteMetadata
+  return <RelatedPostItemView {...props} suffix={content.sheet.suffix} />
+}
 
 export default RelatedPostItem

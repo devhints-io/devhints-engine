@@ -18,7 +18,12 @@ const SourceCodePanel = (props: Props) => {
         <h3 className={CSS.title}>Source code</h3>
       </div>
       <div className={CSS.body}>
-        <textarea className={cn(Util.textarea)}>{code}</textarea>
+        <textarea
+          spellCheck='false'
+          className={cn(Util.textarea)}
+          rows={10}
+          value={code}
+        />
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import CSS from './FeaturedPagesLink.module.scss'
 
 interface Props {
   path: string
@@ -9,7 +10,11 @@ interface Props {
 const FeaturedPageLink = (props: Props) => {
   const { path, title } = props
 
-  return <Link to={path}>{title}</Link>
+  return (
+    <Link to={path} className={CSS.root}>
+      {title}
+    </Link>
+  )
 }
 
 export default FeaturedPageLink

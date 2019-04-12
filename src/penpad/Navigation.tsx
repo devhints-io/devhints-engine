@@ -18,7 +18,7 @@ const Navigation = (props: Props) => {
       <ul className={CSS.list}>
         {Object.entries(specimens).map(([name, component]) => {
           return (
-            <li className={CSS.item}>
+            <li className={CSS.item} key={name}>
               <button
                 className={CSS.entry}
                 onClick={() => {
