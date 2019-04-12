@@ -1,5 +1,6 @@
 import React from 'react'
 import SourceCodePanel from './SourceCodePanel'
+import ResponsiveResizePanel from './ResponsiveResizePanel'
 import SpecimenDescriptionPanel from './SpecimenDescriptionPanel'
 import { Specimen } from './types'
 
@@ -16,6 +17,7 @@ const SpecimenPanels = (props: Props) => {
       {specimen.description ? (
         <SpecimenDescriptionPanel {...{ specimen }} />
       ) : null}
+      <ResponsiveResizePanel />
       <SourceCodePanel view={specimen.view} key={id} />
     </>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import CSS from './SpecimenView.module.css'
+import cn from 'classnames'
 import { Specimen } from './types'
 import FrameWrapper from './FrameWrapper'
 import { useAppContext } from './state'
@@ -10,6 +11,10 @@ import { useAppContext } from './state'
 
 const SpecimenView = ({ specimen }: Props) => {
   const { state } = useAppContext()
+
+  // If responsive mode
+  const frameWidth = state && state.frameWidth
+
   const useFrame =
     typeof specimen.useFrame === 'boolean'
       ? specimen.useFrame
@@ -26,7 +31,7 @@ const SpecimenView = ({ specimen }: Props) => {
     <div
       className={CSS.frame}
       style={{
-        width: specimen.width || '1200px',
+        width: specimen.width || 1200,
         margin: 'auto',
         flex: '0 0 auto',
         background: specimen.background || 'white',
@@ -40,10 +45,14 @@ const SpecimenView = ({ specimen }: Props) => {
   if (useFrame) {
     return (
       <FrameWrapper
-        className={CSS.iframe}
-        style={{
-          minWidth: specimen.width || '1200px'
-        }}
+        className={cn(CSS.iframe, {
+          [CSS.isResponsive]: !!frameWidth
+        })}
+        style={
+          frameWidth
+            ? { width: frameWidth }
+            : { minWidth: specimen.width || 1200 }
+        }
       >
         <div className={CSS.iframeBody}>{body}</div>
       </FrameWrapper>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { Config, Specimens, State } from '../types'
+import { Config, State } from '../types'
+import getInitialState from './getInitialState'
 
 /** Only used in tests */
 
@@ -49,22 +50,17 @@ const useAppState = (props: Config) => {
       // First page
       const pageId = Object.keys(state.pages || {})[0]
       setState({ ...state, activeView: { type: 'page', pageId } })
+    },
+
+    /** Resize for responsive mode */
+    setFrameWidth(width: number | null) {
+      setState({ ...state, frameWidth: width })
     }
   }
 
   return { state, actions }
 }
 
-/** Returns the initial state */
-const getInitialState = (props: Config): State => {
-  return {
-    title: props.title || 'Penpad',
-    activeView: { type: 'specimen' },
-    specimens: props.specimens || {},
-    pages: props.pages || {},
-    useFrame: props.useFrame || false
-  }
-}
 
 /** Pick up what's given in AppProvider */
 const useAppContext = () => {
@@ -73,5 +69,4 @@ const useAppContext = () => {
 
 /* Actions type */
 export type Actions = ReturnType<typeof useAppState>['actions']
-
 export { useAppState, useAppContext, AppProvider, Context }

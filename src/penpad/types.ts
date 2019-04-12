@@ -67,6 +67,8 @@ export interface State {
    */
   pages: Pages | null
 
-  /** Experimental: use iframe */
+  /** Use iframe */
   useFrame: boolean
+
+  frameWidth: number | null
 }

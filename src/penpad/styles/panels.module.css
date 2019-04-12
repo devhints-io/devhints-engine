@@ -14,6 +14,7 @@
 
 .header {
   display: block;
+  margin-bottom: -24px;
 }
 
 .title {
@@ -26,6 +27,5 @@
 }
 
 .body {
-  margin-top: -24px;
   padding: 16px;
 }
