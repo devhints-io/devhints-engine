@@ -9,14 +9,13 @@ export interface Props {
 }
 
 const SpanPushButton = (props: Props) => {
-  const { className, children, isDark } = props
+  const { className, children, dark } = props
 
   return (
     <span
-      className={cn({
+      className={cn(className, {
         [CSS.root]: true,
-        [CSS.isDark]: props.dark,
-        [className]: true
+        [CSS.isDark]: props.dark
       })}
     >
       {children}

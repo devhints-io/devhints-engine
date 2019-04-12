@@ -11,7 +11,7 @@ interface Context {
 
 interface Node {
   id: string
-  context: Context
+  context: Pick<Context, 'nodePath' | 'title'>
 }
 
 interface Data {

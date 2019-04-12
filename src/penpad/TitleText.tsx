@@ -1,8 +1,13 @@
 import React from 'react'
 import CSS from './TitleText.module.css'
+// @ts-ignore
 import Chevron from '-!react-svg-loader!clarity-icons-svg/core/angle-outline.svg'
 
-const TitleText = props => {
+interface Props {
+  parts: React.Node[]
+}
+
+const TitleText = (props: Props) => {
   const { parts } = props
 
   return (
