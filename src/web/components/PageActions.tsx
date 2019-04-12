@@ -53,9 +53,7 @@ export const PageActions = (props: Props) => {
  */
 
 export const PageActionsView = ({ path, labels, editURL }: ViewProps) => {
-  if (!path) {
-    return null
-  }
+  if (!path) return null
 
   return (
     <ul className={CSS.root}>

@@ -1,5 +1,15 @@
 @import './variables.css';
 
+.reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: none;
+  transition-duration: 0;
+}
+
 .uiFontStyle {
   font-family: inter, system-ui;
 }

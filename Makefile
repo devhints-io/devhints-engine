@@ -36,7 +36,7 @@ css_modules\:update: ## Update CSS modules [alias: c]
 lint: ## Run tslint
 	$(run) yarn lint
 
-fix: ## Run tslint-fix and prettier-fix
+fix: css_modules\:update ## Run tslint-fix and prettier-fix
 	$(run) yarn run tslint --project . --fix
 	$(run) yarn run prettier\:fix
 

@@ -49,12 +49,8 @@ export type ViewProps = Props & {
 export const SheetTemplateView = (props: Props) => (
   <Consumer>
     {({ CONTENT, sheet }: ConsumerRenderProps) => {
-      if (!sheet) {
-        return null
-      }
-      if (!CONTENT) {
-        return null
-      }
+      if (!sheet) return null
+      if (!CONTENT) return null
 
       return (
         <View

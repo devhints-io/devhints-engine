@@ -62,9 +62,7 @@ const PageLink = ({
 export const PagesList = (props: Props) => (
   <Consumer>
     {({ CONTENT }) => {
-      if (!CONTENT) {
-        return <span />
-      }
+      if (!CONTENT) return <span />
       return (
         <PagesListView {...props} updatedLabel={CONTENT.home.updatedLabel} />
       )

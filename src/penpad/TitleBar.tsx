@@ -11,10 +11,7 @@ import { State } from './types'
 
 const TitleBar = () => {
   const { state, actions } = useAppContext()
-
-  if (!state || !actions) {
-    return <span />
-  }
+  if (!state || !actions) return <span />
 
   return (
     <div className={CSS.root}>
@@ -58,7 +55,12 @@ const DynamicTitleText = ({ state }: { state: State }) => {
       return <TitleText parts={[activeView.specimenId]} />
     }
   }
-  return <TitleText parts={['penpad']} />
+  if (activeView.type === 'page') {
+    if (activeView.pageId) {
+      return <TitleText parts={[state.title, activeView.pageId]} />
+    }
+  }
+  return <TitleText parts={[state.title]} />
 }
 
 export default TitleBar

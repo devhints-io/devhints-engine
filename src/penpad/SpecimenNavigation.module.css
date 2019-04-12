@@ -2,6 +2,7 @@
 
 .root {
   font-size: var(--nav-font-size);
+  composes: reset from './utils.module.css';
 }
 
 .list,
@@ -25,12 +26,21 @@
   font-size: 1em;
   display: flex;
   align-items: center;
+  border-radius: 0;
+  transition: none;
 }
 
-.entry.isActive,
-.entry:focus {
+.entry.isActive {
   outline: 0;
   background: var(--highlight-color);
+  transition: none;
+}
+
+.entry:focus {
+  outline: 0;
+  background: var(--accent-color);
+  color: white;
+  transition: none;
 }
 
 .icon {

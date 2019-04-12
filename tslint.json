@@ -14,7 +14,9 @@
         // Don't be so strict about how object literal keys are sorted.
         "object-literal-sort-keys": false,
         // Don't require the 'public' keyword.
-        "member-access": [true, "no-public"]
+        "member-access": [true, "no-public"],
+        // Don't enforce curlies
+        "curly": false
     },
     "rulesDirectory": []
 }

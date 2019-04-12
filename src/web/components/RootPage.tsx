@@ -67,9 +67,7 @@ export const View = ({
 export const RootPage = (props: Props) => (
   <Consumer>
     {({ CONTENT }) => {
-      if (!CONTENT) {
-        return <span />
-      }
+      if (!CONTENT) return <span />
       return (
         <View
           {...props}

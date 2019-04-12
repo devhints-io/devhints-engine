@@ -33,7 +33,7 @@ const StyleguidePage = () => {
     }
   }
 
-  return <Penpad pages={pages} specimens={specimens} />
+  return <Penpad title='Devhints Penpad' pages={pages} specimens={specimens} />
 }
 
 export default StyleguidePage

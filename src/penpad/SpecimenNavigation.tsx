@@ -3,16 +3,19 @@ import Icon from '-!react-svg-loader!clarity-icons-svg/technology/container-outl
 import cn from 'classnames'
 import React from 'react'
 import CSS from './SpecimenNavigation.module.css'
-import { Actions } from './state'
+import { Actions, useAppContext } from './state'
+import { isActiveSpecimen } from './state/selectors'
 import { Specimens } from './types'
 
 interface Props {
   specimens: Specimens
-  actions: Actions
 }
 
 const Navigation = (props: Props) => {
-  const { specimens, actions } = props
+  const { state, actions } = useAppContext()
+  if (!state || !actions) return <span />
+
+  const { specimens } = props
 
   const names = Object.keys(specimens).sort()
 
@@ -23,7 +26,9 @@ const Navigation = (props: Props) => {
           return (
             <li className={CSS.item} key={name}>
               <button
-                className={CSS.entry}
+                className={cn(CSS.entry, {
+                  [CSS.isActive]: isActiveSpecimen(state, name)
+                })}
                 onClick={() => {
                   actions.setActiveSpecimen(name)
                 }}

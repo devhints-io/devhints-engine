@@ -3,20 +3,14 @@
  */
 
 export default function isotopify(el: HTMLElement | null | void) {
-  if (!el || !el.children) {
-    return
-  }
+  if (!el || !el.children) return
 
   // If we're running on the server, don't bother with this
-  if (typeof window === 'undefined') {
-    return
-  }
+  if (typeof window === 'undefined') return
 
   // There's a wrapping <div> from renderAst, meh
   const div = el.children[0]
-  if (!div) {
-    return
-  }
+  if (!div) return
 
   // isotope()'ify all lists
   const lists = div.querySelectorAll<HTMLElement>('.h3-section-list')

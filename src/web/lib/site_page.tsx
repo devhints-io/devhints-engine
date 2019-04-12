@@ -6,9 +6,7 @@ import { AllSitePage, GroupedSiteLinks, PageEdge, SiteLink } from '../types'
  */
 
 export function toSiteLinks(pages?: AllSitePage): SiteLink[] {
-  if (!pages || !pages.edges) {
-    return []
-  }
+  if (!pages || !pages.edges) return []
 
   return pages.edges.map(toSiteLink)
 }

@@ -9,9 +9,7 @@ import { isActivePage } from './state/selectors'
 
 const DocsNavigation = () => {
   const { state, actions } = useAppContext()
-  if (!state || !actions) {
-    return <span />
-  }
+  if (!state || !actions) return <span />
 
   const { pages } = state
   const names = Object.keys(pages || {}).sort()
