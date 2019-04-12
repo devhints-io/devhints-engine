@@ -1,5 +1,5 @@
 import React from 'react'
-import { Styleguide } from '../penpad'
+import { Penpad } from '../penpad'
 import BackButton from '../web/components/BackButton'
 import TopNav from '../web/components/TopNav'
 import FeaturedPages, {
@@ -8,10 +8,10 @@ import FeaturedPages, {
 
 const StyleguidePage = () => {
   return (
-    <Styleguide
+    <Penpad
       pages={
         {
-          // home: import('./home.mdx')
+          /* home: import('./home.mdx') */
         }
       }
       specimens={{

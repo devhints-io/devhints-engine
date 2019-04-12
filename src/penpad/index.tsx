@@ -1,1 +1,1 @@
-export { default as Styleguide } from './Styleguide'
+export { default as Penpad } from './Penpad'

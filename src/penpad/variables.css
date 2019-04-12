@@ -1,7 +1,16 @@
 :root {
-  --bg-body: #fafafa;
+  --bg-view: #f2f2f2;
+  --bg-panels: #fafafa;
   --bg-main: #fff;
+  --line-color: #8883;
+  --line-color-lite: #8881;
+  --accent-color: dodgerblue;
+  --highlight-color: color-mod(var(--accent-color) alpha(10%));
   --nav-font-size: '11px';
   --nav-width: 256px;
   --pad: 16px;
 }
+
+@custom-media --viewport-7 (min-width: 768.02px);
+@custom-media --viewport-9 (min-width: 992.02px);
+@custom-media --viewport-12 (min-width: 1200.02px);

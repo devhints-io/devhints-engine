@@ -2,6 +2,7 @@ import React from 'react'
 import CSS from './Navigation.module.css'
 import { Specimens } from './types'
 import { Actions } from './useAppState'
+import Icon from '-!react-svg-loader!clarity-icons-svg/technology/container-outline.svg'
 
 interface Props {
   specimens: Specimens
@@ -23,7 +24,8 @@ const Navigation = (props: Props) => {
                   actions.setActiveSpecimen(name)
                 }}
               >
-                {name}
+                <Icon className={CSS.icon} />
+                <span className={CSS.name}>{name}</span>
               </button>
             </li>
           )
