@@ -33,7 +33,7 @@
 
   &:hover .icon,
   &:focus .icon {
-    color: $brand-a;
+    color: white;
   }
 
   /* Icon: smaller on mobile */
@@ -45,10 +45,8 @@
 }
 
 .icon {
-  transition: color 100ms linear;
-}
-
-.icon svg {
   height: 24px;
   width: 24px;
+  transform: rotate(-90deg);
+  color: $brand-a;
 }

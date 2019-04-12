@@ -51,6 +51,8 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
   const path = relativize(node.fileAbsolutePath)
   const SheetTemplate = root('src/web/templates/SheetTemplate.tsx')
 
+  const tags = node.frontmatter.tags || []
+
   const context /*: NodeContext */ = {
     node_id: node.id,
     nodePath: path,
@@ -58,7 +60,8 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
     title: node.frontmatter.title,
     category: node.frontmatter.category || '',
     weight: node.frontmatter.weight || 0,
-    updated: node.frontmatter.updated
+    updated: node.frontmatter.updated,
+    isFeatured: tags.includes('Featured')
   }
 
   debug('Creating page:', { path })
