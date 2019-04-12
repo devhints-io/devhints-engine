@@ -16,15 +16,6 @@ const useAppState = (props: Config) => {
     specimens: props.specimens
   }
 
-  // On first load
-  // useEffect(() => {
-  //   console.log('effect')
-  // Promise.resolve(props.specimens).then(specimens =>
-  // console.log('useeffect')
-  // actions.setSpecimens(props.specimens)
-  // )
-  // }, [])
-
   const [state, setState] = useState<State>(initialState)
 
   const actions = {

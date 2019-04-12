@@ -1,15 +1,12 @@
 import React from 'react'
-import { Penpad } from '../penpad'
+import { Penpad, combineContext } from '../penpad'
 
 const StyleguidePage = () => {
-  return (
-    <Penpad
-      pages={{}}
-      specimens={{
-        ...require('../styleguides/stuff.specimens.tsx').default
-      }}
-    />
+  const specimens = combineContext(
+    require.context('../', true, /\.specimens\.(jsx?|tsx?)$/)
   )
+
+  return <Penpad pages={{}} specimens={specimens} />
 }
 
 export default StyleguidePage
