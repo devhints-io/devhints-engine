@@ -54,9 +54,7 @@ async function run(argv /*: Array<string> */, options /*: RunOptions */ = {}) {
 
     return {
       code: isSuccess ? 0 : 16,
-      summary: `${all.length} files, ${fixeds.length} fixed, ${
-        errors.length
-      } failed`,
+      summary: `${all.length} files, ${fixeds.length} fixed, ${errors.length} failed`,
       messages
     }
   }
