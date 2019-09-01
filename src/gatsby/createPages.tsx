@@ -48,7 +48,11 @@ const createPages = ({
 
 function buildPage({ node, actions }: { node: any; actions: Actions }) {
   const { createPage, createRedirect } = actions
+
+  // Relative path, eg `/vim`
   const path = relativize(node.fileAbsolutePath)
+
+  // Absolute path to devhints-engine
   const SheetTemplate = root('src/web/templates/SheetTemplate.tsx')
 
   const tags = node.frontmatter.tags || []

@@ -1,0 +1,38 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: |
+        yarn install --frozen-lockfile
+
+    - name: Check TypeScript types
+      run: yarn tsc
+
+    - name: Check for lint warnings
+      run: yarn lint
+
+    - name: Check Prettier formatting
+      run: yarn prettier:check
+
+    - name: Run tests
+      run: yarn test
+
+    - name: Simulate build
+      run: yarn build
