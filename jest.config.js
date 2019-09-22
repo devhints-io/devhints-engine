@@ -1,7 +1,7 @@
 // See https://www.gatsbyjs.org/docs/unit-testing/
 module.exports = {
   transform: {
-    '^.+\\.[tj]sx?$': `<rootDir>/jest.preprocess.js`
+    '^.+\\.[tj]sx?$': `<rootDir>/support/jest.preprocess.js`
   },
   setupFiles: ['./tests/jest.setup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],

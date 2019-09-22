@@ -1,4 +1,4 @@
-require('./register')()
+require('./support/register')()
 
 // Ugh, needed by plugin-meta-redirect
 require('regenerator-runtime/runtime')
