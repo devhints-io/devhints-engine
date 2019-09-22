@@ -3,9 +3,6 @@
   "description": "Static site generator that builds devhints.io",
   "version": "0.1.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
-  "bin": {
-    "devhints-validator": "packages/devhints-validator/bin/devhints-validator"
-  },
   "dependencies": {
     "@babel/register": "^7.0.0",
     "@clr/icons": "^1.1.2",
@@ -103,15 +100,13 @@
     "css_modules:update": "tcm -p 'src/**/*.module.{scss,css}'; prettier --write 'src/**/*.d.ts'",
     "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
-    "fix": "devhints-validator \"sheets/*.md\" --fix",
     "tsc": "tsc",
     "lint:eslint": "eslint 'packages/*/lib/**/*.js' src",
     "lint": "tslint --project .",
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "start": "yarn run develop",
-    "test": "jest",
-    "validate": "devhints-validator \"sheets/*.md\""
+    "test": "jest"
   },
   "workspaces": [
     "packages/*"
