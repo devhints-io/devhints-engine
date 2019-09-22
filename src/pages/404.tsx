@@ -1,4 +1,4 @@
-import { keywordify } from '@devhints/helpers'
+import { keywordify } from '../helpers'
 import { graphql, StaticQuery } from 'gatsby'
 import Link from 'gatsby-link'
 import React from 'react'
