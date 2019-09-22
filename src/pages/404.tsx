@@ -5,7 +5,7 @@ import React from 'react'
 import Layout from '../web/containers/Layout'
 
 import { CONTENT } from '../../config'
-import { LiveSearchInput } from '../search'
+import { LiveSearchInput } from '../web-search'
 import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
 
 export interface Data {

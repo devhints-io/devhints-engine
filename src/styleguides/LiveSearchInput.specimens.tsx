@@ -1,5 +1,5 @@
 import React from 'react'
-import LiveSearchInput from '../search/LiveSearchInput'
+import LiveSearchInput from '../web-search/LiveSearchInput'
 
 export default {
   LiveSearchInput: {

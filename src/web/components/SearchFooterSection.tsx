@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBox from '../../search/SearchBox'
+import SearchBox from '../../web-search/SearchBox'
 import HomeButton from './HomeButton'
 import CSS from './SearchFooterSection.module.scss'
 

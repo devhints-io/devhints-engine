@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import { searchLine } from 'devhints-icons'
 import React from 'react'
+import { searchLine } from '../web-icons'
 import LiveSearchInput from './LiveSearchInput'
 import CSS from './SearchBox.module.css'
 

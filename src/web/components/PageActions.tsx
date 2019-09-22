@@ -1,6 +1,6 @@
-import { github as githubIcon } from 'devhints-icons'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
+import { github as githubIcon } from '../../web-icons'
 
 import cn from 'classnames'
 import { Consumer } from '../contexts/SiteContext'
