@@ -98,7 +98,7 @@
   "scripts": {
     "ci": "run-s -l tsc lint prettier:check test",
     "css_modules:update": "tcm -p 'src/**/*.module.{scss,css}'; prettier --write 'src/**/*.d.ts'",
-    "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
+    "build": "gatsby build",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "tsc": "tsc",
     "lint:eslint": "eslint 'packages/*/lib/**/*.js' src",
