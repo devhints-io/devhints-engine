@@ -1,6 +1,6 @@
 import { Index } from 'elasticlunr'
 import React from 'react'
-import { SearchPageItem, SiteSearchIndex } from '../../web/types'
+import { SearchPageItem, SiteSearchIndex } from '../web/types'
 
 // To be passed onto children
 export interface RenderProps {
