@@ -111,9 +111,6 @@
     "start": "yarn run develop",
     "test": "jest"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "resolutions": {
     "**/@types/react": ">=16.8.0"
   }
