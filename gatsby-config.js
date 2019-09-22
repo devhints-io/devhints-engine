@@ -72,6 +72,6 @@ module.exports = {
         }
       }
     },
-    require.resolve('./packages/gatsby-plugin-meta-redirect')
+    require.resolve('./src/gatsby-plugin-meta-redirect')
   ]
 }

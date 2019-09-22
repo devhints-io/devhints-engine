@@ -102,9 +102,12 @@
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "tsc": "tsc",
     "lint:eslint": "eslint 'packages/*/lib/**/*.js' src",
-    "lint": "tslint --project .",
+    "lint": "run-s tslint:check",
+    "tslint:check": "tslint --project .",
+    "tslint:fix": "tslint --project . --fix",
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
+    "fix": "run-s tslint:fix prettier:fix",
     "start": "yarn run develop",
     "test": "jest"
   },

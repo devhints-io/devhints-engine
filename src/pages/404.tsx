@@ -1,7 +1,7 @@
-import { keywordify } from '../helpers'
 import { graphql, StaticQuery } from 'gatsby'
 import Link from 'gatsby-link'
 import React from 'react'
+import { keywordify } from '../helpers'
 import Layout from '../web/containers/Layout'
 
 import { CONTENT } from '../../config'

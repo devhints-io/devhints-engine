@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { SearchPageItem, SiteSearchIndex } from '../web/types'
-import SearchProvider, { RenderProps } from './SearchProvider'
 import SearchItem from './SearchItem'
 import CSS from './SearchModal.module.css'
+import SearchProvider, { RenderProps } from './SearchProvider'
 
 export interface Props {
   siteSearchIndex: SiteSearchIndex
