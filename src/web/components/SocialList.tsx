@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import { facebook, twitter } from 'devhints-icons'
 import React from 'react'
+import { facebook, twitter } from '../../web-icons'
 import CSS from './SocialList.module.scss'
 
 /**

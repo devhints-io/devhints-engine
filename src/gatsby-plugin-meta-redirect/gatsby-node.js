@@ -4,7 +4,9 @@ const { exists, writeFile, ensureDir } = require('fs-extra')
 const getMetaRedirect = require('./getMetaRedirect')
 
 async function writeRedirectsFile(redirects, folder, pathPrefix) {
-  if (!redirects.length) return
+  if (!redirects.length) {
+    return
+  }
 
   for (const redirect of redirects) {
     const { fromPath, toPath } = redirect

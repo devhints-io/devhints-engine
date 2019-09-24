@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LiveSearchInput } from '../../search'
+import { LiveSearchInput } from '../../web-search'
 import { Consumer } from '../contexts/SiteContext'
 import { Context, GroupedSiteLinks, SiteLink } from '../types'
 import CommonHead from './CommonHead'

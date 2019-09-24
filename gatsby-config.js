@@ -1,4 +1,4 @@
-require('./register')()
+require('./support/register')()
 
 // Ugh, needed by plugin-meta-redirect
 require('regenerator-runtime/runtime')
@@ -72,6 +72,6 @@ module.exports = {
         }
       }
     },
-    '@devhints/gatsby-plugin-meta-redirect'
+    require.resolve('./src/gatsby-plugin-meta-redirect')
   ]
 }

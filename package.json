@@ -3,9 +3,6 @@
   "description": "Static site generator that builds devhints.io",
   "version": "0.1.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
-  "bin": {
-    "devhints-validator": "packages/devhints-validator/bin/devhints-validator"
-  },
   "dependencies": {
     "@babel/register": "^7.0.0",
     "@clr/icons": "^1.1.2",
@@ -70,7 +67,6 @@
     "@types/enzyme": "^3.1.16",
     "@types/jest": "^23.3.13",
     "babel-core": "^7.0.0-bridge",
-    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.0.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
@@ -88,7 +84,6 @@
     "ts-jest": "^24.0.0",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
-    "typed-css-modules": "^0.4.2",
     "typescript": "^3.3.4000",
     "typescript-tslint-plugin": "^0.3.1"
   },
@@ -100,22 +95,18 @@
   "private": true,
   "scripts": {
     "ci": "run-s -l tsc lint prettier:check test",
-    "css_modules:update": "tcm -p 'src/**/*.module.{scss,css}'; prettier --write 'src/**/*.d.ts'",
-    "build": "gatsby build && (cd public && bash ../packages/devhints-scripts/postbuild.sh)",
+    "build": "gatsby build",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
-    "fix": "devhints-validator \"sheets/*.md\" --fix",
     "tsc": "tsc",
-    "lint:eslint": "eslint 'packages/*/lib/**/*.js' src",
-    "lint": "tslint --project .",
+    "lint": "run-s tslint:check",
+    "tslint:check": "tslint --project .",
+    "tslint:fix": "tslint --project . --fix",
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
+    "fix": "run-s tslint:fix prettier:fix",
     "start": "yarn run develop",
-    "test": "jest",
-    "validate": "devhints-validator \"sheets/*.md\""
+    "test": "jest"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "resolutions": {
     "**/@types/react": ">=16.8.0"
   }

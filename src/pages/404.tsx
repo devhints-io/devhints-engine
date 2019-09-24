@@ -1,11 +1,11 @@
-import { keywordify } from '@devhints/helpers'
 import { graphql, StaticQuery } from 'gatsby'
 import Link from 'gatsby-link'
 import React from 'react'
+import { keywordify } from '../helpers'
 import Layout from '../web/containers/Layout'
 
 import { CONTENT } from '../../config'
-import { LiveSearchInput } from '../search'
+import { LiveSearchInput } from '../web-search'
 import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
 
 export interface Data {

@@ -6,23 +6,12 @@
 
 # Contributing
 
-- [GitLab CI](https://gitlab.com/rstacruz/devhints-engine/pipelines)
-- [Netlify preview](http://devhints-engine.netlify.com/)
-- [Netlify admin](https://app.netlify.com/sites/devhints-engine/settings/general)
+- CI: [GitHub actions](https://github.com/rstacruz/devhints-engine/actions)
+- Deployment: [Netlify](https://app.netlify.com/sites/devhints-engine/settings/general) ([preview](http://devhints-engine.netlify.com/))
 
-## For developers
+## Traditional dev setup
 
-<details>
-<summary><strong>To do list</strong> <p>See issue #10.</p></summary><blockquote>
-
-- [devhints-engine TODO list](https://github.com/rstacruz/devhints-engine/issues/10) _(github.com)_
-
-</blockquote></details>
-
-<!-- ## Traditional dev setup -->
-
-<details>
-<summary><strong>Traditional dev setup</strong> <p>Clone the repo, install modules (<code>yarn</code>), then start it with <code>yarn develop</code>.</p></summary><blockquote>
+Clone the repo, install modules (<code>yarn</code>), then start it with <code>yarn develop</code>.
 
 This sets up a dev environment of `devhints-engine`. Note that you need Node 8+ and Yarn 1.5+.
 
@@ -41,9 +30,7 @@ yarn develop
 open http://localhost:19336/
 ```
 
-</blockquote></details>
-
-<!-- ## Dev setup via Docker -->
+## Dev notes
 
 <details>
 <summary>
