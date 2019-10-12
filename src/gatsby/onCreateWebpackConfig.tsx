@@ -26,21 +26,6 @@ const onCreateWebpackConfig = ({ actions }: Props) => {
         jsdom: noop
       }
     }
-
-    // Be sure our internals are babelified; unfortunately I can't make this work right now.
-    // module: {
-    //   rules: [
-    //     {
-    //       test: /\.jsx?$/,
-    //       use: [
-    //         loaders.js({
-    //           exclude: /node_modules/,
-    //           include: [/node_modules\/@devhints/]
-    //         })
-    //       ]
-    //     }
-    //   ]
-    // }
   })
 }
 
