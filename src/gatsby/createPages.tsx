@@ -21,24 +21,18 @@ const debug = debugjs('app:gatsby:createPages')
  * Create pages.
  */
 
-const createPages = ({
+const createPages = async ({
   actions,
   graphql
 }: {
   actions: Actions
   graphql: Graphql
 }) => {
-  return graphql(QUERY).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+  const result = await graphql(QUERY)
+  if (result.errors) throw result.errors
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      buildPage({ node, actions })
-    })
-
-    // Because TypeScript expects the result to be a Promise
-    return Promise.resolve()
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    buildPage({ node, actions })
   })
 }
 

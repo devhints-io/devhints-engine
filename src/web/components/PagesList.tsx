@@ -3,7 +3,7 @@ import React from 'react'
 
 import { unpath } from '../../helpers'
 import { Consumer } from '../contexts/SiteContext'
-import { Context, SiteLink } from '../types'
+import { SiteLink } from '../types'
 import AttributePeg from './AttributePeg'
 import CSS from './PagesList.module.scss'
 

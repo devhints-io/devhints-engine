@@ -3,7 +3,6 @@ import React from 'react'
 import { github as githubIcon } from '../../web-icons'
 
 import cn from 'classnames'
-import { Consumer } from '../contexts/SiteContext'
 import CSS from './PageActions.module.scss'
 
 /*
@@ -72,6 +71,7 @@ export const PageActionsView = ({ path, labels, editURL }: ViewProps) => {
     </ul>
   )
 }
+
 const QUERY = graphql`
   {
     site {
