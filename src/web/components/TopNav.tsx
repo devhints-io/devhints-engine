@@ -1,7 +1,7 @@
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import React from 'react'
 
-import { Consumer } from '../contexts/SiteContext'
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import BackButton from './BackButton'
 import PageActions from './PageActions'
 import SocialList from './SocialList'
@@ -29,8 +29,7 @@ interface Props {
 
 const TopNav = ({ back, title, path }: Props) => {
   const isSheetPage = !!title
-
-  const { content } = useStaticQuery(QUERY).site.siteMetadata
+  const content = useSiteContent()
 
   // Permalink for Social list
   const permalink =
@@ -58,19 +57,5 @@ const TopNav = ({ back, title, path }: Props) => {
     </nav>
   )
 }
-
-const QUERY = graphql`
-  {
-    site {
-      siteMetadata {
-        content {
-          topNav {
-            title
-          }
-        }
-      }
-    }
-  }
-`
 
 export default TopNav

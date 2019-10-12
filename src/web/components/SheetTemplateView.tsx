@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import { Consumer, ConsumerRenderProps } from '../contexts/SiteContext'
-import { Context, Frontmatter, HtmlAst, Sheet, SiteLink } from '../types'
+import { Frontmatter, HtmlAst, Sheet, SiteLink } from '../types'
 import CommentsArea from './CommentsArea'
 import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'
@@ -35,35 +36,21 @@ export type ViewProps = Props & {
 
 /**
  * Sheet template view (connected).
- *
- * @example
- *     <SheetTemplateView
- *       frontmatter={{ title: 'Vim', category: 'Editors' }}
- *       htmlAst={...}
- *       relatedPages={[ ... ]}
- *       topPages={[ ... ]}
- *       pageCount={382}
- *     />
  */
 
-export const SheetTemplateView = (props: Props) => (
-  <Consumer>
-    {({ CONTENT, sheet }: ConsumerRenderProps) => {
-      if (!sheet) return null
-      if (!CONTENT) return null
+export const SheetTemplateView = (props: Props) => {
+  const content = useSiteContent()
+  const sheetSuffix = content.sheet.suffix
 
-      return (
-        <View
-          {...props}
-          sheet={sheet}
-          labels={{
-            sheetSuffix: CONTENT.sheet.suffix || ''
-          }}
-        />
-      )
-    }}
-  </Consumer>
-)
+  return (
+    <Consumer>
+      {({ sheet }: ConsumerRenderProps) => {
+        if (!sheet) return null
+        return <View {...props} sheet={sheet} labels={{ sheetSuffix }} />
+      }}
+    </Consumer>
+  )
+}
 
 /**
  * Logic-less view

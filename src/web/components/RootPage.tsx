@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import { LiveSearchInput } from '../../web-search'
-import { Consumer } from '../contexts/SiteContext'
-import { Context, GroupedSiteLinks, SiteLink } from '../types'
+import { GroupedSiteLinks, SiteLink } from '../types'
 import CommonHead from './CommonHead'
 import PagesList from './PagesList'
 import SiteHeader from './SiteHeader'
@@ -14,23 +14,23 @@ export interface Props {
   groups: GroupedSiteLinks
 }
 
-export interface ViewProps extends Props {
-  metaTitle: string
-  metaDescription: string
-  recentlyUpdatedLabel: string
-}
-
 /**
- * Home page template (pure version).
+ * The home page.
+ *
+ * @example
+ *     <RootPage
+ *       groups={{ 'React': [ ... ] }}
+ *       recentlyUpdated={[ ... ]}
+ *     />
  */
 
-export const View = ({
-  recentlyUpdated,
-  groups,
-  metaTitle,
-  metaDescription,
-  recentlyUpdatedLabel
-}: ViewProps) => {
+export const RootPage = (props: Props) => {
+  const content = useSiteContent()
+  const metaTitle = content.home.title
+  const metaDescription = content.home.description
+  const recentlyUpdatedLabel = content.home.recentlyUpdated
+  const { groups, recentlyUpdated } = props
+
   return (
     <div>
       <Helmet>
@@ -53,31 +53,5 @@ export const View = ({
     </div>
   )
 }
-
-/**
- * The home page.
- *
- * @example
- *     <RootPage
- *       groups={{ 'React': [ ... ] }}
- *       recentlyUpdated={[ ... ]}
- *     />
- */
-
-export const RootPage = (props: Props) => (
-  <Consumer>
-    {({ CONTENT }) => {
-      if (!CONTENT) return <span />
-      return (
-        <View
-          {...props}
-          metaTitle={CONTENT.home.title}
-          metaDescription={CONTENT.home.description}
-          recentlyUpdatedLabel={CONTENT.home.recentlyUpdated}
-        />
-      )
-    }}
-  </Consumer>
-)
 
 export default RootPage

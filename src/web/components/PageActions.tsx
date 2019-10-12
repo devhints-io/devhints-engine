@@ -1,8 +1,8 @@
-import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { github as githubIcon } from '../../web-icons'
 
 import cn from 'classnames'
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import CSS from './PageActions.module.scss'
 
 /*
@@ -29,62 +29,26 @@ export interface ViewProps extends Props {
 export const PageActions = (props: Props) => {
   const repo = 'https://github.com/rstacruz/cheatsheets'
   const branch = 'master'
-  const url = `${repo}/blob/${branch}${props.path || ''}.md`
-  const { content } = useStaticQuery(QUERY).site.siteMetadata
+  const editURL = `${repo}/blob/${branch}${props.path || ''}.md`
+  const content = useSiteContent()
+  const { editOnGithub, edit } = content.topNav
+  const { path } = props
 
-  return (
-    <PageActionsView
-      labels={{
-        edit: content.topNav.edit,
-        editOnGithub: content.topNav.editOnGithub
-      }}
-      editURL={url}
-      {...props}
-    />
-  )
-}
-
-/**
- * Edit this page on GitHub
- *
- * @example
- *     <PageActions />
- */
-
-export const PageActionsView = ({ path, labels, editURL }: ViewProps) => {
   if (!path) return null
 
   return (
     <ul className={CSS.root}>
-      <li
-        className={cn(CSS.item, 'hint--bottom')}
-        data-hint={labels.editOnGithub}
-      >
+      <li className={cn(CSS.item, 'hint--bottom')} data-hint={editOnGithub}>
         <a href={editURL} className={CSS.link} target='edit'>
           <i
             className={CSS.icon}
             dangerouslySetInnerHTML={{ __html: githubIcon }}
           />
-          <span>{labels.edit}</span>
+          <span>{edit}</span>
         </a>
       </li>
     </ul>
   )
 }
-
-const QUERY = graphql`
-  {
-    site {
-      siteMetadata {
-        content {
-          topNav {
-            editOnGithub
-            edit
-          }
-        }
-      }
-    }
-  }
-`
 
 export default PageActions
