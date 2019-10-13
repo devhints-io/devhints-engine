@@ -1,13 +1,12 @@
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { CONTENT } from '../../../config'
 import SheetTemplateView from '../components/SheetTemplateView'
 import Layout from '../containers/Layout'
-import { Provider } from '../contexts/SiteContext'
 import { toSiteLinks } from '../lib/site_page'
 import {
   AllSitePage,
+  Frontmatter,
   MarkdownNode,
   NodeContext,
   Sheet,
@@ -30,6 +29,15 @@ export interface Props {
   data: Data
 }
 
+export interface ContextType {
+  sheet: Sheet
+  frontmatter: Frontmatter
+  topPages: SiteLink[]
+  relatedPages: SiteLink[]
+}
+
+const SheetContext = React.createContext<ContextType | null>(null)
+
 /**
  * Sheet template
  */
@@ -49,9 +57,11 @@ export const SheetTemplate = (props: Props) => {
     htmlAst: data.markdownRemark.htmlAst
   }
 
+  const value = { sheet, frontmatter, topPages, relatedPages }
+
   return (
-    <Layout>
-      <Provider value={{ CONTENT, sheet }}>
+    <SheetContext.Provider value={value}>
+      <Layout>
         <SheetTemplateView
           frontmatter={data.markdownRemark.frontmatter}
           htmlAst={data.markdownRemark.htmlAst}
@@ -60,9 +70,13 @@ export const SheetTemplate = (props: Props) => {
           topPages={topPages}
           pageCount={data.allPages.totalCount}
         />
-      </Provider>
-    </Layout>
+      </Layout>
+    </SheetContext.Provider>
   )
+}
+
+export const useSheetContext = () => {
+  return useContext(SheetContext)
 }
 
 export default SheetTemplate

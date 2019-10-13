@@ -1,8 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
-import { Consumer, ConsumerRenderProps } from '../contexts/SiteContext'
-import { Frontmatter, HtmlAst, Sheet, SiteLink } from '../types'
+import { useSheetContext } from '../templates/SheetTemplate'
+import { Frontmatter, HtmlAst, SiteLink } from '../types'
 import CommentsArea from './CommentsArea'
 import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'
@@ -27,64 +27,39 @@ export interface Props {
   pageCount: number
 }
 
-export type ViewProps = Props & {
-  sheet: Sheet
-  labels: {
-    sheetSuffix: string
-  }
-}
-
 /**
  * Sheet template view (connected).
  */
 
 export const SheetTemplateView = (props: Props) => {
   const content = useSiteContent()
-  const sheetSuffix = content.sheet.suffix
+  const ctx = useSheetContext()
+  if (!ctx) return null
 
-  return (
-    <Consumer>
-      {({ sheet }: ConsumerRenderProps) => {
-        if (!sheet) return null
-        return <View {...props} sheet={sheet} labels={{ sheetSuffix }} />
-      }}
-    </Consumer>
-  )
-}
-
-/**
- * Logic-less view
- */
-
-export const View = ({
-  frontmatter,
-  htmlAst,
-  relatedPages,
-  topPages,
-  pageCount,
-  labels,
-  path,
-  sheet
-}: ViewProps) => {
+  const { sheet, frontmatter, relatedPages, topPages } = ctx
+  const { htmlAst } = sheet
   const title = sheet.title || ''
+  const labels = { sheetSuffix: content.sheet.suffix }
+  const { path, pageCount } = props
+  const intro = frontmatter && frontmatter.intro
 
   return (
-    <React.Fragment>
+    <>
       <Helmet>
         <title>{`${title} ${labels.sheetSuffix}`}</title>
       </Helmet>
 
+      {/* Nav */}
       <CommonHead />
-
       <TopNav back title={title} path={path} />
 
       <div className='body-area'>
         <MainHeading title={title} suffix={labels.sheetSuffix} />
 
         {/* Introduction */}
-        {frontmatter && frontmatter.intro ? (
+        {intro ? (
           <IntroContent className='MarkdownBody'>
-            <MiniMarkdown source={frontmatter.intro} />
+            <MiniMarkdown source={intro} />
           </IntroContent>
         ) : null}
 
@@ -92,8 +67,11 @@ export const View = ({
         <PostContent className='post-content MarkdownBody' {...{ htmlAst }} />
       </div>
 
+      {/* Comments area */}
       <PreFooter />
       <CommentsArea />
+
+      {/* Search & related posts footer */}
       <SearchFooter />
       <RelatedPostsArea
         {...{
@@ -103,7 +81,7 @@ export const View = ({
           category: frontmatter.category
         }}
       />
-    </React.Fragment>
+    </>
   )
 }
 
