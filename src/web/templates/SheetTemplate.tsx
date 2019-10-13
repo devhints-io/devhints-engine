@@ -34,6 +34,8 @@ export interface ContextType {
   frontmatter: Frontmatter
   topPages: SiteLink[]
   relatedPages: SiteLink[]
+  path: string
+  pageCount: number
 }
 
 const SheetContext = React.createContext<ContextType | null>(null)
@@ -42,43 +44,54 @@ const SheetContext = React.createContext<ContextType | null>(null)
  * Sheet template
  */
 
-export const SheetTemplate = (props: Props) => {
+const SheetTemplate = (props: Props) => {
+  const assigns = useAssigns(props)
+
+  return (
+    <SheetContext.Provider value={assigns}>
+      <Layout>
+        <SheetTemplateView />
+      </Layout>
+    </SheetContext.Provider>
+  )
+}
+
+const useAssigns = (props: Props) => {
+  // Data provided by GraphQL
   const data = props.data
+
+  // The current page's path
   const nodePath = props.pageContext.nodePath
 
+  // Links
   const relatedPages: SiteLink[] = toSiteLinks(data.relatedPages)
   const topPages: SiteLink[] = toSiteLinks(data.topPages)
 
+  // Frontmatter in the YAML
   const frontmatter = data.markdownRemark.frontmatter
 
+  // Data for the current sheet
   const sheet: Sheet = {
     path: nodePath,
     title: frontmatter.title,
     htmlAst: data.markdownRemark.htmlAst
   }
 
-  const value = { sheet, frontmatter, topPages, relatedPages }
-
-  return (
-    <SheetContext.Provider value={value}>
-      <Layout>
-        <SheetTemplateView
-          frontmatter={data.markdownRemark.frontmatter}
-          htmlAst={data.markdownRemark.htmlAst}
-          path={nodePath}
-          relatedPages={relatedPages}
-          topPages={topPages}
-          pageCount={data.allPages.totalCount}
-        />
-      </Layout>
-    </SheetContext.Provider>
-  )
+  return {
+    sheet,
+    frontmatter,
+    topPages,
+    relatedPages,
+    path: nodePath,
+    pageCount: data.allPages.totalCount
+  }
 }
 
-export const useSheetContext = () => {
+const useSheetContext = () => {
   return useContext(SheetContext)
 }
 
+export { useSheetContext }
 export default SheetTemplate
 
 /*

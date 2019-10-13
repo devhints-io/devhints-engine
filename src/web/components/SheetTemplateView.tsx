@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import { useSheetContext } from '../templates/SheetTemplate'
-import { Frontmatter, HtmlAst, SiteLink } from '../types'
 import CommentsArea from './CommentsArea'
 import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'
@@ -15,32 +14,28 @@ import SearchFooter from './SearchFooter'
 import TopNav from './TopNav'
 
 /**
- * Properties for the `<View />`
+ * Sheet template.
  */
 
-export interface Props {
-  frontmatter: Frontmatter
-  htmlAst: HtmlAst
-  relatedPages: SiteLink[]
-  topPages: SiteLink[]
-  path: string // eg, '/vim'
-  pageCount: number
-}
-
-/**
- * Sheet template view (connected).
- */
-
-export const SheetTemplateView = (props: Props) => {
+export const SheetTemplateView = () => {
   const content = useSiteContent()
   const ctx = useSheetContext()
   if (!ctx) return null
 
-  const { sheet, frontmatter, relatedPages, topPages } = ctx
+  const { sheet, frontmatter } = ctx
+  const { path, pageCount } = ctx
   const { htmlAst } = sheet
+
+  // Related links and stuff
+  const { relatedPages, topPages } = ctx
+
+  // Sheet title
   const title = sheet.title || ''
+
+  // UI micro-labels
   const labels = { sheetSuffix: content.sheet.suffix }
-  const { path, pageCount } = props
+
+  // "Vim is a text editor..." introduction
   const intro = frontmatter && frontmatter.intro
 
   return (
