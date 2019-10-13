@@ -1,7 +1,7 @@
 import debugjs from 'debug'
 import React from 'react'
 
-import { DisqusData } from '../types'
+import { DisqusData } from '../../types/types'
 
 export interface RenderProps {
   thread: React.ReactNode

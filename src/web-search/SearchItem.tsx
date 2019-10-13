@@ -2,7 +2,7 @@ import Link from 'gatsby-link'
 import React from 'react'
 import CSS from './SearchItem.module.css'
 
-import { SearchPageItem } from '../web/types'
+import { SearchPageItem } from '../types/types'
 
 export interface Props {
   page: SearchPageItem

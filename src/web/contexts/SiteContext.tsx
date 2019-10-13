@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiteSearchIndex } from '../types'
+import { SiteSearchIndex } from '../../types/types'
 
 /*
  * Le context

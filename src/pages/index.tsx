@@ -5,7 +5,7 @@ import RootPage from '../web/components/RootPage'
 import Layout from '../web/containers/Layout'
 import { Provider } from '../web/contexts/SiteContext'
 import { groupByCategory, toSiteLinks } from '../web/lib/site_page'
-import { AllSitePage } from '../web/types'
+import { AllSitePage } from '../types/types'
 
 /*
  * Types

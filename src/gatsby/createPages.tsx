@@ -1,5 +1,5 @@
 import debugjs from 'debug'
-import { AllMarkdownRemark, GatsbyActions, NodeContext } from '../web/types'
+import { AllMarkdownRemark, GatsbyActions, NodeContext } from '../types/types'
 import { relativize, root } from './helpers'
 
 type Actions = GatsbyActions
@@ -47,7 +47,7 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
   const path = relativize(node.fileAbsolutePath)
 
   // Absolute path to devhints-engine
-  const SheetTemplate = root('src/web/templates/SheetTemplate.tsx')
+  const SheetTemplate = require.resolve('../gatsby-templates/SheetTemplate.tsx')
 
   const tags = node.frontmatter.tags || []
 

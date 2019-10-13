@@ -1,7 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
-import { useSheetContext } from '../templates/SheetTemplate'
+import { useSheetContext } from '../../gatsby-templates/SheetTemplate'
+
+// Components
 import CommentsArea from './CommentsArea'
 import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'

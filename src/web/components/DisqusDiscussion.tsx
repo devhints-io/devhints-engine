@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
+import { DisqusData } from '../../types/types'
 import DisqusScript from '../providers/DisqusScript'
 import { RenderProps } from '../providers/DisqusScript'
-import { DisqusData } from '../types'
 
 export const DisqusDiscussion = () => {
   const {
