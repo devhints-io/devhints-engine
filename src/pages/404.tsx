@@ -1,4 +1,4 @@
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import React from 'react'
 import { keywordify } from '../helpers'
 import Layout from '../web/containers/Layout'
