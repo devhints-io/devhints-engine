@@ -14,6 +14,10 @@ const useSiteContent = (): {
   sheet: {
     suffix: string
   }
+  siteHeader: {
+    title: string
+    tagline: string
+  }
   topNav: {
     edit: string
     editOnGithub: string
@@ -33,6 +37,10 @@ const useSiteContent = (): {
           content {
             sheet {
               suffix
+            }
+            siteHeader {
+              title
+              tagline
             }
             home {
               description
