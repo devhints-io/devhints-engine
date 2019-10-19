@@ -12,14 +12,6 @@ const siteMetadata = require('./config.js').default
 
 const SHEET_PATH = process.env.SHEET_PATH || root('sheets')
 
-/**
- * Get a relative path
- */
-
-function relativize(path /*: string */) {
-  return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
-}
-
 /*
  * Gatsby configuration
  */
@@ -59,13 +51,13 @@ module.exports = {
       // https://www.npmjs.com/package/@gatsby-contrib/gatsby-plugin-elasticlunr-search
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
-        fields: ['title', 'category', 'fileAbsolutePath'],
-
+        fields: ['title', 'category', 'nodePath'],
         resolvers: {
-          MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            category: node => node.frontmatter.category || '',
-            nodePath: node => relativize(node.fileAbsolutePath)
+          // Index `SitePage` instead of `MarkdownRemark`.
+          SitePage: {
+            category: node => node.context.category,
+            title: node => node.context.title,
+            nodePath: node => node.context.nodePath
           }
         }
       }
