@@ -3,6 +3,7 @@ import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import { SiteLink } from '../../types/types'
 import PageLink from './PageLink'
 import CSS from './PagesList.module.scss'
+import cn from 'classnames'
 
 /**
  * Types
@@ -28,11 +29,12 @@ export const PagesList = (props: Props) => {
 
   return (
     <div className={CSS.root} role='main'>
-      <h2 className={CSS.category + ' ' + CSS.item}>
+      <h2 className={cn(CSS.category, CSS.item)}>
         <span>{title}</span>
       </h2>
+
       {links.map(link => (
-        <PageLink link={link} updatedLabel={updatedLabel} />
+        <PageLink key={link.path} link={link} updatedLabel={updatedLabel} />
       ))}
     </div>
   )
