@@ -1,6 +1,8 @@
+import cn from 'classnames'
 import { Link } from 'gatsby'
 import React from 'react'
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
+import CSS from './RelatedPostItem.module.css'
 
 /*
  * Types
@@ -22,10 +24,10 @@ const RelatedPostItem = (props: Props) => {
   const suffix = useSiteContent().sheet.suffix
 
   return (
-    <div className={`related-post-item ${className || ''}`}>
-      <Link to={path}>
-        <strong>{title}</strong>
-        <span>{suffix}</span>
+    <div className={cn(CSS.root, className)}>
+      <Link className={CSS.link} to={path}>
+        <strong className={CSS.title}>{title}</strong>
+        <span className={CSS.suffix}>{suffix}</span>
       </Link>
     </div>
   )
