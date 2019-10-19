@@ -55,9 +55,9 @@ module.exports = {
         resolvers: {
           // Index `SitePage` instead of `MarkdownRemark`.
           SitePage: {
-            category: node => node.context.category,
-            title: node => node.context.title,
-            nodePath: node => node.context.nodePath
+            category: node => node.context && node.context.category,
+            title: node => node.context && node.context.title,
+            nodePath: node => node.context && node.context.nodePath
           }
         }
       }
