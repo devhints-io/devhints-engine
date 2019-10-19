@@ -4,7 +4,7 @@ require('./support/register')()
 require('regenerator-runtime/runtime')
 
 const root = require('path').resolve.bind(null, __dirname)
-const siteMetadata = require('./config.js').default
+const siteMetadata = require('./siteMetadata.js').default
 
 /*
  * Where cheatsheets are
