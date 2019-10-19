@@ -1,6 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-interface Result {
+/**
+ * Hook for accessing site content (labels and stuff)
+ */
+
+const useSiteContent = (): {
   home: {
     description: string
     recentlyUpdated: string
@@ -20,45 +24,39 @@ interface Result {
     home: string
     title: string
   }
-}
-
-/**
- * Hook for accessing site content (labels and stuff)
- */
-
-const useSiteContent = (): Result => {
-  return useStaticQuery(QUERY).site.siteMetadata.content
-}
-
-// Add more stuff here as needed
-const QUERY = graphql`
-  {
-    site {
-      siteMetadata {
-        content {
-          sheet {
-            suffix
-          }
-          home {
-            description
-            recentlyUpdated
-            title
-            updatedLabel
-          }
-          notFound {
-            description
-            home
-            title
-          }
-          topNav {
-            edit
-            editOnGithub
-            title
+} => {
+  // Add more stuff here as needed
+  const QUERY = graphql`
+    {
+      site {
+        siteMetadata {
+          content {
+            sheet {
+              suffix
+            }
+            home {
+              description
+              recentlyUpdated
+              title
+              updatedLabel
+            }
+            notFound {
+              description
+              home
+              title
+            }
+            topNav {
+              edit
+              editOnGithub
+              title
+            }
           }
         }
       }
     }
-  }
-`
+  `
+
+  return useStaticQuery(QUERY).site.siteMetadata.content
+}
 
 export default useSiteContent
