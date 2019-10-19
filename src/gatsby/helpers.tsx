@@ -1,12 +1,4 @@
 import { resolve } from 'path'
-// @ts-ignore No types for gatsby-config.js
-import CONFIG from '../../gatsby-config'
-
-/**
- * Sheet path
- */
-
-const SHEET_PATH = CONFIG.siteMetadata.sheetPath
 
 /**
  * Get an absolute path from the project root.
@@ -18,21 +10,30 @@ const SHEET_PATH = CONFIG.siteMetadata.sheetPath
 const root = (...args: string[]) => resolve(__dirname, '..', '..', ...args)
 
 /**
- * Get a relative path.
+ * Strip path of its parent.
  *
- *     relativize('/path/to/react.md')
+ *     stripPath('/path/to/react.md', '/path/to')
+ *     // => 'react.md'
+ *
+ *     stripPath('/path/to/react.md', '/path/to', '.md')
  *     // => 'react'
- *
- *     relativize('/path/to/devhints/code.md')
- *     // => 'devhints/code'
  */
 
-function relativize(path: string) {
-  return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
+function stripPath(fullPath: string, parent: string, extension: string) {
+  if (!fullPath.startsWith(parent)) {
+    throw new Error(`${fullPath} doesnt start with ${parent}`)
+  }
+  let result = fullPath.substr(parent.length)
+
+  if (extension && result.endsWith(extension)) {
+    result = result.substr(0, result.length - extension.length)
+  }
+
+  return result
 }
 
 /*
  * Export
  */
 
-export { root, relativize, SHEET_PATH }
+export { root, stripPath }

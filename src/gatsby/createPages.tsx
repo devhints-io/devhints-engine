@@ -1,6 +1,6 @@
 import debugjs from 'debug'
 import { AllMarkdownRemark, GatsbyActions } from '../types/types'
-import { relativize } from './helpers'
+import { stripPath } from './helpers'
 
 type Actions = GatsbyActions
 
@@ -17,52 +17,54 @@ type Graphql = (query: string) => Promise<GraphqlResult<Data>>
 
 const debug = debugjs('app:gatsby:createPages')
 
+// Absolute path to devhints-engine
+const SheetTemplate = require.resolve('../gatsby-templates/SheetTemplate.tsx')
+
 /**
  * Create pages.
  */
 
-const createPages = async ({
-  actions,
-  graphql
-}: {
-  actions: Actions
-  graphql: Graphql
-}) => {
+const createPages = async (ctx: { actions: Actions; graphql: Graphql }) => {
+  // Get the sheetPath from the config
+  const sheetPath = getSheetPath(ctx)
+
+  // Perform query to fetch MarkdownRemark nodes
+  const nodes = await getMarkdownNodes(ctx)
+
+  nodes.forEach((node: any) => {
+    buildPage({ node, actions: ctx.actions, sheetPath })
+  })
+}
+
+// Get the sheetPath from the config
+function getSheetPath(ctx: any) {
+  const { config } = (ctx as any).store.getState()
+  const sheetPath = config.siteMetadata.sheetPath
+  return sheetPath
+}
+
+// Perform query to fetch MarkdownRemark nodes
+async function getMarkdownNodes(ctx: any) {
+  const { graphql } = ctx
   const result = await graphql(QUERY)
   if (result.errors) throw result.errors
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    buildPage({ node, actions })
-  })
+  return result.data.allMarkdownRemark.nodes
 }
 
 /**
  * Build a page from a node
  */
 
-function buildPage({ node, actions }: { node: any; actions: Actions }) {
+function buildPage(props: { node: any; actions: Actions; sheetPath: string }) {
+  const { node, actions, sheetPath } = props
   const { createPage, createRedirect } = actions
 
-  // Relative path, eg `/vim`
-  const path = relativize(node.fileAbsolutePath)
+  // Page path (eg `/vim`)
+  const path = stripPath(node.fileAbsolutePath, sheetPath, '.md')
+  const context /*: NodeContext */ = buildNodeContext(node, path)
 
-  // Absolute path to devhints-engine
-  const SheetTemplate = require.resolve('../gatsby-templates/SheetTemplate.tsx')
-
-  const tags = node.frontmatter.tags || []
-
-  const context /*: NodeContext */ = {
-    node_id: node.id,
-    nodePath: path,
-    nodeType: 'sheet',
-    title: node.frontmatter.title,
-    category: node.frontmatter.category || '',
-    weight: node.frontmatter.weight || 0,
-    updated: node.frontmatter.updated,
-    isFeatured: tags.includes('Featured')
-  }
-
-  debug('Creating page:', { path })
+  debug('Creating page', { path })
 
   createPage({
     path,
@@ -72,21 +74,37 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
 
   const aliases = node.frontmatter.aliases || []
   aliases.forEach((alias: string) => {
-    const paths = {
-      fromPath: `/${alias}`,
-      toPath: path
-    }
+    const fromPath = `/${alias}`
+    const toPath = path
 
-    debug('Creating redirect:', paths)
+    debug('Creating redirect', { fromPath, toPath })
 
     createRedirect({
-      ...paths,
+      fromPath,
+      toPath,
       isPermanent: true,
       redirectInBrowser: true
     })
   })
+}
 
-  debug('Finished')
+/**
+ * Build the context that will be put into the SitePage node
+ */
+
+function buildNodeContext(node: any, path: string) {
+  const tags = node.frontmatter.tags || []
+
+  return {
+    node_id: node.id,
+    nodePath: path,
+    nodeType: 'sheet',
+    title: node.frontmatter.title,
+    category: node.frontmatter.category || '',
+    weight: node.frontmatter.weight || 0,
+    updated: node.frontmatter.updated,
+    isFeatured: tags.includes('Featured')
+  }
 }
 
 /**
@@ -96,18 +114,16 @@ function buildPage({ node, actions }: { node: any; actions: Actions }) {
 const QUERY = `
   {
     allMarkdownRemark {
-      edges {
-        node {
-          id
-          fileAbsolutePath
-          frontmatter {
-            title
-            category
-            weight
-            updated
-            aliases
-            tags
-          }
+      nodes {
+        id
+        fileAbsolutePath
+        frontmatter {
+          title
+          category
+          weight
+          updated
+          aliases
+          tags
         }
       }
     }
