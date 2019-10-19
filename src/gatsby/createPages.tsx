@@ -1,6 +1,6 @@
 import debugjs from 'debug'
-import { AllMarkdownRemark, GatsbyActions, NodeContext } from '../types/types'
-import { relativize, root } from './helpers'
+import { AllMarkdownRemark, GatsbyActions } from '../types/types'
+import { relativize } from './helpers'
 
 type Actions = GatsbyActions
 

@@ -11,7 +11,6 @@ const siteMetadata = require('./config.js').default
  */
 
 const SHEET_PATH = process.env.SHEET_PATH || root('sheets')
-const PATH_PREFIX = process.env.PATH_PREFIX
 
 /**
  * Get a relative path
@@ -26,7 +25,6 @@ function relativize(path /*: string */) {
  */
 
 module.exports = {
-  ...(PATH_PREFIX ? { pathPrefix: PATH_PREFIX } : {}),
   siteMetadata: {
     title: 'Devhints',
     sheetPath: SHEET_PATH,
