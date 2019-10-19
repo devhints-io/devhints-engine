@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import * as React from 'react'
+import React from 'react'
 import { AllSitePage } from '../types/types'
 import RootPage from '../web/components/RootPage'
 import Layout from '../web/containers/Layout'

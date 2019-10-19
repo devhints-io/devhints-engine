@@ -1,5 +1,4 @@
-/* @flow */
-import * as React from 'react'
+import React from 'react'
 import { Props } from './RelatedPostsArea'
 import RelatedPostsCallout from './RelatedPostsCallout'
 import RelatedPostsGroup from './RelatedPostsGroup'
