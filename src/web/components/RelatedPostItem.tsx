@@ -1,12 +1,12 @@
-/* @flow */
-import { graphql, Link, useStaticQuery } from 'gatsby'
-import * as React from 'react'
+import { Link } from 'gatsby'
+import React from 'react'
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
 
 /*
  * Types
  */
 
-export interface Props {
+interface Props {
   /** Extra classnames to be appended to the root element */
   className?: string
 
@@ -17,49 +17,18 @@ export interface Props {
   title: string
 }
 
-export type ViewProps = Props & {
-  suffix: string
-}
+const RelatedPostItem = (props: Props) => {
+  const { className, path, title } = props
+  const suffix = useSiteContent().sheet.suffix
 
-/**
- * The view
- */
-
-export const RelatedPostItemView = ({
-  className,
-  suffix,
-  title,
-  path
-}: ViewProps) => (
-  <div className={`related-post-item ${className || ''}`}>
-    <Link to={path}>
-      <strong>{title}</strong>
-      <span>{suffix}</span>
-    </Link>
-  </div>
-)
-
-/**
- * Connected view
- */
-
-export const RelatedPostItem = (props: Props) => {
-  const QUERY = graphql`
-    {
-      site {
-        siteMetadata {
-          content {
-            sheet {
-              suffix
-            }
-          }
-        }
-      }
-    }
-  `
-
-  const { content } = useStaticQuery(QUERY).site.siteMetadata
-  return <RelatedPostItemView {...props} suffix={content.sheet.suffix} />
+  return (
+    <div className={`related-post-item ${className || ''}`}>
+      <Link to={path}>
+        <strong>{title}</strong>
+        <span>{suffix}</span>
+      </Link>
+    </div>
+  )
 }
 
 export default RelatedPostItem
