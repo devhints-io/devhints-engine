@@ -1,5 +1,5 @@
 import debugjs from 'debug'
-import { AllMarkdownRemark, GatsbyActions } from '../types/types'
+import { AllMarkdownRemark, GatsbyActions, NodeContext } from '../types/types'
 import { stripPath } from './helpers'
 
 type Actions = GatsbyActions
@@ -92,7 +92,7 @@ function buildPage(props: { node: any; actions: Actions; sheetPath: string }) {
  * Build the context that will be put into the SitePage node
  */
 
-function buildNodeContext(node: any, path: string) {
+function buildNodeContext(node: any, path: string): NodeContext {
   const tags = node.frontmatter.tags || []
 
   return {
