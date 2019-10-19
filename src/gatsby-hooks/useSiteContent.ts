@@ -15,6 +15,11 @@ interface Result {
     editOnGithub: string
     title: string
   }
+  notFound: {
+    description: string
+    home: string
+    title: string
+  }
 }
 
 /**
@@ -39,6 +44,11 @@ const QUERY = graphql`
             recentlyUpdated
             title
             updatedLabel
+          }
+          notFound {
+            description
+            home
+            title
           }
           topNav {
             edit
