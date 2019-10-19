@@ -1,6 +1,8 @@
+import cn from 'classnames'
 import React from 'react'
+import CSS from './AttributePeg.module.css'
 
-export interface Props {
+interface Props {
   hint: string
 }
 
@@ -9,8 +11,8 @@ export interface Props {
  */
 
 export const AttributePeg = ({ hint }: Props) => (
-  <abbr className='attribute-peg -new-layout hint--bottom' data-hint={hint}>
-    <span />
+  <abbr className={cn(CSS.root, 'hint--bottom')} data-hint={hint}>
+    <span className={CSS.dot} />
   </abbr>
 )
 

@@ -26,7 +26,7 @@
 /* Components */
 /* @import '../styles/components/announcements-item.css'; */
 /* @import '../styles/components/announcements-list.css'; */
-@import '../styles/components/attribute-peg.css';
+/* @import '../styles/components/attribute-peg.css'; */
 /* @import '../styles/components/berry-sponsor.css'; */
 @import '../styles/components/body-area.css';
 @import '../styles/components/codefund-sponsor.css';
@@ -44,7 +44,7 @@
 /* @import '../styles/components/page-actions.css'; /1* TODO *1/ */
 /* @import '../styles/components/pages-list.css'; */
 /* @import '../styles/components/pre-footer.css'; */
-@import '../styles/components/push-button.css'; /* TODO */
+/* @import '../styles/components/push-button.css'; TODO */
 @import '../styles/components/related-post-item.css';
 @import '../styles/components/related-post-list.css';
 @import '../styles/components/related-posts-area.css';
