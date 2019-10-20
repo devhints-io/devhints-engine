@@ -1,0 +1,80 @@
+@import '../../web/styles/common';
+
+.root {
+  display: flex;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* Layout */
+.link {
+  flex: 1 1 100%;
+  display: block;
+  border-radius: 2px;
+  box-shadow: var(--shadow2);
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Color */
+.link,
+.link:visited {
+  background: white;
+  color: var(--text-mute);
+
+  & > .title {
+    color: var(--brand-a);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--brand-a);
+  }
+
+  &:hover > .title,
+  &:focus > .title {
+    /* TODO color: darken(var(--brand-a), 16%); */
+  }
+}
+
+.root:first-of-type > .link,
+.root:first-of-type > .link:visited {
+  background: var(--brand-a);
+  color: color-mod(white alpha(50%));
+
+  & > .title {
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    color: white;
+  }
+
+  &:hover > .title,
+  &:focus > .title {
+    color: white;
+  }
+
+  &:hover,
+  &:focus {
+    background: color-mod(var(--brand-a) lightness(-9%));
+  }
+}
+
+/* Two lines when bigger */
+@media (min-width: 481px) {
+  .link > .title,
+  .link > .suffix {
+    display: block;
+  }
+
+  .link > .title {
+    @apply --font-size-1;
+    font-weight: normal;
+  }
+
+  .link > .suffix {
+    @apply --font-size--1;
+  }
+}

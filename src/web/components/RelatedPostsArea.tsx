@@ -1,6 +1,5 @@
-/* @flow */
-import * as React from 'react'
-import { SiteLink } from '../types'
+import React from 'react'
+import { SiteLink } from '../../types/types'
 import RelatedPostsSection from './RelatedPostsSection'
 
 /**

@@ -1,80 +1,39 @@
-import { graphql, StaticQuery } from 'gatsby'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import React from 'react'
 import { keywordify } from '../helpers'
 import Layout from '../web/containers/Layout'
 
-import { CONTENT } from '../../config'
+import useSiteContent from '../gatsby-hooks/useSiteContent'
 import { LiveSearchInput } from '../web-search'
 import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
-
-export interface Data {
-  siteSearchIndex: any
-}
-
-export interface Props {
-  keyword: string | void | null // => 'rails' | null
-  title: string // => 'Not Found'
-  description: string // => 'Try searching!'
-  home: string // => 'Back to home'
-  siteSearchIndex: any
-}
 
 /**
  * The 404 page.
  */
 
-export const NotFoundPage = () => (
-  <StaticQuery
-    query={query}
-    render={(data: Data) => {
-      const pathname: string | null =
-        typeof location !== 'undefined' ? location.pathname : null
-      const keyword: string | null = keywordify(pathname)
+export const NotFoundPage = () => {
+  const CONTENT = useSiteContent()
 
-      return (
-        <Layout>
-          <NotFoundPageView
-            keyword={keyword}
-            title={CONTENT.notFound.title}
-            description={CONTENT.notFound.description}
-            home={CONTENT.notFound.home}
-            siteSearchIndex={data && data.siteSearchIndex}
-          />
-        </Layout>
-      )
-    }}
-  />
-)
+  const pathname = typeof location !== 'undefined' ? location.pathname : null
+  const keyword = keywordify(pathname)
 
-/**
- * The 404 page view.
- */
+  const labels = {
+    title: CONTENT.notFound.title,
+    description: CONTENT.notFound.description,
+    home: CONTENT.notFound.home
+  }
 
-export const NotFoundPageView = ({
-  keyword,
-  title,
-  description,
-  home,
-  siteSearchIndex
-}: Props) => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      {keyword && <ExternalSearchLinks keyword={keyword} />}
-      <LiveSearchInput />
-      <Link to='/'>{home}</Link>
-    </div>
+    <Layout>
+      <div>
+        <h1>{labels.title}</h1>
+        <p>{labels.description}</p>
+        {keyword && <ExternalSearchLinks keyword={keyword} />}
+        <LiveSearchInput />
+        <Link to='/'>{labels.home}</Link>
+      </div>
+    </Layout>
   )
 }
 
 export default NotFoundPage
-
-export const query = graphql`
-  query SearchIndexExampleQuery {
-    siteSearchIndex {
-      index
-    }
-  }
-`

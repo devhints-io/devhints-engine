@@ -1,7 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Consumer, ConsumerRenderProps } from '../contexts/SiteContext'
-import { Context, Frontmatter, HtmlAst, Sheet, SiteLink } from '../types'
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
+import { useSheetContext } from '../../gatsby-templates/SheetTemplate'
+
+// Components
 import CommentsArea from './CommentsArea'
 import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'
@@ -14,90 +16,47 @@ import SearchFooter from './SearchFooter'
 import TopNav from './TopNav'
 
 /**
- * Properties for the `<View />`
+ * Sheet template.
  */
 
-export interface Props {
-  frontmatter: Frontmatter
-  htmlAst: HtmlAst
-  relatedPages: SiteLink[]
-  topPages: SiteLink[]
-  path: string // eg, '/vim'
-  pageCount: number
-}
+export const SheetTemplateView = () => {
+  const content = useSiteContent()
+  const ctx = useSheetContext()
+  if (!ctx) return null
 
-export type ViewProps = Props & {
-  sheet: Sheet
-  labels: {
-    sheetSuffix: string
-  }
-}
+  const { sheet, frontmatter } = ctx
+  const { path, pageCount } = ctx
+  const { htmlAst } = sheet
 
-/**
- * Sheet template view (connected).
- *
- * @example
- *     <SheetTemplateView
- *       frontmatter={{ title: 'Vim', category: 'Editors' }}
- *       htmlAst={...}
- *       relatedPages={[ ... ]}
- *       topPages={[ ... ]}
- *       pageCount={382}
- *     />
- */
+  // Related links and stuff
+  const { relatedPages, topPages } = ctx
 
-export const SheetTemplateView = (props: Props) => (
-  <Consumer>
-    {({ CONTENT, sheet }: ConsumerRenderProps) => {
-      if (!sheet) return null
-      if (!CONTENT) return null
-
-      return (
-        <View
-          {...props}
-          sheet={sheet}
-          labels={{
-            sheetSuffix: CONTENT.sheet.suffix || ''
-          }}
-        />
-      )
-    }}
-  </Consumer>
-)
-
-/**
- * Logic-less view
- */
-
-export const View = ({
-  frontmatter,
-  htmlAst,
-  relatedPages,
-  topPages,
-  pageCount,
-  labels,
-  path,
-  sheet
-}: ViewProps) => {
+  // Sheet title
   const title = sheet.title || ''
 
+  // UI micro-labels
+  const labels = { sheetSuffix: content.sheet.suffix }
+
+  // "Vim is a text editor..." introduction
+  const intro = frontmatter && frontmatter.intro
+
   return (
-    <React.Fragment>
+    <>
       <Helmet>
         <title>{`${title} ${labels.sheetSuffix}`}</title>
       </Helmet>
 
+      {/* Nav */}
       <CommonHead />
-
       <TopNav back title={title} path={path} />
 
       <div className='body-area'>
         <MainHeading title={title} suffix={labels.sheetSuffix} />
 
         {/* Introduction */}
-        {frontmatter && frontmatter.intro ? (
+        {intro ? (
           <IntroContent className='MarkdownBody'>
-            <MiniMarkdown source={frontmatter.intro} />
+            <MiniMarkdown source={intro} />
           </IntroContent>
         ) : null}
 
@@ -105,8 +64,11 @@ export const View = ({
         <PostContent className='post-content MarkdownBody' {...{ htmlAst }} />
       </div>
 
+      {/* Comments area */}
       <PreFooter />
       <CommentsArea />
+
+      {/* Search & related posts footer */}
       <SearchFooter />
       <RelatedPostsArea
         {...{
@@ -116,7 +78,7 @@ export const View = ({
           category: frontmatter.category
         }}
       />
-    </React.Fragment>
+    </>
   )
 }
 

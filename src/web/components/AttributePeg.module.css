@@ -1,0 +1,14 @@
+.root {
+  display: inline-block;
+  height: 12px;
+  width: 20px;
+  text-align: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #77dab2; /* saturate(lighten(#5a8, 16%), 24%); */
+  border-radius: 50%;
+}

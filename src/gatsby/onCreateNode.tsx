@@ -10,7 +10,11 @@ interface Props {
   actions: any
 }
 
-const onCreateNode = ({ node, actions }: Props) => {
+const onCreateNode = (props: Props) => {
+  createNodeFields(props)
+}
+
+const createNodeFields = ({ node, actions }: Props) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {

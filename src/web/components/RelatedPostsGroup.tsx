@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiteLink } from '../types'
+import { SiteLink } from '../../types/types'
 import RelatedPostItem from './RelatedPostItem'
 import CSS from './RelatedPostsGroup.module.scss'
 

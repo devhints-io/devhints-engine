@@ -1,10 +1,8 @@
-import Link from 'gatsby-link'
+import cn from 'classnames'
 import React from 'react'
-
-import { unpath } from '../../helpers'
-import { Consumer } from '../contexts/SiteContext'
-import { Context, SiteLink } from '../types'
-import AttributePeg from './AttributePeg'
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
+import { SiteLink } from '../../types/types'
+import PageLink from './PageLink'
 import CSS from './PagesList.module.scss'
 
 /**
@@ -24,50 +22,22 @@ export type ViewProps = Props & {
  * List of pages
  */
 
-export const PagesListView = ({ title, links, updatedLabel }: ViewProps) => (
-  <div className={CSS.root} role='main'>
-    <h2 className={CSS.category + ' ' + CSS.item}>
-      <span>{title}</span>
-    </h2>
-    {links.map(link => (
-      <PageLink link={link} updatedLabel={updatedLabel} />
-    ))}
-  </div>
-)
+export const PagesList = (props: Props) => {
+  const content = useSiteContent()
+  const { updatedLabel } = content.home
+  const { title, links } = props
 
-const PageLink = ({
-  link,
-  updatedLabel
-}: {
-  link: SiteLink
-  updatedLabel: string
-}) => {
   return (
-    <Link
-      to={link.path}
-      key={link.path}
-      className={CSS.article + ' ' + CSS.item}
-    >
-      <span className={CSS.info}>
-        <code className={CSS.slug}>{unpath(link.path)}</code>
+    <div className={CSS.root} role='main'>
+      <h2 className={cn(CSS.category, CSS.item)}>
+        <span>{title}</span>
+      </h2>
 
-        <AttributePeg hint={updatedLabel} />
-
-        <span className={CSS.title}>{link.title}</span>
-      </span>
-    </Link>
+      {links.map(link => (
+        <PageLink key={link.path} link={link} updatedLabel={updatedLabel} />
+      ))}
+    </div>
   )
 }
-
-export const PagesList = (props: Props) => (
-  <Consumer>
-    {({ CONTENT }) => {
-      if (!CONTENT) return <span />
-      return (
-        <PagesListView {...props} updatedLabel={CONTENT.home.updatedLabel} />
-      )
-    }}
-  </Consumer>
-)
 
 export default PagesList

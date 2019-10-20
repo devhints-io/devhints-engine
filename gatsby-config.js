@@ -4,29 +4,19 @@ require('./support/register')()
 require('regenerator-runtime/runtime')
 
 const root = require('path').resolve.bind(null, __dirname)
-const siteMetadata = require('./config.js').default
+const siteMetadata = require('./siteMetadata.js').default
 
 /*
  * Where cheatsheets are
  */
 
 const SHEET_PATH = process.env.SHEET_PATH || root('sheets')
-const PATH_PREFIX = process.env.PATH_PREFIX
-
-/**
- * Get a relative path
- */
-
-function relativize(path /*: string */) {
-  return path.replace(SHEET_PATH, '').replace(/\.md$/, '')
-}
 
 /*
  * Gatsby configuration
  */
 
 module.exports = {
-  ...(PATH_PREFIX ? { pathPrefix: PATH_PREFIX } : {}),
   siteMetadata: {
     title: 'Devhints',
     sheetPath: SHEET_PATH,
@@ -61,13 +51,13 @@ module.exports = {
       // https://www.npmjs.com/package/@gatsby-contrib/gatsby-plugin-elasticlunr-search
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
-        fields: ['title', 'category', 'fileAbsolutePath'],
-
+        fields: ['title', 'category', 'nodePath'],
         resolvers: {
-          MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            category: node => node.frontmatter.category || '',
-            nodePath: node => relativize(node.fileAbsolutePath)
+          // Index `SitePage` instead of `MarkdownRemark`.
+          SitePage: {
+            category: node => node.context && node.context.category,
+            title: node => node.context && node.context.title,
+            nodePath: node => node.context && node.context.nodePath
           }
         }
       }

@@ -1,11 +1,9 @@
-import { graphql, StaticQuery } from 'gatsby'
-import * as React from 'react'
-import { CONTENT } from '../../config'
+import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
+import { AllSitePage } from '../types/types'
 import RootPage from '../web/components/RootPage'
 import Layout from '../web/containers/Layout'
-import { Provider } from '../web/contexts/SiteContext'
 import { groupByCategory, toSiteLinks } from '../web/lib/site_page'
-import { AllSitePage } from '../web/types'
 
 /*
  * Types
@@ -17,27 +15,18 @@ export interface Data {
 }
 
 /**
- * Connector for `<RootPage />`
+ * Root page
  */
 
 export const Root = () => {
+  const data = useStaticQuery(query)
+  const groups = groupByCategory(data.allPages)
+  const recentlyUpdated = toSiteLinks(data && data.recentlyUpdated)
+
   return (
-    <StaticQuery
-      query={query}
-      render={(data: Data) => {
-        const groups = groupByCategory(data.allPages)
-        return (
-          <Layout>
-            <Provider value={{ CONTENT }}>
-              <RootPage
-                groups={groups}
-                recentlyUpdated={toSiteLinks(data && data.recentlyUpdated)}
-              />
-            </Provider>
-          </Layout>
-        )
-      }}
-    />
+    <Layout>
+      <RootPage groups={groups} recentlyUpdated={recentlyUpdated} />
+    </Layout>
   )
 }
 

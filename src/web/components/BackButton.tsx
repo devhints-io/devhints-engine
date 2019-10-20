@@ -1,6 +1,6 @@
 // @ts-ignore
 import BackIcon from '-!react-svg-loader!clarity-icons-svg/essential/arrow-outline.svg'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import React from 'react'
 import CSS from './BackButton.module.scss'
 

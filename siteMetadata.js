@@ -55,16 +55,6 @@ export const CONTENT = {
   }
 }
 
-/**
- * Disqus integration (TODO)
- * @name DISQUS
- */
-
-export const DISQUS = {
-  enabled: true,
-  host: 'devhints.disqus.com'
-}
-
 const siteMetadata = {
   content: CONTENT,
   github: {

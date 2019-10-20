@@ -1,18 +1,17 @@
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { CONTENT } from '../../../config'
-import SheetTemplateView from '../components/SheetTemplateView'
-import Layout from '../containers/Layout'
-import { Provider } from '../contexts/SiteContext'
-import { toSiteLinks } from '../lib/site_page'
 import {
   AllSitePage,
+  Frontmatter,
   MarkdownNode,
   NodeContext,
   Sheet,
   SiteLink
-} from '../types'
+} from '../types/types'
+import SheetTemplateView from '../web/components/SheetTemplateView'
+import Layout from '../web/containers/Layout'
+import { toSiteLinks } from '../web/lib/site_page'
 
 /**
  * Props
@@ -30,41 +29,69 @@ export interface Props {
   data: Data
 }
 
+export interface ContextType {
+  sheet: Sheet
+  frontmatter: Frontmatter
+  topPages: SiteLink[]
+  relatedPages: SiteLink[]
+  path: string
+  pageCount: number
+}
+
+const SheetContext = React.createContext<ContextType | null>(null)
+
 /**
  * Sheet template
  */
 
-export const SheetTemplate = (props: Props) => {
+const SheetTemplate = (props: Props) => {
+  const assigns = useAssigns(props)
+
+  return (
+    <SheetContext.Provider value={assigns}>
+      <Layout>
+        <SheetTemplateView />
+      </Layout>
+    </SheetContext.Provider>
+  )
+}
+
+const useAssigns = (props: Props) => {
+  // Data provided by GraphQL
   const data = props.data
+
+  // The current page's path
   const nodePath = props.pageContext.nodePath
 
+  // Links
   const relatedPages: SiteLink[] = toSiteLinks(data.relatedPages)
   const topPages: SiteLink[] = toSiteLinks(data.topPages)
 
+  // Frontmatter in the YAML
   const frontmatter = data.markdownRemark.frontmatter
 
+  // Data for the current sheet
   const sheet: Sheet = {
     path: nodePath,
     title: frontmatter.title,
     htmlAst: data.markdownRemark.htmlAst
   }
 
-  return (
-    <Layout>
-      <Provider value={{ CONTENT, sheet }}>
-        <SheetTemplateView
-          frontmatter={data.markdownRemark.frontmatter}
-          htmlAst={data.markdownRemark.htmlAst}
-          path={nodePath}
-          relatedPages={relatedPages}
-          topPages={topPages}
-          pageCount={data.allPages.totalCount}
-        />
-      </Provider>
-    </Layout>
-  )
+  return {
+    sheet,
+    frontmatter,
+    topPages,
+    relatedPages,
+    path: nodePath,
+    pageCount: data.allPages.totalCount
+  }
 }
 
+const useSheetContext = () => {
+  return useContext(SheetContext)
+}
+
+export { useSheetContext }
 export default SheetTemplate
 
 /*

@@ -101,9 +101,13 @@ export interface Content {
 
 export interface NodeContext {
   node_id: string // Internal gatsby identifier of Markdown node
-  nodePath: string // File path (eg, 'vim')
+  nodePath: string // '/vim'
+  nodeType: 'sheet'
   title: string
   category: string
+  weight: number
+  updated: string | null | undefined
+  isFeatured: boolean
 }
 
 /**
