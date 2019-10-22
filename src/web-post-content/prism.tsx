@@ -1,3 +1,12 @@
+/**
+ * Integration with Prism.js.
+ * @example
+ *
+ *     // Loads from CDN, along with any plugins it may need
+ *     const Prism = await loadPrism()
+ *     Prism.highlightAllUnder(element)
+ */
+
 import debugjs from 'debug'
 import loadjs from 'loadjs'
 
@@ -83,8 +92,7 @@ export function getPrismURLs(el?: HTMLElement): string[] {
   const languageURLs = languages.map((lang: string) => getLanguageURL(lang))
 
   return [
-    // @ts-ignore global.Prism
-    ...(global.Prism ? [] : [getPrismURL()]),
+    ...((global as any).Prism ? [] : [getPrismURL()]),
     getPrismURL('plugins/line-highlight/prism-line-highlight.min.js'),
     getPrismURL('plugins/line-highlight/prism-line-highlight.min.css'),
     ...languageURLs

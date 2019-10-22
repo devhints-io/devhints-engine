@@ -6,8 +6,8 @@ import RehypeReact from 'rehype-react'
 // @ts-ignore TODO types for rehype-table-separators
 import separatify from 'rehype-table-separators'
 // @ts-ignore TODO types for rehype-wrapify
-import wrapify from '../../../rehype-wrapify'
-import { HastNode } from '../../../types/types'
+import wrapify from '../rehype-wrapify'
+import { HastNode } from '../types/types'
 
 /**
  * Converts a HAST node (generated from Markdown) into a React element.
@@ -18,7 +18,9 @@ import { HastNode } from '../../../types/types'
 
 export default function transform(htmlAst: HastNode): React.ReactNode {
   // Perform transformations
-  htmlAst = separatify(wrapify(decorate(htmlAst)))
+  htmlAst = decorate(htmlAst)
+  htmlAst = wrapify(htmlAst)
+  htmlAst = separatify(htmlAst)
 
   // Convert to React
   const element = renderAst(htmlAst)

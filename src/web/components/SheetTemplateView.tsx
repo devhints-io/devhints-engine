@@ -4,12 +4,12 @@ import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import { useSheetContext } from '../../gatsby-templates/SheetTemplate'
 
 // Components
+import PostContent from '../../web-post-content'
 import CommentsArea from './CommentsArea'
 import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'
 import MainHeading from './MainHeading'
 import MiniMarkdown from './MiniMarkdown'
-import PostContent from './PostContent'
 import PreFooter from './PreFooter'
 import RelatedPostsArea from './RelatedPostsArea'
 import SearchFooter from './SearchFooter'
