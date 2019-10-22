@@ -84,14 +84,14 @@
 @media (min-width: 481px) {
   .actions {
     position: absolute;
-    @include gutter-right;
+    right: $gut;
     top: calc((64px - 32px) / 2);
     line-height: 1em;
   }
 
   .left {
     position: absolute;
-    @include gutter-left;
+    left: $gut;
     top: calc((64px - 32px) / 2);
   }
 }

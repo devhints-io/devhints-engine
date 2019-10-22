@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
 import React from 'react'
 
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
