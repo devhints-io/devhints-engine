@@ -20,11 +20,18 @@ const DISQUS_DELAY = 100
 
 const debug = debugjs('app:DisqusScript')
 
-/*
- * Injects a disqus script.
+/**
+ * Adds a discus discussion.
+ *
+ * @example
+ *     <DisqusScript host={...} url={...} identifier={...}>
+ *       {(thread, count)=> (
+ *         <div>{count} responses: {thread}</div>
+ *       )}
+ *     </DisqusScript>
  */
 
-export class DisqusScript extends React.Component<Props> {
+export default class DisqusScript extends React.Component<Props> {
   componentDidMount() {
     const { host, url, identifier } = this.props
     debug('componentDidMount() started for "%s".', url)
@@ -71,12 +78,6 @@ export class DisqusScript extends React.Component<Props> {
     )
   }
 }
-
-/*
- * Primary export
- */
-
-export default DisqusScript
 
 /**
  * Injects disqus's scripts into the page.
