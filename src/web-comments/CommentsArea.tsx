@@ -1,12 +1,11 @@
 import React from 'react'
-import { DisqusData } from '../../types/types'
-import DisqusScript from '../providers/DisqusScript'
-import { RenderProps } from '../providers/DisqusScript'
+import { DisqusData } from '../types/types'
+import DisqusScript, { RenderProps } from './DisqusScript'
 import CSS from './CommentsArea.module.scss'
 import CommentsAreaSummary from './CommentsAreaSummary'
 import CommentsSection from './CommentsSection'
 
-export interface ViewProps {
+interface ViewProps {
   thread: React.ReactNode
   count: React.ReactNode
 }
@@ -15,8 +14,8 @@ export interface ViewProps {
  * Comments area
  */
 
-export const CommentsAreaView = (props: ViewProps) => {
-  const { thread, count } = props
+const CommentsAreaView = (props: ViewProps) => {
+  const { count } = props
 
   return (
     <section className={CSS.root} id='comments' data-js-no-preview>
@@ -34,7 +33,7 @@ export const CommentsAreaView = (props: ViewProps) => {
  * Connector
  */
 
-export const CommentsArea = () => {
+const CommentsArea = () => {
   // Disqus configuration
   const disqus: DisqusData = {
     host: 'devhints.disqus.com',

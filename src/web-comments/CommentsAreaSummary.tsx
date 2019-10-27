@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
-import { talkBubblesLine, talkBubblesSolid } from '../../web-icons'
+import { talkBubblesLine, talkBubblesSolid } from '../web-icons'
 import CSS from './CommentsAreaSummary.module.scss'
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
  * Summary in the comments area
  */
 
-export const CommentsAreaSummary = ({ count }: Props) => (
+const CommentsAreaSummary = ({ count }: Props) => (
   <summary className={CSS.root}>
     <i
       className={cn(CSS.icon, CSS.isLine)}

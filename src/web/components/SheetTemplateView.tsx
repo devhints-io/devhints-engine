@@ -5,7 +5,7 @@ import { useSheetContext } from '../../gatsby-templates/SheetTemplate'
 
 // Components
 import PostContent from '../../web-post-content'
-import CommentsArea from './CommentsArea'
+import CommentsArea from '../../web-comments/CommentsArea'
 import CommonHead from './CommonHead'
 import IntroContent from './IntroContent'
 import MainHeading from './MainHeading'
