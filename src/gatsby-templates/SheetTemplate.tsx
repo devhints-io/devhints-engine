@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import React, { useContext } from 'react'
 
+import { toSiteLinks } from '../helpers/site_page'
 import {
   AllSitePage,
   Frontmatter,
@@ -11,7 +12,6 @@ import {
 } from '../types/types'
 import SheetTemplateView from '../web/components/SheetTemplateView'
 import Layout from '../web/containers/Layout'
-import { toSiteLinks } from '../helpers/site_page'
 
 /**
  * Props

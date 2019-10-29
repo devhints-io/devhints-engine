@@ -1,9 +1,9 @@
 import React from 'react'
 import { DisqusData } from '../types/types'
-import DisqusScript, { RenderProps } from './DisqusScript'
 import CSS from './CommentsArea.module.scss'
 import CommentsAreaSummary from './CommentsAreaSummary'
 import CommentsSection from './CommentsSection'
+import DisqusScript, { RenderProps } from './DisqusScript'
 
 interface ViewProps {
   thread: React.ReactNode
