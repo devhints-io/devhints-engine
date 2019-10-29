@@ -4,7 +4,7 @@ import {
   GroupedSiteLinks,
   PageEdge,
   SiteLink
-} from '../../types/types'
+} from '../types/types'
 
 /**
  * Converts AllSitePage to SiteLinks

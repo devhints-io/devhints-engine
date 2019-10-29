@@ -1,5 +1,3 @@
-import { root } from './helpers'
-
 interface Props {
   actions: {
     setWebpackConfig: (config: any) => void
@@ -15,7 +13,7 @@ interface Props {
  */
 
 const onCreateWebpackConfig = ({ actions }: Props) => {
-  const noop = root('src/web/lib/helpers/noop.js')
+  const noop = require.resolve('../helpers/noop.js')
 
   actions.setWebpackConfig({
     // isotope-layout tries to require('jquery'), but let's let that

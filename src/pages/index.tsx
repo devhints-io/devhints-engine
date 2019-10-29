@@ -3,7 +3,7 @@ import React from 'react'
 import { AllSitePage } from '../types/types'
 import RootPage from '../web/components/RootPage'
 import Layout from '../web/containers/Layout'
-import { groupByCategory, toSiteLinks } from '../web/lib/site_page'
+import { groupByCategory, toSiteLinks } from '../helpers/site_page'
 
 /*
  * Types

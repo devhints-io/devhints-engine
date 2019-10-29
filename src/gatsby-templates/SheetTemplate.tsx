@@ -11,7 +11,7 @@ import {
 } from '../types/types'
 import SheetTemplateView from '../web/components/SheetTemplateView'
 import Layout from '../web/containers/Layout'
-import { toSiteLinks } from '../web/lib/site_page'
+import { toSiteLinks } from '../helpers/site_page'
 
 /**
  * Props
