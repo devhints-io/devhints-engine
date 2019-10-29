@@ -1,6 +1,4 @@
-@import 'sanitize.css/sanitize.css';
 @import 'responsive-modular-scale.css/responsive-modular-scale.css';
-@import 'hint.css/hint.css';
 
 /* Vars */
 @import '../styles/variables.css';
