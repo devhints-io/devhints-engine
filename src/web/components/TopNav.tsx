@@ -32,11 +32,7 @@ const TopNav = ({ back, title, path }: Props) => {
   const content = useSiteContent()
 
   // Permalink for Social list
-  const permalink =
-    (typeof window !== 'undefined' &&
-      window.location &&
-      window.location.href) ||
-    null
+  const permalink = getPermalink()
 
   return (
     <nav className={CSS.root} data-js-no-preview role='navigation'>
@@ -55,6 +51,19 @@ const TopNav = ({ back, title, path }: Props) => {
         </div>
       </div>
     </nav>
+  )
+}
+
+/**
+ * Get the permalink path for the current page.
+ */
+
+function getPermalink() {
+  return (
+    (typeof window !== 'undefined' &&
+      window.location &&
+      window.location.href) ||
+    null
   )
 }
 
