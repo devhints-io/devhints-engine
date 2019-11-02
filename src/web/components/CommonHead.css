@@ -1,14 +1,5 @@
 /* Vars */
-@import '../../css-base/common.css';
-
-/* Markdown */
-@import '../styles/markdown/a-em.css';
-@import '../styles/markdown/code.css';
-@import '../styles/markdown/headings.css';
-@import '../styles/markdown/table.css';
-@import '../styles/markdown/p.css';
-@import '../styles/markdown/prism.css';
-@import '../styles/markdown/ul.css';
+@import '../../css-base/utils';
 
 /* Components */
 /* @import '../styles/components/announcements-item.css'; */

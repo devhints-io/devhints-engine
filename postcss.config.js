@@ -9,10 +9,7 @@ module.exports = ctx => {
       require('postcss-preset-env')({
         stage: 0,
         preserve: false,
-        features: {
-          // https://github.com/postcss/postcss-custom-properties
-          'custom-properties': { importFrom: null }
-        },
+        importFrom: [require.resolve('./src/css-base/variables.css')],
         insertBefore: {
           'all-property': require('postcss-color-mod-function')
         }

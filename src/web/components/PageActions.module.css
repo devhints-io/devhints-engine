@@ -1,4 +1,4 @@
-@import '../../web/styles/common';
+@import '../../css-base/utils';
 
 .root,
 .root > li {

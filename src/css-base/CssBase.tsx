@@ -5,7 +5,7 @@ import 'hint.css/hint.css'
 import 'sanitize.css/sanitize.css'
 
 // Base
-import './base.css'
+import './CssBase.css'
 
 const CssBase = () => <></>
 export default CssBase
