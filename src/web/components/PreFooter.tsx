@@ -1,5 +1,5 @@
 import React from 'react'
-import CSS from './PreFooter.module.scss'
+import CSS from './PreFooter.module.css'
 
 /**
  * Pre-footer separator in the cheatsheets page

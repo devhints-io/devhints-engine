@@ -1,5 +1,5 @@
 import React from 'react'
-import CSS from './SearchFooter.module.scss'
+import CSS from './SearchFooter.module.css'
 import SearchFooterSection from './SearchFooterSection'
 
 /**

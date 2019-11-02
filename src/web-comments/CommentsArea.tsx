@@ -1,6 +1,6 @@
 import React from 'react'
 import { DisqusData } from '../types/types'
-import CSS from './CommentsArea.module.scss'
+import CSS from './CommentsArea.module.css'
 import CommentsAreaSummary from './CommentsAreaSummary'
 import CommentsSection from './CommentsSection'
 import DisqusScript, { RenderProps } from './DisqusScript'

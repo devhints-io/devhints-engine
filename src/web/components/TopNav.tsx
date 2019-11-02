@@ -5,21 +5,25 @@ import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import BackButton from './BackButton'
 import PageActions from './PageActions'
 import SocialList from './SocialList'
-import CSS from './TopNav.module.scss'
+import CSS from './TopNav.module.css'
 
 /**
  * Props
  */
 
 interface Props {
-  // If true, shows the back button
+  /** If true, shows the back button */
   back?: boolean
 
-  // Title of the page. (Home page doesn't have one.)
-  // This is not the site title
+  /**
+   * Title of the page. (Home page doesn't have one.)
+   * This is not the site title.
+   */
   title?: string
 
-  // Path of the current page
+  /**
+   * Path of the current page
+   */
   path?: string
 }
 

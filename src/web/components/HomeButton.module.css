@@ -1,21 +1,21 @@
-@import '../styles/_common.scss';
+@import '../../web/styles/common';
 
 .root {
   & {
     display: inline-block;
-    box-shadow: inset 0 0 0 1px $dark-line-color;
+    box-shadow: inset 0 0 0 1px var(--dark-line-color);
     border-radius: 50%;
     padding: 12px;
   }
 
   &,
   &:visited {
-    color: $text-mute;
+    color: var(--text-mute);
   }
 
   &:hover,
   &:focus {
-    background-color: $brand-a;
+    background-color: var(--brand-a);
     color: white;
   }
 }
@@ -26,7 +26,7 @@
 }
 
 .icon :global(.clr-i-outline) {
-  fill: $dark-line-color;
+  fill: var(--dark-line-color);
 }
 
 .root:hover :global(.clr-i-outline),

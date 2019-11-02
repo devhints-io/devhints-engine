@@ -3,7 +3,7 @@ import { github as githubIcon } from '../../web-icons'
 
 import cn from 'classnames'
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
-import CSS from './PageActions.module.scss'
+import CSS from './PageActions.module.css'
 
 /*
  * Types

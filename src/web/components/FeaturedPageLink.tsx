@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import CSS from './FeaturedPagesLink.module.scss'
+import CSS from './FeaturedPagesLink.module.css'
 
 interface Props {
   path: string

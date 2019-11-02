@@ -1,0 +1,17 @@
+@import '../../web/styles/common';
+
+/*
+ * Search bar around the footer
+ */
+
+.root {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: var(--bg-gray);
+  border-top: solid 1px var(--dark-line-color);
+  border-bottom: solid 1px var(--dark-line-color);
+}
+
+.container {
+  @apply --container;
+}

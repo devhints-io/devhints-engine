@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
-import CSS from './SpanPushButton.module.scss'
+import CSS from './SpanPushButton.module.css'
 
 export interface Props {
   className?: string
@@ -15,7 +15,7 @@ const SpanPushButton = (props: Props) => {
     <span
       className={cn(className, {
         [CSS.root]: true,
-        [CSS.isDark]: props.dark
+        [CSS.isDark]: dark
       })}
     >
       {children}

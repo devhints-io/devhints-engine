@@ -1,4 +1,4 @@
-@import '../styles/_common.scss';
+@import '../../web/styles/common';
 
 .root,
 .container {
@@ -19,15 +19,15 @@
   .root {
     height: calc(32px + 8px + 8px);
     padding: 8px 0;
-    border-bottom: solid 1px $dark-line-color;
+    border-bottom: solid 1px var(--dark-line-color);
     margin-bottom: 8px;
   }
 }
 
 .container {
-  @include gutter-padding-left;
-  @include gutter-padding-right;
-  max-width: $area-width;
+  @apply --gutter-padding-left;
+  @apply --gutter-padding-right;
+  max-width: var(--area-width);
   margin: 0 auto;
 }
 
@@ -61,11 +61,11 @@
 
   &,
   &:visited {
-    color: $text-body;
+    color: var(--text-body);
   }
 
   &:hover {
-    color: $brand-a;
+    color: var(--brand-a);
   }
 }
 
@@ -84,14 +84,14 @@
 @media (min-width: 481px) {
   .actions {
     position: absolute;
-    right: $gut;
+    right: var(--gut);
     top: calc((64px - 32px) / 2);
     line-height: 1em;
   }
 
   .left {
     position: absolute;
-    left: $gut;
+    left: var(--gut);
     top: calc((64px - 32px) / 2);
   }
 }

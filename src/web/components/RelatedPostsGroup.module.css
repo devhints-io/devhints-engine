@@ -1,17 +1,17 @@
-@import '../styles/_common.scss';
+@import '../../web/styles/common';
 
 .root {
   opacity: 1;
 }
 
 .heading {
-  @include font-size(1);
-  color: $brand-a;
+  @apply --font-size-1;
+  color: var(--brand-a);
   margin: 0;
   padding: 0;
   margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: solid 1px $dark-line-color;
+  border-bottom: solid 1px var(--dark-line-color);
   line-height: 1.2;
   font-weight: 400;
 }

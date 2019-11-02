@@ -1,4 +1,4 @@
-@import '../styles/_common.scss';
+@import '../../web/styles/common';
 
 .root {
   display: inline-block;
@@ -8,14 +8,14 @@
 
   &,
   &:visited {
-    background-color: $brand-a;
-    background: $brand-a-gradient;
+    background-color: var(--brand-a);
+    background: var(--brand-a-gradient);
     color: white;
   }
 
   &:hover,
   &:focus {
-    background: $brand-a;
+    background: var(--brand-a);
     box-shadow: none;
     color: white;
   }
@@ -24,13 +24,13 @@
 .isDark {
   &,
   &:visited {
-    background: $brand-a6;
+    background: var(--brand-a6);
     color: white;
   }
 
   &:hover,
   &:focus {
-    background: $brand-a7;
+    background: var(--brand-a7);
     color: white;
   }
 }
