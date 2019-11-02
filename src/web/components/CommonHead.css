@@ -1,16 +1,5 @@
-@import 'responsive-modular-scale.css/responsive-modular-scale.css';
-
 /* Vars */
-@import '../styles/variables.css';
-
-/* Utils */
-@import '../styles/utils/gutter-padding.css';
-@import '../styles/utils/heading-style.css';
-@import '../styles/utils/section-gutter.css';
-@import '../styles/utils/has-container.css';
-
-/* Base */
-@import '../styles/base/base.css';
+@import '../../css-base/common.css';
 
 /* Markdown */
 @import '../styles/markdown/a-em.css';

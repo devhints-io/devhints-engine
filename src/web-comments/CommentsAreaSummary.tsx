@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 import { talkBubblesLine, talkBubblesSolid } from '../web-icons'
-import CSS from './CommentsAreaSummary.module.scss'
+import CSS from './CommentsAreaSummary.module.css'
 
 interface Props {
   count: React.ReactNode
