@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 
 import './CommonHead.css'
 
-import CssBase from '../../css-base'
+import CssBase from '../../css-base/CssBase'
 
 /**
  * Things that should be in all pages
