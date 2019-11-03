@@ -11153,14 +11153,6 @@ posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
 
-postcss-apply@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/postcss-apply/-/postcss-apply-0.11.0.tgz#4bef9b443e4bfeeec5b094c7008bfe25dca5f40d"
-  dependencies:
-    babel-runtime "^6.26.0"
-    balanced-match "^1.0.0"
-    postcss "^7.0.2"
-
 postcss-apply@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/postcss-apply/-/postcss-apply-0.8.0.tgz#14e544bbb5cb6f1c1e048857965d79ae066b1343"

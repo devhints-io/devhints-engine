@@ -31,7 +31,6 @@
     "jsx-to-string": "^1.4.0",
     "loadjs": "^3.5.5",
     "meow": "^5.0.0",
-    "postcss-apply": "^0.11.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-discard-comments": "^4.0.1",
     "postcss-extend-rule": "^3.0.0",

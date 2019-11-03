@@ -15,14 +15,15 @@ module.exports = ctx => {
         ]
       }),
       require('postcss-import')(),
-      require('postcss-apply')(),
-      require('postcss-extend-rule')(),
       require('postcss-preset-env')({
         stage: 0,
         preserve: false,
         importFrom: [require.resolve('./src/css-base/variables.css')],
         insertBefore: {
-          'all-property': require('postcss-color-mod-function')
+          'all-property': [
+            require('postcss-extend-rule')(),
+            require('postcss-color-mod-function')
+          ]
         }
       }),
 
