@@ -69,7 +69,7 @@
 }
 
 .root > .category {
-  @apply --font-size-1;
+  @extend %font-size-1;
   border-bottom: solid 1px var(--dark-line-color);
   margin: 16px 0;
   padding: 0 0 16px 0;

@@ -3,7 +3,7 @@
 }
 
 .heading {
-  @apply --font-size-1;
+  @extend %ms-font-size-1;
   color: var(--brand-a);
   margin: 0;
   padding: 0;

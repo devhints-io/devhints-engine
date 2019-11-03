@@ -1,5 +1,3 @@
-@import '../../css-base/utils';
-
 /*
  * Mixins
  */
@@ -83,7 +81,7 @@
   }
 
   & td:first-child > code ~ em {
-    @apply --font-size--1;
+    @extend %ms-font-size--1;
     font-style: normal;
     color: var(--text-mute);
   }
@@ -152,7 +150,7 @@
   }
 
   & tr:last-child td {
-    @apply --font-size--1;
+    @extend %ms-font-size--1;
     color: var(--text-mute);
     white-space: auto;
   }

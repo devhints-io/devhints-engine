@@ -125,7 +125,7 @@
 
   /* Headings in between bodies */
   & > h4 {
-    @apply --font-size--1;
+    @extend %ms-font-size--1;
     margin: 0;
     padding: 4px 16px;
     font-weight: normal;
@@ -209,12 +209,12 @@ ul.-also-see.-also-see.-also-see {
   }
 
   & > li > a {
-    @apply --font-size-1;
+    @extend %ms-font-size-1;
     display: block;
   }
 
   & > li > em {
-    @apply --font-size--1;
+    @extend %ms-font-size--1;
     display: block;
   }
 }

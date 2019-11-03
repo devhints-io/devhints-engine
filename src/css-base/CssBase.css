@@ -13,7 +13,7 @@ body {
 }
 
 body {
-  @apply --font-size-0;
+  @extend %ms-font-size-0;
   padding: 0;
   margin: 0;
 }

@@ -13867,10 +13867,10 @@ resolve@^1.1.7, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.6.0, resolve@^1.8.1:
   dependencies:
     path-parse "^1.0.5"
 
-responsive-modular-scale.css@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/responsive-modular-scale.css/-/responsive-modular-scale.css-0.2.0.tgz#53423f41f10cdfd67afb3fc8fd9ed3142b18f81a"
-  integrity sha512-QMnkkq5FQbfcNGj0drYWxkbHuLvXPNBViz5G8+stjfwDBVL/0qvaA6Xkgpf5rDkxdB6OMInaDfHHr9/nIj00CA==
+responsive-modular-scale.css@0.3.0-rc.1:
+  version "0.3.0-rc.1"
+  resolved "https://registry.yarnpkg.com/responsive-modular-scale.css/-/responsive-modular-scale.css-0.3.0-rc.1.tgz#af1b046217a4f944d6917ef00fcee014087addcd"
+  integrity sha512-Clrnb/u4vi47ZKZkvCn0Da7AezkH/EvXFnI2ZC4a8MG0Q6MVePdso7tQTpbWiIv9b4pJMx5FgP4jUjcPGlXVqw==
 
 restore-cursor@^2.0.0:
   version "2.0.0"

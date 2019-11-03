@@ -47,7 +47,7 @@
 }
 
 .description {
-  @apply --font-size-1;
+  @extend %ms-font-size-1;
   line-height: 1.4;
   font-weight: 300;
   display: block;

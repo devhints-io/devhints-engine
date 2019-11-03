@@ -15,7 +15,7 @@
   }
 
   & > .title {
-    @apply --font-size-1;
+    @extend %ms-font-size-1;
     font-weight: normal;
     color: var(--brand-a);
     margin: 0;

@@ -12,10 +12,10 @@ import createSitePages from './src/gatsby-node/createPages'
 import onCreateNode from './src/gatsby-node/onCreateNode'
 import onCreateWebpackConfig from './src/gatsby-node/onCreateWebpackConfig'
 
-const createPages = (ctx: any) => {
+const createPages = async (ctx: any) => {
   const SheetTemplate = require.resolve('./src/gatsby-shell/SheetTemplate.tsx')
 
-  createSitePages(ctx, { SheetTemplate })
+  await createSitePages(ctx, { SheetTemplate })
 }
 
 export { onCreateNode, onCreateWebpackConfig, createPages }

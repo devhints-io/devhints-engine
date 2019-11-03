@@ -6,7 +6,7 @@ module.exports = ctx => {
       require('postcss-prepend-imports')({
         files: [
           require.resolve(
-            'responsive-modular-scale.css/responsive-modular-scale.css'
+            'responsive-modular-scale.css/modularscale.extend.css'
           ),
           require.resolve('./src/css-base/utils/gutter-padding.css'),
           require.resolve('./src/css-base/utils/heading-style.css'),
