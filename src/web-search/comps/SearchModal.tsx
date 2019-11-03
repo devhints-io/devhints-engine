@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { SearchPageItem, SiteSearchIndex } from '../types/types'
+import { SearchPageItem, SiteSearchIndex } from '../../types/types'
 import SearchItem from './SearchItem'
 import CSS from './SearchModal.module.css'
 import SearchProvider, { RenderProps } from './SearchProvider'

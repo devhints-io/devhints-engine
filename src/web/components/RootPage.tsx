@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
-import CommonHead from '../../gatsby-shell/CommonHead'
+import CommonHead from '../../gatsby-shell/comps/CommonHead'
 import { GroupedSiteLinks, SiteLink } from '../../types/types'
 import { LiveSearchInput } from '../../web-search'
 import PagesList from './PagesList'

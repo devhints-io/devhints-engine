@@ -1,1 +1,1 @@
-export { default as Layout } from '../../gatsby-shell/Layout'
+export { default as Layout } from '../../gatsby-shell/comps/Layout'

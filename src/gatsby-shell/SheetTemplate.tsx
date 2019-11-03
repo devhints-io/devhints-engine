@@ -10,8 +10,8 @@ import {
   Sheet,
   SiteLink
 } from '../types/types'
-import Layout from './Layout'
-import SheetTemplateView from './SheetTemplateView'
+import Layout from './comps/Layout'
+import SheetTemplateView from './comps/SheetTemplateView'
 
 /**
  * Props

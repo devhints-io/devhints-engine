@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import Layout from '../gatsby-shell/Layout'
+import Layout from '../gatsby-shell/comps/Layout'
 import { keywordify } from '../helpers'
 
 import useSiteContent from '../gatsby-hooks/useSiteContent'

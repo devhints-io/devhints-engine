@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useMemo, useRef } from 'react'
-import doPostTransform from './doPostTransform'
-import transform from './transform'
+import doPostTransform from './lib/doPostTransform'
+import transform from './lib/transform'
 
 interface Props {
   /** Markdown HAST syntax tree */

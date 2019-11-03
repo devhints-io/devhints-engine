@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
-import { searchLine } from '../web-icons'
-import LiveSearchInput from './LiveSearchInput'
+import { searchLine } from '../../web-icons'
+import LiveSearchInput from '../LiveSearchInput'
 import CSS from './SearchBox.module.css'
 
 const SearchBox = () => {

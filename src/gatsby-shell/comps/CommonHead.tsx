@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import '../css-base'
-import '../css-legacy-components'
-import '../css-markdown'
+import '../../css-base'
+import '../../css-legacy-components'
+import '../../css-markdown'
 
 /**
  * Things that should be in all pages
