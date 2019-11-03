@@ -8,12 +8,12 @@
  */
 
 // Create pages
-import createPages from './src/gatsby/createPages'
+import createPages from './src/gatsby-node/createPages'
 
 // Create fields, etc
-import onCreateNode from './src/gatsby/onCreateNode'
+import onCreateNode from './src/gatsby-node/onCreateNode'
 
 // Set Webpack config overrides
-import onCreateWebpackConfig from './src/gatsby/onCreateWebpackConfig'
+import onCreateWebpackConfig from './src/gatsby-node/onCreateWebpackConfig'
 
 export { onCreateNode, onCreateWebpackConfig, createPages }
