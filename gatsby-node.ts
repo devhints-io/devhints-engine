@@ -8,12 +8,16 @@
  */
 
 // Create pages
-import createPages from './src/gatsby-node/createPages'
-
-// Create fields, etc
+import createSitePages from './src/gatsby-node/createPages'
 import onCreateNode from './src/gatsby-node/onCreateNode'
-
-// Set Webpack config overrides
 import onCreateWebpackConfig from './src/gatsby-node/onCreateWebpackConfig'
+
+const createPages = (ctx: any) => {
+  const SheetTemplate = require.resolve(
+    './src/gatsby-templates/SheetTemplate.tsx'
+  )
+
+  createSitePages(ctx, { SheetTemplate })
+}
 
 export { onCreateNode, onCreateWebpackConfig, createPages }

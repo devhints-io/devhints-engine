@@ -13,18 +13,22 @@ interface Data {
   allMarkdownRemark: AllMarkdownRemark
 }
 
+type Options = {
+  SheetTemplate: string
+}
+
 type Graphql = (query: string) => Promise<GraphqlResult<Data>>
 
 const debug = debugjs('app:gatsby:createPages')
-
-// Absolute path to devhints-engine
-const SheetTemplate = require.resolve('../gatsby-templates/SheetTemplate.tsx')
 
 /**
  * Create pages.
  */
 
-const createPages = async (ctx: { actions: Actions; graphql: Graphql }) => {
+const createPages = async (
+  ctx: { actions: Actions; graphql: Graphql },
+  options: Options
+) => {
   // Get the sheetPath from the config
   const sheetPath = getSheetPath(ctx)
 
@@ -32,18 +36,28 @@ const createPages = async (ctx: { actions: Actions; graphql: Graphql }) => {
   const nodes = await getMarkdownNodes(ctx)
 
   nodes.forEach((node: any) => {
-    buildPage({ node, actions: ctx.actions, sheetPath })
+    buildPage({ node, actions: ctx.actions, sheetPath }, options)
   })
 }
 
-// Get the sheetPath from the config
+/**
+ * Get the sheetPath from the config.
+ *
+ * @example
+ *     getSheetPath()
+ *     // => '/path/to/sheets'
+ */
+
 function getSheetPath(ctx: any) {
   const { config } = (ctx as any).store.getState()
   const sheetPath = config.siteMetadata.sheetPath
   return sheetPath
 }
 
-// Perform query to fetch MarkdownRemark nodes
+/**
+ * Perform query to fetch MarkdownRemark nodes
+ */
+
 async function getMarkdownNodes(ctx: any) {
   const { graphql } = ctx
   const result = await graphql(QUERY)
@@ -56,7 +70,10 @@ async function getMarkdownNodes(ctx: any) {
  * Build a page from a node
  */
 
-function buildPage(props: { node: any; actions: Actions; sheetPath: string }) {
+function buildPage(
+  props: { node: any; actions: Actions; sheetPath: string },
+  { SheetTemplate }: Options
+) {
   const { node, actions, sheetPath } = props
   const { createPage, createRedirect } = actions
 
