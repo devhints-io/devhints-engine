@@ -13,9 +13,7 @@ import onCreateNode from './src/gatsby-node/onCreateNode'
 import onCreateWebpackConfig from './src/gatsby-node/onCreateWebpackConfig'
 
 const createPages = (ctx: any) => {
-  const SheetTemplate = require.resolve(
-    './src/gatsby-templates/SheetTemplate.tsx'
-  )
+  const SheetTemplate = require.resolve('./src/gatsby-shell/SheetTemplate.tsx')
 
   createSitePages(ctx, { SheetTemplate })
 }

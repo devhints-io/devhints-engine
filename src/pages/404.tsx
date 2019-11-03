@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import { keywordify } from '../helpers'
-import Layout from '../web/containers/Layout'
+import Layout from '../gatsby-shell/Layout'
 
 import useSiteContent from '../gatsby-hooks/useSiteContent'
 import { LiveSearchInput } from '../web-search'

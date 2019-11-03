@@ -1,19 +1,19 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import useSiteContent from '../../gatsby-hooks/useSiteContent'
-import { useSheetContext } from '../../gatsby-templates/SheetTemplate'
+import useSiteContent from '../gatsby-hooks/useSiteContent'
+import { useSheetContext } from './SheetTemplate'
 
 // Components
-import CommentsArea from '../../web-comments/CommentsArea'
-import PostContent from '../../web-post-content'
+import CommentsArea from '../web-comments/CommentsArea'
+import PostContent from '../web-post-content'
 import CommonHead from './CommonHead'
-import IntroContent from './IntroContent'
-import MainHeading from './MainHeading'
-import MiniMarkdown from './MiniMarkdown'
-import PreFooter from './PreFooter'
-import RelatedPostsArea from './RelatedPostsArea'
-import SearchFooter from './SearchFooter'
-import TopNav from './TopNav'
+import IntroContent from '../web/components/IntroContent'
+import MainHeading from '../web/components/MainHeading'
+import MiniMarkdown from '../web/components/MiniMarkdown'
+import PreFooter from '../web/components/PreFooter'
+import RelatedPostsArea from '../web/components/RelatedPostsArea'
+import SearchFooter from '../web/components/SearchFooter'
+import TopNav from '../web/components/TopNav'
 
 /**
  * Sheet template.
