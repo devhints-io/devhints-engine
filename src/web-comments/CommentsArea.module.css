@@ -1,5 +1,3 @@
-@import '../css-base/utils';
-
 .root {
   margin: 32px 0 16px 0;
   @apply --has-container;
