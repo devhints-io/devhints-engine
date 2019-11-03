@@ -1,10 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import './CommonHead.css'
-
 import CssBase from '../../css-base'
 import CssMarkdown from '../../css-markdown'
+import CssLegacyComponents from '../../css-legacy-components'
 
 /**
  * Things that should be in all pages
@@ -20,6 +19,7 @@ export const CommonHead = () => (
     </Helmet>
     <CssBase />
     <CssMarkdown />
+    <CssLegacyComponents />
   </>
 )
 
