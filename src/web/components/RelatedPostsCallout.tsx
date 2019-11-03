@@ -1,8 +1,8 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import CSS from './RelatedPostsCallout.module.css'
 import SpanPushButton from './SpanPushButton'
-import useSiteContent from '../../gatsby-hooks/useSiteContent'
 
 interface Props {
   pageCount: number

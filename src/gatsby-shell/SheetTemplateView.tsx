@@ -6,7 +6,6 @@ import { useSheetContext } from './SheetTemplate'
 // Components
 import CommentsArea from '../web-comments/CommentsArea'
 import PostContent from '../web-post-content'
-import CommonHead from './CommonHead'
 import IntroContent from '../web/components/IntroContent'
 import MainHeading from '../web/components/MainHeading'
 import MiniMarkdown from '../web/components/MiniMarkdown'
@@ -14,6 +13,7 @@ import PreFooter from '../web/components/PreFooter'
 import RelatedPostsArea from '../web/components/RelatedPostsArea'
 import SearchFooter from '../web/components/SearchFooter'
 import TopNav from '../web/components/TopNav'
+import CommonHead from './CommonHead'
 
 /**
  * Sheet template.

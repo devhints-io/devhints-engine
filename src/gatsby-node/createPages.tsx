@@ -13,7 +13,7 @@ interface Data {
   allMarkdownRemark: AllMarkdownRemark
 }
 
-type Options = {
+interface Options {
   SheetTemplate: string
 }
 
