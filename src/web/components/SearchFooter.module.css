@@ -11,5 +11,5 @@
 }
 
 .container {
-  @apply --container;
+  @extend %container;
 }

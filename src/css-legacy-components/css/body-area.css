@@ -1,5 +1,5 @@
 .body-area {
-  @apply --gutter-padding;
+  @extend %gutter-padding;
   max-width: var(--area-width);
   margin: 0 auto;
 

@@ -5,7 +5,7 @@
 
 .h3-section-list {
   & {
-    @apply --section-gutter-horizontal-margin--1;
+    @extend %section-gutter-horizontal-margin--1;
   }
 
   & {
@@ -23,7 +23,7 @@
 
   /* Each section */
   & > .h3-section {
-    @apply --section-gutter-padding;
+    @extend %section-gutter-padding;
     float: left;
     width: 100%;
   }

@@ -3,7 +3,7 @@
  */
 
 .MarkdownBody h2 {
-  @apply --heading-style;
+  @extend %heading-style;
   @apply --font-size-6;
   line-height: 1.2;
   font-weight: 200;

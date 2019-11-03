@@ -3,7 +3,7 @@
  */
 
 .main-heading {
-  @apply --heading-style;
+  @extend %heading-style;
 
   & {
     margin-top: 0;

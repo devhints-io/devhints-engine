@@ -4,28 +4,26 @@
  * Mixins
  */
 
-:root {
-  --table-align-left: {
-    & tr th,
-    & tr td,
-    & tr td:last-child {
-      text-align: left;
-    }
+%table-align-left {
+  & tr th,
+  & tr td,
+  & tr td:last-child {
+    text-align: left;
   }
+}
 
-  --shortcut-span: {
-    font-size: 1rem;
-    padding: 5px 6px;
-    padding-left: 8px; /* compensation */
-    background: var(--bg-gray);
-    border-bottom: solid 1px var(--dark-line-color);
-    border-radius: 3px;
-    margin-right: 2px;
-    letter-spacing: 0.05em;
-    color: var(--text-body);
-    position: relative;
-    top: -1px;
-  }
+%shortcut-span {
+  font-size: 1rem;
+  padding: 5px 6px;
+  padding-left: 8px; /* compensation */
+  background: var(--bg-gray);
+  border-bottom: solid 1px var(--dark-line-color);
+  border-radius: 3px;
+  margin-right: 2px;
+  letter-spacing: 0.05em;
+  color: var(--text-body);
+  position: relative;
+  top: -1px;
 }
 
 /*
@@ -102,18 +100,18 @@
 
 .MarkdownBody table.-shortcuts {
   & td:first-child > code {
-    @apply --shortcut-span;
+    @extend %shortcut-span;
   }
 }
 
 .MarkdownBody table.-shortcuts-right {
   & td:last-child > code {
-    @apply --shortcut-span;
+    @extend %shortcut-span;
   }
 }
 
 .MarkdownBody table.-left-align {
-  @apply --table-align-left;
+  @extend %table-align-left;
 }
 
 .MarkdownBody table.-headers {
@@ -137,7 +135,7 @@
   @include table-align-left;
 
   & tr td {
-    @apply --font-size-1;
+    @extend %font-size-1;
     white-space: nowrap;
   }
 

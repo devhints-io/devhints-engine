@@ -34,6 +34,7 @@
     "postcss-apply": "^0.11.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-discard-comments": "^4.0.1",
+    "postcss-extend-rule": "^3.0.0",
     "postcss-import": "^12.0.1",
     "postcss-prepend-imports": "^1.0.1",
     "postcss-preset-env": "^6.5.0",

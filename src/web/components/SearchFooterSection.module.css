@@ -11,7 +11,7 @@
 }
 
 .links {
-  @apply --gutter-padding-left;
+  @extend %gutter-padding-left;
   flex: 0 1 auto;
   margin-left: auto;
 }

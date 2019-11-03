@@ -23,8 +23,8 @@
 }
 
 .container {
-  @apply --gutter-padding-left;
-  @apply --gutter-padding-right;
+  @extend %gutter-padding-left;
+  @extend %gutter-padding-right;
   max-width: var(--area-width);
   margin: 0 auto;
 }

@@ -16,6 +16,7 @@ module.exports = ctx => {
       }),
       require('postcss-import')(),
       require('postcss-apply')(),
+      require('postcss-extend-rule')(),
       require('postcss-preset-env')({
         stage: 0,
         preserve: false,
