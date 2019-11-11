@@ -1,7 +1,7 @@
 import React from 'react'
-import SearchBox from '../../web-search/SearchBox'
+import SearchBox from '../../web-search/comps/SearchBox'
 import HomeButton from './HomeButton'
-import CSS from './SearchFooterSection.module.scss'
+import CSS from './SearchFooterSection.module.css'
 
 const SearchFooterSection = () => (
   <section className={CSS.root}>

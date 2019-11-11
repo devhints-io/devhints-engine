@@ -4,8 +4,8 @@
 
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState } from 'react'
+import SearchModal from './comps/SearchModal'
 import CSS from './LiveSearchInput.module.css'
-import SearchModal from './SearchModal'
 
 const DEFAULT_STATE = {
   isActivated: false,

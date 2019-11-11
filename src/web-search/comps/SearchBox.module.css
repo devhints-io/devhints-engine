@@ -1,0 +1,145 @@
+/*
+ * Search box
+ */
+
+.root {
+  background: var(--bg-card);
+  box-shadow: var(--shadow3);
+  display: flex;
+  height: 64px;
+  align-items: center;
+  cursor: text;
+  transition: box-shadow 150ms linear;
+  border-radius: 3px;
+}
+
+/*
+ * Input
+ */
+
+.input {
+  font-family: var(--body-font);
+  @extend %font-size-2;
+  padding: 16px;
+  height: 64px;
+  background: transparent;
+  border: 0;
+  flex: 1 1 auto;
+  padding-left: 0;
+  font-weight: bold;
+  color: var(--text-bold);
+  min-width: 48px;
+
+  &::placeholder {
+    font-weight: normal;
+    color: var(--text-mute);
+  }
+
+  &:focus::placeholder {
+    color: color-mod(var(--text-mute) alpha(25%));
+  }
+}
+
+.input:focus {
+  outline: 0;
+}
+
+/*
+ * Prefix
+ */
+
+.prefix {
+  @extend %font-size-0;
+  display: block;
+  color: color-mod(var(--text-mute) alpha(50%));
+  font-weight: 400;
+  user-select: none;
+  line-height: 1.5em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background-color: color-mod(var(--bg-body) alpha(50%));
+  margin: 0 0 0 16px;
+  box-shadow: none;
+  transition: background-color 150ms linear, color 150ms linear,
+    box-shadow 150ms linear, transform 150ms ease;
+  transform: translate3d(0, 0, 0);
+}
+
+.root:focus-within .prefix {
+  background-color: var(--brand-b3);
+  color: white;
+  box-shadow: var(--shadow6);
+  transform: translate3d(0, -1px, 0);
+}
+
+/*
+ * Separator
+ */
+
+.sep {
+  @extend %font-size-2;
+  color: color-mod(var(--text-mute) alpha(50%));
+  margin: 0 8px;
+}
+
+.root:focus-within .sep {
+  color: var(--brand-b3);
+}
+
+/*
+ * Icon
+ */
+
+.icon {
+  display: inline-block;
+  margin: 0 12px 0 0;
+  position: relative;
+  top: -2px;
+}
+
+.icon :global(svg) {
+  width: 24px;
+  height: 24px;
+}
+
+.icon :global(.clr-i-outline) {
+  fill: var(--brand-a);
+  transition: fill 250ms linear;
+}
+
+/* Icon, on focus */
+.root:focus-within .icon :global(.clr-i-outline) {
+  fill: var(--brand-b3);
+}
+
+/*
+ * Small
+ */
+
+.root.isSmall {
+  height: 48px;
+}
+
+.root.isSmall:focus-within {
+  box-shadow: var(--shadow9);
+}
+
+.root.isSmall > input {
+  padding: 8px;
+  height: 48px;
+  padding-left: 0;
+}
+
+.root.isSmall > .prefix,
+.root.isSmall > .sep,
+.root.isSmall > input {
+  @extend %font-size-1;
+}
+
+.root.isSmall::before {
+  flex: 0 0 48px;
+  width: 48px;
+  line-height: 48px;
+  background-size: 24px 24px;
+  background-position: center center;
+}

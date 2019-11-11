@@ -1,5 +1,3 @@
-@import '../../web/styles/common';
-
 .root {
   display: flex;
   text-align: left;
@@ -70,11 +68,11 @@
   }
 
   .link > .title {
-    @apply --font-size-1;
+    @extend %ms-font-size-1;
     font-weight: normal;
   }
 
   .link > .suffix {
-    @apply --font-size--1;
+    @extend %ms-font-size--1;
   }
 }

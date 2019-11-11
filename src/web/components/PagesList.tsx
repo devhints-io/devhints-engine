@@ -3,7 +3,7 @@ import React from 'react'
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import { SiteLink } from '../../types/types'
 import PageLink from './PageLink'
-import CSS from './PagesList.module.scss'
+import CSS from './PagesList.module.css'
 
 /**
  * Types

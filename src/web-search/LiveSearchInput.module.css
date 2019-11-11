@@ -1,12 +1,10 @@
-@import '../web/styles/common';
-
 /*
  * Input
  */
 
 .input {
   font-family: var(--body-font);
-  @apply --font-size-2;
+  @extend %font-size-2;
   padding: 16px;
   height: 64px;
   background: transparent;

@@ -1,0 +1,33 @@
+.root {
+  & {
+    display: inline-block;
+    box-shadow: inset 0 0 0 1px var(--dark-line-color);
+    border-radius: 50%;
+    padding: 12px;
+  }
+
+  &,
+  &:visited {
+    color: var(--text-mute);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--brand-a);
+    color: white;
+  }
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.icon :global(.clr-i-outline) {
+  fill: var(--dark-line-color);
+}
+
+.root:hover :global(.clr-i-outline),
+.root:focus :global(.clr-i-outline) {
+  fill: white;
+}

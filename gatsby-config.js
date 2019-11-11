@@ -23,12 +23,6 @@ module.exports = {
     ...siteMetadata
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        implementation: require('sass')
-      }
-    },
     // 'gatsby-mdx',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',

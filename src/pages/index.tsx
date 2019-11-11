@@ -1,9 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
+import { groupByCategory, toSiteLinks } from '../helpers/site_page'
 import { AllSitePage } from '../types/types'
 import RootPage from '../web/components/RootPage'
-import Layout from '../web/containers/Layout'
-import { groupByCategory, toSiteLinks } from '../web/lib/site_page'
 
 /*
  * Types
@@ -23,11 +22,7 @@ export const Root = () => {
   const groups = groupByCategory(data.allPages)
   const recentlyUpdated = toSiteLinks(data && data.recentlyUpdated)
 
-  return (
-    <Layout>
-      <RootPage groups={groups} recentlyUpdated={recentlyUpdated} />
-    </Layout>
-  )
+  return <RootPage groups={groups} recentlyUpdated={recentlyUpdated} />
 }
 
 export default Root

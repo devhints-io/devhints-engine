@@ -1,7 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import { keywordify } from '../helpers'
-import Layout from '../web/containers/Layout'
 
 import useSiteContent from '../gatsby-hooks/useSiteContent'
 import { LiveSearchInput } from '../web-search'
@@ -24,15 +23,13 @@ export const NotFoundPage = () => {
   }
 
   return (
-    <Layout>
-      <div>
-        <h1>{labels.title}</h1>
-        <p>{labels.description}</p>
-        {keyword && <ExternalSearchLinks keyword={keyword} />}
-        <LiveSearchInput />
-        <Link to='/'>{labels.home}</Link>
-      </div>
-    </Layout>
+    <div>
+      <h1>{labels.title}</h1>
+      <p>{labels.description}</p>
+      {keyword && <ExternalSearchLinks keyword={keyword} />}
+      <LiveSearchInput />
+      <Link to='/'>{labels.home}</Link>
+    </div>
   )
 }
 

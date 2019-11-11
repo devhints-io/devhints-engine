@@ -1,0 +1,53 @@
+/*
+ * (Mixin) gutter-padding-*
+ */
+
+%gutter-padding {
+  & {
+    padding: var(--gut);
+  }
+
+  @media (max-width: 480px) {
+    padding: var(--gut-small);
+  }
+}
+
+%gutter-padding-left {
+  & {
+    padding-left: var(--gut);
+  }
+
+  @media (max-width: 480px) {
+    padding-left: var(--gut-small);
+  }
+}
+
+%gutter-padding-right {
+  & {
+    padding-right: var(--gut);
+  }
+
+  @media (max-width: 480px) {
+    padding-right: var(--gut-small);
+  }
+}
+
+%gutter-right {
+  & {
+    right: var(--gut);
+  }
+
+  @media (max-width: 480px) {
+    right: var(--gut-small);
+  }
+}
+
+%gutter-left {
+  & {
+    left: var(--gut);
+  }
+
+  @media (max-width: 480px) {
+    left: var(--gut-small);
+  }
+}

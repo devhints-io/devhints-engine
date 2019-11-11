@@ -1,5 +1,3 @@
-@import '../../web/styles/common';
-
 .root {
   margin: 32px 0;
 }
@@ -16,7 +14,7 @@
 }
 
 .title {
-  @apply --font-size-8;
+  @extend %ms-font-size-8;
   line-height: 1.2;
   margin: 0;
   padding: 0;

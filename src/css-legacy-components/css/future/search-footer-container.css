@@ -1,0 +1,19 @@
+/*
+ * Section inside the search footer
+ */
+
+.search-footer-section {
+  & {
+    display: flex;
+  }
+
+  & > .search {
+    flex: 0 1 640px;
+  }
+
+  & > .links {
+    @extend %gutter-padding-left;
+    flex: 0 1 auto;
+    margin-left: auto;
+  }
+}

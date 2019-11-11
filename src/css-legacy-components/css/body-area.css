@@ -1,0 +1,9 @@
+.body-area {
+  @extend %gutter-padding;
+  max-width: var(--area-width);
+  margin: 0 auto;
+
+  &.-slim {
+    max-width: 740px;
+  }
+}

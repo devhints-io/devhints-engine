@@ -28,6 +28,10 @@ const useSiteContent = (): {
     home: string
     title: string
   }
+  relatedPostsCallout: {
+    description: string
+    link: string
+  }
 } => {
   // Add more stuff here as needed
   const QUERY = graphql`
@@ -52,6 +56,10 @@ const useSiteContent = (): {
               description
               home
               title
+            }
+            relatedPostsCallout {
+              description
+              link
             }
             topNav {
               edit

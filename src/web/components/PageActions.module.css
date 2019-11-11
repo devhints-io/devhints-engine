@@ -1,0 +1,47 @@
+.root,
+.root > li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.root {
+  margin-left: 8px;
+}
+
+.item {
+  display: inline;
+}
+
+.icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.link {
+  @extend %font-size--1;
+  display: inline-block;
+  height: 32px;
+  line-height: calc(32px - 2px);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0 16px;
+  border: solid 1px var(--dark-line-color);
+  border-radius: 24px;
+}
+
+.link,
+.link:visited {
+  color: var(--text-mute);
+}
+
+.link:hover,
+.link:focus {
+  background: var(--brand-a-gradient), var(--brand-a);
+  box-shadow: var(--shadow3);
+  color: white;
+}

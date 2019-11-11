@@ -1,20 +1,15 @@
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
 import React from 'react'
-import CSS from './RelatedPostsCallout.module.scss'
+import useSiteContent from '../../gatsby-hooks/useSiteContent'
+import CSS from './RelatedPostsCallout.module.css'
 import SpanPushButton from './SpanPushButton'
 
-export interface Props {
+interface Props {
   pageCount: number
 }
 
-export const RelatedPostsCallout = ({ pageCount }: Props) => {
-  const {
-    site: {
-      siteMetadata: {
-        content: { relatedPostsCallout: content }
-      }
-    }
-  } = useStaticQuery(QUERY)
+const RelatedPostsCallout = ({ pageCount }: Props) => {
+  const { relatedPostsCallout: content } = useSiteContent()
 
   return (
     <span>
@@ -22,7 +17,7 @@ export const RelatedPostsCallout = ({ pageCount }: Props) => {
         <div className={CSS.text}>
           <i className={CSS.icon} />
           <span className={CSS.description}>
-            {content.description.replace('SIZE', pageCount)}
+            {content.description.replace('SIZE', pageCount.toString())}
           </span>
           <SpanPushButton dark>{content.link}</SpanPushButton>
         </div>
@@ -30,20 +25,5 @@ export const RelatedPostsCallout = ({ pageCount }: Props) => {
     </span>
   )
 }
-
-const QUERY = graphql`
-  {
-    site {
-      siteMetadata {
-        content {
-          relatedPostsCallout {
-            description
-            link
-          }
-        }
-      }
-    }
-  }
-`
 
 export default RelatedPostsCallout

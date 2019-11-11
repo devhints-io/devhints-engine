@@ -3,18 +3,27 @@ const DEBUG = process.env.NODE_ENV !== 'production'
 module.exports = ctx => {
   return {
     plugins: [
+      require('postcss-prepend-imports')({
+        files: [
+          require.resolve(
+            'responsive-modular-scale.css/modularscale.extend.css'
+          ),
+          require.resolve('./src/css-base/utils/gutter-padding.css'),
+          require.resolve('./src/css-base/utils/heading-style.css'),
+          require.resolve('./src/css-base/utils/section-gutter.css'),
+          require.resolve('./src/css-base/utils/has-container.css')
+        ]
+      }),
       require('postcss-import')(),
-
-      require('postcss-apply')(),
       require('postcss-preset-env')({
         stage: 0,
         preserve: false,
-        features: {
-          // https://github.com/postcss/postcss-custom-properties
-          'custom-properties': { importFrom: null }
-        },
+        importFrom: [require.resolve('./src/css-base/variables.css')],
         insertBefore: {
-          'all-property': require('postcss-color-mod-function')
+          'all-property': [
+            require('postcss-extend-rule')(),
+            require('postcss-color-mod-function')
+          ]
         }
       }),
 

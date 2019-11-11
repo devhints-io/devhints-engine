@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import { homeLine } from '../../web-icons'
-import CSS from './HomeButton.module.scss'
+import CSS from './HomeButton.module.css'
 
 /**
  * Home button

@@ -8,12 +8,14 @@
  */
 
 // Create pages
-import createPages from './src/gatsby/createPages'
+import createSitePages from './src/gatsby-node/createPages'
+import onCreateNode from './src/gatsby-node/onCreateNode'
+import onCreateWebpackConfig from './src/gatsby-node/onCreateWebpackConfig'
 
-// Create fields, etc
-import onCreateNode from './src/gatsby/onCreateNode'
+const createPages = async (ctx: any) => {
+  const SheetTemplate = require.resolve('./src/gatsby-shell/SheetTemplate.tsx')
 
-// Set Webpack config overrides
-import onCreateWebpackConfig from './src/gatsby/onCreateWebpackConfig'
+  await createSitePages(ctx, { SheetTemplate })
+}
 
 export { onCreateNode, onCreateWebpackConfig, createPages }

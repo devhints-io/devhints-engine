@@ -1,0 +1,69 @@
+/*
+ * Section
+ * has callout and group
+ */
+
+.related-posts-section {
+  & {
+    display: flex;
+    @extend %section-gutter-margin-left--1;
+    @extend %section-gutter-margin-right--1;
+  }
+
+  & > .callout,
+  & > .group {
+    margin: 0;
+    @extend %section-gutter-margin-left;
+    @extend %section-gutter-margin-right;
+  }
+
+  & > .callout {
+    flex: 1 1 33%;
+  }
+
+  & > .group {
+    flex: 1 1 50%;
+  }
+
+  & > .callout {
+    display: flex;
+
+    & > * {
+      flex: 1 0 100%;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    & {
+      flex-wrap: wrap;
+    }
+
+    & > .callout,
+    & > .group {
+      @extend %section-gutter-margin-top;
+      @extend %section-gutter-margin-bottom;
+      flex: 1 1 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (min-width: 481px) {
+    @media (max-width: 768px) {
+      & {
+        flex-wrap: wrap;
+      }
+
+      & > .callout,
+      & > .group {
+        @extend %section-gutter-margin-top;
+        @extend %section-gutter-margin-bottom;
+        flex: 1 1 100%;
+      }
+
+      & > .group {
+        flex: 1 1 40%;
+      }
+    }
+  }
+}
