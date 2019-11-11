@@ -1,0 +1,47 @@
+import React from 'react'
+import Frame from 'react-frame-component'
+import HarvestHeadStyles from './HarvestHeadStyles'
+
+/**
+ * Wraps the `children` in an iframe.
+ * Injects styles.
+ *
+ * See:
+ * https://github.com/ryanseddon/react-frame-component
+ */
+
+const FrameWrapper = ({ children, className, style }: Props) => {
+  const head = (
+    <>
+      <HarvestHeadStyles />
+      <style>{`
+        html, body {
+          min-height: 100%;
+          margin: 0;
+          padding: 0;
+          background: transparent;
+          overflow: auto;
+        }
+      `}</style>
+    </>
+  )
+
+  return (
+    <Frame
+      head={head}
+      className={className}
+      style={style || { width: '100%', border: '0' }}
+      data-testid='framewrapper-iframe'
+    >
+      {children}
+    </Frame>
+  )
+}
+
+interface Props {
+  children: React.ReactNode
+  className?: string
+  style?: React.CSSProperties
+}
+
+export default FrameWrapper
