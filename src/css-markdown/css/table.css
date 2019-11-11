@@ -133,7 +133,7 @@
   @include table-align-left;
 
   & tr td {
-    @extend %font-size-1;
+    @extend %ms-font-size-1;
     white-space: nowrap;
   }
 
