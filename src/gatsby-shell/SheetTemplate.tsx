@@ -17,19 +17,19 @@ import SheetTemplateView from './comps/SheetTemplateView'
  * Props
  */
 
-export interface Data {
+interface Data {
   relatedPages: AllSitePage
   topPages: AllSitePage
   allPages: { totalCount: number }
   markdownRemark: MarkdownNode
 }
 
-export interface Props {
+interface Props {
   pageContext: NodeContext
   data: Data
 }
 
-export interface ContextType {
+interface ContextType {
   sheet: Sheet
   frontmatter: Frontmatter
   topPages: SiteLink[]

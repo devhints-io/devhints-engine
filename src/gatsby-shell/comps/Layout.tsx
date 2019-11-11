@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { HomeMeta } from '../Meta'
 
 /**
  * Props
@@ -16,22 +16,9 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Meta />
+      <HomeMeta />
       {children}
     </>
-  )
-}
-
-const Meta = () => {
-  return (
-    <Helmet
-      title='Devhints.io'
-      meta={[
-        // TODO meta tags for sheets
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
-      ]}
-    />
   )
 }
 
