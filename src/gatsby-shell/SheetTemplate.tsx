@@ -4,13 +4,11 @@ import React, { useContext } from 'react'
 import { toSiteLinks } from '../helpers/site_page'
 import {
   AllSitePage,
-  Frontmatter,
   MarkdownNode,
   NodeContext,
   Sheet,
   SiteLink
 } from '../types/types'
-import Layout from './comps/Layout'
 import SheetTemplateView from './comps/SheetTemplateView'
 
 /**
@@ -30,8 +28,13 @@ interface Props {
 }
 
 interface ContextType {
-  sheet: Sheet
-  frontmatter: Frontmatter
+  sheet: Pick<Sheet, 'path' | 'title' | 'htmlAst'>
+  frontmatter: {
+    title: string
+    category?: string
+    intro?: string
+    keywords?: string[]
+  }
   topPages: SiteLink[]
   relatedPages: SiteLink[]
   path: string
@@ -49,9 +52,7 @@ const SheetTemplate = (props: Props) => {
 
   return (
     <SheetContext.Provider value={assigns}>
-      <Layout>
-        <SheetTemplateView />
-      </Layout>
+      <SheetTemplateView />
     </SheetContext.Provider>
   )
 }
@@ -68,7 +69,8 @@ const useAssigns = (props: Props) => {
   const topPages: SiteLink[] = toSiteLinks(data.topPages)
 
   // Frontmatter in the YAML
-  const frontmatter = data.markdownRemark.frontmatter
+  const frontmatter = data.markdownRemark
+    .frontmatter as ContextType['frontmatter']
 
   // Data for the current sheet
   const sheet: Sheet = {
@@ -106,6 +108,7 @@ export const query = graphql`
         title
         category
         intro
+        keywords
       }
     }
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import { useSheetContext } from '../SheetTemplate'
 
@@ -14,6 +13,7 @@ import RelatedPostsArea from '../../web/components/RelatedPostsArea'
 import SearchFooter from '../../web/components/SearchFooter'
 import TopNav from '../../web/components/TopNav'
 import CommonHead from './CommonHead'
+import MetaTags from '../MetaTags'
 
 /**
  * Sheet template.
@@ -38,13 +38,20 @@ export const SheetTemplateView = () => {
   const labels = { sheetSuffix: content.sheet.suffix }
 
   // "Vim is a text editor..." introduction
-  const intro = frontmatter && frontmatter.intro
+  const intro = frontmatter.intro
+
+  const keywords = frontmatter.keywords
+  const description = (keywords || []).join(' &middot; ') + ' &middot; ' + intro
 
   return (
     <>
-      <Helmet>
-        <title>{`${title} ${labels.sheetSuffix}`}</title>
-      </Helmet>
+      {/* Meta tags */}
+      {/* TODO: 'url' and 'image' */}
+      <MetaTags
+        title={`${title} ${labels.sheetSuffix}`}
+        ogType='article'
+        description={description}
+      />
 
       {/* Nav */}
       <CommonHead />
