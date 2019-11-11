@@ -12,8 +12,8 @@ import PreFooter from '../../web/components/PreFooter'
 import RelatedPostsArea from '../../web/components/RelatedPostsArea'
 import SearchFooter from '../../web/components/SearchFooter'
 import TopNav from '../../web/components/TopNav'
-import CommonHead from './CommonHead'
 import MetaTags from '../MetaTags'
+import CommonHead from './CommonHead'
 
 /**
  * Sheet template.

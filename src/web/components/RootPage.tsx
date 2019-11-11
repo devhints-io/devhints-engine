@@ -2,12 +2,12 @@ import React from 'react'
 
 import useSiteContent from '../../gatsby-hooks/useSiteContent'
 import CommonHead from '../../gatsby-shell/comps/CommonHead'
+import { HomeMeta } from '../../gatsby-shell/Meta'
 import { GroupedSiteLinks, SiteLink } from '../../types/types'
 import { LiveSearchInput } from '../../web-search'
 import PagesList from './PagesList'
 import SiteHeader from './SiteHeader'
 import TopNav from './TopNav'
-import { HomeMeta } from '../../gatsby-shell/Meta'
 
 export interface Props {
   recentlyUpdated: SiteLink[]
