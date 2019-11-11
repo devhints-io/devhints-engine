@@ -57,7 +57,8 @@
     "remark-preset-lint-markdown-style-guide": "^2.1.2",
     "responsive-modular-scale.css": "0.3.0-rc.1",
     "sanitize.css": "^8.0.0",
-    "styled-jsx": "^3.2.4"
+    "styled-jsx": "^3.2.4",
+    "styled-jsx-plugin-postcss": "^2.0.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",

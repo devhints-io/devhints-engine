@@ -27,9 +27,20 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-jsx',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-styled-jsx',
+      options: {
+        vendorPrefixes: false,
+        jsxPlugins: [
+          [
+            'styled-jsx-plugin-postcss',
+            { path: '[PATH_PREFIX]/postcss.config.js' }
+          ]
+        ]
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: SHEET_PATH,
         name: 'markdown-pages'
