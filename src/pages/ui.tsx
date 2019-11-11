@@ -1,10 +1,13 @@
 import React from 'react'
-import { Canvas, Frame, Group } from '../uipad'
+import { Canvas, Frame, Group, Br } from '../uipad'
 import RelatedPostItem from '../web/components/RelatedPostItem'
 import RelatedPostsGroup from '../web/components/RelatedPostsGroup'
 import PagesList from '../web/components/PagesList'
 import SiteHeader from '../web/components/SiteHeader'
 import { LiveSearchInput } from '../web-search'
+import SearchFooter from '../web/components/SearchFooter'
+import RelatedPostsCallout from '../web/components/RelatedPostsCallout'
+import TopNav from '../web/components/TopNav'
 
 const links = [
   { path: '/react', title: 'React' },
@@ -15,28 +18,47 @@ const links = [
 
 const UIPage = () => {
   return (
-    <Canvas>
+    <Canvas background='#ecedef' frame={{ background: '#f1f3f5' }}>
       <Group title='Related posts'>
-        <Frame title='RelatedPostItem' width={224} background='white'>
+        <Frame title='SearchFooter' size={7}>
+          <SearchFooter />
+        </Frame>
+        <Br />
+
+        <Frame title='RelatedPostsCallout' size={2}>
+          <RelatedPostsCallout pageCount={9000} />
+        </Frame>
+
+        <Frame title='RelatedPostItem' size={2} background='white'>
           <RelatedPostItem path='/react' title='React' />
         </Frame>
 
-        <Frame title='RelatedPostsGroup' width={400} pad>
+        <Frame title='RelatedPostsGroup' size={3} pad>
           <RelatedPostsGroup pages={[...links]} title='Related sheets' />
         </Frame>
       </Group>
 
       <Group title='Home'>
-        <Frame title='SiteHeader' width={640}>
+        <Frame title='SiteHeader' size={5}>
           <SiteHeader />
         </Frame>
 
-        <Frame title='PagesList' width={640} pad>
+        <Frame title='PagesList' size={5} pad>
           <PagesList title='Recently updated' links={links} />
         </Frame>
 
         <Frame title='LiveSearchInput'>
           <LiveSearchInput />
+        </Frame>
+      </Group>
+
+      <Group title='TopNav'>
+        <Frame title='TopNav/home' size={7}>
+          <TopNav title='Title here' path='/' />
+        </Frame>
+        <Br />
+        <Frame title='TopNav/back' size={7}>
+          <TopNav back title='Title here' path='/' />
         </Frame>
       </Group>
     </Canvas>

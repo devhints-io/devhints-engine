@@ -1,38 +1,39 @@
 import React from 'react'
 import FrameWrapper from './lib/FrameWrapper'
+import { useOptions } from './OptionsContext'
+import { FrameProps } from './types'
 
-interface Props {
-  children: React.ReactNode
-  title?: string
-  width?: number
-  pad?: number | string | boolean
-  /** If true, wrap in an iframe (experimenal) */
-  iframe?: boolean
-  background?: string
-}
+const Frame = (props: FrameProps) => {
+  const { children, title, iframe } = props
 
-const Frame = (props: Props) => {
-  const { children, width, title, background, pad, iframe } = props
+  // Canvas settings
+  const opts = useOptions(props)
+  const { margin, grid, width, background, pad, size } = opts
 
   return (
-    <div className='root'>
+    <div className='Frame' style={{ margin: `${margin / 2}px` }}>
       {title ? <div className='title'>{title}</div> : null}
 
       <div
-        className='frame'
+        className='box'
         style={{
-          width: `${width}px`,
-          background: background || 'transparent',
+          width: width
+            ? `${width}px`
+            : size
+            ? `${size * grid + (size - 1) * margin}px`
+            : 'auto',
+          background: background || opts.background || 'transparent',
           padding: padify(pad)
         }}
       >
-        {iframe ? <FrameWrapper>{children}</FrameWrapper> : children}
+        <div className='content'>
+          {iframe ? <FrameWrapper>{children}</FrameWrapper> : children}
+        </div>
       </div>
 
       <style jsx>{`
-        .root {
+        .Frame {
           display: inline-block;
-          margin: 8px;
         }
 
         .title {
@@ -40,18 +41,22 @@ const Frame = (props: Props) => {
           margin-bottom: 4px;
         }
 
-        .frame {
+        .box {
           box-shadow: 0 2px 3px #0003;
           box-sizing: border-box;
           overflow: hidden;
         }
 
-        .root:hover .title {
+        .Frame:hover .title {
           color: dodgerblue;
         }
 
-        .root:hover .frame {
+        .Frame:hover .box {
           box-shadow: 0 0 0 1px dodgerblue, 0 2px 3px #0003;
+        }
+
+        .Frame:hover .content {
+          box-shadow: 0 0 0 32px #3af2, 0 0 0 1px #3af6;
         }
       `}</style>
     </div>
