@@ -1,6 +1,7 @@
 import React from 'react'
 import Frame from 'react-frame-component'
 import HarvestHeadStyles from './HarvestHeadStyles'
+import { useIFrameSize } from './useIFrameSize'
 
 /**
  * Wraps the `children` in an iframe.
@@ -26,11 +27,15 @@ const FrameWrapper = ({ children, className, style }: Props) => {
     </>
   )
 
+  const frameSize = useIFrameSize({ children })
+
   return (
     <Frame
       head={head}
       className={className}
-      style={style || { width: '100%', border: '0' }}
+      ref={frameSize.ref}
+      style={{ width: '100%', border: '0', height: frameSize.height, ...style }}
+      onLoad={() => frameSize.update()}
       data-testid='framewrapper-iframe'
     >
       {children}

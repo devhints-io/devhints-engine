@@ -4,11 +4,11 @@ import { useOptions } from './OptionsContext'
 import { FrameProps } from './types'
 
 const Frame = (props: FrameProps) => {
-  const { children, title, iframe } = props
+  const { children, title } = props
 
   // Canvas settings
   const opts = useOptions(props)
-  const { margin, grid, width, background, pad, size } = opts
+  const { margin, grid, width, background, pad, size, iframe } = opts
 
   return (
     <div className='Frame' style={{ margin: `${margin / 2}px` }}>

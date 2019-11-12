@@ -14,12 +14,12 @@ export interface FrameOptions {
 
   /** Margin in between */
   margin: number
+
+  /** If true, wrap in an iframe (experimenal) */
+  iframe?: boolean
 }
 
 export interface FrameProps extends Partial<FrameOptions> {
   children: React.ReactNode
   title?: string
-
-  /** If true, wrap in an iframe (experimenal) */
-  iframe?: boolean
 }

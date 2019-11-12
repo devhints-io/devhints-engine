@@ -20,7 +20,7 @@ const UIPage = () => {
   return (
     <Canvas background='#ecedef' frame={{ background: '#f1f3f5' }}>
       <Group title='Related posts'>
-        <Frame title='SearchFooter' size={7}>
+        <Frame title='SearchFooter' size={7} iframe>
           <SearchFooter />
         </Frame>
         <Br />
