@@ -4,10 +4,13 @@
 
 .related-posts-area {
   & {
-    @extend %has-container;
     padding-top: 16px;
     padding-bottom: 16px;
     background: var(--bg-gray);
+  }
+
+  & > .container {
+    @extend %container;
   }
 
   @media (min-width: 481px) {

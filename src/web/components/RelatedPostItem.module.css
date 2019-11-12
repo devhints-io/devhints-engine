@@ -68,11 +68,10 @@
   }
 
   .link > .title {
-    @extend %ms-font-size-1;
+    font-size: calc(var(--ms-base-md) * var(--ms-ratio-md));
     font-weight: normal;
   }
 
   .link > .suffix {
-    @extend %ms-font-size--1;
   }
 }

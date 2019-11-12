@@ -6,15 +6,23 @@
 .related-posts-section {
   & {
     display: flex;
+  }
+  & {
     @extend %section-gutter-margin-left--1;
+  }
+  & {
     @extend %section-gutter-margin-right--1;
   }
 
   & > .callout,
   & > .group {
     margin: 0;
-    @extend %section-gutter-margin-left;
-    @extend %section-gutter-margin-right;
+    & {
+      @extend %section-gutter-margin-left;
+    }
+    & {
+      @extend %section-gutter-margin-right;
+    }
   }
 
   & > .callout {
@@ -41,29 +49,27 @@
 
     & > .callout,
     & > .group {
-      @extend %section-gutter-margin-top;
-      @extend %section-gutter-margin-bottom;
+      margin-top: 16px;
+      margin-bottom: 16px;
       flex: 1 1 100%;
     }
   }
 
   /* Tablet */
-  @media (min-width: 481px) {
-    @media (max-width: 768px) {
-      & {
-        flex-wrap: wrap;
-      }
+  @media (min-width: 481px) and (max-width: 768px) {
+    & {
+      flex-wrap: wrap;
+    }
 
-      & > .callout,
-      & > .group {
-        @extend %section-gutter-margin-top;
-        @extend %section-gutter-margin-bottom;
-        flex: 1 1 100%;
-      }
+    & > .callout,
+    & > .group {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      flex: 1 1 100%;
+    }
 
-      & > .group {
-        flex: 1 1 40%;
-      }
+    & > .group {
+      flex: 1 1 40%;
     }
   }
 }
