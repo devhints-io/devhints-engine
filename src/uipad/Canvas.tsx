@@ -1,4 +1,5 @@
 import React from 'react'
+import css from 'styled-jsx/css'
 import { OptionsProvider } from './OptionsContext'
 import { FrameOptions } from './types'
 
@@ -21,17 +22,19 @@ const Canvas = (props: Props) => {
       <div className='Canvas' style={{ background: background || '#fafafa' }}>
         {children}
 
-        <style jsx>{`
-          .Canvas {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            background: #fafafa;
-          }
-        `}</style>
+        <style jsx>{CSS}</style>
       </div>
     </OptionsProvider>
   )
 }
+
+const CSS = css`
+  .Canvas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background: #fafafa;
+  }
+`
 
 export default Canvas

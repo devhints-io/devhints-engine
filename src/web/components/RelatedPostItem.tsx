@@ -17,14 +17,16 @@ interface Props {
 
   /** Title to be shown */
   title: string
+
+  isPrimary?: boolean
 }
 
 const RelatedPostItem = (props: Props) => {
-  const { className, path, title } = props
+  const { className, path, title, isPrimary } = props
   const suffix = useSiteContent().sheet.suffix
 
   return (
-    <div className={cn(CSS.root, className)}>
+    <div className={cn(CSS.root, className, isPrimary && CSS.isPrimary)}>
       <Link className={CSS.link} to={path}>
         <strong className={CSS.title}>{title}</strong>
         <span className={CSS.suffix}>{suffix}</span>

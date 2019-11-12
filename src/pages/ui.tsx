@@ -8,21 +8,39 @@ import { LiveSearchInput } from '../web-search'
 import SearchFooter from '../web/components/SearchFooter'
 import RelatedPostsCallout from '../web/components/RelatedPostsCallout'
 import TopNav from '../web/components/TopNav'
+import RelatedPostsArea from '../web/components/RelatedPostsArea'
 
 const links = [
   { path: '/react', title: 'React' },
   { path: '/bash', title: 'Bash' },
   { path: '/sass', title: 'Sass' },
-  { path: '/emacs', title: 'Emacs' }
+  { path: '/emacs', title: 'Emacs' },
+  { path: '/vim', title: 'Vim' },
+  { path: '/stylus', title: 'Stylus' }
 ]
 
 const UIPage = () => {
   return (
     <Canvas background='#ecedef' frame={{ background: '#f1f3f5' }}>
+      <Group title='Related posts (scenario)'>
+        <Frame size={9} iframe>
+          <SearchFooter />
+          <RelatedPostsArea
+            relatedPages={links}
+            topPages={links}
+            pageCount={123}
+            category='Awesome'
+          />
+        </Frame>
+
+        <Br />
+      </Group>
+
       <Group title='Related posts'>
         <Frame title='SearchFooter' size={7} iframe>
           <SearchFooter />
         </Frame>
+
         <Br />
 
         <Frame title='RelatedPostsCallout' size={2}>
@@ -31,6 +49,10 @@ const UIPage = () => {
 
         <Frame title='RelatedPostItem' size={2} background='white'>
           <RelatedPostItem path='/react' title='React' />
+        </Frame>
+
+        <Frame title='RelatedPostItem/primary' size={2} background='white'>
+          <RelatedPostItem path='/react' title='React' isPrimary />
         </Frame>
 
         <Frame title='RelatedPostsGroup' size={3} pad>

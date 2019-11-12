@@ -1,7 +1,9 @@
 import React from 'react'
+import css from 'styled-jsx/css'
 import FrameWrapper from './lib/FrameWrapper'
 import { useOptions } from './OptionsContext'
 import { FrameProps } from './types'
+import padify from './lib/padify'
 
 const Frame = (props: FrameProps) => {
   const { children, title } = props
@@ -31,54 +33,42 @@ const Frame = (props: FrameProps) => {
         </div>
       </div>
 
-      <style jsx>{`
-        .Frame {
-          display: inline-block;
-        }
-
-        .title {
-          font-size: 12px;
-          margin-bottom: 4px;
-        }
-
-        .box {
-          box-shadow: 0 2px 3px #0003;
-          box-sizing: border-box;
-          overflow: hidden;
-        }
-
-        .Frame:hover .title {
-          color: dodgerblue;
-        }
-
-        .Frame:hover .box {
-          box-shadow: 0 0 0 1px dodgerblue, 0 2px 3px #0003;
-        }
-
-        .Frame:hover .content {
-          box-shadow: 0 0 0 32px #3af2, 0 0 0 1px #3af6;
-        }
-      `}</style>
+      <style jsx>{CSS}</style>
     </div>
   )
 }
 
-/**
- * Convert to a padding value.
- *
- * @example
- *     padify(24) // => '24px'
+/*
+ * Styles
  */
 
-function padify(
-  value: boolean | string | number | null | undefined,
-  defaultValue: string = '16px'
-): string {
-  if (!value) return '0'
-  if (typeof value === 'string') return value
-  if (typeof value === 'number') return `${value}px`
-  if (value) return defaultValue
-  return '0'
-}
+const CSS = css`
+  .Frame {
+    display: inline-block;
+  }
+
+  .title {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .box {
+    box-shadow: 0 2px 3px #0003;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .Frame:hover .title {
+    color: dodgerblue;
+  }
+
+  .Frame:hover .box {
+    box-shadow: 0 0 0 1px dodgerblue, 0 2px 3px #0003;
+  }
+
+  .Frame:hover .content {
+    box-shadow: 0 0 0 32px #3af2, 0 0 0 1px #3af6;
+  }
+`
 
 export default Frame

@@ -35,8 +35,8 @@
   }
 }
 
-.root:first-of-type > .link,
-.root:first-of-type > .link:visited {
+.root.isPrimary > .link,
+.root.isPrimary > .link:visited {
   background: var(--brand-a);
   color: color-mod(white alpha(50%));
 
