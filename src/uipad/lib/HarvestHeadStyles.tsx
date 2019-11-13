@@ -8,9 +8,9 @@ export const HarvestHeadStyles = () => {
   const styleEls = document.querySelectorAll<HTMLStyleElement>('style')
 
   // TODO: refactor so that it'd be impossible to have the same key
-  const styles = Array.from(styleEls).map(element => {
+  const styles = Array.from(styleEls).map((element, index) => {
     const props = toProps(element.attributes)
-    const key = JSON.stringify([props, element.innerText])
+    const key = JSON.stringify([props, element.innerText, index])
     const styleProps = toProps(element.attributes)
     return React.createElement(
       'style',
@@ -26,9 +26,9 @@ export const HarvestHeadStyles = () => {
 
   const linkEls = document.querySelectorAll('link[rel="stylesheet"]')
 
-  const links = Array.from(linkEls).map(element => {
+  const links = Array.from(linkEls).map((element, index) => {
     const props = toProps(element.attributes)
-    const key = JSON.stringify([props])
+    const key = JSON.stringify([props, index])
     return <link key={key} {...props} />
   })
 

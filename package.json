@@ -48,6 +48,7 @@
     "react-scripts": "^2.1.8",
     "react-svg-loader": "^2.1.0",
     "recompose": "^0.30.0",
+    "redent": "^3.0.0",
     "rehype-decorate": "1.0.0-rc.5",
     "rehype-react": "^3.1.0",
     "rehype-table-separators": "1.0.0-rc.2",

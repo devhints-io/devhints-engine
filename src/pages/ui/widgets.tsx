@@ -1,14 +1,13 @@
 import React from 'react'
-import { Canvas, Frame, Group, Br } from '../uipad'
-import RelatedPostItem from '../web/components/RelatedPostItem'
-import RelatedPostsGroup from '../web/components/RelatedPostsGroup'
-import PagesList from '../web/components/PagesList'
-import SiteHeader from '../web/components/SiteHeader'
-import { LiveSearchInput } from '../web-search'
-import SearchFooter from '../web/components/SearchFooter'
-import RelatedPostsCallout from '../web/components/RelatedPostsCallout'
-import TopNav from '../web/components/TopNav'
-import RelatedPostsArea from '../web/components/RelatedPostsArea'
+import { Canvas, Frame, Group, Br } from '../../uipad'
+import RelatedPostItem from '../../web/components/RelatedPostItem'
+import RelatedPostsGroup from '../../web/components/RelatedPostsGroup'
+import PagesList from '../../web/components/PagesList'
+import SiteHeader from '../../web/components/SiteHeader'
+import { LiveSearchInput } from '../../web-search'
+import SearchFooter from '../../web/components/SearchFooter'
+import RelatedPostsCallout from '../../web/components/RelatedPostsCallout'
+import TopNav from '../../web/components/TopNav'
 
 const links = [
   { path: '/react', title: 'React' },
@@ -19,23 +18,9 @@ const links = [
   { path: '/stylus', title: 'Stylus' }
 ]
 
-const UIPage = () => {
+const WidgetsCanvas = () => {
   return (
     <Canvas background='#ecedef' frame={{ background: '#f1f3f5' }}>
-      <Group title='Related posts (scenario)'>
-        <Frame size={9} iframe>
-          <SearchFooter />
-          <RelatedPostsArea
-            relatedPages={links}
-            topPages={links}
-            pageCount={123}
-            category='Awesome'
-          />
-        </Frame>
-
-        <Br />
-      </Group>
-
       <Group title='Related posts'>
         <Frame title='SearchFooter' size={7} iframe>
           <SearchFooter />
@@ -87,4 +72,4 @@ const UIPage = () => {
   )
 }
 
-export default UIPage
+export default WidgetsCanvas
