@@ -106,8 +106,5 @@
     "fix": "run-s tslint:fix prettier:fix",
     "start": "yarn run develop",
     "test": "jest"
-  },
-  "resolutions": {
-    "**/@types/react": ">=16.8.0"
   }
 }
