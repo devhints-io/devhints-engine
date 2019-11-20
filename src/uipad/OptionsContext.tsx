@@ -10,6 +10,10 @@ const defaults: FrameOptions = {
   size: null
 }
 
+interface Options {
+  frame: Partial<FrameOptions> | null | undefined
+}
+
 const Context = React.createContext<Partial<FrameOptions>>({})
 
 /**
@@ -28,9 +32,8 @@ export const useOptions = (overrides?: Partial<FrameOptions>): FrameOptions => {
 export const OptionsProvider = ({
   children,
   frame
-}: {
-  children: React.ReactNode
-  frame: Partial<FrameOptions> | null | undefined
-}) => {
-  return <Context.Provider value={frame || {}}>{children}</Context.Provider>
+}: Options & { children: React.ReactNode }) => {
+  const thisValue = frame || {}
+  const mergedValue = useOptions(thisValue)
+  return <Context.Provider value={mergedValue}>{children}</Context.Provider>
 }
