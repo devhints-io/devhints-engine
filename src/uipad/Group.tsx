@@ -1,6 +1,6 @@
+import cn from 'classnames'
 import React from 'react'
 import css from 'styled-jsx/css'
-import cn from 'classnames'
 
 interface Props {
   title?: string

@@ -1,6 +1,6 @@
+import cn from 'classnames'
 import React from 'react'
 import redent from 'redent'
-import cn from 'classnames'
 
 export const PreCode = (props: {
   lang?: string

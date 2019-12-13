@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchFooterSection from './SearchFooterSection'
 import css from 'styled-jsx/css'
+import SearchFooterSection from './SearchFooterSection'
 
 /**
  * Search footer in the cheatsheets page.

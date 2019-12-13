@@ -1,9 +1,9 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 import FrameWrapper from './lib/FrameWrapper'
+import padify from './lib/padify'
 import { useOptions } from './OptionsContext'
 import { FrameProps } from './types'
-import padify from './lib/padify'
 
 const Frame = (props: FrameProps) => {
   const { children, title } = props

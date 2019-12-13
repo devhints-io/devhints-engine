@@ -1,7 +1,7 @@
 import React from 'react'
+import css from 'styled-jsx/css'
 import { SiteLink } from '../../types/types'
 import RelatedPostItem from './RelatedPostItem'
-import css from 'styled-jsx/css'
 
 export interface Props {
   pages: SiteLink[]
