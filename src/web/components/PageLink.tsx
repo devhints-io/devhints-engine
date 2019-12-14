@@ -14,10 +14,8 @@ const PageLink = ({
 }) => (
   <Link to={link.path} key={link.path} className={CSS.article + ' ' + CSS.item}>
     <span className={CSS.info}>
-      <code className={CSS.slug}>{unpath(link.path)}</code>
-
+      <code className={CSS.slug}>{unpath(link.path)}</code>{' '}
       <AttributePeg hint={updatedLabel} />
-
       <span className={CSS.title}>{link.title}</span>
     </span>
   </Link>
