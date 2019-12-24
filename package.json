@@ -94,16 +94,16 @@
   "main": "n/a",
   "private": true,
   "scripts": {
-    "ci": "run-s -l tsc lint prettier:check test",
+    "ci": "run-s lint test",
     "build": "gatsby build",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "tsc": "tsc",
-    "lint": "run-s tslint:check",
+    "lint": "run-s -l tslint:check prettier:check tsc",
     "tslint:check": "tslint --project .",
     "tslint:fix": "tslint --project . --fix",
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
-    "fix": "run-s tslint:fix prettier:fix",
+    "fix": "run-s -l tslint:fix prettier:fix",
     "start": "yarn run develop",
     "test": "jest"
   }
