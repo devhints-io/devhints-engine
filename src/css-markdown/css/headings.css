@@ -3,8 +3,12 @@
  */
 
 .MarkdownBody h2 {
-  @extend %heading-style;
-  @extend %ms-font-size-6;
+  & {
+    @extend %heading-style;
+  }
+  & {
+    @extend %ms-font-size-6;
+  }
   line-height: 1.2;
   font-weight: 200;
   font-family: var(--heading-font);

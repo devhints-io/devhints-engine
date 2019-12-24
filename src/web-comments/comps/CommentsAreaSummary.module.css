@@ -1,6 +1,6 @@
 /* Root component */
 .root {
-  @extend %font-size-1;
+  @extend %ms-font-size-1;
   color: var(--brand-a);
   padding: 24px 0;
   white-space: nowrap;

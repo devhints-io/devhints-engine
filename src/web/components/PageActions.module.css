@@ -23,7 +23,7 @@
 }
 
 .link {
-  @extend %font-size--1;
+  @extend %ms-font-size--1;
   display: inline-block;
   height: 32px;
   line-height: calc(32px - 2px);

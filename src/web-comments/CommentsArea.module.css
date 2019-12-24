@@ -1,11 +1,11 @@
 .root {
   margin: 32px 0 16px 0;
-  @extend %has-container;
 }
 
 .container {
-  @extend %gutter-padding-left;
-  @extend %gutter-padding-right;
+  & {
+    @extend %container;
+  }
   max-width: var(--area-width);
   margin: 0 auto;
 }

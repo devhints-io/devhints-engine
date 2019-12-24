@@ -9,6 +9,7 @@
     "@types/loadjs": "^3.5.0",
     "@types/react": "^16.8.13",
     "@types/react-helmet": "^5.0.8",
+    "@types/styled-jsx": "^2.2.8",
     "array-flatten": "^2.1.2",
     "clarity-icons-svg": "^0.2.0",
     "classnames": "^2.2.6",
@@ -18,6 +19,7 @@
     "gatsby": "^2.3.14",
     "gatsby-plugin-postcss": "^2.0.7",
     "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-styled-jsx": "^3.1.13",
     "gatsby-plugin-typescript": "^2.0.12",
     "gatsby-react-router-scroll": "^2.0.7",
     "gatsby-remark-component": "npm:@rstacruz/gatsby-remark-component",
@@ -40,12 +42,13 @@
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-frame-component": "^4.1.0",
+    "react-frame-component": "^4.1.1",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",
     "react-svg-loader": "^2.1.0",
     "recompose": "^0.30.0",
+    "redent": "^3.0.0",
     "rehype-decorate": "1.0.0-rc.5",
     "rehype-react": "^3.1.0",
     "rehype-table-separators": "1.0.0-rc.2",
@@ -54,7 +57,9 @@
     "remark-frontmatter": "^1.3.1",
     "remark-preset-lint-markdown-style-guide": "^2.1.2",
     "responsive-modular-scale.css": "0.3.0-rc.1",
-    "sanitize.css": "^8.0.0"
+    "sanitize.css": "^8.0.0",
+    "styled-jsx": "^3.2.4",
+    "styled-jsx-plugin-postcss": "^2.0.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
@@ -89,20 +94,17 @@
   "main": "n/a",
   "private": true,
   "scripts": {
-    "ci": "run-s -l tsc lint prettier:check test",
+    "ci": "run-s lint test",
     "build": "gatsby build",
     "develop": "rm -rf .cache; env DEBUG='app:*' gatsby develop --port ${PORT:-19336}",
     "tsc": "tsc",
-    "lint": "run-s tslint:check",
+    "lint": "run-s -l tslint:check prettier:check tsc",
     "tslint:check": "tslint --project .",
     "tslint:fix": "tslint --project . --fix",
     "prettier:check": "prettier --list-different \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
     "prettier:fix": "prettier --write \"sheets/**/*.md\" \"{src,packages}/**/*.{js,ts,tsx,css}\" \"./*.js\"",
-    "fix": "run-s tslint:fix prettier:fix",
+    "fix": "run-s -l tslint:fix prettier:fix",
     "start": "yarn run develop",
     "test": "jest"
-  },
-  "resolutions": {
-    "**/@types/react": ">=16.8.0"
   }
 }

@@ -21,7 +21,9 @@ module.exports = ctx => {
         importFrom: [require.resolve('./src/css-base/variables.css')],
         insertBefore: {
           'all-property': [
-            require('postcss-extend-rule')(),
+            require('postcss-extend-rule')({
+              onUnusedExtend: 'warn'
+            }),
             require('postcss-color-mod-function')
           ]
         }

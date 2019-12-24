@@ -1,8 +1,8 @@
 import cn from 'classnames'
 import React from 'react'
-import CSS from './IntroContent.module.css'
+import css from 'styled-jsx/css'
 
-export interface Props {
+interface Props {
   children: React.ReactNode
   className?: string
 }
@@ -12,11 +12,21 @@ export interface Props {
  */
 
 export const IntroContent = ({ children, className }: Props) => (
-  <div className={cn(CSS.root, className)}>{children}</div>
+  <div className={cn('IntroContent', className)}>
+    {children}
+    <style jsx>{CSS}</style>
+  </div>
 )
 
-/*
- * Export
- */
+const CSS = css`
+  @media (min-width: 481px) {
+    .IntroContent {
+      max-width: 480px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+`
 
 export default IntroContent
