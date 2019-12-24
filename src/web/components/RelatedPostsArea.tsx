@@ -7,7 +7,7 @@ import RelatedPostsSection from './RelatedPostsSection'
  * Props
  */
 
-interface Props {
+export interface Props {
   relatedPages: SiteLink[]
   topPages: SiteLink[]
   pageCount: number
