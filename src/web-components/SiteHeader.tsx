@@ -1,5 +1,5 @@
 import React from 'react'
-import useSiteContent from '../../gatsby-hooks/useSiteContent'
+import useSiteContent from '../gatsby-hooks/useSiteContent'
 
 /** Site header view component */
 export const SiteHeader = () => {

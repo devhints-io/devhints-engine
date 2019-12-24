@@ -3,8 +3,8 @@ import React from 'react'
 import { keywordify } from '../helpers'
 
 import useSiteContent from '../gatsby-hooks/useSiteContent'
+import ExternalSearchLinks from '../web-components/ExternalSearchLinks'
 import { LiveSearchInput } from '../web-search'
-import ExternalSearchLinks from '../web/components/ExternalSearchLinks'
 
 /**
  * The 404 page.

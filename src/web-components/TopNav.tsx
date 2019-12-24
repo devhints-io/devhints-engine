@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 
-import useSiteContent from '../../gatsby-hooks/useSiteContent'
+import useSiteContent from '../gatsby-hooks/useSiteContent'
 import BackButton from './BackButton'
 import PageActions from './PageActions'
 import SocialList from './SocialList'

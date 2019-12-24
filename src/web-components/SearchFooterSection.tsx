@@ -1,6 +1,6 @@
 import React from 'react'
 import css from 'styled-jsx/css'
-import SearchBox from '../../web-search/comps/SearchBox'
+import SearchBox from '../web-search/comps/SearchBox'
 import HomeButton from './HomeButton'
 
 const SearchFooterSection = () => (

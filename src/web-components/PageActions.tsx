@@ -1,8 +1,8 @@
 import React from 'react'
-import { github as githubIcon } from '../../web-icons'
+import { github as githubIcon } from '../web-icons'
 
 import cn from 'classnames'
-import useSiteContent from '../../gatsby-hooks/useSiteContent'
+import useSiteContent from '../gatsby-hooks/useSiteContent'
 import CSS from './PageActions.module.css'
 
 /*

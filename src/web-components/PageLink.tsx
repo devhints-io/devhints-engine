@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { unpath } from '../../helpers'
-import { SiteLink } from '../../types/types'
+import { unpath } from '../helpers'
+import { SiteLink } from '../types/types'
 import AttributePeg from './AttributePeg'
 import CSS from './PagesList.module.css'
 

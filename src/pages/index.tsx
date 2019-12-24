@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { groupByCategory, toSiteLinks } from '../helpers/site_page'
 import { AllSitePage } from '../types/types'
-import RootPage from '../web/components/RootPage'
+import RootPage from '../web-components/RootPage'
 
 /*
  * Types

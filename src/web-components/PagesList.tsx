@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
-import useSiteContent from '../../gatsby-hooks/useSiteContent'
-import { SiteLink } from '../../types/types'
+import useSiteContent from '../gatsby-hooks/useSiteContent'
+import { SiteLink } from '../types/types'
 import PageLink from './PageLink'
 import CSS from './PagesList.module.css'
 

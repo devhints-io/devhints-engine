@@ -1,14 +1,14 @@
 import React from 'react'
 
-import useSiteContent from '../../gatsby-hooks/useSiteContent'
-import CommonHead from '../../gatsby-shell/comps/CommonHead'
-import { HomeMeta } from '../../gatsby-shell/Meta'
-import { GroupedSiteLinks, SiteLink } from '../../types/types'
-import { LiveSearchInput } from '../../web-search'
+import useSiteContent from '../gatsby-hooks/useSiteContent'
+import CommonHead from '../gatsby-shell/comps/CommonHead'
+import { HomeMeta } from '../gatsby-shell/Meta'
+import { GroupedSiteLinks, SiteLink } from '../types/types'
+import { LiveSearchInput } from '../web-search'
+import CodefundBanner from './CodefundBanner'
 import PagesList from './PagesList'
 import SiteHeader from './SiteHeader'
 import TopNav from './TopNav'
-import CodefundBanner from './CodefundBanner'
 
 export interface Props {
   recentlyUpdated: SiteLink[]

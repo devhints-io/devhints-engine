@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { Link } from 'gatsby'
 import React from 'react'
-import useSiteContent from '../../gatsby-hooks/useSiteContent'
+import useSiteContent from '../gatsby-hooks/useSiteContent'
 import CSS from './RelatedPostItem.module.css'
 
 /*

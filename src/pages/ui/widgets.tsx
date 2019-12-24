@@ -1,13 +1,13 @@
 import React from 'react'
 import { Br, Canvas, Frame, Group } from '../../uipad'
+import PagesList from '../../web-components/PagesList'
+import RelatedPostItem from '../../web-components/RelatedPostItem'
+import RelatedPostsCallout from '../../web-components/RelatedPostsCallout'
+import RelatedPostsGroup from '../../web-components/RelatedPostsGroup'
+import SearchFooter from '../../web-components/SearchFooter'
+import SiteHeader from '../../web-components/SiteHeader'
+import TopNav from '../../web-components/TopNav'
 import { LiveSearchInput } from '../../web-search'
-import PagesList from '../../web/components/PagesList'
-import RelatedPostItem from '../../web/components/RelatedPostItem'
-import RelatedPostsCallout from '../../web/components/RelatedPostsCallout'
-import RelatedPostsGroup from '../../web/components/RelatedPostsGroup'
-import SearchFooter from '../../web/components/SearchFooter'
-import SiteHeader from '../../web/components/SiteHeader'
-import TopNav from '../../web/components/TopNav'
 
 const links = [
   { path: '/react', title: 'React' },

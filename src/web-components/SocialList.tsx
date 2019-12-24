@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
-import { facebook, twitter } from '../../web-icons'
+import { facebook, twitter } from '../web-icons'
 import CSS from './SocialList.module.css'
 
 /**

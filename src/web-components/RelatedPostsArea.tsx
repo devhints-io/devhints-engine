@@ -1,6 +1,6 @@
 import React from 'react'
 import css from 'styled-jsx/css'
-import { SiteLink } from '../../types/types'
+import { SiteLink } from '../types/types'
 import RelatedPostsSection from './RelatedPostsSection'
 
 /*

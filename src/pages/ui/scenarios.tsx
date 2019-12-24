@@ -1,10 +1,10 @@
 import React from 'react'
 import mdToAst from '../../helpers/mdToAst'
 import { Br, Canvas, Frame, Group } from '../../uipad'
+import RelatedPostsArea from '../../web-components/RelatedPostsArea'
+import SearchFooter from '../../web-components/SearchFooter'
 import { H2Section, H3Section, PreCode } from '../../web-post-content/Elements'
 import PostContent from '../../web-post-content/PostContent'
-import RelatedPostsArea from '../../web/components/RelatedPostsArea'
-import SearchFooter from '../../web/components/SearchFooter'
 
 const links = [
   { path: '/react', title: 'React' },
