@@ -17,7 +17,6 @@ import { HastNode } from '../../types/types'
  */
 
 export default function transform(htmlAst: HastNode): React.ReactNode {
-  console.log(htmlAst)
   // Perform transformations
   htmlAst = decorate(htmlAst)
   htmlAst = wrapify(htmlAst)
