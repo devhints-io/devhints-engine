@@ -10,7 +10,7 @@ const CodefundBanner = () => {
 
   useEffect(() => {
     const rand = `${+new Date()}-${(Math.random() * 1000000) | 0}`
-    loadJs(`https://codefund.app/properties/51/funder.js?t=${rand}`, {
+    loadJs(`https://app.codefund.io/properties/51/funder.js?t=${rand}`, {
       async: true
     })
     // loadJs(`https://cdn2.codefund.app/assets/px.js?ch=1&t=${rand}`, { async: false })
