@@ -8,6 +8,7 @@ import { LiveSearchInput } from '../../web-search'
 import PagesList from './PagesList'
 import SiteHeader from './SiteHeader'
 import TopNav from './TopNav'
+import CodefundBanner from './CodefundBanner'
 
 export interface Props {
   recentlyUpdated: SiteLink[]
@@ -36,8 +37,8 @@ export const RootPage = (props: Props) => {
       <TopNav />
       <div className='body-area -slim'>
         <SiteHeader />
-
         <LiveSearchInput />
+        <CodefundBanner />
 
         <PagesList title={recentlyUpdatedLabel} links={recentlyUpdated} />
 
