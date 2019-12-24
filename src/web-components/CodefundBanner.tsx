@@ -19,7 +19,6 @@ const CodefundBanner = () => {
 
   return (
     <div className='CodefundBox'>
-      banner here
       <div id='codefund'>{/* <!-- fallback content --> */}</div>
       <style jsx>{CSS}</style>
     </div>
@@ -31,6 +30,10 @@ const CSS = css`
     display: block;
     margin: 0 auto;
     text-align: center;
+  }
+
+  .CodefundBox > div {
+    min-height: 8.1em;
   }
 `
 

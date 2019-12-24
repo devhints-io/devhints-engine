@@ -14,6 +14,7 @@ import TopNav from '../../web-components/TopNav'
 import PostContent from '../../web-post-content/PostContent'
 import MetaTags from '../MetaTags'
 import CommonHead from './CommonHead'
+import CodefundBanner from '../../web-components/CodefundBanner'
 
 /**
  * Sheet template.
@@ -66,6 +67,8 @@ export const SheetTemplateView = () => {
             <MiniMarkdown source={intro} />
           </IntroContent>
         ) : null}
+
+        <CodefundBanner />
 
         {/* Post content */}
         <PostContent className='post-content MarkdownBody' {...{ htmlAst }} />
