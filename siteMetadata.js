@@ -65,8 +65,7 @@ const siteMetadata = {
     preview_host: 'https://assets.devhints.io/previews'
   },
   codefund: {
-    enabled: true,
-    token: 'c2c8bc62-c275-4c7a-a304-74335c5a1cd0'
+    enabled: true
   },
   googleAnalytics: {
     hostname: 'devhints.io',
