@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import css from 'styled-jsx/css'
+import CSS from './CodefundBanner.module.css'
 
 const CodefundBanner = () => {
   useEffect(() => {
@@ -18,24 +18,13 @@ const CodefundBanner = () => {
   }, [])
 
   return (
-    <div className='CodefundBox'>
-      <div id='codefund'>{/* <!-- fallback content --> */}</div>
-      <style jsx>{CSS}</style>
+    <div className={CSS.root}>
+      <div id='codefund' className={CSS.inner}>
+        {/* <!-- fallback content --> */}
+      </div>
     </div>
   )
 }
-
-const CSS = css`
-  .CodefundBox {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .CodefundBox > div {
-    min-height: 8.1em;
-  }
-`
 
 const loadJs = (url: string, opts: { async: boolean }) => {
   const tag = document.createElement('script')

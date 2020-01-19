@@ -1,0 +1,9 @@
+.root {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.inner {
+  min-height: 8.1em;
+}
