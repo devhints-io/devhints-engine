@@ -85,6 +85,7 @@
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.6.4",
+    "typescript-plugin-css-modules": "^2.1.2",
     "typescript-tslint-plugin": "^0.3.1"
   },
   "keywords": [
