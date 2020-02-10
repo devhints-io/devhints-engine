@@ -1,6 +1,6 @@
 import React from 'react'
-import css from 'styled-jsx/css'
 import { SiteLink } from '../../types/types'
+import CSS from './RelatedPostsArea.module.css'
 import RelatedPostsSection from './RelatedPostsSection'
 
 /*
@@ -19,30 +19,11 @@ export interface Props {
  */
 
 export const RelatedPostsArea = (props: Props) => (
-  <footer className='RelatedPostsArea' id='related' data-js-no-preview>
-    <div className='container'>
+  <footer className={CSS.root} id='related' data-js-no-preview>
+    <div className={CSS.container}>
       <RelatedPostsSection {...props} />
     </div>
-
-    <style jsx>{CSS}</style>
   </footer>
 )
-
-const CSS = css`
-  .RelatedPostsArea {
-    padding-top: 16px;
-    padding-bottom: 16px;
-    background: var(--bg-gray);
-
-    @media (min-width: 481px) {
-      padding-top: 64px;
-      padding-bottom: 64px;
-    }
-  }
-
-  .container {
-    @extend %container;
-  }
-`
 
 export default RelatedPostsArea

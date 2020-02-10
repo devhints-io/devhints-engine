@@ -1,38 +1,20 @@
 import React from 'react'
-import css from 'styled-jsx/css'
 import SearchBox from '../../web-search/comps/SearchBox'
 import HomeButton from './HomeButton'
+import CSS from './SearchFooterSection.module.css'
 
 const SearchFooterSection = () => (
-  <section className='SearchFooterSection'>
-    <div className='search'>
+  <section className={CSS.root}>
+    <div className={CSS.search}>
       <form action='/' method='get'>
         <SearchBox />
       </form>
     </div>
 
-    <div className='links'>
+    <div className={CSS.links}>
       <HomeButton />
     </div>
-
-    <style jsx>{CSS}</style>
   </section>
 )
-
-const CSS = css`
-  .SearchFooterSection {
-    display: flex;
-  }
-
-  .search {
-    flex: 0 1 640px;
-  }
-
-  .links {
-    @extend %gutter-padding-left;
-    flex: 0 1 auto;
-    margin-left: auto;
-  }
-`
 
 export default SearchFooterSection

@@ -1,0 +1,31 @@
+.root {
+  opacity: 1;
+}
+
+.heading {
+  @extend %ms-font-size-1;
+  color: var(--brand-a);
+  margin: 0;
+  padding: 0;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: solid 1px var(--dark-line-color);
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.list {
+  padding: 0;
+  display: flex;
+  margin: -4px;
+  flex-wrap: wrap;
+}
+
+.item {
+  flex: 1 1 auto;
+  margin: 4px;
+
+  @media (min-width: 481px) {
+    flex: 1 1 40%;
+  }
+}
